@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on 羽的天空</title>
+    <link>https://jqtmviyu.github.io/tags/git/</link>
+    <description>Recent content in Git on 羽的天空</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 13 Nov 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://jqtmviyu.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>git笔记</title>
+      <link>https://jqtmviyu.github.io/post/git%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 13 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://jqtmviyu.github.io/post/git%E7%AC%94%E8%AE%B0/</guid>
+      <description>&lt;h1 id=&#34;git笔记&#34;&gt;&lt;strong&gt;Git笔记&lt;/strong&gt;&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;通过&lt;code&gt;git int&lt;/code&gt;把目录变成Git可以管理的仓库。&lt;/li&gt;
+&lt;li&gt;所有的版本管理系统，其实只能跟踪文本文件的改动，比如txt、网页、程序代码等。&lt;/li&gt;
+&lt;li&gt;强烈建议使用标准的utf-8编码，不要用windows自带的记事本编辑任何文本，要用utf-8 without BOM。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;一创建版本库&#34;&gt;一.创建版本库&lt;/h2&gt;
+&lt;h3 id=&#34;11创建空目录&#34;&gt;1.1.创建空目录&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;mkdir 目录名   //新建目录
+cd 目录名
+pwd          //显示当前目录路径
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

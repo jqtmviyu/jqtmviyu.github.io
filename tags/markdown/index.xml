@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>markdown on 羽的天空</title>
+    <link>https://jqtmviyu.github.io/tags/markdown/</link>
+    <description>Recent content in markdown on 羽的天空</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 30 Oct 2017 23:34:17 +0000</lastBuildDate>
+    
+	<atom:link href="https://jqtmviyu.github.io/tags/markdown/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Markdown笔记</title>
+      <link>https://jqtmviyu.github.io/post/markdown%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 30 Oct 2017 23:34:17 +0000</pubDate>
+      
+      <guid>https://jqtmviyu.github.io/post/markdown%E7%AC%94%E8%AE%B0/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;宗旨&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Markdown 的目标是实现「易读易写」。&lt;/p&gt;
+&lt;p&gt;可读性，无论如何，都是最重要的。一份使用 Markdown 格式撰写的文件应该可以直接以纯文本发布，并且看起来不会像是由许多标签或是格式指令所构成。Markdown 语法受到一些既有 text-to-HTML 格式的影响，包括 Setext、atx、Textile、reStructuredText、Grutatext 和 EtText，而最大灵感来源其实是纯文本电子邮件的格式。&lt;/p&gt;
+&lt;p&gt;总之， Markdown 的语法全由一些符号所组成，这些符号经过精挑细选，其作用一目了然。比如：在文字两旁加上星号，看起来就像&lt;em&gt;强调&lt;/em&gt;。Markdown 的列表看起来，嗯，就是列表。Markdown 的区块引用看起来就真的像是引用一段文字，就像你曾在电子邮件中见过的那样。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
