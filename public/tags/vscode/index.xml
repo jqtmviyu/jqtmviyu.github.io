@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>vscode on 羽的天空</title><link>/tags/vscode/</link><description>Recent content in vscode on 羽的天空</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 08 Nov 2017 23:46:59 +0000</lastBuildDate><atom:link href="/tags/vscode/index.xml" rel="self" type="application/rss+xml"/><item><title>vscode使用笔记</title><link>/post/2017-11-08-vscode%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/</link><pubDate>Wed, 08 Nov 2017 23:46:59 +0000</pubDate><guid>/post/2017-11-08-vscode%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/</guid><description>&lt;h2 id="1背景图">1.背景图&lt;/h2>
+&lt;p>用户设置：&lt;/p>
+&lt;pre>&lt;code>// 背景图
+&amp;quot;background.useDefault&amp;quot;: false,
+&amp;quot;background.customImages&amp;quot;: [
+&amp;quot;file:///D:/Pictures/头图/1.png&amp;quot;,
+&amp;quot;file:///D:/Pictures/头图/2.png&amp;quot;,
+&amp;quot;file:///D:/Pictures/头图/3.png&amp;quot;]
+&lt;/code>&lt;/pre>
+&lt;p>图片整体大小用ps调整就可以了。&lt;/p></description></item></channel></rss>
