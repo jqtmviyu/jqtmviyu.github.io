@@ -6,10 +6,19 @@
     <description>Recent content in Tags on 羽的天空</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 21 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 27 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://jqtmviyu.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>git</title>
+      <link>https://jqtmviyu.github.io/tags/git/</link>
+      <pubDate>Thu, 27 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://jqtmviyu.github.io/tags/git/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>eclipse</title>
@@ -35,15 +44,6 @@
       <pubDate>Sat, 21 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>https://jqtmviyu.github.io/tags/%E6%95%99%E7%A8%8B/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Git</title>
-      <link>https://jqtmviyu.github.io/tags/git/</link>
-      <pubDate>Mon, 13 Nov 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://jqtmviyu.github.io/tags/git/</guid>
       <description></description>
     </item>
     

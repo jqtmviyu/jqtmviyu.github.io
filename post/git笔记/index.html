@@ -23,7 +23,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 
 <meta name="author" content="jqtmviyu@gmail.com" />
-  <meta name="description" content="Git笔记  通过git int把目录变成Git可以管理的仓库。 所有的版本管理系统，其实只能跟踪文本文件的改动，比如txt、网页、程序代码等。 强烈建议使用标准的utf-8编码，不要用windows自带的记事本编辑任何文本，要用utf-8 without BOM。  一.创建版本库 1.1.创建空目录 mkdir 目录名 //新建目录 cd 目录名 pwd //显示当前目录路径 " />
+  <meta name="description" content="Git笔记  通过git int把目录变成Git可以管理的仓库。 所有的版本管理系统，其实只能跟踪文本文件的改动，比如txt、网页、程序代码等。 强烈建议使用标准的utf-8编码，不要用windows自带的记事本编辑任何文本，要用utf-8 without BOM。  一.创建版本库 1.1.创建空目录 1 2 3  mkdir 目录名 //新建目录 cd 目录名 pwd //显示当前目录路径   " />
 
   <meta name="keywords" content="jqtmviyu, blog, note" />
 
@@ -68,9 +68,18 @@
 
 一.创建版本库
 1.1.创建空目录
+
+
+1
+2
+3
+
+
 mkdir 目录名   //新建目录
 cd 目录名
 pwd          //显示当前目录路径
+
+
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jqtmviyu.github.io/post/git%E7%AC%94%E8%AE%B0/" />
@@ -85,13 +94,22 @@ pwd          //显示当前目录路径
 
 一.创建版本库
 1.1.创建空目录
+
+
+1
+2
+3
+
+
 mkdir 目录名   //新建目录
 cd 目录名
 pwd          //显示当前目录路径
+
+
 ">
 <meta itemprop="datePublished" content="2017-11-13T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2017-11-13T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="4139">
+<meta itemprop="wordCount" content="4194">
 
 
 
@@ -105,9 +123,18 @@ pwd          //显示当前目录路径
 
 一.创建版本库
 1.1.创建空目录
+
+
+1
+2
+3
+
+
 mkdir 目录名   //新建目录
 cd 目录名
 pwd          //显示当前目录路径
+
+
 "/>
 
 <!--[if lte IE 9]>
@@ -338,7 +365,7 @@ pwd          //显示当前目录路径
             <a href="https://jqtmviyu.github.io/categories/%E7%AC%94%E8%AE%B0/"> 笔记 </a>
             
           </div>
-        <span class="more-meta"> 约 4139 字 </span>
+        <span class="more-meta"> 约 4194 字 </span>
           <span class="more-meta"> 预计阅读 9 分钟 </span>
 
         
@@ -407,22 +434,48 @@ pwd          //显示当前目录路径
 </ul>
 <h2 id="一创建版本库">一.创建版本库</h2>
 <h3 id="11创建空目录">1.1.创建空目录</h3>
-<pre><code>mkdir 目录名   //新建目录
-cd 目录名
-pwd          //显示当前目录路径
-</code></pre>
-<h3 id="12把目录变成git可以管理的仓库">1.2.把目录变成Git可以管理的仓库</h3>
-<pre><code>git init
-</code></pre>
-<p>会看到该目录下生成.git的目录</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">mkdir 目录名   //新建目录
+<span class="nb">cd</span> 目录名
+<span class="nb">pwd</span>          //显示当前目录路径
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="12把目录变成git可以管理的仓库">1.2.把目录变成Git可以管理的仓库</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git init
+</code></pre></td></tr></table>
+</div>
+</div><p>会看到该目录下生成.git的目录</p>
 <h3 id="13把文件添加到仓库">1.3.把文件添加到仓库</h3>
-<pre><code>git add &lt;file&gt;
-</code></pre>
-<p>可反复多次使用，添加多个文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git add &lt;file&gt;
+</code></pre></td></tr></table>
+</div>
+</div><p>可反复多次使用，添加多个文件</p>
 <h3 id="14把文件提交到仓库">1.4.把文件提交到仓库</h3>
-<pre><code>git commit -m &quot;xxx&quot;
-</code></pre>
-<p>-m &ldquo;xxx&quot;本次提交的说明，commit可以一次提交很多文件。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git commit -m <span class="s2">&#34;xxx&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>-m &ldquo;xxx&quot;本次提交的说明，commit可以一次提交很多文件。</p>
 <h2 id="二时空穿梭">二.时空穿梭</h2>
 <ul>
 <li>
@@ -437,67 +490,155 @@ pwd          //显示当前目录路径
 <p>diff就是difference的缩写。</p>
 <h3 id="21版本回退">2.1.版本回退</h3>
 <h4 id="211命令查看提交日志">2.1.1.命令查看提交日志</h4>
-<pre><code>git log
-</code></pre>
-<p>退出按 Q
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git log
+</code></pre></td></tr></table>
+</div>
+</div><p>退出按 Q
 觉得输出信息太多，可以加参数</p>
-<pre><code>git log --pretty=oneline
-</code></pre>
-<p>一大串<code>xxxxxxxxxxx</code>是<code>commin id（版本号）</code>。<code>HEAD</code>是当前版本；<code>HEAD^</code>是上一版本；<code>HEAD^^</code>是上上版本；上100版本，用<code>HEAD~100</code>。
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git log --pretty<span class="o">=</span>oneline
+</code></pre></td></tr></table>
+</div>
+</div><p>一大串<code>xxxxxxxxxxx</code>是<code>commin id（版本号）</code>。<code>HEAD</code>是当前版本；<code>HEAD^</code>是上一版本；<code>HEAD^^</code>是上上版本；上100版本，用<code>HEAD~100</code>。
 查看文件版本</p>
-<pre><code>cat 文件
-</code></pre>
-<h4 id="212版本回退">2.1.2.版本回退</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">cat 文件
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="212版本回退">2.1.2.版本回退</h4>
 <p>用<code>git reset</code></p>
-<pre><code>git reset --hard HEAD^
-</code></pre>
-<p>回退到上一版本。同时会修改工作区的文件。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git reset --hard HEAD^
+</code></pre></td></tr></table>
+</div>
+</div><p>回退到上一版本。同时会修改工作区的文件。</p>
 <h4 id="213取消版本回退">2.1.3取消版本回退</h4>
 <p>如果命令窗口还没关闭，往回拉，找到commit_id版本号：</p>
-<pre><code>git reset --hard 版本号的前几位
-</code></pre>
-<p>如果命令窗口已经关了，查看命令历史，找到版本号：</p>
-<pre><code>git reflog
-</code></pre>
-<p>（ps：git base 按两下tab会有命令提示）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git reset --hard 版本号的前几位
+</code></pre></td></tr></table>
+</div>
+</div><p>如果命令窗口已经关了，查看命令历史，找到版本号：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git reflog
+</code></pre></td></tr></table>
+</div>
+</div><p>（ps：git base 按两下tab会有命令提示）</p>
 <h3 id="22工作区暂存区和master分支">2.2.工作区、暂存区和master分支</h3>
 <p><img src="https://ws1.sinaimg.cn/large/005Dxnmrgy1fl8m10j4t0j30cq06ijri.jpg" alt="0"></p>
 <p><img src="https://ws1.sinaimg.cn/large/005Dxnmrgy1fl8m3felilj30cv06iq32.jpg" alt="1"></p>
 <p>一旦提交后，如果你又没有对工作区做任何修改，那么工作区就是“干净”的：</p>
-<pre><code>$ git status
-# On branch master
-nothing to commit (working directory clean)
-</code></pre>
-<hr>
-<pre><code>git diff HEAD -- 文件名    //注意：在 -- 前面和后面都有空格。
-</code></pre>
-<p>可以查看工作区和版本库最新版的区别。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ git status
+<span class="c1"># On branch master</span>
+nothing to commit <span class="o">(</span>working directory clean<span class="o">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git diff HEAD -- 文件名    //注意：在 -- 前面和后面都有空格。
+</code></pre></td></tr></table>
+</div>
+</div><p>可以查看工作区和版本库最新版的区别。</p>
 <h3 id="23撤销修改">2.3.撤销修改</h3>
 <h4 id="231工作区">2.3.1.工作区</h4>
-<pre><code>git checkout -- file
-</code></pre>
-<p>暂存区已提交，就回到暂存区状态；未提交暂存区，就回到版本库的状态。
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git checkout -- file
+</code></pre></td></tr></table>
+</div>
+</div><p>暂存区已提交，就回到暂存区状态；未提交暂存区，就回到版本库的状态。
 其中<code>--</code>很重要。</p>
 <h4 id="232暂存区">2.3.2.暂存区</h4>
 <p>把暂存区撤销，放回工作区</p>
-<pre><code>git reset HEAD file
-</code></pre>
-<p>然后把工作区撤销</p>
-<pre><code>git checkout -- file
-</code></pre>
-<h4 id="24删除文件">2.4.删除文件</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git reset HEAD file
+</code></pre></td></tr></table>
+</div>
+</div><p>然后把工作区撤销</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git checkout -- file
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="24删除文件">2.4.删除文件</h4>
 <p>删除本地文件</p>
-<pre><code>rm file
-</code></pre>
-<p>删除版本库文件，并且提交</p>
-<pre><code>git rm file
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">rm file
+</code></pre></td></tr></table>
+</div>
+</div><p>删除版本库文件，并且提交</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git rm file
 
-git commit -m &quot;xxx&quot;
-</code></pre>
-<p>如果是删错了，恢复到版本库</p>
-<pre><code>git checkout -- file
-</code></pre>
-<p><code>git checkout</code>实际上是用版本库替换工作区，无论是修改还是删除，都可以还原。</p>
+git commit -m <span class="s2">&#34;xxx&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>如果是删错了，恢复到版本库</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git checkout -- file
+</code></pre></td></tr></table>
+</div>
+</div><p><code>git checkout</code>实际上是用版本库替换工作区，无论是修改还是删除，都可以还原。</p>
 <h2 id="三远程仓库">三.远程仓库</h2>
 <ul>
 <li>
@@ -506,9 +647,15 @@ git commit -m &quot;xxx&quot;
 </li>
 </ul>
 <p>测试ssh</p>
-<pre><code>ssh -T git@github.com
-</code></pre>
-<h3 id="31添加远程库">3.1.添加远程库</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">ssh -T git@github.com
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="31添加远程库">3.1.添加远程库</h3>
 <ul>
 <li>
 <p>关联本地仓库</p>
@@ -516,12 +663,24 @@ git commit -m &quot;xxx&quot;
 </li>
 </ul>
 <p>如果报错</p>
-<pre><code>fatal：remote origin already exists
-</code></pre>
-<p>只要先删除，再添加：</p>
-<pre><code>$ git remote rm origin
-</code></pre>
-<p>添加后，远程库的名字就是origin，这是Git默认的叫法，也可以改成别的，但是origin这个名字一看就知道是远程库。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">fatal：remote origin already exists
+</code></pre></td></tr></table>
+</div>
+</div><p>只要先删除，再添加：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ git remote rm origin
+</code></pre></td></tr></table>
+</div>
+</div><p>添加后，远程库的名字就是origin，这是Git默认的叫法，也可以改成别的，但是origin这个名字一看就知道是远程库。</p>
 <ul>
 <li>
 <p>把本地库的所有内容推送到远程库上：</p>
@@ -531,12 +690,24 @@ git commit -m &quot;xxx&quot;
 <p>把本地库的内容推送到远程，用git push命令，实际上是把当前分支master推送到远程。</p>
 <p>由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。</p>
 <p>从现在起，只要本地作了提交，就可以通过命令：</p>
-<pre><code>git push origin master
-</code></pre>
-<p>3.2.从远程库克隆</p>
-<pre><code>git clone git@github.com:example/example
-</code></pre>
-<h2 id="四分支管理">四.分支管理</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git push origin master
+</code></pre></td></tr></table>
+</div>
+</div><p>3.2.从远程库克隆</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git clone git@github.com:example/example
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="四分支管理">四.分支管理</h2>
 <h3 id="41创建与合并分支">4.1.创建与合并分支</h3>
 <p>通过指针的变化</p>
 <p><img src="https://ws1.sinaimg.cn/large/005Dxnmrgy1fl8m58ujh8j308d0473yd.jpg" alt="2"></p>
@@ -548,11 +719,19 @@ git commit -m &quot;xxx&quot;
 </ul>
 <p><img src="https://ws3.sinaimg.cn/large/005Dxnmrgy1fl8m8y4qkbj30a706hwee.jpg" alt="image"></p>
 <p>git checkout命令加上-b参数表示创建并切换，相当于以下两条命令：</p>
-<pre><code>$ git branch dev
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ git branch dev
 $ git checkout dev
-Switched to branch 'dev'
-</code></pre>
-<ul>
+Switched to branch <span class="s1">&#39;dev&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
 <li>
 <p>用git branch命令查看当前分支,当前分支前面会标一个*号：</p>
 <p>$ git branch<!-- raw HTML omitted -->
@@ -610,13 +789,25 @@ master</p>
 <h3 id="43分支管理策略">4.3.分支管理策略</h3>
 <p>通常，合并分支时，如果可能，Git会用Fast forward模式，但这种模式下，删除分支后，会丢掉分支信息。</p>
 <p>如果要强制禁用Fast forward模式，Git就会在merge时生成一个新的commit，这样，从分支历史上就可以看出分支信息。</p>
-<pre><code>git merge --no-ff -m &quot;描述&quot; dev
-</code></pre>
-<p>因为本次合并要创建一个新的commit，所以加上-m参数，把commit描述写进去。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git merge --no-ff -m <span class="s2">&#34;描述&#34;</span> dev
+</code></pre></td></tr></table>
+</div>
+</div><p>因为本次合并要创建一个新的commit，所以加上-m参数，把commit描述写进去。</p>
 <p>查看分支历史</p>
-<pre><code>git log --graph --pretty=oneline --abbrev-commit
-</code></pre>
-<p><img src="https://ws1.sinaimg.cn/large/005Dxnmrly1flaz86b8y4j30dc075web.jpg" alt="image"></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git log --graph --pretty<span class="o">=</span>oneline --abbrev-commit
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="https://ws1.sinaimg.cn/large/005Dxnmrly1flaz86b8y4j30dc075web.jpg" alt="image"></p>
 <p><img src="https://ws1.sinaimg.cn/large/005Dxnmrly1flazqi7fiyj30m80ifgnv.jpg" alt="image"></p>
 <p>在实际开发中，应该按照几个基本原则进行分支管理：</p>
 <p><code>master</code>分支应该是非常稳定的，仅用来发布新版本，平时不在上面干活；</p>
@@ -625,23 +816,47 @@ master</p>
 <p><img src="https://ws1.sinaimg.cn/large/005Dxnmrly1flazgyexodj30du03ha9w.jpg" alt="image"></p>
 <h3 id="44bug分支">4.4.Bug分支</h3>
 <p>当前工作到一般还不能提交，但是又要修复bug添加bugfix分支，可以用<code>stash</code>存储工作状态。</p>
-<pre><code>$ git stash
-</code></pre>
-<p>现在，用git status查看工作区，就是干净的（除非有没有被Git管理的文件），因此可以放心地创建分支来修复bug。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ git stash
+</code></pre></td></tr></table>
+</div>
+</div><p>现在，用git status查看工作区，就是干净的（除非有没有被Git管理的文件），因此可以放心地创建分支来修复bug。</p>
 <p>修完bug,回到原来分支，用<code>git status list</code>查看存储状态。用<code>git stash apply</code>恢复，<code>git stash drop</code>清空。或者用<code>git stash pop</code>一步完成。</p>
-<pre><code>git stash pop
-</code></pre>
-<h3 id="45feature分支">4.5.Feature分支</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git stash pop
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="45feature分支">4.5.Feature分支</h3>
 <p>添加实验性功能时，不希望乱七八遭的代码把主分支打乱，最好添加feature分支，在上面开发，完成后合并、删除。</p>
 <h3 id="46多人协作">4.6.多人协作</h3>
 <p>当你从远程仓库克隆时，实际上Git自动把本地的master分支和远程的master分支对应起来了，并且，远程仓库的默认名称是origin。</p>
 <p>要查看远程库的信息，用git remote：</p>
-<pre><code>git remote
-</code></pre>
-<p>或者，用git remote -v显示更详细的信息：</p>
-<pre><code>git remote -v
-</code></pre>
-<p>并不是一定要把本地分支往远程推送，那么，哪些分支需要推送，哪些不需要呢？</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git remote
+</code></pre></td></tr></table>
+</div>
+</div><p>或者，用git remote -v显示更详细的信息：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git remote -v
+</code></pre></td></tr></table>
+</div>
+</div><p>并不是一定要把本地分支往远程推送，那么，哪些分支需要推送，哪些不需要呢？</p>
 <ul>
 <li>
 <p>master分支是主分支，因此要时刻与远程同步；</p>
@@ -657,18 +872,37 @@ master</p>
 </li>
 </ul>
 <p>小伙伴要在dev分支上开发，就必须创建远程origin的dev分支到本地，于是他用这个命令创建本地dev分支：</p>
-<pre><code>$ git checkout -b dev origin/dev
-</code></pre>
-<p>现在，他就可以在dev上继续修改，然后，时不时地把dev分支push到远程。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ git checkout -b dev origin/dev
+</code></pre></td></tr></table>
+</div>
+</div><p>现在，他就可以在dev上继续修改，然后，时不时地把dev分支push到远程。</p>
 <p>小伙伴已经向origin/dev分支推送了他的提交，而碰巧你也对同样的文件作了修改，并试图推送，失败。</p>
 <p>小伙伴的最新提交和你试图推送的提交有冲突，解决办法也很简单，Git已经提示我们，先用git pull把最新的提交从origin/dev抓下来，然后，在本地合并，解决冲突，再推送。</p>
-<pre><code>git pull
-</code></pre>
-<p>git pull也失败了，原因是没有指定本地dev分支与远程origin/dev分支的链接，根据提示，先设置dev和origin/dev的链接，再pull：</p>
-<pre><code>$ git branch --set-upstream dev origin/dev
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git pull
+</code></pre></td></tr></table>
+</div>
+</div><p>git pull也失败了，原因是没有指定本地dev分支与远程origin/dev分支的链接，根据提示，先设置dev和origin/dev的链接，再pull：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ git branch --set-upstream dev origin/dev
 $ git pull
-</code></pre>
-<p>多人协作的工作模式通常是这样：</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>多人协作的工作模式通常是这样：</p>
 <ol>
 <li>
 <p>首先，可以试图用git push origin branch-name推送自己的修改；</p>
@@ -691,52 +925,132 @@ $ git pull
 <p>tag就是一个让人容易记住的有意义的名字，它跟某个commit绑在一起。</p>
 <h3 id="51创建标签">5.1.创建标签</h3>
 <p>切换到需要打标签的分支上：</p>
-<pre><code>git branch
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git branch
 git checkout master
 git tag v1.0
-</code></pre>
-<p>给master分支打上了v1.0的标签。</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>给master分支打上了v1.0的标签。</p>
 <p>查看所有标签：</p>
-<pre><code>git tag
-</code></pre>
-<p>以前的commit忘记打标签了，需要找到commit id：</p>
-<pre><code>git log --pretty=oneline --abbrev-commit
-</code></pre>
-<p>找到id比如是xxx</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git tag
+</code></pre></td></tr></table>
+</div>
+</div><p>以前的commit忘记打标签了，需要找到commit id：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git log --pretty<span class="o">=</span>oneline --abbrev-commit
+</code></pre></td></tr></table>
+</div>
+</div><p>找到id比如是xxx</p>
 <p>打上标签</p>
-<pre><code>git tag v0.9 xxx
-</code></pre>
-<p>注意，标签不是按时间顺序列出，而是按字母排序的。可以用git show <!-- raw HTML omitted -->查看标签信息：</p>
-<pre><code>git show v0.9
-</code></pre>
-<p>还可以创建带有说明的标签，用-a指定标签名，-m指定说明文字</p>
-<pre><code>git tag -a v0.1 -m &quot;version 0.1 released&quot; xxxid
-</code></pre>
-<p>用命令git show <!-- raw HTML omitted -->可以看到说明文字：</p>
-<pre><code>git show v0.1
-</code></pre>
-<p>还可以通过-s用私钥签名一个标签：</p>
-<pre><code>git tag -s v0.2 -m &quot;signed version 0.2 released&quot; xxxid
-</code></pre>
-<p>签名采用PGP签名，因此，必须首先安装gpg（GnuPG），如果没有找到gpg，或者没有gpg密钥对，就会报错。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git tag v0.9 xxx
+</code></pre></td></tr></table>
+</div>
+</div><p>注意，标签不是按时间顺序列出，而是按字母排序的。可以用git show <!-- raw HTML omitted -->查看标签信息：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git show v0.9
+</code></pre></td></tr></table>
+</div>
+</div><p>还可以创建带有说明的标签，用-a指定标签名，-m指定说明文字</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git tag -a v0.1 -m <span class="s2">&#34;version 0.1 released&#34;</span> xxxid
+</code></pre></td></tr></table>
+</div>
+</div><p>用命令git show <!-- raw HTML omitted -->可以看到说明文字：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git show v0.1
+</code></pre></td></tr></table>
+</div>
+</div><p>还可以通过-s用私钥签名一个标签：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git tag -s v0.2 -m <span class="s2">&#34;signed version 0.2 released&#34;</span> xxxid
+</code></pre></td></tr></table>
+</div>
+</div><p>签名采用PGP签名，因此，必须首先安装gpg（GnuPG），如果没有找到gpg，或者没有gpg密钥对，就会报错。</p>
 <h3 id="52操作标签">5.2.操作标签</h3>
 <p>如果标签打错了要删除：</p>
-<pre><code>git tag -d v0.1
-</code></pre>
-<p>因为创建的标签都只存储在本地，不会自动推送到远程。所以，打错的标签可以在本地安全删除。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git tag -d v0.1
+</code></pre></td></tr></table>
+</div>
+</div><p>因为创建的标签都只存储在本地，不会自动推送到远程。所以，打错的标签可以在本地安全删除。</p>
 <p>如果要推送某个标签到远程，使用命令git push origin <!-- raw HTML omitted -->：</p>
-<pre><code>git push origin v1.0
-</code></pre>
-<p>或者，一次性推送全部尚未推送到远程的本地标签：</p>
-<pre><code>git push origin --tags
-</code></pre>
-<p>如果标签已经推送到远程，要删除远程标签就麻烦一点，先从本地删除：</p>
-<pre><code>git tag -d v0.9
-</code></pre>
-<p>然后，从远程删除。</p>
-<pre><code>git push origin :refs/tags/v0.9
-</code></pre>
-<p>要看看是否真的从远程库删除了标签，可以登陆GitHub查看。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git push origin v1.0
+</code></pre></td></tr></table>
+</div>
+</div><p>或者，一次性推送全部尚未推送到远程的本地标签：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git push origin --tags
+</code></pre></td></tr></table>
+</div>
+</div><p>如果标签已经推送到远程，要删除远程标签就麻烦一点，先从本地删除：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git tag -d v0.9
+</code></pre></td></tr></table>
+</div>
+</div><p>然后，从远程删除。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git push origin :refs/tags/v0.9
+</code></pre></td></tr></table>
+</div>
+</div><p>要看看是否真的从远程库删除了标签，可以登陆GitHub查看。</p>
     </div>
 
     
@@ -805,6 +1119,8 @@ git tag v1.0
     </footer>
   </article>
 
+  
+  
   
   
 
