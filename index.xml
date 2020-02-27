@@ -1,0 +1,1486 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>羽的天空</title><link>/</link><description>Recent content on 羽的天空</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 28 Feb 2020 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>关于</title><link>/about/</link><pubDate>Tue, 25 Feb 2020 00:00:00 +0000</pubDate><guid>/about/</guid><description>&lt;p&gt;该界面等待完善&amp;hellip;&amp;hellip;&lt;/p&gt;</description></item><item><title>使用netlify部署hugo注意事项</title><link>/post/2020-02-28-%E4%BD%BF%E7%94%A8netlify%E9%83%A8%E7%BD%B2hugo%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</link><pubDate>Fri, 28 Feb 2020 00:00:00 +0000</pubDate><guid>/post/2020-02-28-%E4%BD%BF%E7%94%A8netlify%E9%83%A8%E7%BD%B2hugo%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</guid><description>&lt;p&gt;​ 1. 登录Nextlify，用github账号授权登陆即可。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;选择&lt;code&gt;“New site from Git”——“Github”——选择自己hugo博客源码对应的仓库——自动部署&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;注：可以选择私人仓库，并且public可以配置.gitignore不用上传。&lt;/p&gt;
+&lt;p&gt;遇到的报错：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-log&#34; data-lang=&#34;log&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-log&#34; data-lang=&#34;log&#34;&gt; Production: master@HEAD Failed
+failed during stage &amp;#39;building site&amp;#39;: Build script returned non-zero exit code: 255&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;​ 遇事不觉谷人希，stackoverflow上找到类似答案，需要修改Netlify控制台的环境变量与实际Hugo版本一致。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://gohugo.io/hosting-and-deployment/hosting-on-netlify/&#34;&gt;官方说明&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;技术问题千万别用百度，垃圾csdn。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;“setting”——“Build&amp;amp;deploy”——“Environment”——&amp;quot;Environment variables&amp;quot;——“Edit variables”，左边填“HUGO_VERSION”，右边填“v0.65.3”&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;注：版本号以实际hugo version获取为准。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;同时搜索到另一种解决方法，但未实际验证。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;在网站根目录下新建&lt;code&gt;netlify.toml&lt;/code&gt;的文件。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;build&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;publish&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;public&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;command&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;hugo --gc --minify&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;context&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;production&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;environment&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;HUGO_VERSION&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;0.65.3&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;HUGO_ENV&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;production&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;HUGO_ENABLEGITINFO&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;true&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;context&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;split1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;command&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;hugo --gc --minify --enableGitInfo&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;context&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;split1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;environment&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;HUGO_VERSION&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;0.65.3&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;HUGO_ENV&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;production&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;context&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;deploy&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;preview&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;command&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;context&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;deploy&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;preview&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;environment&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;HUGO_VERSION&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;0.65.3&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;context&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;branch&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;deploy&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;command&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;hugo --gc --minify -b $DEPLOY_PRIME_URL&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;context&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;branch&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;deploy&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;environment&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;HUGO_VERSION&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;0.65.3&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;context&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;next&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;environment&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;HUGO_ENABLEGITINFO&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;true&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>git删除所有历史提交记录</title><link>/post/2020-02-27-git%E5%88%A0%E9%99%A4%E6%89%80%E6%9C%89%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4%E8%AE%B0%E5%BD%95/</link><pubDate>Thu, 27 Feb 2020 00:00:00 +0000</pubDate><guid>/post/2020-02-27-git%E5%88%A0%E9%99%A4%E6%89%80%E6%9C%89%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4%E8%AE%B0%E5%BD%95/</guid><description>&lt;p&gt;​ 在切换Hexo到Hugo的过程中，由于有很多误操作造成提交记录很难看，需要清空历史提交记录。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;切换到新的分支。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git checkout --orphan latest_branch&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;缓存所有的文件（除了.gitignore中声明排除的）&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git add -A&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;提交跟踪过的文件。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git commit -m &lt;span class=&#34;s2&#34;&gt;&amp;#34;提交记录&amp;#34;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;删除master分支。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git branch -D master&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;重命名当前分支为master。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git branch -m master&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;提交到远程master分支。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git push -f origin master&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;</description></item><item><title>解决eclipse未自动补全问题的记录</title><link>/post/2019-12-21-eclipse%E8%A7%A3%E5%86%B3%E6%9C%AA%E8%87%AA%E5%8A%A8%E6%8F%90%E7%A4%BA%E8%AE%B0%E5%BD%95/</link><pubDate>Sat, 21 Dec 2019 00:00:00 +0000</pubDate><guid>/post/2019-12-21-eclipse%E8%A7%A3%E5%86%B3%E6%9C%AA%E8%87%AA%E5%8A%A8%E6%8F%90%E7%A4%BA%E8%AE%B0%E5%BD%95/</guid><description>&lt;h1 id=&#34;解决eclipse未自动补全问题的记录&#34;&gt;解决eclipse未自动补全问题的记录&lt;/h1&gt;
+&lt;p&gt;参考方法:&lt;a href=&#34;https://blog.csdn.net/weixin_41741743/article/details/82814954&#34;&gt;https://blog.csdn.net/weixin_41741743/article/details/82814954&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;教训:学习编程不要用中文版&lt;/p&gt;
+&lt;h2 id=&#34;一&#34;&gt;一:&lt;/h2&gt;
+&lt;p&gt;windows→preferences→java→editor→content assist→advanced→勾选Java Prolosals→选中Template Proposals→保存退出&lt;/p&gt;
+&lt;p&gt;注意:发现重新打开会有丢失这一配置现象.&lt;/p&gt;
+&lt;h2 id=&#34;二&#34;&gt;二:&lt;/h2&gt;
+&lt;p&gt;windows→preferences→java→editor→content assist→Auto activation delay(ms)设置200→Auto activation triggers for Java设置.ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghigklmnopqrstuvwxya(注意前面的点不要丢)→保存退出&lt;/p&gt;
+&lt;h2 id=&#34;三&#34;&gt;三:&lt;/h2&gt;
+&lt;p&gt;windows →preferences→General→keys→Content asist→word completion快捷键删掉→Binding项改为“ALT+/”→When项选择成Editing Text→保存退出&lt;/p&gt;</description></item><item><title>git笔记</title><link>/post/2017-11-13-git%E7%AC%94%E8%AE%B0/</link><pubDate>Mon, 13 Nov 2017 00:00:00 +0000</pubDate><guid>/post/2017-11-13-git%E7%AC%94%E8%AE%B0/</guid><description>&lt;h1 id=&#34;git笔记&#34;&gt;&lt;strong&gt;Git笔记&lt;/strong&gt;&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;通过&lt;code&gt;git int&lt;/code&gt;把目录变成Git可以管理的仓库。&lt;/li&gt;
+&lt;li&gt;所有的版本管理系统，其实只能跟踪文本文件的改动，比如txt、网页、程序代码等。&lt;/li&gt;
+&lt;li&gt;强烈建议使用标准的utf-8编码，不要用windows自带的记事本编辑任何文本，要用utf-8 without BOM。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;一-创建版本库&#34;&gt;一.创建版本库&lt;/h2&gt;
+&lt;h3 id=&#34;1-1-创建空目录&#34;&gt;1.1.创建空目录&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;mkdir 目录名 //新建目录
+&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; 目录名
+&lt;span class=&#34;nb&#34;&gt;pwd&lt;/span&gt; //显示当前目录路径&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;1-2-把目录变成git可以管理的仓库&#34;&gt;1.2.把目录变成Git可以管理的仓库&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git init&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;会看到该目录下生成.git的目录&lt;/p&gt;
+&lt;h3 id=&#34;1-3-把文件添加到仓库&#34;&gt;1.3.把文件添加到仓库&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git add &amp;lt;file&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;可反复多次使用，添加多个文件&lt;/p&gt;
+&lt;h3 id=&#34;1-4-把文件提交到仓库&#34;&gt;1.4.把文件提交到仓库&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git commit -m &lt;span class=&#34;s2&#34;&gt;&amp;#34;xxx&amp;#34;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;-m &amp;ldquo;xxx&amp;rdquo;本次提交的说明，commit可以一次提交很多文件。&lt;/p&gt;
+&lt;h2 id=&#34;二-时空穿梭&#34;&gt;二.时空穿梭&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;查看仓库当前状态&lt;/p&gt;
+&lt;p&gt;git status&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;查看具体修改内容&lt;/p&gt;
+&lt;p&gt;git diff 要查看的文件&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;diff就是difference的缩写。&lt;/p&gt;
+&lt;h3 id=&#34;2-1-版本回退&#34;&gt;2.1.版本回退&lt;/h3&gt;
+&lt;h4 id=&#34;2-1-1-命令查看提交日志&#34;&gt;2.1.1.命令查看提交日志&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git log&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;退出按 Q
+觉得输出信息太多，可以加参数&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git log --pretty&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;oneline&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;一大串&lt;code&gt;xxxxxxxxxxx&lt;/code&gt;是&lt;code&gt;commin id（版本号）&lt;/code&gt;。&lt;code&gt;HEAD&lt;/code&gt;是当前版本；&lt;code&gt;HEAD^&lt;/code&gt;是上一版本；&lt;code&gt;HEAD^^&lt;/code&gt;是上上版本；上100版本，用&lt;code&gt;HEAD~100&lt;/code&gt;。
+查看文件版本&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;cat 文件&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h4 id=&#34;2-1-2-版本回退&#34;&gt;2.1.2.版本回退&lt;/h4&gt;
+&lt;p&gt;用&lt;code&gt;git reset&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git reset --hard HEAD^&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;回退到上一版本。同时会修改工作区的文件。&lt;/p&gt;
+&lt;h4 id=&#34;2-1-3取消版本回退&#34;&gt;2.1.3取消版本回退&lt;/h4&gt;
+&lt;p&gt;如果命令窗口还没关闭，往回拉，找到commit_id版本号：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git reset --hard 版本号的前几位&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;如果命令窗口已经关了，查看命令历史，找到版本号：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git reflog&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;（ps：git base 按两下tab会有命令提示）&lt;/p&gt;
+&lt;h3 id=&#34;2-2-工作区-暂存区和master分支&#34;&gt;2.2.工作区、暂存区和master分支&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://ws1.sinaimg.cn/large/005Dxnmrgy1fl8m10j4t0j30cq06ijri.jpg&#34; alt=&#34;0&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://ws1.sinaimg.cn/large/005Dxnmrgy1fl8m3felilj30cv06iq32.jpg&#34; alt=&#34;1&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;一旦提交后，如果你又没有对工作区做任何修改，那么工作区就是“干净”的：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ git status
+&lt;span class=&#34;c1&#34;&gt;# On branch master&lt;/span&gt;
+nothing to commit &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;working directory clean&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr /&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git diff HEAD -- 文件名 //注意：在 -- 前面和后面都有空格。&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;可以查看工作区和版本库最新版的区别。&lt;/p&gt;
+&lt;h3 id=&#34;2-3-撤销修改&#34;&gt;2.3.撤销修改&lt;/h3&gt;
+&lt;h4 id=&#34;2-3-1-工作区&#34;&gt;2.3.1.工作区&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git checkout -- file&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;暂存区已提交，就回到暂存区状态；未提交暂存区，就回到版本库的状态。
+其中&lt;code&gt;--&lt;/code&gt;很重要。&lt;/p&gt;
+&lt;h4 id=&#34;2-3-2-暂存区&#34;&gt;2.3.2.暂存区&lt;/h4&gt;
+&lt;p&gt;把暂存区撤销，放回工作区&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git reset HEAD file&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;然后把工作区撤销&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git checkout -- file&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h4 id=&#34;2-4-删除文件&#34;&gt;2.4.删除文件&lt;/h4&gt;
+&lt;p&gt;删除本地文件&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;rm file&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;删除版本库文件，并且提交&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git rm file
+git commit -m &lt;span class=&#34;s2&#34;&gt;&amp;#34;xxx&amp;#34;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;如果是删错了，恢复到版本库&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git checkout -- file&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;git checkout&lt;/code&gt;实际上是用版本库替换工作区，无论是修改还是删除，都可以还原。&lt;/p&gt;
+&lt;h2 id=&#34;三-远程仓库&#34;&gt;三.远程仓库&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;创建ssh key&lt;/p&gt;
+&lt;p&gt;ssh-keygen -t rsa -C &amp;ldquo;youremail@example.com&amp;rdquo;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;测试ssh&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;ssh -T git@github.com&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;3-1-添加远程库&#34;&gt;3.1.添加远程库&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;关联本地仓库&lt;/p&gt;
+&lt;p&gt;git remote add origin git@github.com:example/example&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果报错&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;fatal：remote origin already exists&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;只要先删除，再添加：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ git remote rm origin&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;添加后，远程库的名字就是origin，这是Git默认的叫法，也可以改成别的，但是origin这个名字一看就知道是远程库。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;把本地库的所有内容推送到远程库上：&lt;/p&gt;
+&lt;p&gt;git push -u origin master&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;把本地库的内容推送到远程，用git push命令，实际上是把当前分支master推送到远程。&lt;/p&gt;
+&lt;p&gt;由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。&lt;/p&gt;
+&lt;p&gt;从现在起，只要本地作了提交，就可以通过命令：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git push origin master&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;3.2.从远程库克隆&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git clone git@github.com:example/example&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;四-分支管理&#34;&gt;四.分支管理&lt;/h2&gt;
+&lt;h3 id=&#34;4-1-创建与合并分支&#34;&gt;4.1.创建与合并分支&lt;/h3&gt;
+&lt;p&gt;通过指针的变化&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://ws1.sinaimg.cn/large/005Dxnmrgy1fl8m58ujh8j308d0473yd.jpg&#34; alt=&#34;2&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;首先，我们创建dev分支，然后切换到dev分支：&lt;/p&gt;
+&lt;p&gt;git checkout -b dev&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://ws3.sinaimg.cn/large/005Dxnmrgy1fl8m8y4qkbj30a706hwee.jpg&#34; alt=&#34;image&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;git checkout命令加上-b参数表示创建并切换，相当于以下两条命令：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ git branch dev
+$ git checkout dev
+Switched to branch &lt;span class=&#34;s1&#34;&gt;&amp;#39;dev&amp;#39;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;用git branch命令查看当前分支,当前分支前面会标一个*号：&lt;/p&gt;
+&lt;p&gt;$ git branch&lt;br&gt;
+*dev&lt;br&gt;
+master&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;分支的提交&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://ws3.sinaimg.cn/large/005Dxnmrgy1fl8m9iqh0qj30dq06ha9z.jpg&#34; alt=&#34;image&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;切换回主分支&lt;/p&gt;
+&lt;p&gt;git checkout master&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://ws3.sinaimg.cn/large/005Dxnmrgy1fl8maz2ac0j30bn0663yf.jpg&#34; alt=&#34;image&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;把dev分支的工作成果合并到master分支上：&lt;/p&gt;
+&lt;p&gt;git merge dev&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;git merge命令是合并指定分支到&lt;strong&gt;当前&lt;/strong&gt;分支。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://ws3.sinaimg.cn/large/005Dxnmrgy1fl8m9qgmw2j30br0663yf.jpg&#34; alt=&#34;image&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;删除dev分支&lt;/p&gt;
+&lt;p&gt;git branch -d dev&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;em&gt;因为创建、合并和删除分支非常快，所以Git鼓励你使用分支完成某个任务，合并后再删掉分支，这和直接在master分支上工作效果是一样的，但过程更安全。&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;可以用git push origin :dev 删除远程分支dev。&lt;/p&gt;
+&lt;h3 id=&#34;4-2-解决冲突&#34;&gt;4.2.解决冲突&lt;/h3&gt;
+&lt;p&gt;当两条分支对同一个文件的同一个文本块进行了不同的修改，并试图合并时，Git不能自动合并的，称之为冲突(conflict)。解决冲突需要人工处理。&lt;/p&gt;
+&lt;p&gt;dev分支和master分支有不同提交&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://ws3.sinaimg.cn/large/005Dxnmrgy1fl8mba2yrcj30bt07kmx5.jpg&#34; alt=&#34;image&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;这种情况下，Git无法执行“快速合并”，只能试图把各自的修改合并起来，但这种合并就可能会有冲突。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;git status也可以告诉我们冲突的文件,&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;，=======，&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;标记出不同分支的内容。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;对于简单的合并，手工编辑，然后去掉这些标记，最后像往常的提交一样先add再commit即可。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://ws3.sinaimg.cn/large/005Dxnmrgy1fl8mbnxwoij30fb07kwei.jpg&#34; alt=&#34;image&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;用git log &amp;ndash;graph命令可以看到分支合并图&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;注意分支和分支并不是完完全全的平行.在切换分支前, 一定要在做出改动的分支将改动提交, 否则可能会将改动带到切换到的分支, 产生误会. 只要提前提交了, 改动就不会带过去。&lt;/li&gt;
+&lt;li&gt;其实多个分支是共用暂存区的，也就是说如果在分支1上仅add而不commit，实际暂存区中已经记录该次修改。哪怕后续切换到分支2上再进行commit也是有效的操作，只不过已经不是自己想要的处理。&lt;/li&gt;
+&lt;li&gt;合并如果没有冲突出现也就是自动合并成功, 则在当前分支中不需要add/commit提交合并后的内容, 因为实际上当前分支在合并成功后就指向了最近的commit(由做出改动的分支提交)。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;4-3-分支管理策略&#34;&gt;4.3.分支管理策略&lt;/h3&gt;
+&lt;p&gt;通常，合并分支时，如果可能，Git会用Fast forward模式，但这种模式下，删除分支后，会丢掉分支信息。&lt;/p&gt;
+&lt;p&gt;如果要强制禁用Fast forward模式，Git就会在merge时生成一个新的commit，这样，从分支历史上就可以看出分支信息。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git merge --no-ff -m &lt;span class=&#34;s2&#34;&gt;&amp;#34;描述&amp;#34;&lt;/span&gt; dev&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;因为本次合并要创建一个新的commit，所以加上-m参数，把commit描述写进去。&lt;/p&gt;
+&lt;p&gt;查看分支历史&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git log --graph --pretty&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;oneline --abbrev-commit&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;img src=&#34;https://ws1.sinaimg.cn/large/005Dxnmrly1flaz86b8y4j30dc075web.jpg&#34; alt=&#34;image&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://ws1.sinaimg.cn/large/005Dxnmrly1flazqi7fiyj30m80ifgnv.jpg&#34; alt=&#34;image&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;在实际开发中，应该按照几个基本原则进行分支管理：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;master&lt;/code&gt;分支应该是非常稳定的，仅用来发布新版本，平时不在上面干活；&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;dev&lt;/code&gt;分支是不稳定的，发布版本时，把&lt;code&gt;dev&lt;/code&gt;分支合并到&lt;code&gt;master&lt;/code&gt;上，发布1.0版本。&lt;/p&gt;
+&lt;p&gt;每个人都有自己的分支，时不时地往&lt;code&gt;dev&lt;/code&gt;上合并。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://ws1.sinaimg.cn/large/005Dxnmrly1flazgyexodj30du03ha9w.jpg&#34; alt=&#34;image&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;4-4-bug分支&#34;&gt;4.4.Bug分支&lt;/h3&gt;
+&lt;p&gt;当前工作到一般还不能提交，但是又要修复bug添加bugfix分支，可以用&lt;code&gt;stash&lt;/code&gt;存储工作状态。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ git stash&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;现在，用git status查看工作区，就是干净的（除非有没有被Git管理的文件），因此可以放心地创建分支来修复bug。&lt;/p&gt;
+&lt;p&gt;修完bug,回到原来分支，用&lt;code&gt;git status list&lt;/code&gt;查看存储状态。用&lt;code&gt;git stash apply&lt;/code&gt;恢复，&lt;code&gt;git stash drop&lt;/code&gt;清空。或者用&lt;code&gt;git stash pop&lt;/code&gt;一步完成。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git stash pop&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;4-5-feature分支&#34;&gt;4.5.Feature分支&lt;/h3&gt;
+&lt;p&gt;添加实验性功能时，不希望乱七八遭的代码把主分支打乱，最好添加feature分支，在上面开发，完成后合并、删除。&lt;/p&gt;
+&lt;h3 id=&#34;4-6-多人协作&#34;&gt;4.6.多人协作&lt;/h3&gt;
+&lt;p&gt;当你从远程仓库克隆时，实际上Git自动把本地的master分支和远程的master分支对应起来了，并且，远程仓库的默认名称是origin。&lt;/p&gt;
+&lt;p&gt;要查看远程库的信息，用git remote：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git remote&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;或者，用git remote -v显示更详细的信息：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git remote -v&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;并不是一定要把本地分支往远程推送，那么，哪些分支需要推送，哪些不需要呢？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;master分支是主分支，因此要时刻与远程同步；&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;dev分支是开发分支，团队所有成员都需要在上面工作，所以也需要与远程同步；&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;bug分支只用于在本地修复bug，就没必要推到远程了，除非老板要看看你每周到底修复了几个bug；&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;feature分支是否推到远程，取决于你是否和你的小伙伴合作在上面开发。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;小伙伴要在dev分支上开发，就必须创建远程origin的dev分支到本地，于是他用这个命令创建本地dev分支：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ git checkout -b dev origin/dev&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;现在，他就可以在dev上继续修改，然后，时不时地把dev分支push到远程。&lt;/p&gt;
+&lt;p&gt;小伙伴已经向origin/dev分支推送了他的提交，而碰巧你也对同样的文件作了修改，并试图推送，失败。&lt;/p&gt;
+&lt;p&gt;小伙伴的最新提交和你试图推送的提交有冲突，解决办法也很简单，Git已经提示我们，先用git pull把最新的提交从origin/dev抓下来，然后，在本地合并，解决冲突，再推送。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git pull&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;git pull也失败了，原因是没有指定本地dev分支与远程origin/dev分支的链接，根据提示，先设置dev和origin/dev的链接，再pull：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;$ git branch --set-upstream dev origin/dev
+$ git pull&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;多人协作的工作模式通常是这样：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;首先，可以试图用git push origin branch-name推送自己的修改；&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;如果合并有冲突，则解决冲突，并在本地提交；&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;没有冲突或者解决掉冲突后，再用git push origin branch-name推送就能成功！&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;如果git pull提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，用命令git branch &amp;ndash;set-upstream branch-name origin/branch-name。&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;这就是多人协作的工作模式，一旦熟悉了，就非常简单。&lt;/p&gt;
+&lt;h2 id=&#34;五-标签管理&#34;&gt;五.标签管理&lt;/h2&gt;
+&lt;p&gt;tag就是一个让人容易记住的有意义的名字，它跟某个commit绑在一起。&lt;/p&gt;
+&lt;h3 id=&#34;5-1-创建标签&#34;&gt;5.1.创建标签&lt;/h3&gt;
+&lt;p&gt;切换到需要打标签的分支上：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git branch
+git checkout master
+git tag v1.0&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;给master分支打上了v1.0的标签。&lt;/p&gt;
+&lt;p&gt;查看所有标签：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git tag&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;以前的commit忘记打标签了，需要找到commit id：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git log --pretty&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;oneline --abbrev-commit&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;找到id比如是xxx&lt;/p&gt;
+&lt;p&gt;打上标签&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git tag v0.9 xxx&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;注意，标签不是按时间顺序列出，而是按字母排序的。可以用git show &lt;tagname&gt;查看标签信息：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git show v0.9&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;还可以创建带有说明的标签，用-a指定标签名，-m指定说明文字&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git tag -a v0.1 -m &lt;span class=&#34;s2&#34;&gt;&amp;#34;version 0.1 released&amp;#34;&lt;/span&gt; xxxid&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;用命令git show &lt;tagname&gt;可以看到说明文字：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git show v0.1&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;还可以通过-s用私钥签名一个标签：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git tag -s v0.2 -m &lt;span class=&#34;s2&#34;&gt;&amp;#34;signed version 0.2 released&amp;#34;&lt;/span&gt; xxxid&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;签名采用PGP签名，因此，必须首先安装gpg（GnuPG），如果没有找到gpg，或者没有gpg密钥对，就会报错。&lt;/p&gt;
+&lt;h3 id=&#34;5-2-操作标签&#34;&gt;5.2.操作标签&lt;/h3&gt;
+&lt;p&gt;如果标签打错了要删除：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git tag -d v0.1&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;因为创建的标签都只存储在本地，不会自动推送到远程。所以，打错的标签可以在本地安全删除。&lt;/p&gt;
+&lt;p&gt;如果要推送某个标签到远程，使用命令git push origin &lt;tagname&gt;：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git push origin v1.0&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;或者，一次性推送全部尚未推送到远程的本地标签：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git push origin --tags&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;如果标签已经推送到远程，要删除远程标签就麻烦一点，先从本地删除：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git tag -d v0.9&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;然后，从远程删除。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git push origin :refs/tags/v0.9&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;要看看是否真的从远程库删除了标签，可以登陆GitHub查看。&lt;/p&gt;</description></item><item><title>用Github Page 搭免费博客</title><link>/post/2017-11-13%E7%94%A8github-page-%E6%90%AD%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2/</link><pubDate>Mon, 13 Nov 2017 00:00:00 +0000</pubDate><guid>/post/2017-11-13%E7%94%A8github-page-%E6%90%AD%E5%85%8D%E8%B4%B9%E5%8D%9A%E5%AE%A2/</guid><description>
+&lt;h1 id=&#34;用github-page-搭免费博客&#34;&gt;用Github Page 搭免费博客&lt;/h1&gt;
+&lt;p&gt;一.搭建hexo博客&lt;/p&gt;
+&lt;p&gt;1.安装Node.js&lt;/p&gt;
+&lt;p&gt;下载地址：&lt;a href=&#34;https://nodejs.org/en/&#34;&gt;传送门&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;下载的文件是.msi后缀的，win10-x64-ltsb2016直接双击安装可能会出现2502、2503错误，在安装文件所在目录下，&lt;code&gt;Shit+右键，在此处打开命令窗口&lt;/code&gt;，输入&lt;code&gt;msiexec /i 文件名.msi&lt;/code&gt; ，就能成功安装。（如果还是无效，用管理员权限cmd）&lt;/p&gt;
+&lt;p&gt;可以通过node -v命令来测试NodeJS是否安装成功。&lt;/p&gt;
+&lt;p&gt;2.安装Git&lt;/p&gt;
+&lt;p&gt;下载地址：&lt;a href=&#34;https://git-scm.com/&#34;&gt;传送门&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;下载相应版本完成安装，可以通过git -version命令来测试git是否安装成功。&lt;/p&gt;
+&lt;p&gt;3.注册Github账号&lt;/p&gt;
+&lt;p&gt;准备好fq工具，注册时的usename用户名和邮箱很重要，因为默认的博客地址是&lt;a href=&#34;https://usename.github.io/这种形式的，邮箱则关系到安全和通知。&#34;&gt;https://usename.github.io/这种形式的，邮箱则关系到安全和通知。&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;3.1添加SSH Key&lt;/p&gt;
+&lt;p&gt;SSH Key是一个认证，让github识别绑定这台机器，允许这台机器提交。执行如下命令：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;cd ~/. ssh&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;~这个符号，表示在用户目录下
+执行代码如果提示：No such file or directory 说明你是第一次使用git。&lt;/p&gt;
+&lt;p&gt;新建新的SSH Key&lt;/p&gt;
+&lt;p&gt;在Git Bash执行代码：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;ssh-keygen -t rsa -C &amp;#34;你的邮箱@gmail.com&amp;#34;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;注意：此处的&lt;code&gt;-C&lt;/code&gt;的是大写的。&lt;/p&gt;
+&lt;p&gt;然后系统会要求你输入密码（密码在后面每次提交都需要输入，嫌麻烦可以直接两次回车不设置）：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;Enter passphrase (empty for no passphrase):&amp;lt;输入加密串&amp;gt;
+Enter same passphrase again:&amp;lt;再次输入加密串&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;在回车中会提示你输入一个密码，这个密码会在你提交项目时使用，如果为空的话提交项目时则不用输入。这个设置是防止别人往你的项目里提交内容。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;输入密码的时候没有 * 字样的，你直接输入就可以了。&lt;/li&gt;
+&lt;li&gt;邮箱输错/密码忘记，&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&amp;mdash;待完善
+2020-02-22尝试迁移hexo到hugo&lt;/p&gt;</description></item><item><title>vscode使用笔记</title><link>/post/2017-11-08-vscode%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/</link><pubDate>Wed, 08 Nov 2017 23:46:59 +0000</pubDate><guid>/post/2017-11-08-vscode%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/</guid><description>&lt;h2 id=&#34;1-背景图&#34;&gt;1.背景图&lt;/h2&gt;
+&lt;p&gt;用户设置：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;// 背景图
+&amp;#34;background.useDefault&amp;#34;: false,
+&amp;#34;background.customImages&amp;#34;: [
+&amp;#34;file:///D:/Pictures/头图/1.png&amp;#34;,
+&amp;#34;file:///D:/Pictures/头图/2.png&amp;#34;,
+&amp;#34;file:///D:/Pictures/头图/3.png&amp;#34;]&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;图片整体大小用ps调整就可以了。&lt;/p&gt;</description></item><item><title>Markdown笔记</title><link>/post/2017-10-30-markdown%E7%AC%94%E8%AE%B0/</link><pubDate>Mon, 30 Oct 2017 23:34:17 +0000</pubDate><guid>/post/2017-10-30-markdown%E7%AC%94%E8%AE%B0/</guid><description>&lt;p&gt;&lt;strong&gt;宗旨&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Markdown 的目标是实现「易读易写」。&lt;/p&gt;
+&lt;p&gt;可读性，无论如何，都是最重要的。一份使用 Markdown 格式撰写的文件应该可以直接以纯文本发布，并且看起来不会像是由许多标签或是格式指令所构成。Markdown 语法受到一些既有 text-to-HTML 格式的影响，包括 Setext、atx、Textile、reStructuredText、Grutatext 和 EtText，而最大灵感来源其实是纯文本电子邮件的格式。&lt;/p&gt;
+&lt;p&gt;总之， Markdown 的语法全由一些符号所组成，这些符号经过精挑细选，其作用一目了然。比如：在文字两旁加上星号，看起来就像*强调*。Markdown 的列表看起来，嗯，就是列表。Markdown 的区块引用看起来就真的像是引用一段文字，就像你曾在电子邮件中见过的那样。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;与HTML的关系&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Markdown 不是想要取代 HTML，甚至也没有要和它相近，它的语法种类很少，只对应 HTML 标记的一小部分。Markdown 的构想不是要使得 HTML 文档更容易书写。Markdown 的理念是，能让文档更容易读、写和随意改。HTML 是一种发布的格式，Markdown 是一种书写的格式。就这样，Markdown 的格式语法只涵盖纯文本可以涵盖的范围。&lt;/p&gt;
+&lt;p&gt;不在 Markdown 涵盖范围之内的标签，都可以直接在文档里面用 HTML 撰写。不需要额外标注这是 HTML 或是 Markdown；只要直接加标签就可以了。&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;aplayer&#34; data-id=&#34;41645489&#34; data-server=&#34;netease&#34; data-type=&#34;song&#34; data-mode=&#34;single&#34; data-autoplay=&#34;true&#34;&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;h1 id=&#34;span-id-jump-markdown语法-span&#34;&gt;&lt;span id=&#34;jump&#34;&gt;Markdown语法&lt;/span&gt;&lt;/h1&gt;
+&lt;h2 id=&#34;1-标题&#34;&gt;1.标题&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;# 一级标题&amp;lt;h1&amp;gt;
+## 二级标题&amp;lt;h2&amp;gt;
+### 三级标题〈h3&amp;gt;
+#### 四级标题&amp;lt;h4&amp;gt;
+##### 五级标题&amp;lt;h5&amp;gt;
+......&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;2-强调&#34;&gt;2.强调&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;*斜体的文字*
+_斜体的文字_&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;斜体的文字&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;**粗体的文字**
+__粗体的文字__&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;粗体的文字&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;*** 加粗斜体的文字**&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;加粗斜体的文字&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;~~删除线的文字~~ &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;del&gt;删除线的文字&lt;/del&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;这些~~符号~~*可以***组合**&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;这些&lt;del&gt;符号&lt;/del&gt;*可以*&lt;strong&gt;组合&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;3-超链接&#34;&gt;3.超链接&lt;/h2&gt;
+&lt;p&gt;Markdown 支持两种形式的链接语法： &lt;strong&gt;行内式&lt;/strong&gt;和&lt;strong&gt;参考式&lt;/strong&gt;两种形式，行内式一般使用较多。&lt;/p&gt;
+&lt;h3 id=&#34;3-1-行内式&#34;&gt;3.1.行内式&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;[链接文字]（链接地址 &amp;#34;title可选&amp;#34;）
+例:[GitHub](http://github.com)
+[GitHub](http://github.com &amp;#34;这就是个提示&amp;#34;)&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;例:&lt;a href=&#34;http://github.com&#34;&gt;GitHub&lt;/a&gt;
+　&lt;a href=&#34;http://github.com&#34; title=&#34;这就是个提示&#34;&gt;GitHub&lt;/a&gt;
+&lt;em&gt;（ps:段首加空格，shift+space切换到全角，直接加空格）&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&#34;3-2-参考式&#34;&gt;3.2.参考式&lt;/h3&gt;
+&lt;p&gt;参考式多用在学术论文上，或者在文章中多处使用相同链接。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;[链接文字][链接标记]
+[链接标记]:链接地址 &amp;#34;链接标题&amp;#34; 任意地方添加
+如果链接文字可以当链接标记:
+[链接文字][]
+[连接文字]:链接地址
+例:[Github][1]、[Google][2]、[知乎][]是我经常去的网站。
+[1]:http://github.com
+[2]:http://www.google.com
+[知乎]:https://www.zhihu.com/&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;例:&lt;a href=&#34;1&#34; title=&#34;到底是脚注还是注脚。
+&#34;&gt;Github&lt;/a&gt;、&lt;a href=&#34;http://www.google.com&#34;&gt;Google&lt;/a&gt;、&lt;a href=&#34;https://www.zhihu.com/&#34;&gt;知乎&lt;/a&gt;是我经常去的网站。&lt;/p&gt;
+&lt;h3 id=&#34;3-3-自动短链接&#34;&gt;3.3.自动短链接&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&amp;lt;http://example.com/&amp;gt;
+&amp;lt;address@example.com&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;a href=&#34;http://example.com/&#34;&gt;http://example.com/&lt;/a&gt;
+&lt;a href=&#34;mailto:address@example.com&#34;&gt;address@example.com&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;4-锚点&#34;&gt;4.锚点&lt;/h2&gt;
+&lt;p&gt;网页中，锚点其实就是页内超链接，也就是链接本文档内部的某些元素，实现当前页面中的跳转。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&amp;lt;span id=&amp;#34;jump&amp;gt;锚点&amp;lt;/span&amp;gt;
+[文字](#jump)&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;例：&lt;a href=&#34;#jump&#34;&gt;跳转到开头&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;5-列表&#34;&gt;5.列表&lt;/h2&gt;
+&lt;h3 id=&#34;5-1-无序列表&#34;&gt;5.1.无序列表&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;* 无序列表一
+* 无序列表二
+* 无序列表三
+- 无序列表一
+- 无序列表二
+- 无序列表三
++ 无序列表一
++ 无序列表二
++ 无序列表三&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;(ps:注意符号后面有空格)&lt;/em&gt;
+* 无序列表项一
+* 无序列表项二
+* 无序列表项三&lt;/p&gt;
+&lt;h3 id=&#34;5-2-有序列表&#34;&gt;5.2.有序列表&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;1. 有序列表一
+2. 有序列表二
+3. 有序列表三&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;(ps:注意符号后面有空格)&lt;/em&gt;
+1. 有序列表项 一
+2. 有序列表项 二
+3. 有序列表项 三&lt;/p&gt;
+&lt;h3 id=&#34;5-3-定义型列表&#34;&gt;5.3.定义型列表&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;Markdown
+: 轻量级文本标记语言，可以转换成html，pdf等格式。&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;(ps:冒号后面跟的是tab或者四个空格)&lt;/em&gt;&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;Markdown&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;轻量级文本标记语言，可以转换成html，pdf等格式。&lt;/p&gt;
+&lt;h3 id=&#34;5-4-列表缩进&#34;&gt;5.4.列表缩进&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;轻轻的我走了， 正如我轻轻的来； 我轻轻的招手， 作别西天的云彩。
+那河畔的金柳， 是夕阳中的新娘； 波光里的艳影， 在我的心头荡漾。
+软泥上的青荇， 油油的在水底招摇； 在康河的柔波里， 我甘心做一条水草！&lt;/li&gt;
+&lt;li&gt;那榆荫下的一潭， 不是清泉， 是天上虹； 揉碎在浮藻间， 沉淀着彩虹似的梦。
+寻梦？撑一支长篙， 向青草更青处漫溯； 满载一船星辉， 在星辉斑斓里放歌。
+但我不能放歌， 悄悄是别离的笙箫； 夏虫也为我沉默， 沉默是今晚的康桥！
+悄悄的我走了， 正如我悄悄的来； 我挥一挥衣袖， 不带走一片云彩。&lt;/li&gt;
+&lt;/ul&gt;&lt;/dd&gt;
+&lt;dd&gt;&lt;p&gt;轻轻的我走了， 正如我轻轻的来； 我轻轻的招手， 作别西天的云彩。
+那河畔的金柳， 是夕阳中的新娘； 波光里的艳影， 在我的心头荡漾。
+软泥上的青荇， 油油的在水底招摇； 在康河的柔波里， 我甘心做一条水草！&lt;/p&gt;&lt;/dd&gt;
+&lt;dd&gt;&lt;p&gt;那榆荫下的一潭， 不是清泉， 是天上虹； 揉碎在浮藻间， 沉淀着彩虹似的梦。
+寻梦？撑一支长篙， 向青草更青处漫溯； 满载一船星辉， 在星辉斑斓里放歌。
+但我不能放歌， 悄悄是别离的笙箫； 夏虫也为我沉默， 沉默是今晚的康桥！
+悄悄的我走了， 正如我悄悄的来； 我挥一挥衣袖， 不带走一片云彩。&lt;/p&gt;&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;&lt;em&gt;(ps:可以偷懒,markdown允许不用每行手动缩进)&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&#34;5-5-包含引用的列表&#34;&gt;5.5.包含引用的列表&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;* 阅读的方法:
+&amp;gt; 打开书本。
+&amp;gt; 打开电灯。&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;阅读的方法:
+&amp;gt; 打开书本。
+&amp;gt; 打开电灯。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;(ps:&amp;gt;前面有tab)&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&#34;5-6-特殊情况处理&#34;&gt;5.6.特殊情况处理&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;1986. What a great season.&lt;/code&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;What a great season.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;时间被识别成列表，只需要
+&lt;code&gt;1986\. What a great season.&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;1986.What a great season.&lt;/p&gt;
+&lt;h2 id=&#34;6-引用&#34;&gt;6.引用&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&amp;gt;这是第一段引用
+&amp;gt;这是第二段引用
+&amp;gt;这是第三段引用&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这是第一段引用
+这是第二段引用
+这是第三段引用&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;也可以偷懒&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&amp;gt;这是第一段引用
+这是第二段引用
+这是第三段引用&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这是第一段引用
+这是第二段引用
+这是第三段引用&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;6-1-引用的多层嵌套&#34;&gt;6.1.引用的多层嵌套&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&amp;gt;&amp;gt;&amp;gt; 请问 Markdwon 怎么用？ - 小白
+&amp;gt;&amp;gt;
+&amp;gt;&amp;gt; 自己看教程！ - 愤青
+&amp;gt;
+&amp;gt; 教程在哪？ - 小白&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;请问 Markdwon 怎么用？ - 小白&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;自己看教程！ - 愤青&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;教程在哪？ - 小白&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;6-2-引用其他要素&#34;&gt;6.2.引用其他要素&lt;/h3&gt;
+&lt;p&gt;引用的区块内也可以使用其他的 Markdown 语法，包括标题、列表、代码区块等。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&amp;gt; 1. 这是列表项第一行。
+&amp;gt; 2. 这是列表项第二行。
+&amp;gt;
+&amp;gt; 给出一些例子代码：
+&amp;gt;
+&amp;gt; return shell_exec(&amp;#34;echo $input | $markdown_script&amp;#34;);&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;这是列表项第一行。&lt;/li&gt;
+&lt;li&gt;这是列表项第二行。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;给出一些例子代码：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;return shell_exec(&amp;quot;echo $input | $markdown_script&amp;quot;);&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;7-插入图片&#34;&gt;7.插入图片&lt;/h2&gt;
+&lt;h3 id=&#34;7-1-行内式&#34;&gt;7.1.行内式&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;![图片alt](图片地址 “图片Title”)
+例:![惠惠](https://.jpg &amp;#34;惠惠&amp;#34;)&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;7-2-参考式&#34;&gt;7.2.参考式&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;![图片Alt][标记]
+[标记]:图片地址 “Title”
+例:![惠惠][boom]
+[boom]:图片地址&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;例：&lt;img src=&#34;https://.jpg&#34; alt=&#34;惠惠&#34; title=&#34;惠惠&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;8-内容目录&#34;&gt;8.内容目录&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;直接加[TOC]&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;(PS:在vscode原生预览、hexo均无效，在vscode插件中有效。)&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;9-脚注&#34;&gt;9.脚注&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;需要添加注脚的文字后加上脚注名字[^脚注名字]
+然后在在文本的任意位置(一般在最后)添加脚注。
+[^脚注名字]:到底是脚注还是注脚。&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;需要添加注脚的文字后加上脚注名字&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;
+&lt;em&gt;(ps:注意：脚注与脚注之间必须空一行，不然会失效。)&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;10-latex公式&#34;&gt;10.Latex公式&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;$行内公式$
+$$整行公式1$$
+$$整行公式2&amp;amp;&amp;amp;
+例：质能守恒方程可以用一个很简洁的方程式 $E=mc^2$ 来表达。
+$$\sum_{i=1}^n a_i=0$$
+$$f(x_1,x_x,\ldots,x_n) = x_1^2 + x_2^2 + \cdots + x_n^2 $$
+$$\sum^{j-1}_{k=0}{\widehat{\gamma}_{kj} z_k}$$&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;例：质能守恒方程可以用一个很简洁的方程式 $E=mc^2$ 来表达。
+$$\sum_{i=1}^n a_i=0$$
+$$f(x_1,x_x,\ldots,x_n) = x_1^2 + x_2^2 + \cdots + x&lt;em&gt;n^2$$
+$$\sum^{j-1}&lt;/em&gt;{k=0}{\widehat{\gamma}_{kj} z_k}$$&lt;/p&gt;
+&lt;h2 id=&#34;11-流程图&#34;&gt;11.流程图&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;st=&amp;gt;start: Start
+e=&amp;gt;end: End
+op1=&amp;gt;operation: My Operation
+sub1=&amp;gt;subroutine: My Subroutine
+cond=&amp;gt;condition: Yes or No?
+io=&amp;gt;inputoutput: catch something...&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;(ps:vscode和hexo似乎不只)&lt;/p&gt;
+&lt;h2 id=&#34;12-表格&#34;&gt;12.表格&lt;/h2&gt;
+&lt;p&gt;语法说明：
+　　1. 不管是哪种方式，第一行为表头，第二行分隔表头和主体部分，第三行开始每一行为一个表格行。
+　　2. 列于列之间用管道符|隔开。原生方式的表格每一行的两边也要有管道符。
+　　3. 第二行还可以为不同的列指定对齐方向。默认为左对齐，在-右边加上:就右对齐。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;原生写法
+|学号|姓名|分数|
+|-|-|-|
+|小明|男|75|
+|小红|女|79|
+|小陆|男|92|
+省略写法
+学号|姓名|分数
+-|-|-
+小明|男|75
+小红|女|79
+小陆|男|92
+第二列右对齐
+学号|姓名|分数
+-|-:|-
+小明|男|75
+小红|女|79
+小陆|男|92&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;|学号|姓名|分数|
+|-|-|-|
+|小明|男|75|
+|小红|女|79|
+|小陆|男|92|&lt;/p&gt;
+&lt;p&gt;学号|姓名|分数
+-|-|-
+小明|男|75
+小红|女|79
+小陆|男|92&lt;/p&gt;
+&lt;p&gt;学号|姓名|分数
+-|-:|-
+小明|男|75
+小红|女|79
+小陆|男|92&lt;/p&gt;
+&lt;h2 id=&#34;13-分隔线&#34;&gt;13.分隔线&lt;/h2&gt;
+&lt;p&gt;在一行中用三个以上的星号、减号、底线来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;***
+___
+*****
+- - -&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr /&gt;
+&lt;h2 id=&#34;14-代码&#34;&gt;14.代码&lt;/h2&gt;
+&lt;h3 id=&#34;14-1行内式&#34;&gt;14.1行内式&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;`代码`
+例：C语言里的函数 `scanf()` 怎么使用？&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;C语言里的函数 &lt;code&gt;scanf()&lt;/code&gt; 怎么使用？&lt;/p&gt;
+&lt;h3 id=&#34;14-2-缩进式&#34;&gt;14.2.缩进式&lt;/h3&gt;
+&lt;p&gt;缩进 4 个空格或是 1 个制表符
+一个代码区块会一直持续到没有缩进的那一行（或是文件结尾）。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt; #include &amp;lt;stdio.h&amp;gt;
+int main(void)
+{
+printf(&amp;#34;Hello world\n&amp;#34;);
+}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;注意： 缩进式插入前方必须有空行&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;#include &amp;lt;stdio.h&amp;gt;
+int main(void)
+{
+printf(&amp;#34;Hello world\n&amp;#34;);
+}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;14-3-用六个-包裹多行代码&#34;&gt;14.3.用六个`包裹多行代码&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;```
+#include &amp;lt;stdio.h&amp;gt;
+int main(void)
+{
+printf(&amp;#34;Hello world\n&amp;#34;);
+}
+```&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;实际显示效果&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;#include &amp;lt;stdio.h&amp;gt;
+int main(void)
+{
+printf(&amp;#34;Hello world\n&amp;#34;);
+}&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;14-4-html原始码&#34;&gt;14.4.HTML原始码&lt;/h3&gt;
+&lt;p&gt;在代码区块里面，&amp;amp;、&amp;lt;和&amp;gt;会自动转成HTML实体
+HTML原始码，只需要复制贴上，剩下的Markdown都会帮你处理&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&amp;lt;/div&amp;gt;
+&amp;lt;table&amp;gt;
+&amp;lt;tr&amp;gt;
+&amp;lt;th rowspan=&amp;#34;2&amp;#34;&amp;gt;值班人员&amp;lt;/th&amp;gt;
+&amp;lt;th&amp;gt;星期一&amp;lt;/th&amp;gt;
+&amp;lt;th&amp;gt;星期二&amp;lt;/th&amp;gt;
+&amp;lt;th&amp;gt;星期三&amp;lt;/th&amp;gt;
+&amp;lt;/tr&amp;gt;
+&amp;lt;tr&amp;gt;
+&amp;lt;td&amp;gt;李强&amp;lt;/td&amp;gt;
+&amp;lt;td&amp;gt;张明&amp;lt;/td&amp;gt;
+&amp;lt;td&amp;gt;王平&amp;lt;/td&amp;gt;
+&amp;lt;/tr&amp;gt;
+&amp;lt;/table&amp;gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;th rowspan=&#34;2&#34;&gt;值班人员&lt;/th&gt;
+&lt;th&gt;星期一&lt;/th&gt;
+&lt;th&gt;星期二&lt;/th&gt;
+&lt;th&gt;星期三&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;李强&lt;/td&gt;
+&lt;td&gt;张明&lt;/td&gt;
+&lt;td&gt;王平&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;到底是脚注还是注脚。
+&lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</description></item></channel></rss>

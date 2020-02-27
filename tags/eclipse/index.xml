@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>eclipse on 羽的天空</title><link>/tags/eclipse/</link><description>Recent content in eclipse on 羽的天空</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 21 Dec 2019 00:00:00 +0000</lastBuildDate><atom:link href="/tags/eclipse/index.xml" rel="self" type="application/rss+xml"/><item><title>解决eclipse未自动补全问题的记录</title><link>/post/2019-12-21-eclipse%E8%A7%A3%E5%86%B3%E6%9C%AA%E8%87%AA%E5%8A%A8%E6%8F%90%E7%A4%BA%E8%AE%B0%E5%BD%95/</link><pubDate>Sat, 21 Dec 2019 00:00:00 +0000</pubDate><guid>/post/2019-12-21-eclipse%E8%A7%A3%E5%86%B3%E6%9C%AA%E8%87%AA%E5%8A%A8%E6%8F%90%E7%A4%BA%E8%AE%B0%E5%BD%95/</guid><description>&lt;h1 id=&#34;解决eclipse未自动补全问题的记录&#34;&gt;解决eclipse未自动补全问题的记录&lt;/h1&gt;
+&lt;p&gt;参考方法:&lt;a href=&#34;https://blog.csdn.net/weixin_41741743/article/details/82814954&#34;&gt;https://blog.csdn.net/weixin_41741743/article/details/82814954&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;教训:学习编程不要用中文版&lt;/p&gt;
+&lt;h2 id=&#34;一&#34;&gt;一:&lt;/h2&gt;
+&lt;p&gt;windows→preferences→java→editor→content assist→advanced→勾选Java Prolosals→选中Template Proposals→保存退出&lt;/p&gt;
+&lt;p&gt;注意:发现重新打开会有丢失这一配置现象.&lt;/p&gt;</description></item></channel></rss>
