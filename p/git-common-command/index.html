@@ -1,0 +1,468 @@
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Git Git 常用命令 仓库 # 在当前目录新建一个Git代码库 $ git init # 新建一个目录，将其初始化为Git代码库 $ git init [project-name] # 下载一个项目和它的整个代码历史 $ git clone"><title>Git常用命令</title><link rel=canonical href=/p/git-common-command/><link rel=stylesheet href=/scss/style.min.1f0f58443f137a9611210a8414bf1771613698017f91ca552f466664e5e8b99a.css><meta property="og:title" content="Git常用命令"><meta property="og:description" content="Git Git 常用命令 仓库 # 在当前目录新建一个Git代码库 $ git init # 新建一个目录，将其初始化为Git代码库 $ git init [project-name] # 下载一个项目和它的整个代码历史 $ git clone"><meta property="og:url" content="/p/git-common-command/"><meta property="og:site_name" content="Jqtmviyu's Blog"><meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:published_time" content="2022-01-04T14:15:26+08:00"><meta property="article:modified_time" content="2022-01-04T14:15:26+08:00"><meta name=twitter:title content="Git常用命令"><meta name=twitter:description content="Git Git 常用命令 仓库 # 在当前目录新建一个Git代码库 $ git init # 新建一个目录，将其初始化为Git代码库 $ git init [project-name] # 下载一个项目和它的整个代码历史 $ git clone"><link rel="shortcut icon" href=/wing.png></head><body class="article-page has-toc"><script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script><div class="container main-container flex
+extended"><div id=article-toolbar><a href=/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg><span>Back</span></a></div><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/git/>git</a></header><h2 class=article-title><a href=/p/git-common-command/>Git常用命令</a></h2><footer class=article-time><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg><time class=article-time--published>2022/Jan/04</time></div><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg><time class=article-time--reading>12 minute read</time></div></footer></div></header><section class=article-content><h1 id=git>Git</h1><h2 id=git-常用命令>Git 常用命令</h2><h3 id=仓库>仓库</h3><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 在当前目录新建一个Git代码库</span>
+$ git init
+
+<span class=c1># 新建一个目录，将其初始化为Git代码库</span>
+$ git init <span class=o>[</span>project-name<span class=o>]</span>
+
+<span class=c1># 下载一个项目和它的整个代码历史</span>
+$ git clone <span class=o>[</span>url<span class=o>]</span>
+<span class=c1># 下载指定分支</span>
+$ git clone -b <span class=o>[</span>branchName<span class=o>]</span> <span class=o>[</span>url<span class=o>]</span>
+</code></pre></div><h3 id=配置>配置</h3><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 显示当前的Git配置</span>
+$ git config --list
+
+<span class=c1># 编辑Git配置文件</span>
+$ git config -e <span class=o>[</span>--global<span class=o>]</span>
+
+<span class=c1># 设置提交代码时的用户信息</span>
+$ git config <span class=o>[</span>--global<span class=o>]</span> user.name <span class=s2>&#34;[name]&#34;</span>
+$ git config <span class=o>[</span>--global<span class=o>]</span> user.email <span class=s2>&#34;[email address]&#34;</span>
+</code></pre></div><h3 id=增加删除文件>增加/删除文件</h3><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 添加指定文件到暂存区</span>
+$ git add <span class=o>[</span>file1<span class=o>]</span> <span class=o>[</span>file2<span class=o>]</span> ...
+
+<span class=c1># 添加指定目录到暂存区，包括子目录</span>
+$ git add <span class=o>[</span>dir<span class=o>]</span>
+
+<span class=c1># 添加当前目录的所有文件到暂存区</span>
+$ git add .
+
+<span class=c1># 添加每个变化前，都会要求确认</span>
+<span class=c1># 对于同一个文件的多处变化，可以实现分次提交</span>
+$ git add -p
+
+<span class=c1># 删除工作区文件，并且将这次删除放入暂存区</span>
+$ git rm <span class=o>[</span>file1<span class=o>]</span> <span class=o>[</span>file2<span class=o>]</span> ...
+
+<span class=c1># 停止追踪指定文件，但该文件会保留在工作区</span>
+$ git rm --cached <span class=o>[</span>file<span class=o>]</span>
+
+<span class=c1># 改名文件，并且将这个改名放入暂存区</span>
+$ git mv <span class=o>[</span>file-original<span class=o>]</span> <span class=o>[</span>file-renamed<span class=o>]</span>
+</code></pre></div><h3 id=代码提交>代码提交</h3><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 提交暂存区到仓库区</span>
+$ git commit -m <span class=o>[</span>message<span class=o>]</span>
+
+<span class=c1># 提交暂存区的指定文件到仓库区</span>
+$ git commit <span class=o>[</span>file1<span class=o>]</span> <span class=o>[</span>file2<span class=o>]</span> ... -m <span class=o>[</span>message<span class=o>]</span>
+
+<span class=c1># 提交工作区自上次commit之后的变化，直接到仓库区</span>
+$ git commit -a
+
+<span class=c1># 提交时显示所有diff信息</span>
+$ git commit -v
+
+<span class=c1># 使用一次新的commit，替代上一次提交</span>
+<span class=c1># 如果代码没有任何新变化，则用来改写上一次commit的提交信息</span>
+$ git commit --amend
+<span class=c1># 或者</span>
+$ git commit --amend -m <span class=o>[</span>message<span class=o>]</span>
+
+<span class=c1># 重做上一次commit，并包括指定文件的新变化</span>
+$ git commit --amend <span class=o>[</span>file1<span class=o>]</span> <span class=o>[</span>file2<span class=o>]</span> ...
+</code></pre></div><h3 id=分支>分支</h3><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 列出所有本地分支</span>
+$ git branch
+
+<span class=c1># 列出所有远程分支</span>
+$ git branch -r
+
+<span class=c1># 列出所有本地分支和远程分支</span>
+$ git branch -a
+
+<span class=c1># 新建一个分支，但依然停留在当前分支</span>
+$ git branch <span class=o>[</span>branch-name<span class=o>]</span>
+
+<span class=c1># 新建一个分支，并切换到该分支</span>
+$ git checkout -b <span class=o>[</span>branch<span class=o>]</span>
+$ git checkout -b dev origin/dev <span class=c1># 新建分支dev并切换到该分支, 链接到远程dev分支</span>
+
+<span class=c1>#　让分支指向另一个提交</span>
+git branch main HEAD~3 <span class=c1># 让main分支指向head的前第3个提交</span>
+<span class=c1># 或者</span>
+git branch -f main HEAD~3   <span class=c1># -f表示强制</span>
+
+<span class=c1># 新建一个分支，指向指定commit</span>
+$ git branch <span class=o>[</span>branch<span class=o>]</span> <span class=o>[</span>commit<span class=o>]</span>
+
+<span class=c1># 新建一个分支，与指定的远程分支建立追踪关系</span>
+$ git branch --track <span class=o>[</span>branch<span class=o>]</span> <span class=o>[</span>remote-branch<span class=o>]</span>
+
+<span class=c1># 切换到指定分支，并更新工作区</span>
+$ git checkout <span class=o>[</span>branch-name<span class=o>]</span>
+
+<span class=c1># 切换到上一个分支</span>
+$ git checkout -
+
+<span class=c1># 建立追踪关系，在现有分支与指定的远程分支之间</span>
+$ git branch --set-upstream <span class=o>[</span>branch<span class=o>]</span> <span class=o>[</span>remote-branch<span class=o>]</span>
+<span class=c1># 或者</span>
+$ git branch -u o/master local-branch <span class=c1># 简写</span>
+<span class=c1>#  这样 local-branch 就会跟踪 o/master 了。如果当前就在 local-branch 分支上, 还可以省略 local-branch</span>
+$ git branch -u o/master 
+
+<span class=c1># 合并指定分支到当前分支</span>
+$ git merge <span class=o>[</span>branch<span class=o>]</span>   <span class=c1># (不推荐)</span>
+$ git merge --no-ff 要合并的分支 <span class=o>(</span>推荐, 不使用快速合并, 提交历史更加清晰, 不容易出错<span class=o>)</span>
+
+<span class=c1># git 分支合并到主分支时，去掉分支的冗余提交。即，将分支的多次提交一次性合并到主分支上。</span>
+$ git checkout master  <span class=c1># 切换到主分支</span>
+$ git merge --squash dev  <span class=c1># 一次性合并分支的多次提交</span>
+$ git commit -m <span class=s1>&#39;xxx版&#39;</span>  <span class=c1># 将刚‘合并的提交’提交到主分支master</span>
+
+<span class=c1># 选择一个commit，拷贝分支合并进当前分支, 比如把dev的c2和c4拷贝为c2&#39;, c4&#39;, 加到到main分支后面</span>
+$ git cherry-pick <span class=o>[</span>commit<span class=o>]</span>
+
+<span class=c1># 删除分支</span>
+$ git branch -d <span class=o>[</span>branch-name<span class=o>]</span>
+
+<span class=c1># 删除远程分支</span>
+$ git push origin --delete <span class=o>[</span>branch-name<span class=o>]</span>
+$ git branch -dr <span class=o>[</span>remote/branch<span class=o>]</span>
+
+<span class=c1># 查看本地分支和哪个远程分支对应</span>
+git branch -vv
+</code></pre></div><h3 id=标签>标签</h3><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 列出所有tag</span>
+$ git tag
+
+<span class=c1># 新建一个tag在当前commit</span>
+$ git tag <span class=o>[</span>tag<span class=o>]</span>
+<span class=c1># 详细编辑提交内容</span>
+$ git tag <span class=o>[</span>tag<span class=o>]</span> -a
+
+<span class=c1># 新建一个tag在指定commit</span>
+$ git tag <span class=o>[</span>tag<span class=o>]</span> <span class=o>[</span>commit<span class=o>]</span>
+
+<span class=c1># 删除本地tag</span>
+$ git tag -d <span class=o>[</span>tag<span class=o>]</span>
+
+<span class=c1># 删除远程tag</span>
+$ git push origin :refs/tags/<span class=o>[</span>tagName<span class=o>]</span>
+<span class=c1># 或者</span>
+$ git push origin --delete <span class=o>[</span>tagName<span class=o>]</span>
+
+<span class=c1># 查看tag信息</span>
+$ git show <span class=o>[</span>tag<span class=o>]</span>
+
+<span class=c1># 提交指定tag</span>
+$ git push <span class=o>[</span>remote<span class=o>]</span> <span class=o>[</span>tag<span class=o>]</span>
+
+<span class=c1># 提交所有tag</span>
+$ git push <span class=o>[</span>remote<span class=o>]</span> --tags
+
+<span class=c1># 新建一个分支，指向某个tag</span>
+$ git checkout -b <span class=o>[</span>branch<span class=o>]</span> <span class=o>[</span>tag<span class=o>]</span>
+
+<span class=c1># 拉取分支上现有的tags</span>
+$ git fetch --tags
+</code></pre></div><h3 id=查看信息>查看信息</h3><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 显示有变更的文件</span>
+$ git status
+
+<span class=c1># 显示当前分支的版本历史</span>
+$ git log
+
+<span class=c1># 只显示提交</span>
+$ git log --oneline
+
+<span class=c1># 提交树</span>
+$ git log --oneline --graph
+
+<span class=c1># 显示commit历史，以及每次commit发生变更的文件</span>
+$ git log --stat
+
+<span class=c1># 搜索提交历史，根据关键词</span>
+$ git log -S <span class=o>[</span>keyword<span class=o>]</span>
+
+<span class=c1># 显示某个commit之后的所有变动，每个commit占据一行</span>
+$ git log <span class=o>[</span>tag<span class=o>]</span> HEAD --pretty<span class=o>=</span>format:%s
+
+<span class=c1># 显示某个commit之后的所有变动，其&#34;提交说明&#34;必须符合搜索条件</span>
+$ git log <span class=o>[</span>tag<span class=o>]</span> HEAD --grep feature
+
+<span class=c1># 显示某个文件的版本历史，包括文件改名</span>
+$ git log --follow <span class=o>[</span>file<span class=o>]</span>
+$ git whatchanged <span class=o>[</span>file<span class=o>]</span>
+
+<span class=c1># 显示指定文件相关的每一次diff</span>
+$ git log -p <span class=o>[</span>file<span class=o>]</span>
+
+<span class=c1># 显示过去5次提交</span>
+$ git log -5 --pretty --oneline
+
+<span class=c1># 显示所有提交过的用户，按提交次数排序</span>
+$ git shortlog -sn
+
+<span class=c1># 显示指定文件是什么人在什么时间修改过</span>
+$ git blame <span class=o>[</span>file<span class=o>]</span>
+
+<span class=c1># 显示暂存区和工作区的差异</span>
+$ git diff
+
+<span class=c1># 显示暂存区和上一个commit的差异</span>
+$ git diff --cached <span class=o>[</span>file<span class=o>]</span>
+
+<span class=c1># 显示工作区与当前分支最新commit之间的差异</span>
+$ git diff HEAD
+
+<span class=c1># 显示两次提交之间的差异</span>
+$ git diff <span class=o>[</span>first-branch<span class=o>]</span>...<span class=o>[</span>second-branch<span class=o>]</span>
+
+<span class=c1># 本地与远程的差集 :（显示远程有而本地没有的commit信息</span>
+git log local_branch..origin/remote_branch
+
+<span class=c1># 统计文件的改动</span>
+git diff --stat dev origin/master
+
+<span class=c1># 显示今天你写了多少行代码</span>
+$ git diff --shortstat <span class=s2>&#34;@{0 day ago}&#34;</span>
+
+<span class=c1># 显示某次提交的元数据和内容变化</span>
+$ git show <span class=o>[</span>commit<span class=o>]</span>
+
+<span class=c1># 显示某次提交发生变化的文件</span>
+$ git show --name-only <span class=o>[</span>commit<span class=o>]</span>
+
+<span class=c1># 显示某次提交时，某个文件的内容</span>
+$ git show <span class=o>[</span>commit<span class=o>]</span>:<span class=o>[</span>filename<span class=o>]</span>
+
+<span class=c1># 显示当前分支的最近几次提交和回退</span>
+$ git reflog
+<span class=c1># 就算是被硬重置了也能看到已丢失的记录</span>
+</code></pre></div><h3 id=远程同步>远程同步</h3><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 下载远程仓库的所有变动</span>
+$ git fetch <span class=o>[</span>remote<span class=o>]</span>
+<span class=c1># 所有远程仓库</span>
+$ git fetch -a
+
+<span class=c1># 显示所有远程仓库</span>
+$ git remote -v
+
+<span class=c1># 显示某个远程仓库的信息</span>
+$ git remote show <span class=o>[</span>remote<span class=o>]</span>
+
+<span class=c1># 增加一个新的远程仓库，并命名</span>
+$ git remote add <span class=o>[</span>shortname<span class=o>]</span> <span class=o>[</span>url<span class=o>]</span>
+
+<span class=c1># 取回远程仓库的变化，并与本地分支合并</span>
+$ git pull <span class=o>[</span>remote<span class=o>]</span> <span class=o>[</span>branch<span class=o>]</span>
+
+<span class=c1># 上传本地指定分支到远程仓库</span>
+$ git push <span class=o>[</span>remote<span class=o>]</span> <span class=o>[</span>branch<span class=o>]</span>
+
+<span class=c1># 强行推送当前分支到远程仓库，即使有冲突</span>
+$ git push <span class=o>[</span>remote<span class=o>]</span> --force
+$ git push <span class=o>[</span>remote<span class=o>]</span> -f
+
+<span class=c1># 推送所有分支到远程仓库</span>
+$ git push <span class=o>[</span>remote<span class=o>]</span> --all
+</code></pre></div><h3 id=撤销>撤销</h3><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 恢复暂存区的指定文件到工作区</span>
+$ git checkout <span class=o>[</span>file<span class=o>]</span>
+
+<span class=c1># 恢复某个commit的指定文件到暂存区和工作区</span>
+$ git checkout <span class=o>[</span>commit<span class=o>]</span> <span class=o>[</span>file<span class=o>]</span>
+
+<span class=c1># 恢复暂存区的所有文件到工作区</span>
+$ git checkout .
+
+<span class=c1># 将在工作空间但是不在暂存区的文件撤销更改</span>
+git restore &lt;file&gt;
+
+<span class=c1># 将暂存区的文件从暂存区撤出，但不会更改文件</span>
+git restore --staged &lt;file&gt;
+
+<span class=c1># 重置暂存区的指定文件，与上一次commit保持一致，但工作区不变</span>
+$ git reset <span class=o>[</span>file<span class=o>]</span>
+
+<span class=c1># 重置暂存区与工作区，与上一次commit保持一致 --hard危险操作</span>
+$ git reset --hard
+
+<span class=c1># 重置当前分支的指针为指定commit，同时重置暂存区，但工作区不变</span>
+$ git reset <span class=o>[</span>commit<span class=o>]</span>
+
+<span class=c1># 重置当前分支的HEAD为指定commit，同时重置暂存区和工作区，与指定commit一致</span>
+$ git reset --hard <span class=o>[</span>commit<span class=o>]</span>
+
+<span class=c1># 未push时, 撤销上次commit</span>
+git reset --soft HEAD^
+--soft
+<span class=c1># 不删除工作空间的改动代码 ，撤销commit，不撤销git add file</span>
+--hard
+<span class=c1># 删除工作空间的改动代码，撤销commit且撤销add</span>
+
+<span class=c1># 改注释</span>
+<span class=c1># 另外一点，如果commit注释写错了，先要改一下注释</span>
+git commit --amend
+<span class=c1># 这时候会进入vim编辑器，修改完成你要的注释后保存即可。</span>
+<span class=c1># 或者上次提交少了一点，改错了一点， 把少的add, 把错的改正， 再git commit --amend -m</span>
+
+<span class=c1># 重置当前HEAD为指定commit，但保持暂存区和工作区不变</span>
+$ git reset --keep <span class=o>[</span>commit<span class=o>]</span>
+
+<span class=c1># 新建一个commit，用来撤销指定commit</span>
+<span class=c1># 后者的所有变化都将被前者抵消，并且应用到当前分支</span>
+$ git revert <span class=o>[</span>commit<span class=o>]</span>
+<span class=c1># 例如：假设当前提交是c2, 上一次提交是c1, 执行 git revert HEAD，会新增一个提交c2&#39;， 提交的状态和c1一样， 用处就是可以把这次变化推到远程分支上，其他开发者也能看到</span>
+<span class=c1># 而git reset是local的，退了就退了，其他人看不到， 还有想退到上次，要多加^, revert用</span>
+
+</code></pre></div><h3 id=代码暂存>代码暂存</h3><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=c1>#  执行存储时，添加备注，方便查找，只有git stash 也要可以的，但查找时不方便识别</span>
+$ git stash save <span class=s2>&#34;save message&#34;</span>
+
+<span class=c1># 查看stash了哪些存储</span>
+$ git stash list
+
+<span class=c1># 显示做了哪些改动，默认show第一个存储,如果要显示其他存贮，后面加stash@{$num}，比如第二个 git stash show stash@{1}</span>
+$ git stash show
+
+<span class=c1># 显示第一个存储的改动，如果想显示其他存存储，命令：git stash show  stash@{$num}  -p ，比如第二个：git stash show  stash@{1}  -p</span>
+$ git stash show -p
+
+<span class=c1># 应用某个存储,但不会把存储从存储列表中删除, 默认使用第一个存储,即stash@{0}</span>
+$ git stash apply
+
+<span class=c1># 命令恢复之前缓存的工作目录，将缓存堆栈中的对应stash删除, 默认为第一个stash,即stash@{0}</span>
+$ git stash pop
+
+<span class=c1># 丢弃stash@{$num}存储，从列表中删除这个存储</span>
+$ git stash drop stash@<span class=o>{</span><span class=nv>$num</span><span class=o>}</span>
+
+<span class=c1># 删除所有缓存的stash</span>
+$ git stash clear
+
+<span class=c1># 暂时将未提交的变化移除，稍后再移入</span>
+$ git stash
+$ git stash pop
+</code></pre></div><h2 id=其他>其他</h2><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 生成一个可供发布的压缩包</span>
+$ git archive
+</code></pre></div><h3 id=分支管理>分支管理</h3><p><a href=https://www.ruanyifeng.com/blog/2012/07/git.html>https://www.ruanyifeng.com/blog/2012/07/git.html</a></p><h3 id=git-branch-进入编辑状态httpswwwcnblogscomwzndkjp10711393html><a class=link href=https://www.cnblogs.com/wzndkj/p/10711393.html target=_blank rel=noopener>git branch 进入编辑状态</a></h3><p>命令行输入git branch，发现进入编辑状态，都要:wq，非常不方便，这样配置</p><p><code>git config --global core.pager ''</code></p><h3 id=测试能否联通>测试能否联通:</h3><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>$ ssh -T git@192.168.10.40
+</code></pre></div><h3 id=git中全局忽略ds_store文件>Git中全局忽略.DS_Store文件</h3><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>$ git config --global core.excludesfile ~/.gitignore
+$ <span class=nb>echo</span> .DS_Store &gt;&gt; ~/.gitignore
+</code></pre></div><h3 id=git-tag>git tag</h3><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 问题场景：</span>
+<span class=c1># 同事A在本地创建tagA并push同步到了远程-&gt;同事B在本地拉取了远程tagA(git fetch)-&gt;同事A工作需要将远程标签tagA删除-&gt;同事B用git fetch同步远端信息，git tag后发现本地仍然记录有tagA</span>
+
+<span class=c1># 分析：对于远程repository中已经删除了的tag，即使使用git fetch --prune，甚至&#34;git fetch --tags&#34;确保下载所有tags，也不会让其在本地也将其删除的。而且，似乎git目前也没有提供一个直接的命令和参数选项可以删除本地的在远程已经不存在的tag（我目前是没找到有关这类tag问题的git命令~~，有知道的同学可以告知我下，互相进步）。</span>
+<span class=c1># 解决方法：</span>
+
+$ git tag -l <span class=p>|</span> xargs git tag -d <span class=c1>#删除所有本地分支</span>
+$ git fetch origin --prune <span class=c1>#从远程拉取所有信息</span>
+$ git branch --contains Tag_V1.0.0 <span class=c1># 看看本地哪个分支包含这个tag/commit</span>
+
+<span class=c1>#查询远程tags的命令如下：</span>
+$ git ls-remote --tags origin
+
+<span class=c1># tag常用git命令：</span>
+$ git tag <span class=c1>#列出所有tag</span>
+$ git tag -l v1.* <span class=c1>#列出符合条件的tag（筛选作用）</span>
+$ git tag <span class=o>[</span>tag名<span class=o>]</span> <span class=c1>#创建轻量tag（无-m标注信息）</span>
+$ git tag -a <span class=o>[</span>tag名<span class=o>]</span> <span class=c1>#创建含注解的tag</span>
+
+$ git push origin --tags <span class=c1>#推送所有本地tag到远程</span>
+$ git push origin <span class=o>[</span>本地tag名<span class=o>]</span> <span class=c1>#推送指定本地tag到远程</span>
+
+$ git tag -d <span class=o>[</span>本地tag名<span class=o>]</span> <span class=c1>#删除本地指定tag</span>
+$ git push origin :refs/tags/<span class=o>[</span>远程tag名<span class=o>]</span> <span class=c1>#删除远程指定tag</span>
+
+$ git fetch origin <span class=o>[</span>远程tag名<span class=o>]</span> <span class=c1>#拉取远程指定tag</span>
+$ git show <span class=o>[</span>tag名<span class=o>]</span> <span class=c1>#显示指定tag详细信息</span>
+</code></pre></div><h3 id=rebase-变基>rebase 变基</h3><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>$ git rebase -i HEAD~4  
+<span class=c1># 弹出一个vim, 可以让你修改4次提交的前后顺序或者删除, 会把修改后的复制一份添加到修改的起始节点, 原来的就丢了 , 后面的4是表示距离HEAD最近的4次</span>
+<span class=c1>## 如果这里不用 HEAD~4, 而是用id, 那么就得用倒数第5次提交后生成的id, 因为是倒数第5次提交后的那个节点开始操作的</span>
+
+<span class=c1># pick：保留该commit（缩写:p）</span>
+<span class=c1># reword：保留该commit，但我需要修改该commit的注释（缩写:r）</span>
+<span class=c1># edit：保留该commit, 但我要停下来修改该提交(不仅仅修改注释)（缩写:e）</span>
+<span class=c1># squash：将该commit和前一个commit合并（缩写:s）</span>
+<span class=c1># fixup：将该commit和前一个commit合并，但我不要保留该提交的注释信息（缩写:f）</span>
+<span class=c1># exec：执行shell命令（缩写:x）</span>
+<span class=c1># drop：我要丢弃该commit（缩写:d）</span>
+
+<span class=c1># 比如有四次提交</span>
+pick xxxxxx  倒数第四次提交的注释
+pick xxxxxx  倒数第三次提交的注释
+pick xxxxxx  倒数第二次提交的注释
+pick xxxxxx  最后提交的注释
+<span class=c1># 现在四次提交要合并成一次 , 并且改注释</span>
+r xxxxxx  倒数第四次提交的注释
+f xxxxxx  倒数第三次提交的注释
+f xxxxxx  倒数第二次提交的注释
+f xxxxxx  最后提交的注释
+<span class=c1># ctrl + c 退出, Y, 回车 , 进入编辑注释界面</span>
+<span class=c1># 编辑要保存的注释</span>
+
+<span class=c1># 在bigFix上找bug加了一堆调试代码, 提交了多次, 现在找到了, 解决了, 想合并到主分支上, 但不想合并那些加了调试代码的提交, 只想合并解决问题的那次提交</span>
+$ git rebase -i <span class=c1># 先变基</span>
+$ git cherry-pick bugfix
+</code></pre></div><p><a href=https://www.cnblogs.com/code-xu/p/14262963.html>https://www.cnblogs.com/code-xu/p/14262963.html</a></p><p><a href=https://www.cnblogs.com/xueweihan/p/5743327.html>https://www.cnblogs.com/xueweihan/p/5743327.html</a></p><h3 id=删除远程分支上的所有commit>删除远程分支上的所有commit</h3><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 创建孤立分支，并切换到该分支：</span>
+$ git checkout --orphan latest_branch
+
+<span class=c1># 2. 暂存所有文件：</span>
+$ git add -A
+
+<span class=c1># 3. 提交所有更改：</span>
+$ git commit -am <span class=s2>&#34;First Commit&#34;</span>
+
+<span class=c1># 4. 删除主分支 master：</span>
+$ git branch -D master
+
+<span class=c1># 5. 重命名当前分支为 master：</span>
+git branch -m master
+
+<span class=c1># 6. 强制推送本地分支：</span>
+$ git push -f origin master
+</code></pre></div><h3 id=把本地分支换成原程分支>把本地分支换成原程分支</h3><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>$ git fetch -a
+$ git reset --hard origin/master <span class=c1># master指想换的分支</span>
+$ git pull
+</code></pre></div><h2 id=非快速合并>非快速合并</h2><ul><li><p>使用非快速合并的优势</p><blockquote><p>分支树更明显</p><p>版本回退时更明确</p></blockquote><p><img src=https://gitee.com/jiutianzhiyu/blogimagebed/raw/dev/分支树.jpg style=zoom:50%></p><p>设置使用<code>git merge --no-ff </code>合并分支</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># even create extra merge commit when fast forward merge would be possible</span>
+$ git config --global merge.ff <span class=nb>false</span>
+  
+<span class=c1># 因为git pull 默认为 git fetch + git merge</span>
+<span class=c1># 全局设置了no-ff, 会导致git pull 多一次merge local记录</span>
+<span class=c1># 设置 pull 时用ff, 或者用rebase, 可以避免这种情况</span>
+<span class=c1># 推荐使用 git pull --rebase</span>
+  
+<span class=c1># Disallows non ff merges on pull. Overrides merge.ff when pulling</span>
+<span class=c1># git config --global pull.ff only</span>
+</code></pre></div></li></ul><h2 id=git-pull---rebase>git pull &ndash;rebase</h2><ul><li><p>git pull &ndash;rebase的优势</p><blockquote><p>拉取远程分支到本地, 合并时把本地的提交放到最后, 保持提交曲线为直线, 易于理解</p></blockquote></li><li><p>默认git pull 和 git pull &ndash;rebase的区别</p><ol><li>远程分支origin上其他开发人员提交了 <code>D</code>, 自己本地分支提交了 <code>E</code></li></ol><p><img src=https://gitee.com/jiutianzhiyu/blogimagebed/raw/dev/20220104141037.png alt=image.png style=zoom:50%></p><ol start=2><li><strong>git pull</strong> : 把"origin"分支上的修改pull下来与本地提交合并（merge）成版本M，但这样会形成图中的菱形，让人很困惑。</li></ol><p><img src=https://gitee.com/jiutianzhiyu/blogimagebed/raw/dev/20220104141055.png alt=image.png style=zoom:50%></p><ol start=3><li><strong>git pull &ndash;rebase</strong> : 创建一个新的提交R，R的文件内容和上面M的一样，但将E提交废除，当它不存在（图中用虚线表示）。rebase的好处是避免了菱形的产生，保持提交曲线为直线，让大家易于理解。<br><img src=https://gitee.com/jiutianzhiyu/blogimagebed/raw/dev/20220104141104.png alt=image.png style=zoom:50%></li></ol></li><li><p>全局设置避免每次带参</p></li></ul><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># set up pull to rebase instead of merge</span>
+$ git config --global pull.rebase <span class=nb>true</span> 
+</code></pre></div><ul><li>解决冲突和git pull不同</li></ul><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 冲突</span>
+<span class=c1># 1. 手动解决冲突</span>
+<span class=c1># 2. </span>
+$ git add
+<span class=c1># 3. </span>
+$ git rebase --continue
+
+<span class=c1># 终止rebase, 分支会回到rebase开始前的状态</span>
+$ git rebase --abort
+</code></pre></div><h2 id=submodule-子模块>Submodule 子模块</h2><h3 id=新增>新增</h3><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>git submodule add git://github.com/josephj/javascript-platform-yui.git static/platform
+</code></pre></div><p>查看</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>git status
+<span class=c1># 发现只列出 submodule 目录而不是里面所有的文件</span>
+</code></pre></div><p>commit</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>git add .
+git commmit -m <span class=s1>&#39;git add submodule&#39;</span>
+</code></pre></div><p>init</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># init后.git/config会记录submodule</span>
+git submodule init 
+</code></pre></div><h3 id=更新>更新</h3><p>git pull 时不会自动更新模块, 必须手动更新</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 进入目录</span>
+<span class=nb>cd</span> static/platform
+git pull origin master
+<span class=c1># 和第一次添加一样, 并不会在status里显示模块里面的文件更新</span>
+<span class=c1># submodule的版本控制在于submodule git 的 commit id, 所以要提交这些更新记录</span>
+git add static/platform
+git commit -m <span class=s1>&#39;submodule update&#39;</span>
+</code></pre></div><p>更新所有的模块</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 必须先有.gitmodules文件</span>
+<span class=c1># 更新.gitmodules的人使用git submodule init</span>
+git submodule update
+</code></pre></div><h3 id=修改模块>修改模块</h3><ol><li>先进子模块里面正常修改提交</li><li>再到项目里提交</li></ol><h3 id=删除模块>删除模块</h3><ol><li>先删除目录</li></ol><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>git rm --cached <span class=o>[</span>欲移除的目錄<span class=o>]</span>
+rm -rf <span class=o>[</span>欲移除的目錄<span class=o>]</span>
+</code></pre></div><ol start=2><li><p>修改 .gitmodules</p></li><li><p>修改 .git/config</p></li><li><p>commit</p></li><li><p>安全起见再sync下</p></li></ol><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>git submodule sync
+</code></pre></div><h2 id=windows和linux下的换行符>windows和linux下的换行符</h2><p>推荐统一用<code>LF</code></p><ul><li><p>方案1： 增加 .gitattribute 文件</p><p>在 repo 目录下新建 <code>.gitattribute</code> 文件，内容为：</p><pre><code>* text eol=lf
+</code></pre></li><li><p>方案2： 修改 Git 配置</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># win系统</span>
+git config --global core.autocrlf <span class=nb>false</span>
+git config --global core.eol lf
+    
+<span class=c1># mac linu unix 系统</span>
+git config --global core.autocrlf input // 提交时把 CRLF 转换成 LF，签出时不转换
+git config --global core.safecrlf <span class=nb>true</span> // 不允许混用
+</code></pre></div><p>如果只需要修改当前仓库，去掉 <code>--global</code>。</p></li></ul><h3 id=直接把windows下的项目文件夹拷贝到mac下-如何把crlf全部替换成lf>直接把windows下的项目文件夹拷贝到mac下, 如何把crlf全部替换成lf</h3><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>git rm --cached -r .  <span class=c1># Remove every file from git&#39;s index.</span>
+git reset --hard      <span class=c1># Rewrite git&#39;s index to pick up all the new line endings.</span>
+</code></pre></div></section><footer class=article-footer><section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg><span>Licensed under CC BY-NC-SA 4.0</span></section></footer></article><aside class=related-contents--wrapper><h2 class=section-title>Related contents</h2><div class=related-contents><div class="flex article-list--tile"><article><a href=/p/delete-all-gitcommit/><div class=article-details><h2 class=article-title>git删除所有历史提交记录</h2></div></a></article><article><a href=/p/git-note/><div class=article-details><h2 class=article-title>git笔记</h2></div></a></article></div></div></aside><footer class=site-footer><section class=copyright>&copy;
+2021 -
+2022 Jqtmviyu's Blog</section><section class=powerby>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.6.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous></main><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#git-常用命令>Git 常用命令</a><ol><li><a href=#仓库>仓库</a></li><li><a href=#配置>配置</a></li><li><a href=#增加删除文件>增加/删除文件</a></li><li><a href=#代码提交>代码提交</a></li><li><a href=#分支>分支</a></li><li><a href=#标签>标签</a></li><li><a href=#查看信息>查看信息</a></li><li><a href=#远程同步>远程同步</a></li><li><a href=#撤销>撤销</a></li><li><a href=#代码暂存>代码暂存</a></li></ol></li><li><a href=#其他>其他</a><ol><li><a href=#分支管理>分支管理</a></li><li><a href=#git-branch-进入编辑状态httpswwwcnblogscomwzndkjp10711393html><a href=https://www.cnblogs.com/wzndkj/p/10711393.html>git branch 进入编辑状态</a></a></li><li><a href=#测试能否联通>测试能否联通:</a></li><li><a href=#git中全局忽略ds_store文件>Git中全局忽略.DS_Store文件</a></li><li><a href=#git-tag>git tag</a></li><li><a href=#rebase-变基>rebase 变基</a></li><li><a href=#删除远程分支上的所有commit>删除远程分支上的所有commit</a></li><li><a href=#把本地分支换成原程分支>把本地分支换成原程分支</a></li></ol></li><li><a href=#非快速合并>非快速合并</a></li><li><a href=#git-pull---rebase>git pull &ndash;rebase</a></li><li><a href=#submodule-子模块>Submodule 子模块</a><ol><li><a href=#新增>新增</a></li><li><a href=#更新>更新</a></li><li><a href=#修改模块>修改模块</a></li><li><a href=#删除模块>删除模块</a></li></ol></li><li><a href=#windows和linux下的换行符>windows和linux下的换行符</a><ol><li><a href=#直接把windows下的项目文件夹拷贝到mac下-如何把crlf全部替换成lf>直接把windows下的项目文件夹拷贝到mac下, 如何把crlf全部替换成lf</a></li></ol></li></ol></nav></div></section></aside></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script><script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script></body></html>
