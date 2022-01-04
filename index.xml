@@ -1,62 +1,855 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jqtmviyu's Blog</title><link>/</link><description>Recent content on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 28 Feb 2020 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>使用netlify部署hugo注意事项</title><link>/posts/202002/28.netlify-and-hugo/</link><pubDate>Fri, 28 Feb 2020 00:00:00 +0000</pubDate><guid>/posts/202002/28.netlify-and-hugo/</guid><description>登录Nextlify，用github账号授权登陆即可。 选择 “New site from Git”——“Github”——选择自己hugo博客源码对应的仓库——自动部署。 注：可以选择私人仓库，并且public可以配置.gitignore不用上传。 遇到的报错：
-Production: master@HEAD Failed failed during stage &amp;#39;building site&amp;#39;: Build script returned non-zero exit code: 255 遇事不觉谷人希，stackoverflow上找到类似答案，需要修改Netlify控制台的环境变量与实际Hugo版本一致。 官方说明
-技术问题千万别用百度，垃圾csdn。
-“setting”——“Build&amp;amp;deploy”——“Environment”——&amp;quot;Environment variables&amp;quot;——“Edit variables”，左边填“HUGO_VERSION”，右边填“v0.65.3”。
-注：版本号以实际hugo version获取为准。
-同时搜索到另一种解决方法，但未实际验证。 在网站根目录下新建netlify.toml的文件。
-[build] publish = &amp;#34;public&amp;#34; command = &amp;#34;hugo --gc --minify&amp;#34; [context.production.environment] HUGO_VERSION = &amp;#34;0.65.3&amp;#34; HUGO_ENV = &amp;#34;production&amp;#34; HUGO_ENABLEGITINFO = &amp;#34;true&amp;#34; [context.split1] command = &amp;#34;hugo --gc --minify --enableGitInfo&amp;#34; [context.split1.environment] HUGO_VERSION = &amp;#34;0.65.3&amp;#34; HUGO_ENV = &amp;#34;production&amp;#34; [context.</description></item><item><title>git删除所有历史提交记录</title><link>/posts/202002/27.delete-all-gitcommit/</link><pubDate>Thu, 27 Feb 2020 00:00:00 +0000</pubDate><guid>/posts/202002/27.delete-all-gitcommit/</guid><description>​ 在切换Hexo到Hugo的过程中，由于有很多误操作造成提交记录很难看，需要清空历史提交记录。
-切换到新的分支。
-git checkout --orphan latest_branch 缓存所有的文件（除了.gitignore中声明排除的）
-git add -A 提交跟踪过的文件。
-git commit -m &amp;#34;提交记录&amp;#34; 删除master分支。
-git branch -D master 重命名当前分支为master。
-git branch -m master 提交到远程master分支。
-git push -f origin master</description></item><item><title>解决eclipse未自动补全问题的记录</title><link>/posts/201912/21.eclipse-error/</link><pubDate>Sat, 21 Dec 2019 00:00:00 +0000</pubDate><guid>/posts/201912/21.eclipse-error/</guid><description>参考方法:https://blog.csdn.net/weixin_41741743/article/details/82814954
-教训:学习编程不要用中文版
-一: windows→preferences→java→editor→content assist→advanced→勾选Java Prolosals→选中Template Proposals→保存退出
-注意:发现重新打开会有丢失这一配置现象.
-二: windows→preferences→java→editor→content assist→Auto activation delay(ms)设置200→Auto activation triggers for Java设置.ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghigklmnopqrstuvwxya(注意前面的点不要丢)→保存退出
-三: windows →preferences→General→keys→Content asist→word completion快捷键删掉→Binding项改为“ALT+/”→When项选择成Editing Text→保存退出</description></item><item><title>git笔记</title><link>/posts/201711/13.git-note/</link><pubDate>Mon, 13 Nov 2017 00:00:00 +0000</pubDate><guid>/posts/201711/13.git-note/</guid><description>通过git int把目录变成Git可以管理的仓库。 所有的版本管理系统，其实只能跟踪文本文件的改动，比如txt、网页、程序代码等。 强烈建议使用标准的utf-8编码，不要用windows自带的记事本编辑任何文本，要用utf-8 without BOM。 一.创建版本库 1.1.创建空目录 mkdir 目录名 //新建目录 cd 目录名 pwd //显示当前目录路径 1.2.把目录变成Git可以管理的仓库 git init 会看到该目录下生成.git的目录
-1.3.把文件添加到仓库 git add &amp;lt;file&amp;gt; 可反复多次使用，添加多个文件
-1.4.把文件提交到仓库 git commit -m &amp;#34;xxx&amp;#34; -m &amp;ldquo;xxx&amp;quot;本次提交的说明，commit可以一次提交很多文件。
-二.时空穿梭 查看仓库当前状态
-git status
-查看具体修改内容
-git diff 要查看的文件
-diff就是difference的缩写。
-2.1.版本回退 2.1.1.命令查看提交日志 git log 退出按 Q 觉得输出信息太多，可以加参数
-git log --pretty=oneline 一大串xxxxxxxxxxx是commin id（版本号）。HEAD是当前版本；HEAD^是上一版本；HEAD^^是上上版本；上100版本，用HEAD~100。 查看文件版本
-cat 文件 2.1.2.版本回退 用git reset
-git reset --hard HEAD^ 回退到上一版本。同时会修改工作区的文件。</description></item><item><title>用Github Page 搭免费博客</title><link>/posts/201711/13.github-page-blog/</link><pubDate>Mon, 13 Nov 2017 00:00:00 +0000</pubDate><guid>/posts/201711/13.github-page-blog/</guid><description>用Github Page 搭免费博客 一.搭建hexo博客
-1.安装Node.js
-下载地址：传送门
-下载的文件是.msi后缀的，win10-x64-ltsb2016直接双击安装可能会出现2502、2503错误，在安装文件所在目录下，Shit+右键，在此处打开命令窗口，输入msiexec /i 文件名.msi ，就能成功安装。（如果还是无效，用管理员权限cmd）
-可以通过node -v命令来测试NodeJS是否安装成功。
-2.安装Git
-下载地址：传送门
-下载相应版本完成安装，可以通过git -version命令来测试git是否安装成功。
-3.注册Github账号
-准备好fq工具，注册时的usename用户名和邮箱很重要，因为默认的博客地址是https://usename.github.io/这种形式的，邮箱则关系到安全和通知。
-3.1添加SSH Key
-SSH Key是一个认证，让github识别绑定这台机器，允许这台机器提交。执行如下命令：
-cd ~/. ssh ~这个符号，表示在用户目录下 执行代码如果提示：No such file or directory 说明你是第一次使用git。
-新建新的SSH Key
-在Git Bash执行代码：
-ssh-keygen -t rsa -C &amp;#34;你的邮箱@gmail.com&amp;#34; 注意：此处的-C的是大写的。
-然后系统会要求你输入密码（密码在后面每次提交都需要输入，嫌麻烦可以直接两次回车不设置）：
-Enter passphrase (empty for no passphrase):&amp;lt;输入加密串&amp;gt; Enter same passphrase again:&amp;lt;再次输入加密串&amp;gt; 在回车中会提示你输入一个密码，这个密码会在你提交项目时使用，如果为空的话提交项目时则不用输入。这个设置是防止别人往你的项目里提交内容。
-输入密码的时候没有 * 字样的，你直接输入就可以了。 邮箱输错/密码忘记， &amp;mdash;待完善 2020-02-22尝试迁移hexo到hugo</description></item><item><title>vscode使用笔记</title><link>/posts/201711/08.vscode-setting/</link><pubDate>Wed, 08 Nov 2017 00:00:00 +0000</pubDate><guid>/posts/201711/08.vscode-setting/</guid><description>1.背景图 用户设置：
-// 背景图 &amp;quot;background.useDefault&amp;quot;: false, &amp;quot;background.customImages&amp;quot;: [ &amp;quot;file:///D:/Pictures/头图/1.png&amp;quot;, &amp;quot;file:///D:/Pictures/头图/2.png&amp;quot;, &amp;quot;file:///D:/Pictures/头图/3.png&amp;quot;] 图片整体大小用ps调整就可以了。</description></item><item><title>Markdown笔记</title><link>/posts/201710/30.markdown-note/</link><pubDate>Mon, 30 Oct 2017 00:00:00 +0000</pubDate><guid>/posts/201710/30.markdown-note/</guid><description>&amp;lt;span id=&amp;ldquo;jump&amp;gt;锚点 1.标题 # 一级标题&amp;lt;h1&amp;gt; ## 二级标题&amp;lt;h2&amp;gt; ### 三级标题〈h3&amp;gt; #### 四级标题&amp;lt;h4&amp;gt; ##### 五级标题&amp;lt;h5&amp;gt; 2.强调 *斜体的文字* _斜体的文字_ 斜体的文字
-**粗体的文字** __粗体的文字__ 粗体的文字
-*** 加粗斜体的文字*** 加粗斜体的文字
-~~删除线的文字~~ 删除线的文字
-这些~~符号~~*可以***组合** 这些符号可以组合
-3.超链接 Markdown 支持两种形式的链接语法： 行内式和参考式两种形式，行内式一般使用较多。
-3.1.行内式 [链接文字]（链接地址 &amp;#34;title可选&amp;#34;） ​ 例:
-[GitHub](http://github.com) [GitHub](http://github.com &amp;#34;这就是个提示&amp;#34;) 例: GitHub GitHub
-（ps:段首加空格，shift+space切换到全角，直接加空格）
-3.2.参考式 参考式多用在学术论文上，或者在文章中多处使用相同链接。
-​ [链接文字][链接标记] ​ [链接标记]:链接地址 &amp;#34;链接标题&amp;#34; 任意地方添加 如果链接文字可以当链接标记:
-​[链接文字][] [链接文字]: 链接文字 ​链接文字
-​ 例:[Github][1]、[Google][2]、[知乎][]是我经常去的网站。 [1]: http://github.com [2]: http://www.google.com [知乎]: https://www.zhihu.com/ 例:Github、Google、知乎是我经常去的网站。
-3.3.自动短链接 ​ &amp;lt;http://example.com/&amp;gt; ​ &amp;lt;address@example.</description></item><item><title>About Me</title><link>/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/about/</guid><description>待完善页面&amp;hellip;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jqtmviyu's Blog</title><link>/</link><description>Recent content on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 30 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>Markdown笔记</title><link>/p/markdown-note/</link><pubDate>Thu, 30 Dec 2021 00:00:00 +0000</pubDate><guid>/p/markdown-note/</guid><description>&lt;h1 id="markdown-笔记">markdown 笔记&lt;/h1>
+&lt;p>&lt;span id="jump">锚点&lt;/span>&lt;/p>
+&lt;h2 id="标题">标题&lt;/h2>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown"> # 一级标题&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">h1&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+## 二级标题&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">h2&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+### 三级标题&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">h3&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+#### 四级标题&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">h4&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+##### 五级标题&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">h5&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="强调">强调&lt;/h2>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown"> &lt;span class="ge">*斜体的文字*&lt;/span>
+&lt;span class="ge">_斜体的文字_&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;em>斜体的文字&lt;/em>&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown"> &lt;span class="gs">**粗体的文字**&lt;/span>
+&lt;span class="gs">__粗体的文字__&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>粗体的文字&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">***加粗斜体的文字***
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;em>&lt;strong>加粗斜体的文字&lt;/strong>&lt;/em>&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown"> &lt;span class="gd">~~删除线的文字~~&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;del>删除线的文字&lt;/del>&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">这些~~符号~~*可以***组合**
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>这些&lt;del>符号&lt;/del>&lt;em>可以&lt;/em>&lt;strong>组合&lt;/strong>&lt;/p>
+&lt;h2 id="超链接">超链接&lt;/h2>
+&lt;p>Markdown 支持两种形式的链接语法： &lt;strong>&lt;strong>&lt;strong>&lt;strong>行内式&lt;/strong>&lt;/strong>&lt;/strong>&lt;/strong>和&lt;strong>&lt;strong>&lt;strong>&lt;strong>参考式&lt;/strong>&lt;/strong>&lt;/strong>&lt;/strong>两种形式，行内式一般使用较多。&lt;/p>
+&lt;h3 id="行内式">行内式&lt;/h3>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">[&lt;span class="nt">链接文字&lt;/span>](&lt;span class="na">链接地址 &amp;#34;title可选&amp;#34;&lt;/span>)
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>例:&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">[&lt;span class="nt">GitHub&lt;/span>](&lt;span class="na">http://github.com&lt;/span>)
+[&lt;span class="nt">GitHub&lt;/span>](&lt;span class="na">http://github.com &amp;#34;这就是个提示&amp;#34;&lt;/span>)
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>例:
+&lt;a class="link" href="http://github.com" target="_blank" rel="noopener"
+>GitHub&lt;/a>
+&lt;a class="link" href="http://github.com" title="这就是个提示"
+target="_blank" rel="noopener"
+>GitHub&lt;/a>&lt;/p>
+&lt;p>&lt;strong>&lt;strong>（ps:段首加空格，shift+space切换到全角，直接加空格）&lt;/strong>&lt;/strong>&lt;/p>
+&lt;h3 id="参考式">参考式&lt;/h3>
+&lt;blockquote>
+&lt;p>参考式多用在学术论文上，或者在文章中多处使用相同链接。&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">[链接文字][链接标记]
+[链接标记]:链接地址 &amp;#34;链接标题&amp;#34; &lt;span class="sb">`任意地方添加`&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>如果链接文字可以当链接标记:&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">[链接文字][]
+[链接文字]: 链接文字
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a class="link" href="%e9%93%be%e6%8e%a5%e6%96%87%e5%ad%97" >链接文字&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">例:[Github][1]、[Google][2]、[知乎][]是我经常去的网站。
+[1]: http://github.com
+[2]: http://www.google.com
+[知乎]: https://www.zhihu.com/
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>例:&lt;a class="link" href="http://github.com" target="_blank" rel="noopener"
+>Github&lt;/a>、&lt;a class="link" href="http://www.google.com" target="_blank" rel="noopener"
+>Google&lt;/a>、&lt;a class="link" href="https://www.zhihu.com/" target="_blank" rel="noopener"
+>知乎&lt;/a>是我经常去的网站。&lt;/p>
+&lt;h3 id="自动短链接">自动短链接&lt;/h3>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">http:&lt;/span>&lt;span class="err">//&lt;/span>&lt;span class="na">example&lt;/span>&lt;span class="err">.&lt;/span>&lt;span class="na">com&lt;/span>&lt;span class="p">/&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">address&lt;/span>&lt;span class="err">@&lt;/span>&lt;span class="na">example&lt;/span>&lt;span class="err">.&lt;/span>&lt;span class="na">com&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="http://example.com/">http://example.com/&lt;/a>&lt;/p>
+&lt;p>&lt;a href="mailto:address@example.com">address@example.com&lt;/a>&lt;/p>
+&lt;h2 id="锚点">锚点&lt;/h2>
+&lt;p>网页中，锚点其实就是页内超链接，也就是链接本文档内部的某些元素，实现当前页面中的跳转。&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">span&lt;/span> &lt;span class="na">id&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;jump&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>锚点&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">span&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+[&lt;span class="nt">文字&lt;/span>](&lt;span class="na">#jump&lt;/span>)
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>例：&lt;a class="link" href="#jump" >跳转到开头&lt;/a> (ps: windows要按住ctrl, mac要按主cmd)&lt;/p>
+&lt;h2 id="列表">列表&lt;/h2>
+&lt;h3 id="无序列表">无序列表&lt;/h3>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="k">*&lt;/span> 无序列表一
+&lt;span class="k">*&lt;/span> 无序列表二
+&lt;span class="k">*&lt;/span> 无序列表三
+&lt;span class="k">-&lt;/span> 无序列表一
+&lt;span class="k">-&lt;/span> 无序列表二
+&lt;span class="k">-&lt;/span> 无序列表三
++ 无序列表一
++ 无序列表二
++ 无序列表三
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>无序列表一&lt;/li>
+&lt;li>无序列表二&lt;/li>
+&lt;li>无序列表三&lt;/li>
+&lt;/ul>
+&lt;ul>
+&lt;li>无序列表一&lt;/li>
+&lt;li>无序列表二&lt;/li>
+&lt;li>无序列表三&lt;/li>
+&lt;/ul>
+&lt;ul>
+&lt;li>无序列表一&lt;/li>
+&lt;li>无序列表二&lt;/li>
+&lt;li>无序列表三&lt;/li>
+&lt;/ul>
+&lt;h3 id="有序列表">有序列表&lt;/h3>
+&lt;pre>&lt;code>1. 有序列表一
+2. 有序列表二
+3. 有序列表三
+&lt;/code>&lt;/pre>
+&lt;p>(ps:注意符号后面有空格)&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>有序列表项 一&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>有序列表项 二&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>有序列表项 三&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h3 id="定义型列表">定义型列表&lt;/h3>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">定义型列表由名词和解释组成。一行写上定义，紧跟一行写上解释。解释的写法冒号紧跟一个缩进(Tab)
+&lt;/code>&lt;/pre>&lt;/div>&lt;dl>
+&lt;dt>Markdown&lt;/dt>
+&lt;dd>轻量级文本标记语言，可以转换成html，pdf等格式&lt;/dd>
+&lt;/dl>
+&lt;h3 id="列表缩进">列表缩进&lt;/h3>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="k">*&lt;/span> 轻轻的我走了， 正如我轻轻的来； 我轻轻的招手， 作别西天的云彩。
+那河畔的金柳， 是夕阳中的新娘； 波光里的艳影， 在我的心头荡漾。
+软泥上的青荇， 油油的在水底招摇； 在康河的柔波里， 我甘心做一条水草！
+那榆荫下的一潭， 不是清泉， 是天上虹； 揉碎在浮藻间， 沉淀着彩虹似的梦。
+&lt;span class="k">*&lt;/span> 寻梦？撑一支长篙， 向青草更青处漫溯； 满载一船星辉， 在星辉斑斓里放歌。
+但我不能放歌， 悄悄是别离的笙箫； 夏虫也为我沉默， 沉默是今晚的康桥！
+悄悄的我走了， 正如我悄悄的来； 我挥一挥衣袖， 不带走一片云彩。
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>
+&lt;p>轻轻的我走了， 正如我轻轻的来； 我轻轻的招手， 作别西天的云彩。&lt;/p>
+&lt;p>那河畔的金柳， 是夕阳中的新娘； 波光里的艳影， 在我的心头荡漾。&lt;/p>
+&lt;p>软泥上的青荇， 油油的在水底招摇； 在康河的柔波里， 我甘心做一条水草！&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>那榆荫下的一潭， 不是清泉， 是天上虹； 揉碎在浮藻间， 沉淀着彩虹似的梦。&lt;/p>
+&lt;p>寻梦？撑一支长篙， 向青草更青处漫溯； 满载一船星辉， 在星辉斑斓里放歌。&lt;/p>
+&lt;p>但我不能放歌， 悄悄是别离的笙箫； 夏虫也为我沉默， 沉默是今晚的康桥！&lt;/p>
+&lt;p>悄悄的我走了， 正如我悄悄的来； 我挥一挥衣袖， 不带走一片云彩。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="包含引用的列表">包含引用的列表&lt;/h3>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="k">*&lt;/span> 阅读的方法
+&lt;span class="k">
+&lt;/span>&lt;span class="k"> &amp;gt; &lt;/span>&lt;span class="ge">静下心
+&lt;/span>&lt;span class="ge">&lt;/span>&lt;span class="k"> &amp;gt; &lt;/span>&lt;span class="ge">打开书本
+&lt;/span>&lt;span class="ge">&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>
+&lt;p>阅读的方法&lt;/p>
+&lt;blockquote>
+&lt;p>静下心
+打开书本&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="引用">引用&lt;/h2>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="k">&amp;gt; &lt;/span>&lt;span class="ge">引用的内容
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>引用的内容&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="引用的多层嵌套">引用的多层嵌套&lt;/h3>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="k">&amp;gt; &lt;/span>&lt;span class="ge">第一层
+&lt;/span>&lt;span class="ge">&lt;/span>&lt;span class="k">&amp;gt; &lt;/span>&lt;span class="ge">&amp;gt; 第二层
+&lt;/span>&lt;span class="ge">&lt;/span>&lt;span class="k">&amp;gt; &lt;/span>&lt;span class="ge">&amp;gt; &amp;gt; 第三层
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>第一层&lt;/p>
+&lt;blockquote>
+&lt;p>第二层&lt;/p>
+&lt;blockquote>
+&lt;p>第三层&lt;/p>
+&lt;/blockquote>
+&lt;/blockquote>
+&lt;/blockquote>
+&lt;h3 id="引用块内的其他语法">引用块内的其他语法&lt;/h3>
+&lt;p>引用的区块内也可以使用其他的 Markdown 语法，包括标题、列表、代码区块等。&lt;/p>
+&lt;blockquote>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-js" data-lang="js">&lt;span class="kd">let&lt;/span> &lt;span class="nx">a&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="kc">null&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>加粗&lt;/strong>&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="插入图片">插入图片&lt;/h2>
+&lt;h3 id="行内式-1">行内式&lt;/h3>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">![&lt;span class="nt">alt&lt;/span>](&lt;span class="na">url&lt;/span>)
+ps: 为了让图片左对齐, 在前面加一个空格即可
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;figure
+>
+&lt;a href="https://gitee.com/jiutianzhiyu/blogimagebed/raw/dev/20210609151206.jpg" >
+&lt;img src="https://gitee.com/jiutianzhiyu/blogimagebed/raw/dev/20210609151206.jpg"
+loading="lazy"
+alt="图片alt">
+&lt;/a>
+&lt;figcaption>图片alt&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;h3 id="参考式-1">参考式&lt;/h3>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">![alt][标记]
+[标记]: 图片地址 &amp;#34;Title&amp;#34;
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;figure
+>
+&lt;a href="https://gitee.com/jiutianzhiyu/blogimagebed/raw/dev/20210609151206.jpg" >
+&lt;img src="https://gitee.com/jiutianzhiyu/blogimagebed/raw/dev/20210609151206.jpg"
+loading="lazy"
+alt="猫">
+&lt;/a>
+&lt;figcaption>猫&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;h2 id="目录">目录&lt;/h2>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">直接在文章头部加[TOP]
+ps:部分编辑器支持,部分不支持
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="脚注">脚注&lt;/h2>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">添加脚注的地方[^1]
+[^1]: 脚注的内容
+ps: 脚注和脚注之间应该空一行
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>添加脚注的地方&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/p>
+&lt;h2 id="表格">表格&lt;/h2>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">|学号|姓名|分数|
+|-|-|-|
+|小明|男|75|
+|小红|女|79|
+|小陆|男|92|
+&lt;/code>&lt;/pre>&lt;/div>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>学号&lt;/th>
+&lt;th>姓名&lt;/th>
+&lt;th>分数&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>小明&lt;/td>
+&lt;td>男&lt;/td>
+&lt;td>75&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>小红&lt;/td>
+&lt;td>女&lt;/td>
+&lt;td>79&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>小陆&lt;/td>
+&lt;td>男&lt;/td>
+&lt;td>92&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="省略写法">省略写法&lt;/h3>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">学号|姓名|分数
+-|-|-
+小明|男|75
+小红|女|79
+小陆|男|92
+&lt;/code>&lt;/pre>&lt;/div>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>学号&lt;/th>
+&lt;th>姓名&lt;/th>
+&lt;th>分数&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>小明&lt;/td>
+&lt;td>男&lt;/td>
+&lt;td>75&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>小红&lt;/td>
+&lt;td>女&lt;/td>
+&lt;td>79&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>小陆&lt;/td>
+&lt;td>男&lt;/td>
+&lt;td>92&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="对齐">对齐&lt;/h3>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">学号|姓名|分数
+:-|:-:|-:
+小明|男|75
+小红|女|79
+小陆|男|92
+ps: 第一列左对齐, 第二列居中, 第三列右对齐
+&lt;/code>&lt;/pre>&lt;/div>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">学号&lt;/th>
+&lt;th style="text-align:center">姓名&lt;/th>
+&lt;th style="text-align:right">分数&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">小明&lt;/td>
+&lt;td style="text-align:center">男&lt;/td>
+&lt;td style="text-align:right">75&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">小红&lt;/td>
+&lt;td style="text-align:center">女&lt;/td>
+&lt;td style="text-align:right">79&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">小陆&lt;/td>
+&lt;td style="text-align:center">男&lt;/td>
+&lt;td style="text-align:right">92&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="分隔线">分隔线&lt;/h2>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">***
+---
+___
+&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;hr>
+&lt;hr>
+&lt;h2 id="代码">代码&lt;/h2>
+&lt;h3 id="行内式-2">行内式&lt;/h3>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="sb">`代码`&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>test&lt;/code>&lt;/p>
+&lt;h3 id="代码块">代码块&lt;/h3>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">​```js
+let a = 1
+​```
+&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-js" data-lang="js">&lt;span class="kd">let&lt;/span> &lt;span class="nx">a&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">1&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="可展开的代码块">可展开的代码块&lt;/h3>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">details&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">summary&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>CLICK ME&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">summary&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">pre&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;&lt;/span>&lt;span class="nt">code&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>let a = 0
+return a
+&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">code&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;/&lt;/span>&lt;span class="nt">pre&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">details&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;details>
+&lt;summary>CLICK ME&lt;/summary>
+&lt;pre>&lt;code>let a = 0
+return a
+&lt;/code>&lt;/pre>
+&lt;/details>
+&lt;h2 id="html">HTML&lt;/h2>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">在代码区块里面，&lt;span class="err">&amp;amp;&lt;/span>、&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">和&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>会自动转成HTML实体
+HTML原始码，只需要复制贴上，剩下的Markdown都会帮你处理
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">table&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">tr&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">td&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>1&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">td&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">td&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>2&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">td&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">td&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>3&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">td&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">tr&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">tr&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">td&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>4&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">td&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">td&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>5&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">td&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">td&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>6&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">td&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">tr&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">table&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;table>
+&lt;tr>
+&lt;td>1&lt;/td>
+&lt;td>2&lt;/td>
+&lt;td>3&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>4&lt;/td>
+&lt;td>5&lt;/td>
+&lt;td>6&lt;/td>
+&lt;/tr>
+&lt;/table>
+&lt;section class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1" role="doc-endnote">
+&lt;p>脚注的内容 &lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/section></description></item><item><title>使用netlify部署hugo注意事项</title><link>/p/netlify-and-hugo/</link><pubDate>Fri, 28 Feb 2020 00:00:00 +0000</pubDate><guid>/p/netlify-and-hugo/</guid><description>&lt;ol>
+&lt;li>登录Nextlify，用github账号授权登陆即可。&lt;/li>
+&lt;li>选择&lt;code> “New site from Git”——“Github”——选择自己hugo博客源码对应的仓库——自动部署&lt;/code>。
+注：可以选择私人仓库，并且public可以配置.gitignore不用上传。&lt;/li>
+&lt;/ol>
+&lt;p>遇到的报错：&lt;/p>
+&lt;pre>&lt;code class="language-log" data-lang="log">Production: master@HEAD Failed
+failed during stage 'building site': Build script returned non-zero exit code: 255
+&lt;/code>&lt;/pre>&lt;pre>&lt;code>遇事不觉谷人希，stackoverflow上找到类似答案，需要修改Netlify控制台的环境变量与实际Hugo版本一致。
+&lt;/code>&lt;/pre>
+&lt;p>&lt;a class="link" href="https://gohugo.io/hosting-and-deployment/hosting-on-netlify/" target="_blank" rel="noopener"
+>官方说明&lt;/a>&lt;/p>
+&lt;p>技术问题千万别用百度，垃圾csdn。&lt;/p>
+&lt;p>&lt;code>“setting”——“Build&amp;amp;deploy”——“Environment”——&amp;quot;Environment variables&amp;quot;——“Edit variables”，左边填“HUGO_VERSION”，右边填“v0.65.3”&lt;/code>。&lt;/p>
+&lt;p>注：版本号以实际hugo version获取为准。&lt;/p>
+&lt;ol start="3">
+&lt;li>同时搜索到另一种解决方法，但未实际验证。&lt;/li>
+&lt;/ol>
+&lt;p>在网站根目录下新建&lt;code>netlify.toml&lt;/code>的文件。&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-toml" data-lang="toml">&lt;span class="p">[&lt;/span>&lt;span class="nx">build&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">publish&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;public&amp;#34;&lt;/span>
+&lt;span class="nx">command&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;hugo --gc --minify&amp;#34;&lt;/span>
+&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">production&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">environment&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">HUGO_VERSION&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;0.65.3&amp;#34;&lt;/span>
+&lt;span class="nx">HUGO_ENV&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;production&amp;#34;&lt;/span>
+&lt;span class="nx">HUGO_ENABLEGITINFO&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;true&amp;#34;&lt;/span>
+&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">split1&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">command&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;hugo --gc --minify --enableGitInfo&amp;#34;&lt;/span>
+&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">split1&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">environment&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">HUGO_VERSION&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;0.65.3&amp;#34;&lt;/span>
+&lt;span class="nx">HUGO_ENV&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;production&amp;#34;&lt;/span>
+&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">deploy&lt;/span>&lt;span class="err">-&lt;/span>&lt;span class="nx">preview&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">command&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL&amp;#34;&lt;/span>
+&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">deploy&lt;/span>&lt;span class="err">-&lt;/span>&lt;span class="nx">preview&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">environment&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">HUGO_VERSION&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;0.65.3&amp;#34;&lt;/span>
+&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">branch&lt;/span>&lt;span class="err">-&lt;/span>&lt;span class="nx">deploy&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">command&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;hugo --gc --minify -b $DEPLOY_PRIME_URL&amp;#34;&lt;/span>
+&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">branch&lt;/span>&lt;span class="err">-&lt;/span>&lt;span class="nx">deploy&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">environment&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">HUGO_VERSION&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;0.65.3&amp;#34;&lt;/span>
+&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">next&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">environment&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">HUGO_ENABLEGITINFO&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;true&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>git删除所有历史提交记录</title><link>/p/delete-all-gitcommit/</link><pubDate>Thu, 27 Feb 2020 00:00:00 +0000</pubDate><guid>/p/delete-all-gitcommit/</guid><description>&lt;p>​ 在切换Hexo到Hugo的过程中，由于有很多误操作造成提交记录很难看，需要清空历史提交记录。&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>切换到新的分支。&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git checkout --orphan latest_branch
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>缓存所有的文件（除了.gitignore中声明排除的）&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git add -A
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>提交跟踪过的文件。&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git commit -m &lt;span class="s2">&amp;#34;提交记录&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>删除master分支。&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git branch -D master
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>重命名当前分支为master。&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git branch -m master
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>提交到远程master分支。&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git push -f origin master
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ol></description></item><item><title>解决eclipse未自动补全问题的记录</title><link>/p/eclipse-error/</link><pubDate>Sat, 21 Dec 2019 00:00:00 +0000</pubDate><guid>/p/eclipse-error/</guid><description>&lt;p>参考方法:&lt;a class="link" href="https://blog.csdn.net/weixin_41741743/article/details/82814954" target="_blank" rel="noopener"
+>https://blog.csdn.net/weixin_41741743/article/details/82814954&lt;/a>&lt;/p>
+&lt;p>教训:学习编程不要用中文版&lt;/p>
+&lt;h2 id="一">一:&lt;/h2>
+&lt;p>windows→preferences→java→editor→content assist→advanced→勾选Java Prolosals→选中Template Proposals→保存退出&lt;/p>
+&lt;p>注意:发现重新打开会有丢失这一配置现象.&lt;/p>
+&lt;h2 id="二">二:&lt;/h2>
+&lt;p>windows→preferences→java→editor→content assist→Auto activation delay(ms)设置200→Auto activation triggers for Java设置.ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghigklmnopqrstuvwxya(注意前面的点不要丢)→保存退出&lt;/p>
+&lt;h2 id="三">三:&lt;/h2>
+&lt;p>windows →preferences→General→keys→Content asist→word completion快捷键删掉→Binding项改为“ALT+/”→When项选择成Editing Text→保存退出&lt;/p></description></item><item><title>git笔记</title><link>/p/git-note/</link><pubDate>Mon, 13 Nov 2017 00:00:00 +0000</pubDate><guid>/p/git-note/</guid><description>&lt;ul>
+&lt;li>通过&lt;code>git int&lt;/code>把目录变成Git可以管理的仓库。&lt;/li>
+&lt;li>所有的版本管理系统，其实只能跟踪文本文件的改动，比如txt、网页、程序代码等。&lt;/li>
+&lt;li>强烈建议使用标准的utf-8编码，不要用windows自带的记事本编辑任何文本，要用utf-8 without BOM。&lt;/li>
+&lt;/ul>
+&lt;h2 id="一创建版本库">一.创建版本库&lt;/h2>
+&lt;h3 id="11创建空目录">1.1.创建空目录&lt;/h3>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">mkdir 目录名 //新建目录
+&lt;span class="nb">cd&lt;/span> 目录名
+&lt;span class="nb">pwd&lt;/span> //显示当前目录路径
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="12把目录变成git可以管理的仓库">1.2.把目录变成Git可以管理的仓库&lt;/h3>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git init
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>会看到该目录下生成.git的目录&lt;/p>
+&lt;h3 id="13把文件添加到仓库">1.3.把文件添加到仓库&lt;/h3>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git add &amp;lt;file&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>可反复多次使用，添加多个文件&lt;/p>
+&lt;h3 id="14把文件提交到仓库">1.4.把文件提交到仓库&lt;/h3>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git commit -m &lt;span class="s2">&amp;#34;xxx&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>-m &amp;ldquo;xxx&amp;quot;本次提交的说明，commit可以一次提交很多文件。&lt;/p>
+&lt;h2 id="二时空穿梭">二.时空穿梭&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>查看仓库当前状态&lt;/p>
+&lt;p>git status&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>查看具体修改内容&lt;/p>
+&lt;p>git diff 要查看的文件&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>diff就是difference的缩写。&lt;/p>
+&lt;h3 id="21版本回退">2.1.版本回退&lt;/h3>
+&lt;h4 id="211命令查看提交日志">2.1.1.命令查看提交日志&lt;/h4>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git log
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>退出按 Q
+觉得输出信息太多，可以加参数&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git log --pretty&lt;span class="o">=&lt;/span>oneline
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>一大串&lt;code>xxxxxxxxxxx&lt;/code>是&lt;code>commin id（版本号）&lt;/code>。&lt;code>HEAD&lt;/code>是当前版本；&lt;code>HEAD^&lt;/code>是上一版本；&lt;code>HEAD^^&lt;/code>是上上版本；上100版本，用&lt;code>HEAD~100&lt;/code>。
+查看文件版本&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">cat 文件
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="212版本回退">2.1.2.版本回退&lt;/h4>
+&lt;p>用&lt;code>git reset&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git reset --hard HEAD^
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>回退到上一版本。同时会修改工作区的文件。&lt;/p>
+&lt;h4 id="213取消版本回退">2.1.3取消版本回退&lt;/h4>
+&lt;p>如果命令窗口还没关闭，往回拉，找到commit_id版本号：&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git reset --hard 版本号的前几位
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>如果命令窗口已经关了，查看命令历史，找到版本号：&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git reflog
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>（ps：git base 按两下tab会有命令提示）&lt;/p>
+&lt;h3 id="22工作区暂存区和master分支">2.2.工作区、暂存区和master分支&lt;/h3>
+&lt;p>&lt;figure
+>
+&lt;a href="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229044704.jpg" >
+&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229044704.jpg"
+loading="lazy"
+>
+&lt;/a>
+&lt;/figure>&lt;/p>
+&lt;p>&lt;figure
+>
+&lt;a href="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229045709.jpg" >
+&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229045709.jpg"
+loading="lazy"
+>
+&lt;/a>
+&lt;/figure>&lt;/p>
+&lt;p>一旦提交后，如果你又没有对工作区做任何修改，那么工作区就是“干净”的：&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ git status
+&lt;span class="c1"># On branch master&lt;/span>
+nothing to commit &lt;span class="o">(&lt;/span>working directory clean&lt;span class="o">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git diff HEAD -- 文件名 //注意：在 -- 前面和后面都有空格。
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>可以查看工作区和版本库最新版的区别。&lt;/p>
+&lt;h3 id="23撤销修改">2.3.撤销修改&lt;/h3>
+&lt;h4 id="231工作区">2.3.1.工作区&lt;/h4>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git checkout -- file
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>暂存区已提交，就回到暂存区状态；未提交暂存区，就回到版本库的状态。
+其中&lt;code>--&lt;/code>很重要。&lt;/p>
+&lt;h4 id="232暂存区">2.3.2.暂存区&lt;/h4>
+&lt;p>把暂存区撤销，放回工作区&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git reset HEAD file
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>然后把工作区撤销&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git checkout -- file
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="24删除文件">2.4.删除文件&lt;/h4>
+&lt;p>删除本地文件&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">rm file
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>删除版本库文件，并且提交&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git rm file
+git commit -m &lt;span class="s2">&amp;#34;xxx&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>如果是删错了，恢复到版本库&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git checkout -- file
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>git checkout&lt;/code>实际上是用版本库替换工作区，无论是修改还是删除，都可以还原。&lt;/p>
+&lt;h2 id="三远程仓库">三.远程仓库&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>创建ssh key&lt;/p>
+&lt;p>ssh-keygen -t rsa -C &amp;ldquo;&lt;a href="mailto:youremail@example.com">youremail@example.com&lt;/a>&amp;rdquo;&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>测试ssh&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">ssh -T git@github.com
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="31添加远程库">3.1.添加远程库&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>关联本地仓库&lt;/p>
+&lt;p>git remote add origin &lt;a href="mailto:git@github.com">git@github.com&lt;/a>:example/example&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>如果报错&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">fatal：remote origin already exists
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>只要先删除，再添加：&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ git remote rm origin
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>添加后，远程库的名字就是origin，这是Git默认的叫法，也可以改成别的，但是origin这个名字一看就知道是远程库。&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>把本地库的所有内容推送到远程库上：&lt;/p>
+&lt;p>git push -u origin master&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>把本地库的内容推送到远程，用git push命令，实际上是把当前分支master推送到远程。&lt;/p>
+&lt;p>由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。&lt;/p>
+&lt;p>从现在起，只要本地作了提交，就可以通过命令：&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git push origin master
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>3.2.从远程库克隆&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git clone git@github.com:example/example
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="四分支管理">四.分支管理&lt;/h2>
+&lt;h3 id="41创建与合并分支">4.1.创建与合并分支&lt;/h3>
+&lt;p>通过指针的变化&lt;/p>
+&lt;p>&lt;figure
+>
+&lt;a href="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229050738.png" >
+&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229050738.png"
+loading="lazy"
+>
+&lt;/a>
+&lt;/figure>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>首先，我们创建dev分支，然后切换到dev分支：&lt;/p>
+&lt;p>git checkout -b dev&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;figure
+>
+&lt;a href="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229050034.png" >
+&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229050034.png"
+loading="lazy"
+>
+&lt;/a>
+&lt;/figure>&lt;/p>
+&lt;p>git checkout命令加上-b参数表示创建并切换，相当于以下两条命令：&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ git branch dev
+$ git checkout dev
+Switched to branch &lt;span class="s1">&amp;#39;dev&amp;#39;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>
+&lt;p>用git branch命令查看当前分支,当前分支前面会标一个*号：&lt;/p>
+&lt;p>$ git branch&lt;br>
+*dev&lt;br>
+master&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>分支的提交&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;figure
+>
+&lt;a href="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229051056.png" >
+&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229051056.png"
+loading="lazy"
+>
+&lt;/a>
+&lt;/figure>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>切换回主分支&lt;/p>
+&lt;p>git checkout master&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;figure
+>
+&lt;a href="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229051225.png" >
+&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229051225.png"
+loading="lazy"
+>
+&lt;/a>
+&lt;/figure>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>把dev分支的工作成果合并到master分支上：&lt;/p>
+&lt;p>git merge dev&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>git merge命令是合并指定分支到&lt;strong>当前&lt;/strong>分支。&lt;/p>
+&lt;p>&lt;figure
+>
+&lt;a href="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229051818.png" >
+&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229051818.png"
+loading="lazy"
+>
+&lt;/a>
+&lt;/figure>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>删除dev分支&lt;/p>
+&lt;p>git branch -d dev&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;em>因为创建、合并和删除分支非常快，所以Git鼓励你使用分支完成某个任务，合并后再删掉分支，这和直接在master分支上工作效果是一样的，但过程更安全。&lt;/em>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>可以用git push origin :dev 删除远程分支dev。&lt;/p>
+&lt;h3 id="42解决冲突">4.2.解决冲突&lt;/h3>
+&lt;p>当两条分支对同一个文件的同一个文本块进行了不同的修改，并试图合并时，Git不能自动合并的，称之为冲突(conflict)。解决冲突需要人工处理。&lt;/p>
+&lt;p>dev分支和master分支有不同提交&lt;/p>
+&lt;p>&lt;figure
+>
+&lt;a href="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229051904.png" >
+&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229051904.png"
+loading="lazy"
+>
+&lt;/a>
+&lt;/figure>&lt;/p>
+&lt;p>这种情况下，Git无法执行“快速合并”，只能试图把各自的修改合并起来，但这种合并就可能会有冲突。&lt;/p>
+&lt;ul>
+&lt;li>git status也可以告诉我们冲突的文件,&amp;laquo;&amp;laquo;&amp;laquo;&amp;lt;，=======，&amp;raquo;&amp;raquo;&amp;raquo;&amp;gt;标记出不同分支的内容。&lt;/li>
+&lt;/ul>
+&lt;p>对于简单的合并，手工编辑，然后去掉这些标记，最后像往常的提交一样先add再commit即可。&lt;/p>
+&lt;p>&lt;figure
+>
+&lt;a href="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229051944.png" >
+&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229051944.png"
+loading="lazy"
+>
+&lt;/a>
+&lt;/figure>&lt;/p>
+&lt;ul>
+&lt;li>用git log &amp;ndash;graph命令可以看到分支合并图&lt;/li>
+&lt;/ul>
+&lt;ol>
+&lt;li>注意分支和分支并不是完完全全的平行.在切换分支前, 一定要在做出改动的分支将改动提交, 否则可能会将改动带到切换到的分支, 产生误会. 只要提前提交了, 改动就不会带过去。&lt;/li>
+&lt;li>其实多个分支是共用暂存区的，也就是说如果在分支1上仅add而不commit，实际暂存区中已经记录该次修改。哪怕后续切换到分支2上再进行commit也是有效的操作，只不过已经不是自己想要的处理。&lt;/li>
+&lt;li>合并如果没有冲突出现也就是自动合并成功, 则在当前分支中不需要add/commit提交合并后的内容, 因为实际上当前分支在合并成功后就指向了最近的commit(由做出改动的分支提交)。&lt;/li>
+&lt;/ol>
+&lt;h3 id="43分支管理策略">4.3.分支管理策略&lt;/h3>
+&lt;p>通常，合并分支时，如果可能，Git会用Fast forward模式，但这种模式下，删除分支后，会丢掉分支信息。&lt;/p>
+&lt;p>如果要强制禁用Fast forward模式，Git就会在merge时生成一个新的commit，这样，从分支历史上就可以看出分支信息。&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git merge --no-ff -m &lt;span class="s2">&amp;#34;描述&amp;#34;&lt;/span> dev
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>因为本次合并要创建一个新的commit，所以加上-m参数，把commit描述写进去。&lt;/p>
+&lt;p>查看分支历史&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git log --graph --pretty&lt;span class="o">=&lt;/span>oneline --abbrev-commit
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;figure
+>
+&lt;a href="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229052028.png" >
+&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229052028.png"
+loading="lazy"
+>
+&lt;/a>
+&lt;/figure>&lt;/p>
+&lt;p>&lt;figure
+>
+&lt;a href="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229052106.png" >
+&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229052106.png"
+loading="lazy"
+>
+&lt;/a>
+&lt;/figure>&lt;/p>
+&lt;p>在实际开发中，应该按照几个基本原则进行分支管理：&lt;/p>
+&lt;p>&lt;code>master&lt;/code>分支应该是非常稳定的，仅用来发布新版本，平时不在上面干活；&lt;/p>
+&lt;p>&lt;code>dev&lt;/code>分支是不稳定的，发布版本时，把&lt;code>dev&lt;/code>分支合并到&lt;code>master&lt;/code>上，发布1.0版本。&lt;/p>
+&lt;p>每个人都有自己的分支，时不时地往&lt;code>dev&lt;/code>上合并。&lt;/p>
+&lt;p>&lt;figure
+>
+&lt;a href="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229052221.png" >
+&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229052221.png"
+loading="lazy"
+>
+&lt;/a>
+&lt;/figure>&lt;/p>
+&lt;h3 id="44bug分支">4.4.Bug分支&lt;/h3>
+&lt;p>当前工作到一般还不能提交，但是又要修复bug添加bugfix分支，可以用&lt;code>stash&lt;/code>存储工作状态。&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ git stash
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>现在，用git status查看工作区，就是干净的（除非有没有被Git管理的文件），因此可以放心地创建分支来修复bug。&lt;/p>
+&lt;p>修完bug,回到原来分支，用&lt;code>git status list&lt;/code>查看存储状态。用&lt;code>git stash apply&lt;/code>恢复，&lt;code>git stash drop&lt;/code>清空。或者用&lt;code>git stash pop&lt;/code>一步完成。&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git stash pop
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="45feature分支">4.5.Feature分支&lt;/h3>
+&lt;p>添加实验性功能时，不希望乱七八遭的代码把主分支打乱，最好添加feature分支，在上面开发，完成后合并、删除。&lt;/p>
+&lt;h3 id="46多人协作">4.6.多人协作&lt;/h3>
+&lt;p>当你从远程仓库克隆时，实际上Git自动把本地的master分支和远程的master分支对应起来了，并且，远程仓库的默认名称是origin。&lt;/p>
+&lt;p>要查看远程库的信息，用git remote：&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git remote
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>或者，用git remote -v显示更详细的信息：&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git remote -v
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>并不是一定要把本地分支往远程推送，那么，哪些分支需要推送，哪些不需要呢？&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>master分支是主分支，因此要时刻与远程同步；&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>dev分支是开发分支，团队所有成员都需要在上面工作，所以也需要与远程同步；&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>bug分支只用于在本地修复bug，就没必要推到远程了，除非老板要看看你每周到底修复了几个bug；&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>feature分支是否推到远程，取决于你是否和你的小伙伴合作在上面开发。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>小伙伴要在dev分支上开发，就必须创建远程origin的dev分支到本地，于是他用这个命令创建本地dev分支：&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ git checkout -b dev origin/dev
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>现在，他就可以在dev上继续修改，然后，时不时地把dev分支push到远程。&lt;/p>
+&lt;p>小伙伴已经向origin/dev分支推送了他的提交，而碰巧你也对同样的文件作了修改，并试图推送，失败。&lt;/p>
+&lt;p>小伙伴的最新提交和你试图推送的提交有冲突，解决办法也很简单，Git已经提示我们，先用git pull把最新的提交从origin/dev抓下来，然后，在本地合并，解决冲突，再推送。&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git pull
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>git pull也失败了，原因是没有指定本地dev分支与远程origin/dev分支的链接，根据提示，先设置dev和origin/dev的链接，再pull：&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ git branch --set-upstream dev origin/dev
+$ git pull
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>多人协作的工作模式通常是这样：&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>首先，可以试图用git push origin branch-name推送自己的修改；&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>如果合并有冲突，则解决冲突，并在本地提交；&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>没有冲突或者解决掉冲突后，再用git push origin branch-name推送就能成功！&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>如果git pull提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，用命令git branch &amp;ndash;set-upstream branch-name origin/branch-name。&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>这就是多人协作的工作模式，一旦熟悉了，就非常简单。&lt;/p>
+&lt;h2 id="五标签管理">五.标签管理&lt;/h2>
+&lt;p>tag就是一个让人容易记住的有意义的名字，它跟某个commit绑在一起。&lt;/p>
+&lt;h3 id="51创建标签">5.1.创建标签&lt;/h3>
+&lt;p>切换到需要打标签的分支上：&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git branch
+git checkout master
+git tag v1.0
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>给master分支打上了v1.0的标签。&lt;/p>
+&lt;p>查看所有标签：&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git tag
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>以前的commit忘记打标签了，需要找到commit id：&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git log --pretty&lt;span class="o">=&lt;/span>oneline --abbrev-commit
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>找到id比如是xxx&lt;/p>
+&lt;p>打上标签&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git tag v0.9 xxx
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>注意，标签不是按时间顺序列出，而是按字母排序的。可以用git show &lt;tagname>查看标签信息：&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git show v0.9
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>还可以创建带有说明的标签，用-a指定标签名，-m指定说明文字&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git tag -a v0.1 -m &lt;span class="s2">&amp;#34;version 0.1 released&amp;#34;&lt;/span> xxxid
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>用命令git show &lt;tagname>可以看到说明文字：&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git show v0.1
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>还可以通过-s用私钥签名一个标签：&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git tag -s v0.2 -m &lt;span class="s2">&amp;#34;signed version 0.2 released&amp;#34;&lt;/span> xxxid
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>签名采用PGP签名，因此，必须首先安装gpg（GnuPG），如果没有找到gpg，或者没有gpg密钥对，就会报错。&lt;/p>
+&lt;h3 id="52操作标签">5.2.操作标签&lt;/h3>
+&lt;p>如果标签打错了要删除：&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git tag -d v0.1
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>因为创建的标签都只存储在本地，不会自动推送到远程。所以，打错的标签可以在本地安全删除。&lt;/p>
+&lt;p>如果要推送某个标签到远程，使用命令git push origin &lt;tagname>：&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git push origin v1.0
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>或者，一次性推送全部尚未推送到远程的本地标签：&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git push origin --tags
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>如果标签已经推送到远程，要删除远程标签就麻烦一点，先从本地删除：&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git tag -d v0.9
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>然后，从远程删除。&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git push origin :refs/tags/v0.9
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>要看看是否真的从远程库删除了标签，可以登陆GitHub查看。&lt;/p></description></item><item><title>用Github Page 搭免费博客</title><link>/p/github-page-blog/</link><pubDate>Mon, 13 Nov 2017 00:00:00 +0000</pubDate><guid>/p/github-page-blog/</guid><description>&lt;h2 id="用github-page-搭免费博客">用Github Page 搭免费博客&lt;/h2>
+&lt;p>一.搭建hexo博客&lt;/p>
+&lt;p>1.安装Node.js&lt;/p>
+&lt;p>下载地址：&lt;a class="link" href="https://nodejs.org/en/" target="_blank" rel="noopener"
+>传送门&lt;/a>&lt;/p>
+&lt;p>下载的文件是.msi后缀的，win10-x64-ltsb2016直接双击安装可能会出现2502、2503错误，在安装文件所在目录下，&lt;code>Shit+右键，在此处打开命令窗口&lt;/code>，输入&lt;code>msiexec /i 文件名.msi&lt;/code> ，就能成功安装。（如果还是无效，用管理员权限cmd）&lt;/p>
+&lt;p>可以通过node -v命令来测试NodeJS是否安装成功。&lt;/p>
+&lt;p>2.安装Git&lt;/p>
+&lt;p>下载地址：&lt;a class="link" href="https://git-scm.com/" target="_blank" rel="noopener"
+>传送门&lt;/a>&lt;/p>
+&lt;p>下载相应版本完成安装，可以通过git -version命令来测试git是否安装成功。&lt;/p>
+&lt;p>3.注册Github账号&lt;/p>
+&lt;p>准备好fq工具，注册时的usename用户名和邮箱很重要，因为默认的博客地址是https://usename.github.io/这种形式的，邮箱则关系到安全和通知。&lt;/p>
+&lt;p>3.1添加SSH Key&lt;/p>
+&lt;p>SSH Key是一个认证，让github识别绑定这台机器，允许这台机器提交。执行如下命令：&lt;/p>
+&lt;pre>&lt;code>cd ~/. ssh
+&lt;/code>&lt;/pre>&lt;p>~这个符号，表示在用户目录下
+执行代码如果提示：No such file or directory 说明你是第一次使用git。&lt;/p>
+&lt;p>新建新的SSH Key&lt;/p>
+&lt;p>在Git Bash执行代码：&lt;/p>
+&lt;pre>&lt;code>ssh-keygen -t rsa -C &amp;quot;你的邮箱@gmail.com&amp;quot;
+&lt;/code>&lt;/pre>&lt;p>注意：此处的&lt;code>-C&lt;/code>的是大写的。&lt;/p>
+&lt;p>然后系统会要求你输入密码（密码在后面每次提交都需要输入，嫌麻烦可以直接两次回车不设置）：&lt;/p>
+&lt;pre>&lt;code>Enter passphrase (empty for no passphrase):&amp;lt;输入加密串&amp;gt;
+Enter same passphrase again:&amp;lt;再次输入加密串&amp;gt;
+&lt;/code>&lt;/pre>&lt;p>在回车中会提示你输入一个密码，这个密码会在你提交项目时使用，如果为空的话提交项目时则不用输入。这个设置是防止别人往你的项目里提交内容。&lt;/p>
+&lt;ul>
+&lt;li>输入密码的时候没有 * 字样的，你直接输入就可以了。&lt;/li>
+&lt;li>邮箱输错/密码忘记，&lt;/li>
+&lt;/ul>
+&lt;p>&amp;mdash;待完善
+2020-02-22尝试迁移hexo到hugo&lt;/p></description></item><item><title>vscode使用笔记</title><link>/p/vscode-setting/</link><pubDate>Wed, 08 Nov 2017 00:00:00 +0000</pubDate><guid>/p/vscode-setting/</guid><description>&lt;h2 id="1背景图">1.背景图&lt;/h2>
+&lt;p>用户设置：&lt;/p>
+&lt;pre>&lt;code>// 背景图
+&amp;quot;background.useDefault&amp;quot;: false,
+&amp;quot;background.customImages&amp;quot;: [
+&amp;quot;file:///D:/Pictures/头图/1.png&amp;quot;,
+&amp;quot;file:///D:/Pictures/头图/2.png&amp;quot;,
+&amp;quot;file:///D:/Pictures/头图/3.png&amp;quot;]
+&lt;/code>&lt;/pre>
+&lt;p>图片整体大小用ps调整就可以了。&lt;/p></description></item></channel></rss>

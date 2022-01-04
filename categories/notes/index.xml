@@ -1,14 +1,1 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>notes on Jqtmviyu's Blog</title><link>/categories/notes/</link><description>Recent content in notes on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 30 Oct 2017 00:00:00 +0000</lastBuildDate><atom:link href="/categories/notes/index.xml" rel="self" type="application/rss+xml"/><item><title>Markdown笔记</title><link>/posts/201710/30.markdown-note/</link><pubDate>Mon, 30 Oct 2017 00:00:00 +0000</pubDate><guid>/posts/201710/30.markdown-note/</guid><description>&amp;lt;span id=&amp;ldquo;jump&amp;gt;锚点 1.标题 # 一级标题&amp;lt;h1&amp;gt; ## 二级标题&amp;lt;h2&amp;gt; ### 三级标题〈h3&amp;gt; #### 四级标题&amp;lt;h4&amp;gt; ##### 五级标题&amp;lt;h5&amp;gt; 2.强调 *斜体的文字* _斜体的文字_ 斜体的文字
-**粗体的文字** __粗体的文字__ 粗体的文字
-*** 加粗斜体的文字*** 加粗斜体的文字
-~~删除线的文字~~ 删除线的文字
-这些~~符号~~*可以***组合** 这些符号可以组合
-3.超链接 Markdown 支持两种形式的链接语法： 行内式和参考式两种形式，行内式一般使用较多。
-3.1.行内式 [链接文字]（链接地址 &amp;#34;title可选&amp;#34;） ​ 例:
-[GitHub](http://github.com) [GitHub](http://github.com &amp;#34;这就是个提示&amp;#34;) 例: GitHub GitHub
-（ps:段首加空格，shift+space切换到全角，直接加空格）
-3.2.参考式 参考式多用在学术论文上，或者在文章中多处使用相同链接。
-​ [链接文字][链接标记] ​ [链接标记]:链接地址 &amp;#34;链接标题&amp;#34; 任意地方添加 如果链接文字可以当链接标记:
-​[链接文字][] [链接文字]: 链接文字 ​链接文字
-​ 例:[Github][1]、[Google][2]、[知乎][]是我经常去的网站。 [1]: http://github.com [2]: http://www.google.com [知乎]: https://www.zhihu.com/ 例:Github、Google、知乎是我经常去的网站。
-3.3.自动短链接 ​ &amp;lt;http://example.com/&amp;gt; ​ &amp;lt;address@example.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>notes on Jqtmviyu's Blog</title><link>/categories/notes/</link><description>Recent content in notes on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 30 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/notes/index.xml" rel="self" type="application/rss+xml"/><item><title>Markdown笔记</title><link>/p/markdown-note/</link><pubDate>Thu, 30 Dec 2021 00:00:00 +0000</pubDate><guid>/p/markdown-note/</guid><description>markdown 笔记 锚点 标题 # 一级标题&amp;lt;h1&amp;gt; ## 二级标题&amp;lt;h2&amp;gt; ### 三级标题&amp;lt;h3&amp;gt; #### 四级标题&amp;lt;h4&amp;gt; ##### 五级</description></item></channel></rss>
