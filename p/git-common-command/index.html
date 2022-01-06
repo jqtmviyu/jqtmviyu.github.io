@@ -280,15 +280,17 @@ $ git reset <span class=o>[</span>commit<span class=o>]</span>
 $ git reset --hard <span class=o>[</span>commit<span class=o>]</span>
 
 <span class=c1># 未push时, 撤销上次commit</span>
-git reset --soft HEAD^
+$ git reset --soft HEAD^
 --soft
-<span class=c1># 不删除工作空间的改动代码 ，撤销commit，不撤销git add file</span>
+<span class=c1># 不删除工作空间的改动代码，撤销commit，撤销的commit会退到暂存区</span>
 --hard
-<span class=c1># 删除工作空间的改动代码，撤销commit且撤销add</span>
+<span class=c1># 清空工作区和暂存区，撤销commit</span>
+--mixed
+<span class=c1># 不删除工作空间的改动代码，撤销commit, 重置暂存区, 撤销的commit和暂存区会退到工作区</span>
 
 <span class=c1># 改注释</span>
 <span class=c1># 另外一点，如果commit注释写错了，先要改一下注释</span>
-git commit --amend
+$ git commit --amend
 <span class=c1># 这时候会进入vim编辑器，修改完成你要的注释后保存即可。</span>
 <span class=c1># 或者上次提交少了一点，改错了一点， 把少的add, 把错的改正， 再git commit --amend -m</span>
 
