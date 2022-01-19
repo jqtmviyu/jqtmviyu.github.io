@@ -76,9 +76,9 @@ $ git checkout -
 &lt;span class="c1"># 建立追踪关系，在现有分支与指定的远程分支之间&lt;/span>
 $ git branch --set-upstream &lt;span class="o">[&lt;/span>branch&lt;span class="o">]&lt;/span> &lt;span class="o">[&lt;/span>remote-branch&lt;span class="o">]&lt;/span>
 &lt;span class="c1"># 或者&lt;/span>
-$ git branch -u o/master local-branch &lt;span class="c1"># 简写&lt;/span>
-&lt;span class="c1"># 这样 local-branch 就会跟踪 o/master 了。如果当前就在 local-branch 分支上, 还可以省略 local-branch&lt;/span>
-$ git branch -u o/master
+$ git branch -u origin/master local-branch &lt;span class="c1"># 简写&lt;/span>
+&lt;span class="c1"># 这样 local-branch 就会跟踪 origin/master 了。如果当前就在 local-branch 分支上, 还可以省略 local-branch&lt;/span>
+$ git branch -u origin/master
 &lt;span class="c1"># 合并指定分支到当前分支&lt;/span>
 $ git merge &lt;span class="o">[&lt;/span>branch&lt;span class="o">]&lt;/span> &lt;span class="c1"># (不推荐)&lt;/span>
 $ git merge --no-ff 要合并的分支 &lt;span class="o">(&lt;/span>推荐, 不使用快速合并, 提交历史更加清晰, 不容易出错&lt;span class="o">)&lt;/span>
@@ -460,10 +460,16 @@ git config --global core.safecrlf &lt;span class="nb">true&lt;/span> // 不允�
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>如果只需要修改当前仓库，去掉 &lt;code>--global&lt;/code>。&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;h3 id="直接把windows下的项目文件夹拷贝到mac下-如何把crlf全部替换成lf">直接把windows下的项目文件夹拷贝到mac下, 如何把crlf全部替换成lf&lt;/h3>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git rm --cached -r . &lt;span class="c1"># Remove every file from git&amp;#39;s index.&lt;/span>
-git reset --hard &lt;span class="c1"># Rewrite git&amp;#39;s index to pick up all the new line endings.&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Markdown笔记</title><link>/p/markdown-note/</link><pubDate>Thu, 30 Dec 2021 00:00:00 +0000</pubDate><guid>/p/markdown-note/</guid><description>&lt;h1 id="markdown-笔记">markdown 笔记&lt;/h1>
+&lt;h3 id="macos批量转换crlf为lf">MacOs批量转换crlf为lf&lt;/h3>
+&lt;ol>
+&lt;li>
+&lt;p>安装&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">brew install dos2unix
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">find ./ -name &lt;span class="s2">&amp;#34;*&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> xargs dos2unix
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ol></description></item><item><title>Markdown笔记</title><link>/p/markdown-note/</link><pubDate>Thu, 30 Dec 2021 00:00:00 +0000</pubDate><guid>/p/markdown-note/</guid><description>&lt;h1 id="markdown-笔记">markdown 笔记&lt;/h1>
 &lt;p>&lt;span id="jump">锚点&lt;/span>&lt;/p>
 &lt;h2 id="标题">标题&lt;/h2>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown"> # 一级标题&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">h1&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
