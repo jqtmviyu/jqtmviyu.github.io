@@ -338,7 +338,7 @@ $ git pull
 &lt;p>分支树更明显&lt;/p>
 &lt;p>版本回退时更明确&lt;/p>
 &lt;/blockquote>
-&lt;p>&lt;img src="https://gitee.com/jiutianzhiyu/blogimagebed/raw/dev/分支树.jpg" style="zoom:50%;" />&lt;/p>
+&lt;p>&lt;img src="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/分支树.jpg" style="zoom:50%;" />&lt;/p>
 &lt;p>设置使用&lt;code>git merge --no-ff &lt;/code>合并分支&lt;/p>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># even create extra merge commit when fast forward merge would be possible&lt;/span>
 $ git config --global merge.ff &lt;span class="nb">false&lt;/span>
@@ -363,14 +363,14 @@ $ git config --global merge.ff &lt;span class="nb">false&lt;/span>
 &lt;ol>
 &lt;li>远程分支origin上其他开发人员提交了 &lt;code>D&lt;/code>, 自己本地分支提交了 &lt;code>E&lt;/code>&lt;/li>
 &lt;/ol>
-&lt;p>&lt;img src="https://gitee.com/jiutianzhiyu/blogimagebed/raw/dev/20220104141037.png" alt="image.png" style="zoom:50%;" />&lt;/p>
+&lt;p>&lt;img src="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20220104141037.png" alt="image.png" style="zoom:50%;" />&lt;/p>
 &lt;ol start="2">
 &lt;li>&lt;strong>git pull&lt;/strong> : 把&amp;quot;origin&amp;quot;分支上的修改pull下来与本地提交合并（merge）成版本M，但这样会形成图中的菱形，让人很困惑。&lt;/li>
 &lt;/ol>
-&lt;p>&lt;img src="https://gitee.com/jiutianzhiyu/blogimagebed/raw/dev/20220104141055.png" alt="image.png" style="zoom:50%;" />&lt;/p>
+&lt;p>&lt;img src="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20220104141055.png" alt="image.png" style="zoom:50%;" />&lt;/p>
 &lt;ol start="3">
 &lt;li>&lt;strong>git pull &amp;ndash;rebase&lt;/strong> : 创建一个新的提交R，R的文件内容和上面M的一样，但将E提交废除，当它不存在（图中用虚线表示）。rebase的好处是避免了菱形的产生，保持提交曲线为直线，让大家易于理解。&lt;br>
-&lt;img src="https://gitee.com/jiutianzhiyu/blogimagebed/raw/dev/20220104141104.png" alt="image.png" style="zoom:50%;" />&lt;/li>
+&lt;img src="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20220104141104.png" alt="image.png" style="zoom:50%;" />&lt;/li>
 &lt;/ol>
 &lt;/li>
 &lt;li>
@@ -647,8 +647,8 @@ target="_blank" rel="noopener"
 ps: 为了让图片左对齐, 在前面加一个空格即可
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;figure
 >
-&lt;a href="https://gitee.com/jiutianzhiyu/blogimagebed/raw/dev/20210609151206.jpg" >
-&lt;img src="https://gitee.com/jiutianzhiyu/blogimagebed/raw/dev/20210609151206.jpg"
+&lt;a href="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20210609151206.jpg" >
+&lt;img src="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20210609151206.jpg"
 loading="lazy"
 alt="图片alt">
 &lt;/a>
@@ -659,8 +659,8 @@ alt="图片alt">
 [标记]: 图片地址 &amp;#34;Title&amp;#34;
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;figure
 >
-&lt;a href="https://gitee.com/jiutianzhiyu/blogimagebed/raw/dev/20210609151206.jpg" >
-&lt;img src="https://gitee.com/jiutianzhiyu/blogimagebed/raw/dev/20210609151206.jpg"
+&lt;a href="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20210609151206.jpg" >
+&lt;img src="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20210609151206.jpg"
 loading="lazy"
 alt="猫">
 &lt;/a>
