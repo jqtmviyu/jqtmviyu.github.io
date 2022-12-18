@@ -1,0 +1,150 @@
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="n2n 参考: https://bugxia.com/2396.html https://www.jianshu.com/p/559c1e582724 服务器安装 centos # RPM安装 yum install libzstd -y wget https://github.com/ntop/n2n/releases/download/3.0/n2n-3.0.0-1038.x86_64.rpm rpm -i n2n-3.0.0-1038.x86_64.rpm 启动服务器 启动服务端 #实际使用时，可以去掉 -f 参数，使其后台运行 supernode -p 端口 -f EasyN2N 服务端（Su"><title>n2n部署</title><link rel=canonical href=/p/note/><link rel=stylesheet href=/scss/style.min.1f0f58443f137a9611210a8414bf1771613698017f91ca552f466664e5e8b99a.css><meta property="og:title" content="n2n部署"><meta property="og:description" content="n2n 参考: https://bugxia.com/2396.html https://www.jianshu.com/p/559c1e582724 服务器安装 centos # RPM安装 yum install libzstd -y wget https://github.com/ntop/n2n/releases/download/3.0/n2n-3.0.0-1038.x86_64.rpm rpm -i n2n-3.0.0-1038.x86_64.rpm 启动服务器 启动服务端 #实际使用时，可以去掉 -f 参数，使其后台运行 supernode -p 端口 -f EasyN2N 服务端（Su"><meta property="og:url" content="/p/note/"><meta property="og:site_name" content="Jqtmviyu's Blog"><meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:published_time" content="2022-12-18T17:02:27+08:00"><meta property="article:modified_time" content="2022-12-18T17:02:27+08:00"><meta name=twitter:title content="n2n部署"><meta name=twitter:description content="n2n 参考: https://bugxia.com/2396.html https://www.jianshu.com/p/559c1e582724 服务器安装 centos # RPM安装 yum install libzstd -y wget https://github.com/ntop/n2n/releases/download/3.0/n2n-3.0.0-1038.x86_64.rpm rpm -i n2n-3.0.0-1038.x86_64.rpm 启动服务器 启动服务端 #实际使用时，可以去掉 -f 参数，使其后台运行 supernode -p 端口 -f EasyN2N 服务端（Su"><link rel="shortcut icon" href=/favicon.png></head><body class="article-page has-toc"><script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script><div class="container main-container flex
+extended"><div id=article-toolbar><a href=/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg><span>Back</span></a></div><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/network/>network</a></header><h2 class=article-title><a href=/p/note/>n2n部署</a></h2><footer class=article-time><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg><time class=article-time--published>2022/Dec/18</time></div><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg><time class=article-time--reading>4 minute read</time></div></footer></div></header><section class=article-content><h1 id=n2n>n2n</h1><p>参考:<br><a class=link href=https://bugxia.com/2396.html target=_blank rel=noopener>https://bugxia.com/2396.html</a><br><a class=link href=https://www.jianshu.com/p/559c1e582724 target=_blank rel=noopener>https://www.jianshu.com/p/559c1e582724</a></p><h2 id=服务器安装>服务器安装</h2><ul><li>centos</li></ul><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># RPM安装</span>
+yum install libzstd -y  
+wget https://github.com/ntop/n2n/releases/download/3.0/n2n-3.0.0-1038.x86_64.rpm  
+rpm -i n2n-3.0.0-1038.x86_64.rpm
+</code></pre></div><h2 id=启动服务器>启动服务器</h2><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>启动服务端
+<span class=c1>#实际使用时，可以去掉 -f 参数，使其后台运行</span>
+supernode -p 端口 -f
+</code></pre></div><ul><li>EasyN2N 服务端（Supernode）附加参数<div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>-p 端口 <span class=p>|</span> Supernode监听端口，默认 <span class=m>7654</span>
+-F federation名称 <span class=p>|</span> supernode federation名称，默认为 *Federation
+-l 主机:端口 <span class=p>|</span> 和 -F 配合，已知的一台Supernode地址和端口
+-M <span class=p>|</span> 关闭非用户名密码认证的群组的MAC和IP地址欺骗保护功能
+-V 文本 <span class=p>|</span> 自定义字符串（最长19位），用于在管理输出日志中展示
+-c 组名称配置文件路径 <span class=p>|</span> 该配置文件中包含允许使用的组名称
+-a IP段 <span class=p>|</span> 用于自动分配IP，格式如 -a 192.168.0.0-192.168.255.0/24
+-t 端口 <span class=p>|</span> 用于管理supernode
+--management_password 文本 <span class=p>|</span> 管理端的密码
+-v <span class=p>|</span> 输出更多日志
+</code></pre></div></li></ul><p>设置开机启动</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 修改配置文件</span>
+sudo vim/etc/n2n/edge.conf
+<span class=o>======</span>
+-c<span class=o>=</span>组织名
+-a<span class=o>=</span>内网地址
+-l<span class=o>=</span>节点公网地址:端口
+<span class=o>======</span>
+<span class=c1># 设置自启服务</span>
+sudo systemctl <span class=nb>enable</span> edge
+sudo systemctl start edge
+sudo systemctl status edge  
+journalctl -f -u edge 
+<span class=c1># journalctl 查看日志</span>
+<span class=c1># -f 实时最新</span>
+<span class=c1># -u 指定服务</span>
+</code></pre></div><h2 id=服务器端口放行>服务器端口放行</h2><ul><li>腾讯云的防火墙</li><li>若服务器开启了如iptables\firewalld\ufw等防火墙，需要放行supernode所设置的端口，否则客户端无法连接</li></ul><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=c1>#firewalld </span>
+firewall-cmd --zone<span class=o>=</span>public --add-port<span class=o>=</span>9527/udp --permanent
+firewall-cmd --reload
+<span class=c1>#iptables</span>
+iptables -I INPUT -p udp --dport <span class=m>9527</span> -j ACCEPT
+service iptables save
+service iptables restart
+<span class=c1>#ufw</span>
+ufw allow 9527/udp
+</code></pre></div><p>centos7 默认是firewall</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 查看状态</span>
+systemctl status firewalld
+<span class=c1># 或者</span>
+firewall-cmd --state
+<span class=c1>#　查看所有开放端口</span>
+firewall-cmd --zone<span class=o>=</span>public --list-ports
+<span class=c1># 禁用端口</span>
+firewall-cmd --zone<span class=o>=</span>public --remove-port<span class=o>=</span>5672/tcp --permanent  <span class=c1>#关闭5672端口</span>
+</code></pre></div><h2 id=客户端组建n2n虚拟局域网>客户端组建N2N虚拟局域网</h2><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>sudo edge -a 局域网ip -c n2n组名 -l <span class=o>[</span>公网ip<span class=o>]</span>:公网端口 -f
+</code></pre></div><p>参数说明</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>-a &lt;mode:address&gt;        <span class=p>|</span> n2n网卡的ip地址，即本机的n2n的ip。直接填写IP或者使用 DHCP <span class=s1>&#39;-r -a dhcp:0.0.0.0&#39;</span>
+-c &lt;community&gt;           <span class=p>|</span> n2n组，只有相同组的edge之间才能进行通讯
+-k &lt;encrypt key&gt;         <span class=p>|</span> edge的加密密码
+-s &lt;netmask&gt;             <span class=p>|</span> 子网掩码 可选 <span class=o>(</span>255.255.255.0<span class=o>)</span>.
+-l &lt;supernode host:port&gt; <span class=p>|</span> supernode的ip和端口
+-i &lt;reg_interval&gt;        <span class=p>|</span> 注册时间间隔，用于NAT打洞<span class=o>(</span>默认为20秒<span class=o>)</span>
+-L &lt;reg_ttl&gt;             <span class=p>|</span> 当通过超级节点UDP NAT打洞时，注册数据包的TTL<span class=o>(</span>默认0不设置<span class=o>)</span>
+-p &lt;<span class=nb>local</span> port&gt;          <span class=p>|</span> 固定本地UDP端口
+-u &lt;UID&gt;                 <span class=p>|</span> 如果不想用root来运行edge，则可指定本机账号的uid，windows下可忽略
+-g &lt;GID&gt;                 <span class=p>|</span> 如果不想用root来运行edge，则可指定本机账号的groupid，windows下可忽略
+-f                       <span class=p>|</span> 带-f时前台运行，不添加-f 参数时作为守护进程运行
+-m &lt;MAC address&gt;         <span class=p>|</span> n2n虚拟网卡的MAC地址，默认随机设置
+                         <span class=p>|</span> eg. -m 01:02:03:04:05:06
+-M &lt;mtu&gt;                 <span class=p>|</span> MTU 值，默认1290
+-r                       <span class=p>|</span> 启用数据转发功能，当需要访问该设备的局域网时需要设置
+-A1                      <span class=p>|</span> 禁用载荷加密。不能与key 同时使用<span class=o>(</span>默认为Twofish<span class=o>)</span>。
+-A2 ... -A5 or -A        <span class=p>|</span> 选择有效载荷加密的密码，需要一个密钥:-A2 <span class=o>=</span> Twofish<span class=o>(</span>默认<span class=o>)</span>，
+                         <span class=p>|</span> -A3 or -A <span class=o>(</span>deprecated<span class=o>)</span> <span class=o>=</span> AES-CBC, -A5 <span class=o>=</span> Speck-CTR.
+-H                       <span class=p>|</span> Enable full header encryption. Requires supernode with fixed community.
+-z1 ... -z2 or -z        <span class=p>|</span> Enable compression <span class=k>for</span> outgoing data packets: -z1 or -z <span class=o>=</span> lzo1x <span class=o>(</span><span class=nv>default</span><span class=o>=</span>disabled<span class=o>)</span>.
+-E                       <span class=p>|</span> 接受多播MAC地址<span class=o>(</span><span class=nv>默认</span><span class=o>=</span>drop<span class=o>)</span>
+-S                       <span class=p>|</span> 不要连接P2P ，总是使用超级节点转发数据
+-n &lt;cidr:gateway&gt;        <span class=p>|</span> 通过gw路由IPv4网络。使用0.0.0.0/0作为默认gw。可多次设置。
+-v                       <span class=p>|</span> 详细日志
+-t &lt;port&gt;                <span class=p>|</span> 管理UDP端口<span class=o>(</span>用于机器上的多个edges<span class=o>)</span>。
+
+环境变量:
+N2N_KEY                <span class=p>|</span> 加密密钥<span class=o>(</span>ASCII<span class=o>)</span>
+</code></pre></div><h2 id=安装tuntap>安装tuntap</h2><pre><code>brew tap happynclient/taps
+brew install tuntap --cask
+</code></pre><p>.查看系统信息，您会看到一个名为 tap0的虚拟网卡
+sudo ifconfig</p><h2 id=macos-设置开机启动项>macos 设置开机启动项</h2><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 在 /Library/LaunchDaemons 新增文件 lomotho.n2n-edge.plist，用于 launchd 控制的开机自启（类似 systemd）</span>
+&lt;?xml <span class=nv>version</span><span class=o>=</span><span class=s2>&#34;1.0&#34;</span> <span class=nv>encoding</span><span class=o>=</span><span class=s2>&#34;UTF-8&#34;</span>?&gt;
+&lt;!DOCTYPE plist PUBLIC <span class=s2>&#34;-//Apple//DTD PLIST 1.0//EN&#34;</span> <span class=s2>&#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&#34;</span>&gt;
+&lt;plist <span class=nv>version</span><span class=o>=</span><span class=s2>&#34;1.0&#34;</span>&gt;
+  &lt;dict&gt;
+    &lt;key&gt;KeepAlive&lt;/key&gt;
+    &lt;true/&gt;
+    &lt;key&gt;RunAtLoad&lt;/key&gt;
+    &lt;true/&gt;
+    &lt;key&gt;Label&lt;/key&gt;
+    &lt;string&gt;lomotho.n2n.edge&lt;/string&gt;
+    &lt;key&gt;ProgramArguments&lt;/key&gt;
+    &lt;array&gt;
+      &lt;string&gt;/usr/local/bin/edge&lt;/string&gt;
+      &lt;string&gt;/usr/local/etc/n2n/edge.conf&lt;/string&gt;
+    &lt;/array&gt;
+  &lt;/dict&gt;
+&lt;/plist&gt;
+</code></pre></div><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 客户端配置文件</span>
+<span class=c1># /usr/local/etc/n2n/edge.conf</span>
+<span class=c1>#</span>
+<span class=c1>#         The configuration file is similar to the command line, with one option per line. An equal</span>
+<span class=c1>#        sign &#39;=&#39; should be used between key and value. Example: -c=mynetwork or --community=mynetwork</span>
+<span class=c1>#        This file contains a basic configuration example, please refer to the help (-h) for the full</span>
+<span class=c1>#        list of available options.</span>
+<span class=c1>#</span>
+<span class=c1>#       -d|--tun-device</span>
+<span class=c1>#        Specifies the name of the TUN interface. </span>
+<span class=c1>#</span>
+<span class=c1>#	-d=n2n0</span>
+<span class=c1>#</span>
+<span class=c1>#       -c|--community</span>
+<span class=c1>#        Specifies the n2n community name the edge belongs to.</span>
+<span class=c1>#</span>
+-c<span class=o>=</span>xxx
+<span class=c1>#</span>
+<span class=c1>#       -k</span>
+<span class=c1>#        Sets the encryption key (ASCII). The environment variable N2N_KEY=&lt;key&gt; can also be used. </span>
+<span class=c1>#</span>
+<span class=c1>#	-k=mypassword</span>
+<span class=c1>#</span>
+<span class=c1>#       -m</span>
+<span class=c1>#        Specified the MAC address for the TAP interface (random otherwise).</span>
+<span class=c1>#</span>
+<span class=c1># -m=DE:AD:BE:EF:99:99</span>
+<span class=c1>#</span>
+<span class=c1>#       -a</span>
+<span class=c1>#        Sets the interface address. For DHCP use &#39;-r -a dhcp:0.0.0.0&#39;.</span>
+<span class=c1>#</span>
+-a<span class=o>=</span>x.x.x.x
+<span class=c1>#</span>
+<span class=c1>#       -p</span>
+<span class=c1>#        Sets the local UDP port to a fixed port.</span>
+<span class=c1>#</span>
+<span class=c1># -p=50001</span>
+<span class=c1>#</span>
+<span class=c1>#       -l|--supernode-list</span>
+<span class=c1>#        Specifies the supernode IP and port.</span>
+<span class=c1>#</span>
+-l<span class=o>=</span>x.x.x.x:x
+<span class=c1>#</span>
+</code></pre></div></section><footer class=article-footer><section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg><span><a rel=license href=http://creativecommons.org/licenses/by-nc-sa/4.0/>署名-非商业性使用-相同方式共享 4.0 国际许可协议(CC BY-NC-SA 4.0)<br></a></span></section></footer></article><aside class=related-contents--wrapper></aside><footer class=site-footer><section class=copyright>&copy;
+2021 -
+2022 Jqtmviyu's Blog</section><section class=powerby>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.6.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous></main><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#服务器安装>服务器安装</a></li><li><a href=#启动服务器>启动服务器</a></li><li><a href=#服务器端口放行>服务器端口放行</a></li><li><a href=#客户端组建n2n虚拟局域网>客户端组建N2N虚拟局域网</a></li><li><a href=#安装tuntap>安装tuntap</a></li><li><a href=#macos-设置开机启动项>macos 设置开机启动项</a></li></ol></nav></div></section></aside></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script><script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script></body></html>
