@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>netlify on Jqtmviyu's Blog</title><link>/tags/netlify/</link><description>Recent content in netlify on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 28 Feb 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/netlify/index.xml" rel="self" type="application/rss+xml"/><item><title>使用netlify部署hugo注意事项</title><link>/p/netlify-and-hugo/</link><pubDate>Fri, 28 Feb 2020 00:00:00 +0000</pubDate><guid>/p/netlify-and-hugo/</guid><description>&lt;h1 id="nextlify部署hugo-blog">nextlify部署hugo blog&lt;/h1>
+&lt;p>参考：&lt;/p>
+&lt;p>hugo官方: &lt;a href="https://gohugo.io/hosting-and-deployment/hosting-on-netlify">https://gohugo.io/hosting-and-deployment/hosting-on-netlify&lt;/a>&lt;/p>
+&lt;p>nextlify官方: &lt;a href="https://docs.netlify.com/integrations/frameworks/hugo/">https://docs.netlify.com/integrations/frameworks/hugo/&lt;/a>&lt;/p>
+&lt;h2 id="步骤">步骤&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>上传项目到github仓库, 该仓库可以是私人仓库&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>hugo的主题必须是&lt;code>git submodule&lt;/code>形式, 如果自定义主题, 上传到gihub仓库上, 以子模块方式引入&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>在&lt;code>.gitignore&lt;/code>里排除 &lt;code>public&lt;/code>文件夹&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>在项目根目录下新建文件&lt;code>netlify.toml&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-toml" data-lang="toml">&lt;span class="p">[&lt;/span>&lt;span class="nx">build&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">publish&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;public&amp;#34;&lt;/span>
+&lt;span class="nx">command&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;hugo --gc --minify&amp;#34;&lt;/span>
+&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">production&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">environment&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">HUGO_VERSION&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;0.65.3&amp;#34;&lt;/span>
+&lt;span class="nx">HUGO_ENV&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;production&amp;#34;&lt;/span>
+&lt;span class="nx">HUGO_ENABLEGITINFO&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;true&amp;#34;&lt;/span>
+&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">split1&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">command&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;hugo --gc --minify --enableGitInfo&amp;#34;&lt;/span>
+&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">split1&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">environment&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">HUGO_VERSION&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;0.65.3&amp;#34;&lt;/span>
+&lt;span class="nx">HUGO_ENV&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;production&amp;#34;&lt;/span>
+&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">deploy&lt;/span>&lt;span class="err">-&lt;/span>&lt;span class="nx">preview&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">command&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL&amp;#34;&lt;/span>
+&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">deploy&lt;/span>&lt;span class="err">-&lt;/span>&lt;span class="nx">preview&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">environment&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">HUGO_VERSION&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;0.65.3&amp;#34;&lt;/span>
+&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">branch&lt;/span>&lt;span class="err">-&lt;/span>&lt;span class="nx">deploy&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">command&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;hugo --gc --minify -b $DEPLOY_PRIME_URL&amp;#34;&lt;/span>
+&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">branch&lt;/span>&lt;span class="err">-&lt;/span>&lt;span class="nx">deploy&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">environment&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">HUGO_VERSION&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;0.65.3&amp;#34;&lt;/span>
+&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">next&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">environment&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">HUGO_ENABLEGITINFO&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;true&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>注册Nextlify，可以用github账号授权&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>选择&lt;code> “New site from Git”——“Github”——选择自己hugo博客源码对应的仓库&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>在&lt;code>Deploy&lt;/code>之前可以先设置下, &lt;code>&amp;quot;site overview&amp;quot;--&amp;quot;site setting&amp;quot;--&amp;quot;change site name&amp;quot;&lt;/code>, 不改的话会默认分配&lt;code>https://xxx-xxx-xxx.netlify.app&lt;/code>一堆符号的二级域名&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>Deploy status badge&lt;/code>徽章可以放到项目的readme上, 可以看到最新部署状态&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Deploy&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>每次仓库更新, netlify就会自动部署&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="可选-绑定域名">可选: 绑定域名&lt;/h2>
+&lt;ol>
+&lt;li>&lt;code>Site settings -- Domain management--Custom domains--Add domain alias--填写域名--verify--Yes,add domain&lt;/code>&lt;/li>
+&lt;li>填写后到DNS 解析提供商里面，将 CNAME 记录值更改为 Netlify 给你的二级域名&lt;/li>
+&lt;li>https: 隔一段时间后点&lt;code>Verify DNS configuration&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;h2 id="可能的问题">可能的问题&lt;/h2>
+&lt;ol>
+&lt;li>报错：&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">Production: master@HEAD Failed
+failed during stage &lt;span class="s1">&amp;#39;building site&amp;#39;&lt;/span>: Build script returned non-zero &lt;span class="nb">exit&lt;/span> code: &lt;span class="m">255&lt;/span>
+&lt;span class="c1"># 解决方法: stackoverflow上找到类似答案，需要修改Netlify控制台的环境变量与实际Hugo版本一致。&lt;/span>
+&lt;span class="c1"># 技术问题千万别用百度，垃圾csdn&lt;/span>
+&lt;span class="c1"># hugo -v&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>“setting”——“Build&amp;amp;deploy”——“Environment”——&amp;quot;Environment variables&amp;quot;——“Edit variables”，左边填“HUGO_VERSION”，右边填“v?.?.?”&lt;/code>。&lt;/p>
+&lt;p>注：版本号以实际为准&lt;/p>
+&lt;ol start="2">
+&lt;li>
+&lt;p>报错&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">The build image &lt;span class="k">for&lt;/span> this site uses Ubuntu 16.04 Xenial Xerus, which is no longer supported.
+&lt;span class="c1"># ubuntu 版本过低&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>&amp;quot;Deploys&amp;quot;--&amp;quot;Delploy settings&amp;quot;--&amp;quot;Build image selection&amp;quot;--&amp;quot;Edit settings&amp;quot;--选最新的&lt;/code>&lt;/p>
+&lt;p>重新部署&lt;/p>
+&lt;/li>
+&lt;/ol></description></item></channel></rss>

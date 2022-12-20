@@ -9,17 +9,50 @@
 &lt;ul>
 &lt;li>centos&lt;/li>
 &lt;/ul>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># RPM安装&lt;/span>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># RPM安装&lt;/span>
 yum install libzstd -y
 wget https://github.com/ntop/n2n/releases/download/3.0/n2n-3.0.0-1038.x86_64.rpm
 rpm -i n2n-3.0.0-1038.x86_64.rpm
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="启动服务器">启动服务器&lt;/h2>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">启动服务端
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="启动服务器">启动服务器&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">启动服务端
 &lt;span class="c1">#实际使用时，可以去掉 -f 参数，使其后台运行&lt;/span>
 supernode -p 端口 -f
-&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
 &lt;li>服务端（Supernode）附加参数
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">-p 端口 &lt;span class="p">|&lt;/span> Supernode监听端口，默认 &lt;span class="m">7654&lt;/span>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">-p 端口 &lt;span class="p">|&lt;/span> Supernode监听端口，默认 &lt;span class="m">7654&lt;/span>
 -F federation名称 &lt;span class="p">|&lt;/span> supernode federation名称，默认为 *Federation
 -l 主机:端口 &lt;span class="p">|&lt;/span> 和 -F 配合，已知的一台Supernode地址和端口
 -M &lt;span class="p">|&lt;/span> 关闭非用户名密码认证的群组的MAC和IP地址欺骗保护功能
@@ -29,12 +62,32 @@ supernode -p 端口 -f
 -t 端口 &lt;span class="p">|&lt;/span> 用于管理supernode
 --management_password 文本 &lt;span class="p">|&lt;/span> 管理端的密码
 -v &lt;span class="p">|&lt;/span> 输出更多日志
-&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
 &lt;/ul>
 &lt;ul>
 &lt;li>
 &lt;p>设置开机启动&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 修改配置文件&lt;/span>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 修改配置文件&lt;/span>
 sudo vim /etc/n2n/supernode.conf
 &lt;span class="o">====&lt;/span>
 -p&lt;span class="o">=&lt;/span>端口
@@ -48,14 +101,29 @@ journalctl -f -u supernode
 &lt;span class="c1"># journalctl 查看日志&lt;/span>
 &lt;span class="c1"># -f 实时最新&lt;/span>
 &lt;span class="c1"># -u 指定服务&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
 &lt;/ul>
 &lt;h2 id="服务器端口放行">服务器端口放行&lt;/h2>
 &lt;ul>
 &lt;li>腾讯云的防火墙&lt;/li>
 &lt;li>若服务器开启了如iptables\firewalld\ufw等防火墙，需要放行supernode所设置的端口，否则客户端无法连接&lt;/li>
 &lt;/ul>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1">#firewalld &lt;/span>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1">#firewalld &lt;/span>
 firewall-cmd --zone&lt;span class="o">=&lt;/span>public --add-port&lt;span class="o">=&lt;/span>9527/udp --permanent
 firewall-cmd --reload
 &lt;span class="c1">#iptables&lt;/span>
@@ -64,8 +132,22 @@ service iptables save
 service iptables restart
 &lt;span class="c1">#ufw&lt;/span>
 ufw allow 9527/udp
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>centos7 默认是firewall&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 查看状态&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>centos7 默认是firewall&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 查看状态&lt;/span>
 systemctl status firewalld
 &lt;span class="c1"># 或者&lt;/span>
 firewall-cmd --state
@@ -73,10 +155,51 @@ firewall-cmd --state
 firewall-cmd --zone&lt;span class="o">=&lt;/span>public --list-ports
 &lt;span class="c1"># 禁用端口&lt;/span>
 firewall-cmd --zone&lt;span class="o">=&lt;/span>public --remove-port&lt;span class="o">=&lt;/span>5672/tcp --permanent &lt;span class="c1">#关闭5672端口&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="客户端组建n2n虚拟局域网">客户端组建N2N虚拟局域网&lt;/h2>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">sudo edge -a 局域网ip -c n2n组名 -l &lt;span class="o">[&lt;/span>公网ip&lt;span class="o">]&lt;/span>:公网端口 -f
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>参数说明&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">-a &amp;lt;mode:address&amp;gt; &lt;span class="p">|&lt;/span> n2n网卡的ip地址，即本机的n2n的ip。直接填写IP或者使用 DHCP &lt;span class="s1">&amp;#39;-r -a dhcp:0.0.0.0&amp;#39;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="客户端组建n2n虚拟局域网">客户端组建N2N虚拟局域网&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">sudo edge -a 局域网ip -c n2n组名 -l &lt;span class="o">[&lt;/span>公网ip&lt;span class="o">]&lt;/span>:公网端口 -f
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>参数说明&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">-a &amp;lt;mode:address&amp;gt; &lt;span class="p">|&lt;/span> n2n网卡的ip地址，即本机的n2n的ip。直接填写IP或者使用 DHCP &lt;span class="s1">&amp;#39;-r -a dhcp:0.0.0.0&amp;#39;&lt;/span>
 -c &amp;lt;community&amp;gt; &lt;span class="p">|&lt;/span> n2n组，只有相同组的edge之间才能进行通讯
 -k &amp;lt;encrypt key&amp;gt; &lt;span class="p">|&lt;/span> edge的加密密码
 -s &amp;lt;netmask&amp;gt; &lt;span class="p">|&lt;/span> 子网掩码 可选 &lt;span class="o">(&lt;/span>255.255.255.0&lt;span class="o">)&lt;/span>.
@@ -103,13 +226,49 @@ firewall-cmd --zone&lt;span class="o">=&lt;/span>public --remove-port&lt;span cl
 -t &amp;lt;port&amp;gt; &lt;span class="p">|&lt;/span> 管理UDP端口&lt;span class="o">(&lt;/span>用于机器上的多个edges&lt;span class="o">)&lt;/span>。
 环境变量:
 N2N_KEY &lt;span class="p">|&lt;/span> 加密密钥&lt;span class="o">(&lt;/span>ASCII&lt;span class="o">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="安装tuntap">安装tuntap&lt;/h2>
-&lt;pre>&lt;code>brew tap happynclient/taps
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="安装tuntap">安装tuntap&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">brew tap happynclient/taps
 brew install tuntap --cask
-&lt;/code>&lt;/pre>&lt;p>.查看系统信息，您会看到一个名为 tap0的虚拟网卡
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>.查看系统信息，您会看到一个名为 tap0的虚拟网卡
 sudo ifconfig&lt;/p>
 &lt;h2 id="macos-设置开机启动项">macos 设置开机启动项&lt;/h2>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 在 /Library/LaunchDaemons 新增文件 lomotho.n2n-edge.plist，用于 launchd 控制的开机自启（类似 systemd）&lt;/span>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 在 /Library/LaunchDaemons 新增文件 lomotho.n2n-edge.plist，用于 launchd 控制的开机自启（类似 systemd）&lt;/span>
 &lt;span class="c1"># RunAtLoad 开机时是否运行&lt;/span>
 &lt;span class="c1"># KeepAlive 是否需要一直运行&lt;/span>
 &lt;span class="o">====&lt;/span>
@@ -131,7 +290,60 @@ sudo ifconfig&lt;/p>
 &amp;lt;/dict&amp;gt;
 &amp;lt;/plist&amp;gt;
 &lt;span class="o">====&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 客户端配置文件&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;span class="lnt">42
+&lt;/span>&lt;span class="lnt">43
+&lt;/span>&lt;span class="lnt">44
+&lt;/span>&lt;span class="lnt">45
+&lt;/span>&lt;span class="lnt">46
+&lt;/span>&lt;span class="lnt">47
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 客户端配置文件&lt;/span>
 &lt;span class="c1"># /usr/local/etc/n2n/edge.conf&lt;/span>
 &lt;span class="c1">#&lt;/span>
 &lt;span class="c1"># The configuration file is similar to the command line, with one option per line. An equal&lt;/span>
@@ -178,12 +390,43 @@ sudo ifconfig&lt;/p>
 &lt;span class="c1"># -Z1为LZO(1x)压缩 -Z2为ZSTD压缩，默认没有&lt;/span>
 -Z2
 &lt;span class="c1">#&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 开启服务&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 开启服务&lt;/span>
 launchctl load /Library/LaunchDaemons/lomotho.n2n.edge.plist
 &lt;span class="c1"># 关闭服务&lt;/span>
 launchctl unload /Library/LaunchDaemons/lomotho.n2n.edge.plist
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="linux客户端设置自启动">linux客户端设置自启动&lt;/h2>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">sudo vim /etc/n2n/edge.conf
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="linux客户端设置自启动">linux客户端设置自启动&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">sudo vim /etc/n2n/edge.conf
 &lt;span class="o">======&lt;/span>
 -c&lt;span class="o">=&lt;/span>组织名
 -a&lt;span class="o">=&lt;/span>内网地址
@@ -197,10 +440,26 @@ journalctl -f -u edge
 &lt;span class="c1"># journalctl 查看日志&lt;/span>
 &lt;span class="c1"># -f 实时最新&lt;/span>
 &lt;span class="c1"># -u 指定服务&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Git常用命令</title><link>/p/git-common-command/</link><pubDate>Tue, 04 Jan 2022 14:15:26 +0800</pubDate><guid>/p/git-common-command/</guid><description>&lt;h1 id="git">Git&lt;/h1>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Git常用命令</title><link>/p/git-common-command/</link><pubDate>Tue, 04 Jan 2022 14:15:26 +0800</pubDate><guid>/p/git-common-command/</guid><description>&lt;h1 id="git">Git&lt;/h1>
 &lt;h2 id="git-常用命令">Git 常用命令&lt;/h2>
 &lt;h3 id="仓库">仓库&lt;/h3>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 在当前目录新建一个Git代码库&lt;/span>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 在当前目录新建一个Git代码库&lt;/span>
 $ git init
 &lt;span class="c1"># 新建一个目录，将其初始化为Git代码库&lt;/span>
 $ git init &lt;span class="o">[&lt;/span>project-name&lt;span class="o">]&lt;/span>
@@ -208,16 +467,58 @@ $ git init &lt;span class="o">[&lt;/span>project-name&lt;span class="o">]&lt;/sp
 $ git clone &lt;span class="o">[&lt;/span>url&lt;span class="o">]&lt;/span>
 &lt;span class="c1"># 下载指定分支&lt;/span>
 $ git clone -b &lt;span class="o">[&lt;/span>branchName&lt;span class="o">]&lt;/span> &lt;span class="o">[&lt;/span>url&lt;span class="o">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="配置">配置&lt;/h3>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 显示当前的Git配置&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="配置">配置&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 显示当前的Git配置&lt;/span>
 $ git config --list
 &lt;span class="c1"># 编辑Git配置文件&lt;/span>
 $ git config -e &lt;span class="o">[&lt;/span>--global&lt;span class="o">]&lt;/span>
 &lt;span class="c1"># 设置提交代码时的用户信息&lt;/span>
 $ git config &lt;span class="o">[&lt;/span>--global&lt;span class="o">]&lt;/span> user.name &lt;span class="s2">&amp;#34;[name]&amp;#34;&lt;/span>
 $ git config &lt;span class="o">[&lt;/span>--global&lt;span class="o">]&lt;/span> user.email &lt;span class="s2">&amp;#34;[email address]&amp;#34;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="增加删除文件">增加/删除文件&lt;/h3>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 添加指定文件到暂存区&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="增加删除文件">增加/删除文件&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 添加指定文件到暂存区&lt;/span>
 $ git add &lt;span class="o">[&lt;/span>file1&lt;span class="o">]&lt;/span> &lt;span class="o">[&lt;/span>file2&lt;span class="o">]&lt;/span> ...
 &lt;span class="c1"># 添加指定目录到暂存区，包括子目录&lt;/span>
 $ git add &lt;span class="o">[&lt;/span>dir&lt;span class="o">]&lt;/span>
@@ -232,8 +533,34 @@ $ git rm &lt;span class="o">[&lt;/span>file1&lt;span class="o">]&lt;/span> &lt;s
 $ git rm --cached &lt;span class="o">[&lt;/span>file&lt;span class="o">]&lt;/span>
 &lt;span class="c1"># 改名文件，并且将这个改名放入暂存区&lt;/span>
 $ git mv &lt;span class="o">[&lt;/span>file-original&lt;span class="o">]&lt;/span> &lt;span class="o">[&lt;/span>file-renamed&lt;span class="o">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="代码提交">代码提交&lt;/h3>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 提交暂存区到仓库区&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="代码提交">代码提交&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 提交暂存区到仓库区&lt;/span>
 $ git commit -m &lt;span class="o">[&lt;/span>message&lt;span class="o">]&lt;/span>
 &lt;span class="c1"># 提交暂存区的指定文件到仓库区&lt;/span>
 $ git commit &lt;span class="o">[&lt;/span>file1&lt;span class="o">]&lt;/span> &lt;span class="o">[&lt;/span>file2&lt;span class="o">]&lt;/span> ... -m &lt;span class="o">[&lt;/span>message&lt;span class="o">]&lt;/span>
@@ -248,8 +575,75 @@ $ git commit --amend
 $ git commit --amend -m &lt;span class="o">[&lt;/span>message&lt;span class="o">]&lt;/span>
 &lt;span class="c1"># 重做上一次commit，并包括指定文件的新变化&lt;/span>
 $ git commit --amend &lt;span class="o">[&lt;/span>file1&lt;span class="o">]&lt;/span> &lt;span class="o">[&lt;/span>file2&lt;span class="o">]&lt;/span> ...
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="分支">分支&lt;/h3>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 列出所有本地分支&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="分支">分支&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;span class="lnt">42
+&lt;/span>&lt;span class="lnt">43
+&lt;/span>&lt;span class="lnt">44
+&lt;/span>&lt;span class="lnt">45
+&lt;/span>&lt;span class="lnt">46
+&lt;/span>&lt;span class="lnt">47
+&lt;/span>&lt;span class="lnt">48
+&lt;/span>&lt;span class="lnt">49
+&lt;/span>&lt;span class="lnt">50
+&lt;/span>&lt;span class="lnt">51
+&lt;/span>&lt;span class="lnt">52
+&lt;/span>&lt;span class="lnt">53
+&lt;/span>&lt;span class="lnt">54
+&lt;/span>&lt;span class="lnt">55
+&lt;/span>&lt;span class="lnt">56
+&lt;/span>&lt;span class="lnt">57
+&lt;/span>&lt;span class="lnt">58
+&lt;/span>&lt;span class="lnt">59
+&lt;/span>&lt;span class="lnt">60
+&lt;/span>&lt;span class="lnt">61
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 列出所有本地分支&lt;/span>
 $ git branch
 &lt;span class="c1"># 列出所有远程分支&lt;/span>
 $ git branch -r
@@ -294,8 +688,47 @@ $ git push origin --delete &lt;span class="o">[&lt;/span>branch-name&lt;span cla
 $ git branch -dr &lt;span class="o">[&lt;/span>remote/branch&lt;span class="o">]&lt;/span>
 &lt;span class="c1"># 查看本地分支和哪个远程分支对应&lt;/span>
 git branch -vv
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="标签">标签&lt;/h3>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 列出所有tag&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="标签">标签&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 列出所有tag&lt;/span>
 $ git tag
 &lt;span class="c1"># 新建一个tag在当前commit&lt;/span>
 $ git tag &lt;span class="o">[&lt;/span>tag&lt;span class="o">]&lt;/span>
@@ -319,8 +752,87 @@ $ git push &lt;span class="o">[&lt;/span>remote&lt;span class="o">]&lt;/span> --
 $ git checkout -b &lt;span class="o">[&lt;/span>branch&lt;span class="o">]&lt;/span> &lt;span class="o">[&lt;/span>tag&lt;span class="o">]&lt;/span>
 &lt;span class="c1"># 拉取分支上现有的tags&lt;/span>
 $ git fetch --tags
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="查看信息">查看信息&lt;/h3>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 显示有变更的文件&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="查看信息">查看信息&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;span class="lnt">42
+&lt;/span>&lt;span class="lnt">43
+&lt;/span>&lt;span class="lnt">44
+&lt;/span>&lt;span class="lnt">45
+&lt;/span>&lt;span class="lnt">46
+&lt;/span>&lt;span class="lnt">47
+&lt;/span>&lt;span class="lnt">48
+&lt;/span>&lt;span class="lnt">49
+&lt;/span>&lt;span class="lnt">50
+&lt;/span>&lt;span class="lnt">51
+&lt;/span>&lt;span class="lnt">52
+&lt;/span>&lt;span class="lnt">53
+&lt;/span>&lt;span class="lnt">54
+&lt;/span>&lt;span class="lnt">55
+&lt;/span>&lt;span class="lnt">56
+&lt;/span>&lt;span class="lnt">57
+&lt;/span>&lt;span class="lnt">58
+&lt;/span>&lt;span class="lnt">59
+&lt;/span>&lt;span class="lnt">60
+&lt;/span>&lt;span class="lnt">61
+&lt;/span>&lt;span class="lnt">62
+&lt;/span>&lt;span class="lnt">63
+&lt;/span>&lt;span class="lnt">64
+&lt;/span>&lt;span class="lnt">65
+&lt;/span>&lt;span class="lnt">66
+&lt;/span>&lt;span class="lnt">67
+&lt;/span>&lt;span class="lnt">68
+&lt;/span>&lt;span class="lnt">69
+&lt;/span>&lt;span class="lnt">70
+&lt;/span>&lt;span class="lnt">71
+&lt;/span>&lt;span class="lnt">72
+&lt;/span>&lt;span class="lnt">73
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 显示有变更的文件&lt;/span>
 $ git status
 &lt;span class="c1"># 显示当前分支的版本历史&lt;/span>
 $ git log
@@ -370,8 +882,40 @@ $ git show &lt;span class="o">[&lt;/span>commit&lt;span class="o">]&lt;/span>:&l
 &lt;span class="c1"># 显示当前分支的最近几次提交和回退&lt;/span>
 $ git reflog
 &lt;span class="c1"># 就算是被硬重置了也能看到已丢失的记录&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="远程同步">远程同步&lt;/h3>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 下载远程仓库的所有变动&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="远程同步">远程同步&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 下载远程仓库的所有变动&lt;/span>
 $ git fetch &lt;span class="o">[&lt;/span>remote&lt;span class="o">]&lt;/span>
 &lt;span class="c1"># 所有远程仓库&lt;/span>
 $ git fetch -a
@@ -390,8 +934,65 @@ $ git push &lt;span class="o">[&lt;/span>remote&lt;span class="o">]&lt;/span> --
 $ git push &lt;span class="o">[&lt;/span>remote&lt;span class="o">]&lt;/span> -f
 &lt;span class="c1"># 推送所有分支到远程仓库&lt;/span>
 $ git push &lt;span class="o">[&lt;/span>remote&lt;span class="o">]&lt;/span> --all
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="撤销">撤销&lt;/h3>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 恢复暂存区的指定文件到工作区&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="撤销">撤销&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;span class="lnt">42
+&lt;/span>&lt;span class="lnt">43
+&lt;/span>&lt;span class="lnt">44
+&lt;/span>&lt;span class="lnt">45
+&lt;/span>&lt;span class="lnt">46
+&lt;/span>&lt;span class="lnt">47
+&lt;/span>&lt;span class="lnt">48
+&lt;/span>&lt;span class="lnt">49
+&lt;/span>&lt;span class="lnt">50
+&lt;/span>&lt;span class="lnt">51
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 恢复暂存区的指定文件到工作区&lt;/span>
 $ git checkout &lt;span class="o">[&lt;/span>file&lt;span class="o">]&lt;/span>
 &lt;span class="c1"># 恢复某个commit的指定文件到暂存区和工作区&lt;/span>
 $ git checkout &lt;span class="o">[&lt;/span>commit&lt;span class="o">]&lt;/span> &lt;span class="o">[&lt;/span>file&lt;span class="o">]&lt;/span>
@@ -429,8 +1030,41 @@ $ git reset --keep &lt;span class="o">[&lt;/span>commit&lt;span class="o">]&lt;/
 $ git revert &lt;span class="o">[&lt;/span>commit&lt;span class="o">]&lt;/span>
 &lt;span class="c1"># 例如：假设当前提交是c2, 上一次提交是c1, 执行 git revert HEAD，会新增一个提交c2&amp;#39;， 提交的状态和c1一样， 用处就是可以把这次变化推到远程分支上，其他开发者也能看到&lt;/span>
 &lt;span class="c1"># 而git reset是local的，退了就退了，其他人看不到， 还有想退到上次，要多加^, revert用&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="代码暂存">代码暂存&lt;/h3>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 执行存储时，添加备注，方便查找，只有git stash 也要可以的，但查找时不方便识别&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="代码暂存">代码暂存&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 执行存储时，添加备注，方便查找，只有git stash 也要可以的，但查找时不方便识别&lt;/span>
 $ git stash save &lt;span class="s2">&amp;#34;save message&amp;#34;&lt;/span>
 &lt;span class="c1"># 查看stash了哪些存储&lt;/span>
 $ git stash list
@@ -449,22 +1083,78 @@ $ git stash clear
 &lt;span class="c1"># 暂时将未提交的变化移除，稍后再移入&lt;/span>
 $ git stash
 $ git stash pop
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="其他">其他&lt;/h2>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 生成一个可供发布的压缩包&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="其他">其他&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 生成一个可供发布的压缩包&lt;/span>
 $ git archive
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="分支管理">分支管理&lt;/h3>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="分支管理">分支管理&lt;/h3>
 &lt;p>&lt;a href="https://www.ruanyifeng.com/blog/2012/07/git.html">https://www.ruanyifeng.com/blog/2012/07/git.html&lt;/a>&lt;/p>
 &lt;h3 id="git-branch-进入编辑状态httpswwwcnblogscomwzndkjp10711393html">&lt;a class="link" href="https://www.cnblogs.com/wzndkj/p/10711393.html" target="_blank" rel="noopener"
 >git branch 进入编辑状态&lt;/a>&lt;/h3>
 &lt;p>命令行输入git branch，发现进入编辑状态，都要:wq，非常不方便，这样配置&lt;/p>
 &lt;p>&lt;code>git config --global core.pager ''&lt;/code>&lt;/p>
 &lt;h3 id="测试能否联通">测试能否联通:&lt;/h3>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ ssh -T git@192.168.10.40
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="git中全局忽略ds_store文件">Git中全局忽略.DS_Store文件&lt;/h3>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ git config --global core.excludesfile ~/.gitignore
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ ssh -T git@192.168.10.40
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="git中全局忽略ds_store文件">Git中全局忽略.DS_Store文件&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ git config --global core.excludesfile ~/.gitignore
 $ &lt;span class="nb">echo&lt;/span> .DS_Store &amp;gt;&amp;gt; ~/.gitignore
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="git-tag">git tag&lt;/h3>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 问题场景：&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="git-tag">git tag&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 问题场景：&lt;/span>
 &lt;span class="c1"># 同事A在本地创建tagA并push同步到了远程-&amp;gt;同事B在本地拉取了远程tagA(git fetch)-&amp;gt;同事A工作需要将远程标签tagA删除-&amp;gt;同事B用git fetch同步远端信息，git tag后发现本地仍然记录有tagA&lt;/span>
 &lt;span class="c1"># 分析：对于远程repository中已经删除了的tag，即使使用git fetch --prune，甚至&amp;#34;git fetch --tags&amp;#34;确保下载所有tags，也不会让其在本地也将其删除的。而且，似乎git目前也没有提供一个直接的命令和参数选项可以删除本地的在远程已经不存在的tag（我目前是没找到有关这类tag问题的git命令~~，有知道的同学可以告知我下，互相进步）。&lt;/span>
 &lt;span class="c1"># 解决方法：&lt;/span>
@@ -484,8 +1174,42 @@ $ git tag -d &lt;span class="o">[&lt;/span>本地tag名&lt;span class="o">]&lt;/
 $ git push origin :refs/tags/&lt;span class="o">[&lt;/span>远程tag名&lt;span class="o">]&lt;/span> &lt;span class="c1">#删除远程指定tag&lt;/span>
 $ git fetch origin &lt;span class="o">[&lt;/span>远程tag名&lt;span class="o">]&lt;/span> &lt;span class="c1">#拉取远程指定tag&lt;/span>
 $ git show &lt;span class="o">[&lt;/span>tag名&lt;span class="o">]&lt;/span> &lt;span class="c1">#显示指定tag详细信息&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="rebase-变基">rebase 变基&lt;/h3>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ git rebase -i HEAD~4
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="rebase-变基">rebase 变基&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ git rebase -i HEAD~4
 &lt;span class="c1"># 弹出一个vim, 可以让你修改4次提交的前后顺序或者删除, 会把修改后的复制一份添加到修改的起始节点, 原来的就丢了 , 后面的4是表示距离HEAD最近的4次&lt;/span>
 &lt;span class="c1">## 如果这里不用 HEAD~4, 而是用id, 那么就得用倒数第5次提交后生成的id, 因为是倒数第5次提交后的那个节点开始操作的&lt;/span>
 &lt;span class="c1"># pick：保留该commit（缩写:p）&lt;/span>
@@ -510,10 +1234,33 @@ f xxxxxx 最后提交的注释
 &lt;span class="c1"># 在bigFix上找bug加了一堆调试代码, 提交了多次, 现在找到了, 解决了, 想合并到主分支上, 但不想合并那些加了调试代码的提交, 只想合并解决问题的那次提交&lt;/span>
 $ git rebase -i &lt;span class="c1"># 先变基&lt;/span>
 $ git cherry-pick bugfix
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://www.cnblogs.com/code-xu/p/14262963.html">https://www.cnblogs.com/code-xu/p/14262963.html&lt;/a>&lt;/p>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;a href="https://www.cnblogs.com/code-xu/p/14262963.html">https://www.cnblogs.com/code-xu/p/14262963.html&lt;/a>&lt;/p>
 &lt;p>&lt;a href="https://www.cnblogs.com/xueweihan/p/5743327.html">https://www.cnblogs.com/xueweihan/p/5743327.html&lt;/a>&lt;/p>
 &lt;h3 id="删除远程分支上的所有commit">删除远程分支上的所有commit&lt;/h3>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 创建孤立分支，并切换到该分支：&lt;/span>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 创建孤立分支，并切换到该分支：&lt;/span>
 $ git checkout --orphan latest_branch
 &lt;span class="c1"># 2. 暂存所有文件：&lt;/span>
 $ git add -A
@@ -525,11 +1272,22 @@ $ git branch -D master
 git branch -m master
 &lt;span class="c1"># 6. 强制推送本地分支：&lt;/span>
 $ git push -f origin master
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="把本地分支换成原程分支">把本地分支换成原程分支&lt;/h3>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ git fetch -a
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="把本地分支换成原程分支">把本地分支换成原程分支&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ git fetch -a
 $ git reset --hard origin/master &lt;span class="c1"># master指想换的分支&lt;/span>
 $ git pull
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="非快速合并">非快速合并&lt;/h2>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="非快速合并">非快速合并&lt;/h2>
 &lt;ul>
 &lt;li>
 &lt;p>使用非快速合并的优势&lt;/p>
@@ -539,7 +1297,21 @@ $ git pull
 &lt;/blockquote>
 &lt;p>&lt;img src="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/分支树.jpg" style="zoom:50%;" />&lt;/p>
 &lt;p>设置使用&lt;code>git merge --no-ff &lt;/code>合并分支&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># even create extra merge commit when fast forward merge would be possible&lt;/span>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># even create extra merge commit when fast forward merge would be possible&lt;/span>
 $ git config --global merge.ff &lt;span class="nb">false&lt;/span>
 &lt;span class="c1"># 因为git pull 默认为 git fetch + git merge&lt;/span>
 &lt;span class="c1"># 全局设置了no-ff, 会导致git pull 多一次merge local记录&lt;/span>
@@ -547,7 +1319,9 @@ $ git config --global merge.ff &lt;span class="nb">false&lt;/span>
 &lt;span class="c1"># 推荐使用 git pull --rebase&lt;/span>
 &lt;span class="c1"># Disallows non ff merges on pull. Overrides merge.ff when pulling&lt;/span>
 &lt;span class="c1"># git config --global pull.ff only&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
 &lt;/ul>
 &lt;h2 id="git-pull---rebase">git pull &amp;ndash;rebase&lt;/h2>
 &lt;ul>
@@ -576,12 +1350,33 @@ $ git config --global merge.ff &lt;span class="nb">false&lt;/span>
 &lt;p>全局设置避免每次带参&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># set up pull to rebase instead of merge&lt;/span>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># set up pull to rebase instead of merge&lt;/span>
 $ git config --global pull.rebase &lt;span class="nb">true&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
 &lt;li>解决冲突和git pull不同&lt;/li>
 &lt;/ul>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 冲突&lt;/span>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 冲突&lt;/span>
 &lt;span class="c1"># 1. 手动解决冲突&lt;/span>
 &lt;span class="c1"># 2. &lt;/span>
 $ git add
@@ -589,32 +1384,87 @@ $ git add
 $ git rebase --continue
 &lt;span class="c1"># 终止rebase, 分支会回到rebase开始前的状态&lt;/span>
 $ git rebase --abort
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="submodule-子模块">Submodule 子模块&lt;/h2>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="submodule-子模块">Submodule 子模块&lt;/h2>
 &lt;h3 id="新增">新增&lt;/h3>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git submodule add git://github.com/josephj/javascript-platform-yui.git static/platform
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>查看&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git status
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git submodule add git://github.com/josephj/javascript-platform-yui.git static/platform
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>查看&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git status
 &lt;span class="c1"># 发现只列出 submodule 目录而不是里面所有的文件&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>commit&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git add .
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>commit&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git add .
 git commmit -m &lt;span class="s1">&amp;#39;git add submodule&amp;#39;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>init&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># init后.git/config会记录submodule&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>init&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># init后.git/config会记录submodule&lt;/span>
 git submodule init
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="更新">更新&lt;/h3>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="更新">更新&lt;/h3>
 &lt;p>git pull 时不会自动更新模块, 必须手动更新&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 进入目录&lt;/span>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 进入目录&lt;/span>
 &lt;span class="nb">cd&lt;/span> static/platform
 git pull origin master
 &lt;span class="c1"># 和第一次添加一样, 并不会在status里显示模块里面的文件更新&lt;/span>
 &lt;span class="c1"># submodule的版本控制在于submodule git 的 commit id, 所以要提交这些更新记录&lt;/span>
 git add static/platform
 git commit -m &lt;span class="s1">&amp;#39;submodule update&amp;#39;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>更新所有的模块&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 必须先有.gitmodules文件&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>更新所有的模块&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 必须先有.gitmodules文件&lt;/span>
 &lt;span class="c1"># 更新.gitmodules的人使用git submodule init&lt;/span>
 git submodule update
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="修改模块">修改模块&lt;/h3>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="修改模块">修改模块&lt;/h3>
 &lt;ol>
 &lt;li>先进子模块里面正常修改提交&lt;/li>
 &lt;li>再到项目里提交&lt;/li>
@@ -623,9 +1473,17 @@ git submodule update
 &lt;ol>
 &lt;li>先删除目录&lt;/li>
 &lt;/ol>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git rm --cached &lt;span class="o">[&lt;/span>欲移除的目錄&lt;span class="o">]&lt;/span>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git rm --cached &lt;span class="o">[&lt;/span>欲移除的目錄&lt;span class="o">]&lt;/span>
 rm -rf &lt;span class="o">[&lt;/span>欲移除的目錄&lt;span class="o">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="2">
 &lt;li>
 &lt;p>修改 .gitmodules&lt;/p>
 &lt;/li>
@@ -639,64 +1497,168 @@ rm -rf &lt;span class="o">[&lt;/span>欲移除的目錄&lt;span class="o">]&lt;/
 &lt;p>安全起见再sync下&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git submodule sync
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="windows和linux下的换行符">windows和linux下的换行符&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git submodule sync
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="windows和linux下的换行符">windows和linux下的换行符&lt;/h2>
 &lt;p>推荐统一用&lt;code>LF&lt;/code>&lt;/p>
 &lt;ul>
 &lt;li>
 &lt;p>方案1： 增加 .gitattribute 文件&lt;/p>
 &lt;p>在 repo 目录下新建 &lt;code>.gitattribute&lt;/code> 文件，内容为：&lt;/p>
-&lt;pre>&lt;code>* text eol=lf
-&lt;/code>&lt;/pre>&lt;/li>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">* text eol=lf
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
 &lt;li>
 &lt;p>方案2： 修改 Git 配置&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># win系统&lt;/span>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># win系统&lt;/span>
 git config --global core.autocrlf &lt;span class="nb">false&lt;/span>
 git config --global core.eol lf
 &lt;span class="c1"># mac linu unix 系统&lt;/span>
 git config --global core.autocrlf input // 提交时把 CRLF 转换成 LF，签出时不转换
 git config --global core.safecrlf &lt;span class="nb">true&lt;/span> // 不允许混用
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>如果只需要修改当前仓库，去掉 &lt;code>--global&lt;/code>。&lt;/p>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>如果只需要修改当前仓库，去掉 &lt;code>--global&lt;/code>。&lt;/p>
 &lt;/li>
 &lt;/ul>
 &lt;h3 id="macos批量转换crlf为lf">MacOs批量转换crlf为lf&lt;/h3>
 &lt;ol>
 &lt;li>
 &lt;p>安装&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">brew install dos2unix
-&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">brew install dos2unix
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
 &lt;li>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">find ./ -name &lt;span class="s2">&amp;#34;*&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> xargs dos2unix
-&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">find ./ -name &lt;span class="s2">&amp;#34;*&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> xargs dos2unix
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
 &lt;/ol></description></item><item><title>Markdown笔记</title><link>/p/markdown-note/</link><pubDate>Thu, 30 Dec 2021 00:00:00 +0000</pubDate><guid>/p/markdown-note/</guid><description>&lt;h1 id="markdown-笔记">markdown 笔记&lt;/h1>
 &lt;p>&lt;span id="jump">锚点&lt;/span>&lt;/p>
 &lt;h2 id="标题">标题&lt;/h2>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown"> # 一级标题&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">h1&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown"> # 一级标题&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">h1&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
 ## 二级标题&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">h2&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
 ### 三级标题&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">h3&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
 #### 四级标题&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">h4&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
 ##### 五级标题&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">h5&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="强调">强调&lt;/h2>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown"> &lt;span class="ge">*斜体的文字*&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="强调">强调&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown"> &lt;span class="ge">*斜体的文字*&lt;/span>
 &lt;span class="ge">_斜体的文字_&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;em>斜体的文字&lt;/em>&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown"> &lt;span class="gs">**粗体的文字**&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;em>斜体的文字&lt;/em>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown"> &lt;span class="gs">**粗体的文字**&lt;/span>
 &lt;span class="gs">__粗体的文字__&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>粗体的文字&lt;/strong>&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">***加粗斜体的文字***
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;em>&lt;strong>加粗斜体的文字&lt;/strong>&lt;/em>&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown"> &lt;span class="gd">~~删除线的文字~~&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;del>删除线的文字&lt;/del>&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">这些~~符号~~*可以***组合**
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>这些&lt;del>符号&lt;/del>&lt;em>可以&lt;/em>&lt;strong>组合&lt;/strong>&lt;/p>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>粗体的文字&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">***加粗斜体的文字***
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;em>&lt;strong>加粗斜体的文字&lt;/strong>&lt;/em>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown"> &lt;span class="gd">~~删除线的文字~~&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;del>删除线的文字&lt;/del>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">这些~~符号~~*可以***组合**
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>这些&lt;del>符号&lt;/del>&lt;em>可以&lt;/em>&lt;strong>组合&lt;/strong>&lt;/p>
 &lt;h2 id="超链接">超链接&lt;/h2>
 &lt;p>Markdown 支持两种形式的链接语法： &lt;strong>&lt;strong>&lt;strong>&lt;strong>行内式&lt;/strong>&lt;/strong>&lt;/strong>&lt;/strong>和&lt;strong>&lt;strong>&lt;strong>&lt;strong>参考式&lt;/strong>&lt;/strong>&lt;/strong>&lt;/strong>两种形式，行内式一般使用较多。&lt;/p>
 &lt;h3 id="行内式">行内式&lt;/h3>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">[&lt;span class="nt">链接文字&lt;/span>](&lt;span class="na">链接地址 &amp;#34;title可选&amp;#34;&lt;/span>)
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>例:&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">[&lt;span class="nt">GitHub&lt;/span>](&lt;span class="na">http://github.com&lt;/span>)
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">[&lt;span class="nt">链接文字&lt;/span>](&lt;span class="na">链接地址 &amp;#34;title可选&amp;#34;&lt;/span>)
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>例:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">[&lt;span class="nt">GitHub&lt;/span>](&lt;span class="na">http://github.com&lt;/span>)
 [&lt;span class="nt">GitHub&lt;/span>](&lt;span class="na">http://github.com &amp;#34;这就是个提示&amp;#34;&lt;/span>)
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>例:
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>例:
 &lt;a class="link" href="http://github.com" target="_blank" rel="noopener"
 >GitHub&lt;/a>
 &lt;a class="link" href="http://github.com" title="这就是个提示"
@@ -707,33 +1669,92 @@ target="_blank" rel="noopener"
 &lt;blockquote>
 &lt;p>参考式多用在学术论文上，或者在文章中多处使用相同链接。&lt;/p>
 &lt;/blockquote>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">[链接文字][链接标记]
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">[链接文字][链接标记]
 [链接标记]:链接地址 &amp;#34;链接标题&amp;#34; &lt;span class="sb">`任意地方添加`&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>如果链接文字可以当链接标记:&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">[链接文字][]
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>如果链接文字可以当链接标记:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">[链接文字][]
 [链接文字]: 链接文字
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a class="link" href="%e9%93%be%e6%8e%a5%e6%96%87%e5%ad%97" >链接文字&lt;/a>&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">例:[Github][1]、[Google][2]、[知乎][]是我经常去的网站。
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;a class="link" href="%e9%93%be%e6%8e%a5%e6%96%87%e5%ad%97" >链接文字&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">例:[Github][1]、[Google][2]、[知乎][]是我经常去的网站。
 [1]: http://github.com
 [2]: http://www.google.com
 [知乎]: https://www.zhihu.com/
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>例:&lt;a class="link" href="http://github.com" target="_blank" rel="noopener"
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>例:&lt;a class="link" href="http://github.com" target="_blank" rel="noopener"
 >Github&lt;/a>、&lt;a class="link" href="http://www.google.com" target="_blank" rel="noopener"
 >Google&lt;/a>、&lt;a class="link" href="https://www.zhihu.com/" target="_blank" rel="noopener"
 >知乎&lt;/a>是我经常去的网站。&lt;/p>
 &lt;h3 id="自动短链接">自动短链接&lt;/h3>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">http:&lt;/span>&lt;span class="err">//&lt;/span>&lt;span class="na">example&lt;/span>&lt;span class="err">.&lt;/span>&lt;span class="na">com&lt;/span>&lt;span class="p">/&amp;gt;&lt;/span>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">http:&lt;/span>&lt;span class="err">//&lt;/span>&lt;span class="na">example&lt;/span>&lt;span class="err">.&lt;/span>&lt;span class="na">com&lt;/span>&lt;span class="p">/&amp;gt;&lt;/span>
 &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">address&lt;/span>&lt;span class="err">@&lt;/span>&lt;span class="na">example&lt;/span>&lt;span class="err">.&lt;/span>&lt;span class="na">com&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="http://example.com/">http://example.com/&lt;/a>&lt;/p>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;a href="http://example.com/">http://example.com/&lt;/a>&lt;/p>
 &lt;p>&lt;a href="mailto:address@example.com">address@example.com&lt;/a>&lt;/p>
 &lt;h2 id="锚点">锚点&lt;/h2>
 &lt;p>网页中，锚点其实就是页内超链接，也就是链接本文档内部的某些元素，实现当前页面中的跳转。&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">span&lt;/span> &lt;span class="na">id&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;jump&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>锚点&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">span&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">span&lt;/span> &lt;span class="na">id&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;jump&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>锚点&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">span&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
 [&lt;span class="nt">文字&lt;/span>](&lt;span class="na">#jump&lt;/span>)
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>例：&lt;a class="link" href="#jump" >跳转到开头&lt;/a> (ps: windows要按住ctrl, mac要按主cmd)&lt;/p>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>例：&lt;a class="link" href="#jump" >跳转到开头&lt;/a> (ps: windows要按住ctrl, mac要按主cmd)&lt;/p>
 &lt;h2 id="列表">列表&lt;/h2>
 &lt;h3 id="无序列表">无序列表&lt;/h3>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="k">*&lt;/span> 无序列表一
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="k">*&lt;/span> 无序列表一
 &lt;span class="k">*&lt;/span> 无序列表二
 &lt;span class="k">*&lt;/span> 无序列表三
 &lt;span class="k">-&lt;/span> 无序列表一
@@ -742,7 +1763,9 @@ target="_blank" rel="noopener"
 + 无序列表一
 + 无序列表二
 + 无序列表三
-&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
 &lt;li>无序列表一&lt;/li>
 &lt;li>无序列表二&lt;/li>
 &lt;li>无序列表三&lt;/li>
@@ -775,20 +1798,46 @@ target="_blank" rel="noopener"
 &lt;/li>
 &lt;/ol>
 &lt;h3 id="定义型列表">定义型列表&lt;/h3>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">定义型列表由名词和解释组成。一行写上定义，紧跟一行写上解释。解释的写法冒号紧跟一个缩进(Tab)
-&lt;/code>&lt;/pre>&lt;/div>&lt;dl>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">定义型列表由名词和解释组成。一行写上定义，紧跟一行写上解释。解释的写法冒号紧跟一个缩进(Tab)
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;dl>
 &lt;dt>Markdown&lt;/dt>
 &lt;dd>轻量级文本标记语言，可以转换成html，pdf等格式&lt;/dd>
 &lt;/dl>
 &lt;h3 id="列表缩进">列表缩进&lt;/h3>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="k">*&lt;/span> 轻轻的我走了， 正如我轻轻的来； 我轻轻的招手， 作别西天的云彩。
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="k">*&lt;/span> 轻轻的我走了， 正如我轻轻的来； 我轻轻的招手， 作别西天的云彩。
 那河畔的金柳， 是夕阳中的新娘； 波光里的艳影， 在我的心头荡漾。
 软泥上的青荇， 油油的在水底招摇； 在康河的柔波里， 我甘心做一条水草！
 那榆荫下的一潭， 不是清泉， 是天上虹； 揉碎在浮藻间， 沉淀着彩虹似的梦。
 &lt;span class="k">*&lt;/span> 寻梦？撑一支长篙， 向青草更青处漫溯； 满载一船星辉， 在星辉斑斓里放歌。
 但我不能放歌， 悄悄是别离的笙箫； 夏虫也为我沉默， 沉默是今晚的康桥！
 悄悄的我走了， 正如我悄悄的来； 我挥一挥衣袖， 不带走一片云彩。
-&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
 &lt;li>
 &lt;p>轻轻的我走了， 正如我轻轻的来； 我轻轻的招手， 作别西天的云彩。&lt;/p>
 &lt;p>那河畔的金柳， 是夕阳中的新娘； 波光里的艳影， 在我的心头荡漾。&lt;/p>
@@ -802,12 +1851,23 @@ target="_blank" rel="noopener"
 &lt;/li>
 &lt;/ul>
 &lt;h3 id="包含引用的列表">包含引用的列表&lt;/h3>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="k">*&lt;/span> 阅读的方法
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="k">*&lt;/span> 阅读的方法
 &lt;span class="k">
 &lt;/span>&lt;span class="k"> &amp;gt; &lt;/span>&lt;span class="ge">静下心
 &lt;/span>&lt;span class="ge">&lt;/span>&lt;span class="k"> &amp;gt; &lt;/span>&lt;span class="ge">打开书本
 &lt;/span>&lt;span class="ge">&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
 &lt;li>
 &lt;p>阅读的方法&lt;/p>
 &lt;blockquote>
@@ -817,15 +1877,31 @@ target="_blank" rel="noopener"
 &lt;/li>
 &lt;/ul>
 &lt;h2 id="引用">引用&lt;/h2>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="k">&amp;gt; &lt;/span>&lt;span class="ge">引用的内容
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="k">&amp;gt; &lt;/span>&lt;span class="ge">引用的内容
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;blockquote>
 &lt;p>引用的内容&lt;/p>
 &lt;/blockquote>
 &lt;h3 id="引用的多层嵌套">引用的多层嵌套&lt;/h3>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="k">&amp;gt; &lt;/span>&lt;span class="ge">第一层
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="k">&amp;gt; &lt;/span>&lt;span class="ge">第一层
 &lt;/span>&lt;span class="ge">&lt;/span>&lt;span class="k">&amp;gt; &lt;/span>&lt;span class="ge">&amp;gt; 第二层
 &lt;/span>&lt;span class="ge">&lt;/span>&lt;span class="k">&amp;gt; &lt;/span>&lt;span class="ge">&amp;gt; &amp;gt; 第三层
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;blockquote>
 &lt;p>第一层&lt;/p>
 &lt;blockquote>
 &lt;p>第二层&lt;/p>
@@ -837,39 +1913,91 @@ target="_blank" rel="noopener"
 &lt;h3 id="引用块内的其他语法">引用块内的其他语法&lt;/h3>
 &lt;p>引用的区块内也可以使用其他的 Markdown 语法，包括标题、列表、代码区块等。&lt;/p>
 &lt;blockquote>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-js" data-lang="js">&lt;span class="kd">let&lt;/span> &lt;span class="nx">a&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="kc">null&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>加粗&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-js" data-lang="js">&lt;span class="kd">let&lt;/span> &lt;span class="nx">a&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="kc">null&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>加粗&lt;/strong>&lt;/p>
 &lt;/blockquote>
 &lt;h2 id="插入图片">插入图片&lt;/h2>
 &lt;h3 id="行内式-1">行内式&lt;/h3>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">![&lt;span class="nt">alt&lt;/span>](&lt;span class="na">url&lt;/span>)
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">![&lt;span class="nt">alt&lt;/span>](&lt;span class="na">url&lt;/span>)
 ps: 为了让图片左对齐, 在前面加一个空格即可
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20210609151206.jpg"
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img src="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20210609151206.jpg"
 loading="lazy"
 alt="图片alt"
 >&lt;/p>
 &lt;h3 id="参考式-1">参考式&lt;/h3>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">![alt][标记]
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">![alt][标记]
 [标记]: 图片地址 &amp;#34;Title&amp;#34;
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20210609151206.jpg"
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img src="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20210609151206.jpg"
 loading="lazy"
 alt="猫"
 >&lt;/p>
 &lt;h2 id="目录">目录&lt;/h2>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">直接在文章头部加[TOP]
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">直接在文章头部加[TOP]
 ps:部分编辑器支持,部分不支持
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="脚注">脚注&lt;/h2>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">添加脚注的地方[^1]
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="脚注">脚注&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">添加脚注的地方[^1]
 [^1]: 脚注的内容
 ps: 脚注和脚注之间应该空一行
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>添加脚注的地方&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/p>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>添加脚注的地方&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/p>
 &lt;h2 id="表格">表格&lt;/h2>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">|学号|姓名|分数|
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">|学号|姓名|分数|
 |-|-|-|
 |小明|男|75|
 |小红|女|79|
 |小陆|男|92|
-&lt;/code>&lt;/pre>&lt;/div>&lt;table>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;table>
 &lt;thead>
 &lt;tr>
 &lt;th>学号&lt;/th>
@@ -896,12 +2024,23 @@ ps: 脚注和脚注之间应该空一行
 &lt;/tbody>
 &lt;/table>
 &lt;h3 id="省略写法">省略写法&lt;/h3>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">学号|姓名|分数
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">学号|姓名|分数
 -|-|-
 小明|男|75
 小红|女|79
 小陆|男|92
-&lt;/code>&lt;/pre>&lt;/div>&lt;table>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;table>
 &lt;thead>
 &lt;tr>
 &lt;th>学号&lt;/th>
@@ -928,13 +2067,26 @@ ps: 脚注和脚注之间应该空一行
 &lt;/tbody>
 &lt;/table>
 &lt;h3 id="对齐">对齐&lt;/h3>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">学号|姓名|分数
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">学号|姓名|分数
 :-|:-:|-:
 小明|男|75
 小红|女|79
 小陆|男|92
 ps: 第一列左对齐, 第二列居中, 第三列右对齐
-&lt;/code>&lt;/pre>&lt;/div>&lt;table>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;table>
 &lt;thead>
 &lt;tr>
 &lt;th style="text-align:left">学号&lt;/th>
@@ -961,36 +2113,99 @@ ps: 第一列左对齐, 第二列居中, 第三列右对齐
 &lt;/tbody>
 &lt;/table>
 &lt;h2 id="分隔线">分隔线&lt;/h2>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">***
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">***
 ---
 ___
-&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
 &lt;hr>
 &lt;hr>
 &lt;h2 id="代码">代码&lt;/h2>
 &lt;h3 id="行内式-2">行内式&lt;/h3>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="sb">`代码`&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>test&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="sb">`代码`&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>test&lt;/code>&lt;/p>
 &lt;h3 id="代码块">代码块&lt;/h3>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">​```js
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">​```js
 let a = 1
 ​```
-&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-js" data-lang="js">&lt;span class="kd">let&lt;/span> &lt;span class="nx">a&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">1&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="可展开的代码块">可展开的代码块&lt;/h3>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">details&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-js" data-lang="js">&lt;span class="kd">let&lt;/span> &lt;span class="nx">a&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">1&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="可展开的代码块">可展开的代码块&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">details&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
 &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">summary&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>CLICK ME&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">summary&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
 &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">pre&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;&lt;/span>&lt;span class="nt">code&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>let a = 0
 return a
 &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">code&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;/&lt;/span>&lt;span class="nt">pre&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
 &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">details&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;details>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;details>
 &lt;summary>CLICK ME&lt;/summary>
 &lt;pre>&lt;code>let a = 0
 return a
 &lt;/code>&lt;/pre>
 &lt;/details>
 &lt;h2 id="html">HTML&lt;/h2>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">在代码区块里面，&lt;span class="err">&amp;amp;&lt;/span>、&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">和&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>会自动转成HTML实体
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">在代码区块里面，&lt;span class="err">&amp;amp;&lt;/span>、&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">和&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>会自动转成HTML实体
 HTML原始码，只需要复制贴上，剩下的Markdown都会帮你处理
 &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">table&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
 &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">tr&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
@@ -1004,7 +2219,9 @@ HTML原始码，只需要复制贴上，剩下的Markdown都会帮你处理
 &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">td&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>6&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">td&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
 &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">tr&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
 &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">table&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;table>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;table>
 &lt;tr>
 &lt;td>1&lt;/td>
 &lt;td>2&lt;/td>
@@ -1023,26 +2240,58 @@ HTML原始码，只需要复制贴上，剩下的Markdown都会帮你处理
 &lt;p>脚注的内容 &lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/section></description></item><item><title>使用netlify部署hugo注意事项</title><link>/p/netlify-and-hugo/</link><pubDate>Fri, 28 Feb 2020 00:00:00 +0000</pubDate><guid>/p/netlify-and-hugo/</guid><description>&lt;ol>
-&lt;li>登录Nextlify，用github账号授权登陆即可。&lt;/li>
-&lt;li>选择&lt;code> “New site from Git”——“Github”——选择自己hugo博客源码对应的仓库——自动部署&lt;/code>。
-注：可以选择私人仓库，并且public可以配置.gitignore不用上传。&lt;/li>
-&lt;/ol>
-&lt;p>遇到的报错：&lt;/p>
-&lt;pre>&lt;code class="language-log" data-lang="log">Production: master@HEAD Failed
-failed during stage 'building site': Build script returned non-zero exit code: 255
-&lt;/code>&lt;/pre>&lt;pre>&lt;code>遇事不觉谷人希，stackoverflow上找到类似答案，需要修改Netlify控制台的环境变量与实际Hugo版本一致。
-&lt;/code>&lt;/pre>
-&lt;p>&lt;a class="link" href="https://gohugo.io/hosting-and-deployment/hosting-on-netlify/" target="_blank" rel="noopener"
->官方说明&lt;/a>&lt;/p>
-&lt;p>技术问题千万别用百度，垃圾csdn。&lt;/p>
-&lt;p>&lt;code>“setting”——“Build&amp;amp;deploy”——“Environment”——&amp;quot;Environment variables&amp;quot;——“Edit variables”，左边填“HUGO_VERSION”，右边填“v0.65.3”&lt;/code>。&lt;/p>
-&lt;p>注：版本号以实际hugo version获取为准。&lt;/p>
-&lt;ol start="3">
-&lt;li>同时搜索到另一种解决方法，但未实际验证。&lt;/li>
-&lt;/ol>
-&lt;p>在网站根目录下新建&lt;code>netlify.toml&lt;/code>的文件。&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-toml" data-lang="toml">&lt;span class="p">[&lt;/span>&lt;span class="nx">build&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/section></description></item><item><title>使用netlify部署hugo注意事项</title><link>/p/netlify-and-hugo/</link><pubDate>Fri, 28 Feb 2020 00:00:00 +0000</pubDate><guid>/p/netlify-and-hugo/</guid><description>&lt;h1 id="nextlify部署hugo-blog">nextlify部署hugo blog&lt;/h1>
+&lt;p>参考：&lt;/p>
+&lt;p>hugo官方: &lt;a href="https://gohugo.io/hosting-and-deployment/hosting-on-netlify">https://gohugo.io/hosting-and-deployment/hosting-on-netlify&lt;/a>&lt;/p>
+&lt;p>nextlify官方: &lt;a href="https://docs.netlify.com/integrations/frameworks/hugo/">https://docs.netlify.com/integrations/frameworks/hugo/&lt;/a>&lt;/p>
+&lt;h2 id="步骤">步骤&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>上传项目到github仓库, 该仓库可以是私人仓库&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>hugo的主题必须是&lt;code>git submodule&lt;/code>形式, 如果自定义主题, 上传到gihub仓库上, 以子模块方式引入&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>在&lt;code>.gitignore&lt;/code>里排除 &lt;code>public&lt;/code>文件夹&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>在项目根目录下新建文件&lt;code>netlify.toml&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-toml" data-lang="toml">&lt;span class="p">[&lt;/span>&lt;span class="nx">build&lt;/span>&lt;span class="p">]&lt;/span>
 &lt;span class="nx">publish&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;public&amp;#34;&lt;/span>
 &lt;span class="nx">command&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;hugo --gc --minify&amp;#34;&lt;/span>
 &lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">production&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">environment&lt;/span>&lt;span class="p">]&lt;/span>
@@ -1064,32 +2313,140 @@ failed during stage 'building site': Build script returned non-zero exit code: 2
 &lt;span class="nx">HUGO_VERSION&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;0.65.3&amp;#34;&lt;/span>
 &lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">next&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">environment&lt;/span>&lt;span class="p">]&lt;/span>
 &lt;span class="nx">HUGO_ENABLEGITINFO&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;true&amp;#34;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>git删除所有历史提交记录</title><link>/p/delete-all-gitcommit/</link><pubDate>Thu, 27 Feb 2020 00:00:00 +0000</pubDate><guid>/p/delete-all-gitcommit/</guid><description>&lt;p>​ 在切换Hexo到Hugo的过程中，由于有很多误操作造成提交记录很难看，需要清空历史提交记录。&lt;/p>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>注册Nextlify，可以用github账号授权&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>选择&lt;code> “New site from Git”——“Github”——选择自己hugo博客源码对应的仓库&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>在&lt;code>Deploy&lt;/code>之前可以先设置下, &lt;code>&amp;quot;site overview&amp;quot;--&amp;quot;site setting&amp;quot;--&amp;quot;change site name&amp;quot;&lt;/code>, 不改的话会默认分配&lt;code>https://xxx-xxx-xxx.netlify.app&lt;/code>一堆符号的二级域名&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>Deploy status badge&lt;/code>徽章可以放到项目的readme上, 可以看到最新部署状态&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Deploy&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>每次仓库更新, netlify就会自动部署&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="可选-绑定域名">可选: 绑定域名&lt;/h2>
+&lt;ol>
+&lt;li>&lt;code>Site settings -- Domain management--Custom domains--Add domain alias--填写域名--verify--Yes,add domain&lt;/code>&lt;/li>
+&lt;li>填写后到DNS 解析提供商里面，将 CNAME 记录值更改为 Netlify 给你的二级域名&lt;/li>
+&lt;li>https: 隔一段时间后点&lt;code>Verify DNS configuration&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;h2 id="可能的问题">可能的问题&lt;/h2>
+&lt;ol>
+&lt;li>报错：&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">Production: master@HEAD Failed
+failed during stage &lt;span class="s1">&amp;#39;building site&amp;#39;&lt;/span>: Build script returned non-zero &lt;span class="nb">exit&lt;/span> code: &lt;span class="m">255&lt;/span>
+&lt;span class="c1"># 解决方法: stackoverflow上找到类似答案，需要修改Netlify控制台的环境变量与实际Hugo版本一致。&lt;/span>
+&lt;span class="c1"># 技术问题千万别用百度，垃圾csdn&lt;/span>
+&lt;span class="c1"># hugo -v&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>“setting”——“Build&amp;amp;deploy”——“Environment”——&amp;quot;Environment variables&amp;quot;——“Edit variables”，左边填“HUGO_VERSION”，右边填“v?.?.?”&lt;/code>。&lt;/p>
+&lt;p>注：版本号以实际为准&lt;/p>
+&lt;ol start="2">
+&lt;li>
+&lt;p>报错&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">The build image &lt;span class="k">for&lt;/span> this site uses Ubuntu 16.04 Xenial Xerus, which is no longer supported.
+&lt;span class="c1"># ubuntu 版本过低&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>&amp;quot;Deploys&amp;quot;--&amp;quot;Delploy settings&amp;quot;--&amp;quot;Build image selection&amp;quot;--&amp;quot;Edit settings&amp;quot;--选最新的&lt;/code>&lt;/p>
+&lt;p>重新部署&lt;/p>
+&lt;/li>
+&lt;/ol></description></item><item><title>git删除所有历史提交记录</title><link>/p/delete-all-gitcommit/</link><pubDate>Thu, 27 Feb 2020 00:00:00 +0000</pubDate><guid>/p/delete-all-gitcommit/</guid><description>&lt;p>​ 在切换Hexo到Hugo的过程中，由于有很多误操作造成提交记录很难看，需要清空历史提交记录。&lt;/p>
 &lt;ol>
 &lt;li>
 &lt;p>切换到新的分支。&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git checkout --orphan latest_branch
-&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git checkout --orphan latest_branch
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
 &lt;li>
 &lt;p>缓存所有的文件（除了.gitignore中声明排除的）&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git add -A
-&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git add -A
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
 &lt;li>
 &lt;p>提交跟踪过的文件。&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git commit -m &lt;span class="s2">&amp;#34;提交记录&amp;#34;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git commit -m &lt;span class="s2">&amp;#34;提交记录&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
 &lt;li>
 &lt;p>删除master分支。&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git branch -D master
-&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git branch -D master
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
 &lt;li>
 &lt;p>重命名当前分支为master。&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git branch -m master
-&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git branch -m master
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
 &lt;li>
 &lt;p>提交到远程master分支。&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git push -f origin master
-&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git push -f origin master
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
 &lt;/ol></description></item><item><title>解决eclipse未自动补全问题的记录</title><link>/p/eclipse-error/</link><pubDate>Sat, 21 Dec 2019 00:00:00 +0000</pubDate><guid>/p/eclipse-error/</guid><description>&lt;p>参考方法:&lt;a class="link" href="https://blog.csdn.net/weixin_41741743/article/details/82814954" target="_blank" rel="noopener"
 >https://blog.csdn.net/weixin_41741743/article/details/82814954&lt;/a>&lt;/p>
 &lt;p>教训:学习编程不要用中文版&lt;/p>
@@ -1106,18 +2463,48 @@ failed during stage 'building site': Build script returned non-zero exit code: 2
 &lt;/ul>
 &lt;h2 id="一创建版本库">一.创建版本库&lt;/h2>
 &lt;h3 id="11创建空目录">1.1.创建空目录&lt;/h3>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">mkdir 目录名 //新建目录
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">mkdir 目录名 //新建目录
 &lt;span class="nb">cd&lt;/span> 目录名
 &lt;span class="nb">pwd&lt;/span> //显示当前目录路径
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="12把目录变成git可以管理的仓库">1.2.把目录变成Git可以管理的仓库&lt;/h3>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git init
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>会看到该目录下生成.git的目录&lt;/p>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="12把目录变成git可以管理的仓库">1.2.把目录变成Git可以管理的仓库&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git init
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>会看到该目录下生成.git的目录&lt;/p>
 &lt;h3 id="13把文件添加到仓库">1.3.把文件添加到仓库&lt;/h3>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git add &amp;lt;file&amp;gt;
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>可反复多次使用，添加多个文件&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git add &amp;lt;file&amp;gt;
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>可反复多次使用，添加多个文件&lt;/p>
 &lt;h3 id="14把文件提交到仓库">1.4.把文件提交到仓库&lt;/h3>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git commit -m &lt;span class="s2">&amp;#34;xxx&amp;#34;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>-m &amp;ldquo;xxx&amp;quot;本次提交的说明，commit可以一次提交很多文件。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git commit -m &lt;span class="s2">&amp;#34;xxx&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>-m &amp;ldquo;xxx&amp;quot;本次提交的说明，commit可以一次提交很多文件。&lt;/p>
 &lt;h2 id="二时空穿梭">二.时空穿梭&lt;/h2>
 &lt;ul>
 &lt;li>
@@ -1132,23 +2519,65 @@ failed during stage 'building site': Build script returned non-zero exit code: 2
 &lt;p>diff就是difference的缩写。&lt;/p>
 &lt;h3 id="21版本回退">2.1.版本回退&lt;/h3>
 &lt;h4 id="211命令查看提交日志">2.1.1.命令查看提交日志&lt;/h4>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git log
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>退出按 Q
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git log
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>退出按 Q
 觉得输出信息太多，可以加参数&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git log --pretty&lt;span class="o">=&lt;/span>oneline
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>一大串&lt;code>xxxxxxxxxxx&lt;/code>是&lt;code>commin id（版本号）&lt;/code>。&lt;code>HEAD&lt;/code>是当前版本；&lt;code>HEAD^&lt;/code>是上一版本；&lt;code>HEAD^^&lt;/code>是上上版本；上100版本，用&lt;code>HEAD~100&lt;/code>。
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git log --pretty&lt;span class="o">=&lt;/span>oneline
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>一大串&lt;code>xxxxxxxxxxx&lt;/code>是&lt;code>commin id（版本号）&lt;/code>。&lt;code>HEAD&lt;/code>是当前版本；&lt;code>HEAD^&lt;/code>是上一版本；&lt;code>HEAD^^&lt;/code>是上上版本；上100版本，用&lt;code>HEAD~100&lt;/code>。
 查看文件版本&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">cat 文件
-&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="212版本回退">2.1.2.版本回退&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">cat 文件
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="212版本回退">2.1.2.版本回退&lt;/h4>
 &lt;p>用&lt;code>git reset&lt;/code>&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git reset --hard HEAD^
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>回退到上一版本。同时会修改工作区的文件。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git reset --hard HEAD^
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>回退到上一版本。同时会修改工作区的文件。&lt;/p>
 &lt;h4 id="213取消版本回退">2.1.3取消版本回退&lt;/h4>
 &lt;p>如果命令窗口还没关闭，往回拉，找到commit_id版本号：&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git reset --hard 版本号的前几位
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>如果命令窗口已经关了，查看命令历史，找到版本号：&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git reflog
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>（ps：git base 按两下tab会有命令提示）&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git reset --hard 版本号的前几位
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>如果命令窗口已经关了，查看命令历史，找到版本号：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git reflog
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>（ps：git base 按两下tab会有命令提示）&lt;/p>
 &lt;h3 id="22工作区暂存区和master分支">2.2.工作区、暂存区和master分支&lt;/h3>
 &lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229044704.jpg"
 loading="lazy"
@@ -1157,31 +2586,91 @@ loading="lazy"
 loading="lazy"
 >&lt;/p>
 &lt;p>一旦提交后，如果你又没有对工作区做任何修改，那么工作区就是“干净”的：&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ git status
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ git status
 &lt;span class="c1"># On branch master&lt;/span>
 nothing to commit &lt;span class="o">(&lt;/span>working directory clean&lt;span class="o">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git diff HEAD -- 文件名 //注意：在 -- 前面和后面都有空格。
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>可以查看工作区和版本库最新版的区别。&lt;/p>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git diff HEAD -- 文件名 //注意：在 -- 前面和后面都有空格。
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>可以查看工作区和版本库最新版的区别。&lt;/p>
 &lt;h3 id="23撤销修改">2.3.撤销修改&lt;/h3>
 &lt;h4 id="231工作区">2.3.1.工作区&lt;/h4>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git checkout -- file
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>暂存区已提交，就回到暂存区状态；未提交暂存区，就回到版本库的状态。
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git checkout -- file
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>暂存区已提交，就回到暂存区状态；未提交暂存区，就回到版本库的状态。
 其中&lt;code>--&lt;/code>很重要。&lt;/p>
 &lt;h4 id="232暂存区">2.3.2.暂存区&lt;/h4>
 &lt;p>把暂存区撤销，放回工作区&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git reset HEAD file
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>然后把工作区撤销&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git checkout -- file
-&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="24删除文件">2.4.删除文件&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git reset HEAD file
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>然后把工作区撤销&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git checkout -- file
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="24删除文件">2.4.删除文件&lt;/h4>
 &lt;p>删除本地文件&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">rm file
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>删除版本库文件，并且提交&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git rm file
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">rm file
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>删除版本库文件，并且提交&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git rm file
 git commit -m &lt;span class="s2">&amp;#34;xxx&amp;#34;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>如果是删错了，恢复到版本库&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git checkout -- file
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>git checkout&lt;/code>实际上是用版本库替换工作区，无论是修改还是删除，都可以还原。&lt;/p>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>如果是删错了，恢复到版本库&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git checkout -- file
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>git checkout&lt;/code>实际上是用版本库替换工作区，无论是修改还是删除，都可以还原。&lt;/p>
 &lt;h2 id="三远程仓库">三.远程仓库&lt;/h2>
 &lt;ul>
 &lt;li>
@@ -1190,8 +2679,15 @@ git commit -m &lt;span class="s2">&amp;#34;xxx&amp;#34;&lt;/span>
 &lt;/li>
 &lt;/ul>
 &lt;p>测试ssh&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">ssh -T git@github.com
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="31添加远程库">3.1.添加远程库&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">ssh -T git@github.com
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="31添加远程库">3.1.添加远程库&lt;/h3>
 &lt;ul>
 &lt;li>
 &lt;p>关联本地仓库&lt;/p>
@@ -1199,10 +2695,24 @@ git commit -m &lt;span class="s2">&amp;#34;xxx&amp;#34;&lt;/span>
 &lt;/li>
 &lt;/ul>
 &lt;p>如果报错&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">fatal：remote origin already exists
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>只要先删除，再添加：&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ git remote rm origin
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>添加后，远程库的名字就是origin，这是Git默认的叫法，也可以改成别的，但是origin这个名字一看就知道是远程库。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">fatal：remote origin already exists
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>只要先删除，再添加：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ git remote rm origin
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>添加后，远程库的名字就是origin，这是Git默认的叫法，也可以改成别的，但是origin这个名字一看就知道是远程库。&lt;/p>
 &lt;ul>
 &lt;li>
 &lt;p>把本地库的所有内容推送到远程库上：&lt;/p>
@@ -1212,10 +2722,24 @@ git commit -m &lt;span class="s2">&amp;#34;xxx&amp;#34;&lt;/span>
 &lt;p>把本地库的内容推送到远程，用git push命令，实际上是把当前分支master推送到远程。&lt;/p>
 &lt;p>由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。&lt;/p>
 &lt;p>从现在起，只要本地作了提交，就可以通过命令：&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git push origin master
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>3.2.从远程库克隆&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git clone git@github.com:example/example
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="四分支管理">四.分支管理&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git push origin master
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>3.2.从远程库克隆&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git clone git@github.com:example/example
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="四分支管理">四.分支管理&lt;/h2>
 &lt;h3 id="41创建与合并分支">4.1.创建与合并分支&lt;/h3>
 &lt;p>通过指针的变化&lt;/p>
 &lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229050738.png"
@@ -1231,10 +2755,19 @@ loading="lazy"
 loading="lazy"
 >&lt;/p>
 &lt;p>git checkout命令加上-b参数表示创建并切换，相当于以下两条命令：&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ git branch dev
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ git branch dev
 $ git checkout dev
 Switched to branch &lt;span class="s1">&amp;#39;dev&amp;#39;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
 &lt;li>
 &lt;p>用git branch命令查看当前分支,当前分支前面会标一个*号：&lt;/p>
 &lt;p>$ git branch&lt;br>
@@ -1302,11 +2835,25 @@ loading="lazy"
 &lt;h3 id="43分支管理策略">4.3.分支管理策略&lt;/h3>
 &lt;p>通常，合并分支时，如果可能，Git会用Fast forward模式，但这种模式下，删除分支后，会丢掉分支信息。&lt;/p>
 &lt;p>如果要强制禁用Fast forward模式，Git就会在merge时生成一个新的commit，这样，从分支历史上就可以看出分支信息。&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git merge --no-ff -m &lt;span class="s2">&amp;#34;描述&amp;#34;&lt;/span> dev
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>因为本次合并要创建一个新的commit，所以加上-m参数，把commit描述写进去。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git merge --no-ff -m &lt;span class="s2">&amp;#34;描述&amp;#34;&lt;/span> dev
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>因为本次合并要创建一个新的commit，所以加上-m参数，把commit描述写进去。&lt;/p>
 &lt;p>查看分支历史&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git log --graph --pretty&lt;span class="o">=&lt;/span>oneline --abbrev-commit
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229052028.png"
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git log --graph --pretty&lt;span class="o">=&lt;/span>oneline --abbrev-commit
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229052028.png"
 loading="lazy"
 >&lt;/p>
 &lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229052106.png"
@@ -1321,19 +2868,47 @@ loading="lazy"
 >&lt;/p>
 &lt;h3 id="44bug分支">4.4.Bug分支&lt;/h3>
 &lt;p>当前工作到一般还不能提交，但是又要修复bug添加bugfix分支，可以用&lt;code>stash&lt;/code>存储工作状态。&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ git stash
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>现在，用git status查看工作区，就是干净的（除非有没有被Git管理的文件），因此可以放心地创建分支来修复bug。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ git stash
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>现在，用git status查看工作区，就是干净的（除非有没有被Git管理的文件），因此可以放心地创建分支来修复bug。&lt;/p>
 &lt;p>修完bug,回到原来分支，用&lt;code>git status list&lt;/code>查看存储状态。用&lt;code>git stash apply&lt;/code>恢复，&lt;code>git stash drop&lt;/code>清空。或者用&lt;code>git stash pop&lt;/code>一步完成。&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git stash pop
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="45feature分支">4.5.Feature分支&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git stash pop
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="45feature分支">4.5.Feature分支&lt;/h3>
 &lt;p>添加实验性功能时，不希望乱七八遭的代码把主分支打乱，最好添加feature分支，在上面开发，完成后合并、删除。&lt;/p>
 &lt;h3 id="46多人协作">4.6.多人协作&lt;/h3>
 &lt;p>当你从远程仓库克隆时，实际上Git自动把本地的master分支和远程的master分支对应起来了，并且，远程仓库的默认名称是origin。&lt;/p>
 &lt;p>要查看远程库的信息，用git remote：&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git remote
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>或者，用git remote -v显示更详细的信息：&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git remote -v
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>并不是一定要把本地分支往远程推送，那么，哪些分支需要推送，哪些不需要呢？&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git remote
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>或者，用git remote -v显示更详细的信息：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git remote -v
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>并不是一定要把本地分支往远程推送，那么，哪些分支需要推送，哪些不需要呢？&lt;/p>
 &lt;ul>
 &lt;li>
 &lt;p>master分支是主分支，因此要时刻与远程同步；&lt;/p>
@@ -1349,15 +2924,37 @@ loading="lazy"
 &lt;/li>
 &lt;/ul>
 &lt;p>小伙伴要在dev分支上开发，就必须创建远程origin的dev分支到本地，于是他用这个命令创建本地dev分支：&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ git checkout -b dev origin/dev
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>现在，他就可以在dev上继续修改，然后，时不时地把dev分支push到远程。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ git checkout -b dev origin/dev
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>现在，他就可以在dev上继续修改，然后，时不时地把dev分支push到远程。&lt;/p>
 &lt;p>小伙伴已经向origin/dev分支推送了他的提交，而碰巧你也对同样的文件作了修改，并试图推送，失败。&lt;/p>
 &lt;p>小伙伴的最新提交和你试图推送的提交有冲突，解决办法也很简单，Git已经提示我们，先用git pull把最新的提交从origin/dev抓下来，然后，在本地合并，解决冲突，再推送。&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git pull
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>git pull也失败了，原因是没有指定本地dev分支与远程origin/dev分支的链接，根据提示，先设置dev和origin/dev的链接，再pull：&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ git branch --set-upstream dev origin/dev
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git pull
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>git pull也失败了，原因是没有指定本地dev分支与远程origin/dev分支的链接，根据提示，先设置dev和origin/dev的链接，再pull：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ git branch --set-upstream dev origin/dev
 $ git pull
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>多人协作的工作模式通常是这样：&lt;/p>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>多人协作的工作模式通常是这样：&lt;/p>
 &lt;ol>
 &lt;li>
 &lt;p>首先，可以试图用git push origin branch-name推送自己的修改；&lt;/p>
@@ -1380,39 +2977,132 @@ $ git pull
 &lt;p>tag就是一个让人容易记住的有意义的名字，它跟某个commit绑在一起。&lt;/p>
 &lt;h3 id="51创建标签">5.1.创建标签&lt;/h3>
 &lt;p>切换到需要打标签的分支上：&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git branch
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git branch
 git checkout master
 git tag v1.0
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>给master分支打上了v1.0的标签。&lt;/p>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>给master分支打上了v1.0的标签。&lt;/p>
 &lt;p>查看所有标签：&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git tag
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>以前的commit忘记打标签了，需要找到commit id：&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git log --pretty&lt;span class="o">=&lt;/span>oneline --abbrev-commit
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>找到id比如是xxx&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git tag
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>以前的commit忘记打标签了，需要找到commit id：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git log --pretty&lt;span class="o">=&lt;/span>oneline --abbrev-commit
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>找到id比如是xxx&lt;/p>
 &lt;p>打上标签&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git tag v0.9 xxx
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>注意，标签不是按时间顺序列出，而是按字母排序的。可以用git show &lt;tagname>查看标签信息：&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git show v0.9
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>还可以创建带有说明的标签，用-a指定标签名，-m指定说明文字&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git tag -a v0.1 -m &lt;span class="s2">&amp;#34;version 0.1 released&amp;#34;&lt;/span> xxxid
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>用命令git show &lt;tagname>可以看到说明文字：&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git show v0.1
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>还可以通过-s用私钥签名一个标签：&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git tag -s v0.2 -m &lt;span class="s2">&amp;#34;signed version 0.2 released&amp;#34;&lt;/span> xxxid
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>签名采用PGP签名，因此，必须首先安装gpg（GnuPG），如果没有找到gpg，或者没有gpg密钥对，就会报错。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git tag v0.9 xxx
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>注意，标签不是按时间顺序列出，而是按字母排序的。可以用git show &lt;tagname>查看标签信息：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git show v0.9
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>还可以创建带有说明的标签，用-a指定标签名，-m指定说明文字&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git tag -a v0.1 -m &lt;span class="s2">&amp;#34;version 0.1 released&amp;#34;&lt;/span> xxxid
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>用命令git show &lt;tagname>可以看到说明文字：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git show v0.1
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>还可以通过-s用私钥签名一个标签：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git tag -s v0.2 -m &lt;span class="s2">&amp;#34;signed version 0.2 released&amp;#34;&lt;/span> xxxid
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>签名采用PGP签名，因此，必须首先安装gpg（GnuPG），如果没有找到gpg，或者没有gpg密钥对，就会报错。&lt;/p>
 &lt;h3 id="52操作标签">5.2.操作标签&lt;/h3>
 &lt;p>如果标签打错了要删除：&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git tag -d v0.1
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>因为创建的标签都只存储在本地，不会自动推送到远程。所以，打错的标签可以在本地安全删除。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git tag -d v0.1
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>因为创建的标签都只存储在本地，不会自动推送到远程。所以，打错的标签可以在本地安全删除。&lt;/p>
 &lt;p>如果要推送某个标签到远程，使用命令git push origin &lt;tagname>：&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git push origin v1.0
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>或者，一次性推送全部尚未推送到远程的本地标签：&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git push origin --tags
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>如果标签已经推送到远程，要删除远程标签就麻烦一点，先从本地删除：&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git tag -d v0.9
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>然后，从远程删除。&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git push origin :refs/tags/v0.9
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>要看看是否真的从远程库删除了标签，可以登陆GitHub查看。&lt;/p></description></item><item><title>用Github Page 搭免费博客</title><link>/p/github-page-blog/</link><pubDate>Mon, 13 Nov 2017 00:00:00 +0000</pubDate><guid>/p/github-page-blog/</guid><description>&lt;h2 id="用github-page-搭免费博客">用Github Page 搭免费博客&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git push origin v1.0
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>或者，一次性推送全部尚未推送到远程的本地标签：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git push origin --tags
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>如果标签已经推送到远程，要删除远程标签就麻烦一点，先从本地删除：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git tag -d v0.9
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>然后，从远程删除。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git push origin :refs/tags/v0.9
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>要看看是否真的从远程库删除了标签，可以登陆GitHub查看。&lt;/p></description></item><item><title>用Github Page 搭免费博客</title><link>/p/github-page-blog/</link><pubDate>Mon, 13 Nov 2017 00:00:00 +0000</pubDate><guid>/p/github-page-blog/</guid><description>&lt;h2 id="用github-page-搭免费博客">用Github Page 搭免费博客&lt;/h2>
 &lt;p>一.搭建hexo博客&lt;/p>
 &lt;p>1.安装Node.js&lt;/p>
 &lt;p>下载地址：&lt;a class="link" href="https://nodejs.org/en/" target="_blank" rel="noopener"
@@ -1427,17 +3117,39 @@ git tag v1.0
 &lt;p>准备好fq工具，注册时的usename用户名和邮箱很重要，因为默认的博客地址是https://usename.github.io/这种形式的，邮箱则关系到安全和通知。&lt;/p>
 &lt;p>3.1添加SSH Key&lt;/p>
 &lt;p>SSH Key是一个认证，让github识别绑定这台机器，允许这台机器提交。执行如下命令：&lt;/p>
-&lt;pre>&lt;code>cd ~/. ssh
-&lt;/code>&lt;/pre>&lt;p>~这个符号，表示在用户目录下
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">cd ~/. ssh
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>~这个符号，表示在用户目录下
 执行代码如果提示：No such file or directory 说明你是第一次使用git。&lt;/p>
 &lt;p>新建新的SSH Key&lt;/p>
 &lt;p>在Git Bash执行代码：&lt;/p>
-&lt;pre>&lt;code>ssh-keygen -t rsa -C &amp;quot;你的邮箱@gmail.com&amp;quot;
-&lt;/code>&lt;/pre>&lt;p>注意：此处的&lt;code>-C&lt;/code>的是大写的。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">ssh-keygen -t rsa -C &amp;#34;你的邮箱@gmail.com&amp;#34;
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>注意：此处的&lt;code>-C&lt;/code>的是大写的。&lt;/p>
 &lt;p>然后系统会要求你输入密码（密码在后面每次提交都需要输入，嫌麻烦可以直接两次回车不设置）：&lt;/p>
-&lt;pre>&lt;code>Enter passphrase (empty for no passphrase):&amp;lt;输入加密串&amp;gt;
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">Enter passphrase (empty for no passphrase):&amp;lt;输入加密串&amp;gt;
 Enter same passphrase again:&amp;lt;再次输入加密串&amp;gt;
-&lt;/code>&lt;/pre>&lt;p>在回车中会提示你输入一个密码，这个密码会在你提交项目时使用，如果为空的话提交项目时则不用输入。这个设置是防止别人往你的项目里提交内容。&lt;/p>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>在回车中会提示你输入一个密码，这个密码会在你提交项目时使用，如果为空的话提交项目时则不用输入。这个设置是防止别人往你的项目里提交内容。&lt;/p>
 &lt;ul>
 &lt;li>输入密码的时候没有 * 字样的，你直接输入就可以了。&lt;/li>
 &lt;li>邮箱输错/密码忘记，&lt;/li>

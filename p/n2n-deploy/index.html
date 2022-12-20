@@ -1,12 +1,29 @@
-<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="n2n 参考: https://bugxia.com/2396.html https://www.jianshu.com/p/559c1e582724 https://github.com/LomotHo/n2n-releases 服务器安装 centos # RPM安装 yum install libzstd -y wget https://github.com/ntop/n2n/releases/download/3.0/n2n-3.0.0-1038.x86_64.rpm rpm -i n2n-3.0.0-1038.x86_64.rpm 启动服务器 启动服务端 #实际使用时，可以去掉 -f 参数，使其后台运行 supernode -p 端口 -f 服务端（Su"><title>n2n部署</title><link rel=canonical href=/p/n2n-deploy/><link rel=stylesheet href=/scss/style.min.6dae1168bc4b4544b76ba60ac495427d4659a7b8dccf264a0712326e3565d2ba.css><meta property="og:title" content="n2n部署"><meta property="og:description" content="n2n 参考: https://bugxia.com/2396.html https://www.jianshu.com/p/559c1e582724 https://github.com/LomotHo/n2n-releases 服务器安装 centos # RPM安装 yum install libzstd -y wget https://github.com/ntop/n2n/releases/download/3.0/n2n-3.0.0-1038.x86_64.rpm rpm -i n2n-3.0.0-1038.x86_64.rpm 启动服务器 启动服务端 #实际使用时，可以去掉 -f 参数，使其后台运行 supernode -p 端口 -f 服务端（Su"><meta property="og:url" content="/p/n2n-deploy/"><meta property="og:site_name" content="Jqtmviyu's Blog"><meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:published_time" content="2022-12-18T17:02:27+08:00"><meta property="article:modified_time" content="2022-12-18T17:02:27+08:00"><meta name=twitter:title content="n2n部署"><meta name=twitter:description content="n2n 参考: https://bugxia.com/2396.html https://www.jianshu.com/p/559c1e582724 https://github.com/LomotHo/n2n-releases 服务器安装 centos # RPM安装 yum install libzstd -y wget https://github.com/ntop/n2n/releases/download/3.0/n2n-3.0.0-1038.x86_64.rpm rpm -i n2n-3.0.0-1038.x86_64.rpm 启动服务器 启动服务端 #实际使用时，可以去掉 -f 参数，使其后台运行 supernode -p 端口 -f 服务端（Su"><link rel="shortcut icon" href=/favicon.png></head><body class=article-page><script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
-<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu5dc921b5916569d953912c0faaa2a3c2_62047_300x0_resize_box_2.png width=300 height=300 class=site-logo loading=lazy alt=Avatar></a></figure><div class=site-meta><h1 class=site-name><a href=/>Jqtmviyu's Blog</a></h1><h2 class=site-description>有人生来就在罗马, 有人生来就是牛马</h2></div></header><ol class=social-menu><li><a href=https://github.com/jqtmviyu target=_blank title=GitHub rel=me><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li><li><a href=mailto:jqtmviyu@gmail.com target=_blank title=Mail rel=me><!doctype html><svg t="1640862754493" class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" p-id="1236" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><defs><style/></defs><path d="M858.656 192H165.344C109.472 192 64 237.44 64 293.312v469.376C64 818.56 109.472 864 165.344 864h693.312C914.528 864 960 818.56 960 762.688V293.312C960 237.44 914.528 192 858.656 192zm0 608H165.344C144.736 8e2 128 783.264 128 762.688V293.312C128 272.736 144.736 256 165.344 256h684.544L542.4 535.808c-14.592 14.56-38.272 14.528-54.752-1.792L243.392 327.264C229.856 315.84 209.664 317.504 198.272 331.008c-11.424 13.472-9.76 33.664 3.744 45.088l242.304 204.96c19.904 19.904 46.048 29.792 72.032 29.792 25.632.0 51.136-9.632 70.176-28.736L896 300.544v462.144C896 783.264 879.264 8e2 858.656 8e2z" p-id="1237" fill="#b6b6b6"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg><span>Home</span></a></li><li><a href=/about/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg><span>About</span></a></li><li><a href=/archives/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg><span>Archives</span></a></li><li><a href=/search/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg><span>Search</span></a></li><li><a href=/links/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M10 14a3.5 3.5.0 005 0l4-4a3.5 3.5.0 00-5-5l-.5.5"/><path d="M14 10a3.5 3.5.0 00-5 0l-4 4a3.5 3.5.0 005 5l.5-.5"/></svg><span>Links</span></a></li><div class=menu-bottom-section><li id=dark-mode-toggle><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><span>Dark Mode</span></li></div></ol></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/network/>network</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/n2n-deploy/>n2n部署</a></h2></div><footer class=article-time><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg><time class=article-time--published>2022/Dec/18</time></div><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg><time class=article-time--reading>4 minute read</time></div></footer></div></header><section class=article-content><h1 id=n2n>n2n</h1><p>参考:<br><a class=link href=https://bugxia.com/2396.html target=_blank rel=noopener>https://bugxia.com/2396.html</a><br><a class=link href=https://www.jianshu.com/p/559c1e582724 target=_blank rel=noopener>https://www.jianshu.com/p/559c1e582724</a><br><a href=https://github.com/LomotHo/n2n-releases>https://github.com/LomotHo/n2n-releases</a></p><h2 id=服务器安装>服务器安装</h2><ul><li>centos</li></ul><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># RPM安装</span>
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="n2n 参考: https://bugxia.com/2396.html https://www.jianshu.com/p/559c1e582724 https://github.com/LomotHo/n2n-releases 服务器安装 centos 1 2 3 4 # RPM安装 yum install libzstd -y wget https://github.com/ntop/n2n/releases/download/3.0/n2n-3.0.0-1038.x86_64.rpm rpm -i n2n-3.0.0-1038.x86_64.rpm 启动服务器 1 2 3 启动服务端 #实际使用时，可以去掉 -f 参数，使其后台运行 supernode -p 端口"><title>n2n部署</title><link rel=canonical href=/p/n2n-deploy/><link rel=stylesheet href=/scss/style.min.6dae1168bc4b4544b76ba60ac495427d4659a7b8dccf264a0712326e3565d2ba.css><meta property="og:title" content="n2n部署"><meta property="og:description" content="n2n 参考: https://bugxia.com/2396.html https://www.jianshu.com/p/559c1e582724 https://github.com/LomotHo/n2n-releases 服务器安装 centos 1 2 3 4 # RPM安装 yum install libzstd -y wget https://github.com/ntop/n2n/releases/download/3.0/n2n-3.0.0-1038.x86_64.rpm rpm -i n2n-3.0.0-1038.x86_64.rpm 启动服务器 1 2 3 启动服务端 #实际使用时，可以去掉 -f 参数，使其后台运行 supernode -p 端口"><meta property="og:url" content="/p/n2n-deploy/"><meta property="og:site_name" content="Jqtmviyu's Blog"><meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="network"><meta property="article:published_time" content="2022-12-18T17:02:27+08:00"><meta property="article:modified_time" content="2022-12-18T17:02:27+08:00"><meta name=twitter:title content="n2n部署"><meta name=twitter:description content="n2n 参考: https://bugxia.com/2396.html https://www.jianshu.com/p/559c1e582724 https://github.com/LomotHo/n2n-releases 服务器安装 centos 1 2 3 4 # RPM安装 yum install libzstd -y wget https://github.com/ntop/n2n/releases/download/3.0/n2n-3.0.0-1038.x86_64.rpm rpm -i n2n-3.0.0-1038.x86_64.rpm 启动服务器 1 2 3 启动服务端 #实际使用时，可以去掉 -f 参数，使其后台运行 supernode -p 端口"><link rel="shortcut icon" href=/favicon.png></head><body class=article-page><script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu5dc921b5916569d953912c0faaa2a3c2_62047_300x0_resize_box_2.png width=300 height=300 class=site-logo loading=lazy alt=Avatar></a></figure><div class=site-meta><h1 class=site-name><a href=/>Jqtmviyu's Blog</a></h1><h2 class=site-description>有人生来就在罗马, 有人生来就是牛马</h2></div></header><ol class=social-menu><li><a href=https://github.com/jqtmviyu target=_blank title=GitHub rel=me><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li><li><a href=mailto:jqtmviyu@gmail.com target=_blank title=Mail rel=me><!doctype html><svg t="1640862754493" class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" p-id="1236" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><defs><style/></defs><path d="M858.656 192H165.344C109.472 192 64 237.44 64 293.312v469.376C64 818.56 109.472 864 165.344 864h693.312C914.528 864 960 818.56 960 762.688V293.312C960 237.44 914.528 192 858.656 192zm0 608H165.344C144.736 8e2 128 783.264 128 762.688V293.312C128 272.736 144.736 256 165.344 256h684.544L542.4 535.808c-14.592 14.56-38.272 14.528-54.752-1.792L243.392 327.264C229.856 315.84 209.664 317.504 198.272 331.008c-11.424 13.472-9.76 33.664 3.744 45.088l242.304 204.96c19.904 19.904 46.048 29.792 72.032 29.792 25.632.0 51.136-9.632 70.176-28.736L896 300.544v462.144C896 783.264 879.264 8e2 858.656 8e2z" p-id="1237" fill="#b6b6b6"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg><span>Home</span></a></li><li><a href=/about/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg><span>About</span></a></li><li><a href=/archives/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg><span>Archives</span></a></li><li><a href=/search/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg><span>Search</span></a></li><li><a href=/links/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M10 14a3.5 3.5.0 005 0l4-4a3.5 3.5.0 00-5-5l-.5.5"/><path d="M14 10a3.5 3.5.0 00-5 0l-4 4a3.5 3.5.0 005 5l.5-.5"/></svg><span>Links</span></a></li><div class=menu-bottom-section><li id=dark-mode-toggle><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><span>Dark Mode</span></li></div></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#服务器安装>服务器安装</a></li><li><a href=#启动服务器>启动服务器</a></li><li><a href=#服务器端口放行>服务器端口放行</a></li><li><a href=#客户端组建n2n虚拟局域网>客户端组建N2N虚拟局域网</a></li><li><a href=#安装tuntap>安装tuntap</a></li><li><a href=#macos-设置开机启动项>macos 设置开机启动项</a></li><li><a href=#linux客户端设置自启动>linux客户端设置自启动</a></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/notes/>notes</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/n2n-deploy/>n2n部署</a></h2></div><footer class=article-time><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg><time class=article-time--published>2022/Dec/18</time></div><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg><time class=article-time--reading>4 minute read</time></div></footer></div></header><section class=article-content><h1 id=n2n>n2n</h1><p>参考:<br><a class=link href=https://bugxia.com/2396.html target=_blank rel=noopener>https://bugxia.com/2396.html</a><br><a class=link href=https://www.jianshu.com/p/559c1e582724 target=_blank rel=noopener>https://www.jianshu.com/p/559c1e582724</a><br><a href=https://github.com/LomotHo/n2n-releases>https://github.com/LomotHo/n2n-releases</a></p><h2 id=服务器安装>服务器安装</h2><ul><li>centos</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># RPM安装</span>
 yum install libzstd -y  
 wget https://github.com/ntop/n2n/releases/download/3.0/n2n-3.0.0-1038.x86_64.rpm  
 rpm -i n2n-3.0.0-1038.x86_64.rpm
-</code></pre></div><h2 id=启动服务器>启动服务器</h2><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>启动服务端
+</code></pre></td></tr></table></div></div><h2 id=启动服务器>启动服务器</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>启动服务端
 <span class=c1>#实际使用时，可以去掉 -f 参数，使其后台运行</span>
 supernode -p 端口 -f
-</code></pre></div><ul><li>服务端（Supernode）附加参数<div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>-p 端口 <span class=p>|</span> Supernode监听端口，默认 <span class=m>7654</span>
+</code></pre></td></tr></table></div></div><ul><li>服务端（Supernode）附加参数<div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>-p 端口 <span class=p>|</span> Supernode监听端口，默认 <span class=m>7654</span>
 -F federation名称 <span class=p>|</span> supernode federation名称，默认为 *Federation
 -l 主机:端口 <span class=p>|</span> 和 -F 配合，已知的一台Supernode地址和端口
 -M <span class=p>|</span> 关闭非用户名密码认证的群组的MAC和IP地址欺骗保护功能
@@ -16,7 +33,21 @@ supernode -p 端口 -f
 -t 端口 <span class=p>|</span> 用于管理supernode
 --management_password 文本 <span class=p>|</span> 管理端的密码
 -v <span class=p>|</span> 输出更多日志
-</code></pre></div></li></ul><ul><li><p>设置开机启动</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 修改配置文件</span>
+</code></pre></td></tr></table></div></div></li></ul><ul><li><p>设置开机启动</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 修改配置文件</span>
 sudo vim /etc/n2n/supernode.conf
 <span class=o>====</span>
 -p<span class=o>=</span>端口
@@ -30,7 +61,16 @@ journalctl -f -u supernode
 <span class=c1># journalctl 查看日志</span>
 <span class=c1># -f 实时最新</span>
 <span class=c1># -u 指定服务</span>
-</code></pre></div></li></ul><h2 id=服务器端口放行>服务器端口放行</h2><ul><li>腾讯云的防火墙</li><li>若服务器开启了如iptables\firewalld\ufw等防火墙，需要放行supernode所设置的端口，否则客户端无法连接</li></ul><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=c1>#firewalld </span>
+</code></pre></td></tr></table></div></div></li></ul><h2 id=服务器端口放行>服务器端口放行</h2><ul><li>腾讯云的防火墙</li><li>若服务器开启了如iptables\firewalld\ufw等防火墙，需要放行supernode所设置的端口，否则客户端无法连接</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1>#firewalld </span>
 firewall-cmd --zone<span class=o>=</span>public --add-port<span class=o>=</span>9527/udp --permanent
 firewall-cmd --reload
 <span class=c1>#iptables</span>
@@ -39,7 +79,15 @@ service iptables save
 service iptables restart
 <span class=c1>#ufw</span>
 ufw allow 9527/udp
-</code></pre></div><p>centos7 默认是firewall</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 查看状态</span>
+</code></pre></td></tr></table></div></div><p>centos7 默认是firewall</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 查看状态</span>
 systemctl status firewalld
 <span class=c1># 或者</span>
 firewall-cmd --state
@@ -47,8 +95,37 @@ firewall-cmd --state
 firewall-cmd --zone<span class=o>=</span>public --list-ports
 <span class=c1># 禁用端口</span>
 firewall-cmd --zone<span class=o>=</span>public --remove-port<span class=o>=</span>5672/tcp --permanent  <span class=c1>#关闭5672端口</span>
-</code></pre></div><h2 id=客户端组建n2n虚拟局域网>客户端组建N2N虚拟局域网</h2><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>sudo edge -a 局域网ip -c n2n组名 -l <span class=o>[</span>公网ip<span class=o>]</span>:公网端口 -f
-</code></pre></div><p>参数说明</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>-a &lt;mode:address&gt;        <span class=p>|</span> n2n网卡的ip地址，即本机的n2n的ip。直接填写IP或者使用 DHCP <span class=s1>&#39;-r -a dhcp:0.0.0.0&#39;</span>
+</code></pre></td></tr></table></div></div><h2 id=客户端组建n2n虚拟局域网>客户端组建N2N虚拟局域网</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>sudo edge -a 局域网ip -c n2n组名 -l <span class=o>[</span>公网ip<span class=o>]</span>:公网端口 -f
+</code></pre></td></tr></table></div></div><p>参数说明</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>-a &lt;mode:address&gt;        <span class=p>|</span> n2n网卡的ip地址，即本机的n2n的ip。直接填写IP或者使用 DHCP <span class=s1>&#39;-r -a dhcp:0.0.0.0&#39;</span>
 -c &lt;community&gt;           <span class=p>|</span> n2n组，只有相同组的edge之间才能进行通讯
 -k &lt;encrypt key&gt;         <span class=p>|</span> edge的加密密码
 -s &lt;netmask&gt;             <span class=p>|</span> 子网掩码 可选 <span class=o>(</span>255.255.255.0<span class=o>)</span>.
@@ -76,10 +153,34 @@ firewall-cmd --zone<span class=o>=</span>public --remove-port<span class=o>=</sp
 
 环境变量:
 N2N_KEY                <span class=p>|</span> 加密密钥<span class=o>(</span>ASCII<span class=o>)</span>
-</code></pre></div><h2 id=安装tuntap>安装tuntap</h2><pre><code>brew tap happynclient/taps
+</code></pre></td></tr></table></div></div><h2 id=安装tuntap>安装tuntap</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>brew tap happynclient/taps
 brew install tuntap --cask
-</code></pre><p>.查看系统信息，您会看到一个名为 tap0的虚拟网卡
-sudo ifconfig</p><h2 id=macos-设置开机启动项>macos 设置开机启动项</h2><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 在 /Library/LaunchDaemons 新增文件 lomotho.n2n-edge.plist，用于 launchd 控制的开机自启（类似 systemd）</span>
+</code></pre></td></tr></table></div></div><p>.查看系统信息，您会看到一个名为 tap0的虚拟网卡
+sudo ifconfig</p><h2 id=macos-设置开机启动项>macos 设置开机启动项</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 在 /Library/LaunchDaemons 新增文件 lomotho.n2n-edge.plist，用于 launchd 控制的开机自启（类似 systemd）</span>
 <span class=c1># RunAtLoad 开机时是否运行</span>
 <span class=c1># KeepAlive 是否需要一直运行</span>
 <span class=o>====</span>
@@ -101,7 +202,54 @@ sudo ifconfig</p><h2 id=macos-设置开机启动项>macos 设置开机启动项<
   &lt;/dict&gt;
 &lt;/plist&gt;
 <span class=o>====</span>
-</code></pre></div><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 客户端配置文件</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 客户端配置文件</span>
 <span class=c1># /usr/local/etc/n2n/edge.conf</span>
 <span class=c1>#</span>
 <span class=c1>#         The configuration file is similar to the command line, with one option per line. An equal</span>
@@ -148,12 +296,31 @@ sudo ifconfig</p><h2 id=macos-设置开机启动项>macos 设置开机启动项<
 <span class=c1># -Z1为LZO(1x)压缩 -Z2为ZSTD压缩，默认没有</span>
 -Z2
 <span class=c1>#</span>
-</code></pre></div><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 开启服务</span>
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 开启服务</span>
 launchctl load /Library/LaunchDaemons/lomotho.n2n.edge.plist
 
 <span class=c1># 关闭服务</span>
 launchctl unload /Library/LaunchDaemons/lomotho.n2n.edge.plist
-</code></pre></div><h2 id=linux客户端设置自启动>linux客户端设置自启动</h2><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>sudo vim /etc/n2n/edge.conf
+</code></pre></td></tr></table></div></div><h2 id=linux客户端设置自启动>linux客户端设置自启动</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>sudo vim /etc/n2n/edge.conf
 <span class=o>======</span>
 -c<span class=o>=</span>组织名
 -a<span class=o>=</span>内网地址
@@ -167,8 +334,8 @@ journalctl -f -u edge
 <span class=c1># journalctl 查看日志</span>
 <span class=c1># -f 实时最新</span>
 <span class=c1># -u 指定服务</span>
-</code></pre></div></section><footer class=article-footer><section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg><span><a rel=license href=http://creativecommons.org/licenses/by-nc-sa/4.0/>署名-非商业性使用-相同方式共享 4.0 国际许可协议(CC BY-NC-SA 4.0)<br></a></span></section></footer></article><footer class=site-footer><section class=copyright>&copy;
-2021 -
+</code></pre></td></tr></table></div></div></section><footer class=article-footer><section class=article-tags><a href=/tags/network/>network</a></section><section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg><span><a rel=license href=http://creativecommons.org/licenses/by-nc-sa/4.0/>LICENSED UNDER CC BY-NC-SA 4.0<br></a></span></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>Related content</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/p/git-common-command/><div class=article-details><h2 class=article-title>Git常用命令</h2></div></a></article><article><a href=/p/markdown-note/><div class=article-details><h2 class=article-title>Markdown笔记</h2></div></a></article><article><a href=/p/netlify-and-hugo/><div class=article-details><h2 class=article-title>使用netlify部署hugo注意事项</h2></div></a></article><article><a href=/p/delete-all-gitcommit/><div class=article-details><h2 class=article-title>git删除所有历史提交记录</h2></div></a></article><article><a href=/p/eclipse-error/><div class=article-details><h2 class=article-title>解决eclipse未自动补全问题的记录</h2></div></a></article></div></div></aside><footer class=site-footer><section class=copyright>&copy;
+2017 -
 2022 Jqtmviyu's Blog</section><section class=powerby>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.16.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 <button class="pswp__button pswp__button--share" title=Share></button>
 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>

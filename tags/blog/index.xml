@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>blog on Jqtmviyu's Blog</title><link>/tags/blog/</link><description>Recent content in blog on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 13 Nov 2017 00:00:00 +0000</lastBuildDate><atom:link href="/tags/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>用Github Page 搭免费博客</title><link>/p/github-page-blog/</link><pubDate>Mon, 13 Nov 2017 00:00:00 +0000</pubDate><guid>/p/github-page-blog/</guid><description>&lt;h2 id="用github-page-搭免费博客">用Github Page 搭免费博客&lt;/h2>
+&lt;p>一.搭建hexo博客&lt;/p>
+&lt;p>1.安装Node.js&lt;/p>
+&lt;p>下载地址：&lt;a class="link" href="https://nodejs.org/en/" target="_blank" rel="noopener"
+>传送门&lt;/a>&lt;/p>
+&lt;p>下载的文件是.msi后缀的，win10-x64-ltsb2016直接双击安装可能会出现2502、2503错误，在安装文件所在目录下，&lt;code>Shit+右键，在此处打开命令窗口&lt;/code>，输入&lt;code>msiexec /i 文件名.msi&lt;/code> ，就能成功安装。（如果还是无效，用管理员权限cmd）&lt;/p>
+&lt;p>可以通过node -v命令来测试NodeJS是否安装成功。&lt;/p>
+&lt;p>2.安装Git&lt;/p>
+&lt;p>下载地址：&lt;a class="link" href="https://git-scm.com/" target="_blank" rel="noopener"
+>传送门&lt;/a>&lt;/p>
+&lt;p>下载相应版本完成安装，可以通过git -version命令来测试git是否安装成功。&lt;/p>
+&lt;p>3.注册Github账号&lt;/p>
+&lt;p>准备好fq工具，注册时的usename用户名和邮箱很重要，因为默认的博客地址是https://usename.github.io/这种形式的，邮箱则关系到安全和通知。&lt;/p>
+&lt;p>3.1添加SSH Key&lt;/p>
+&lt;p>SSH Key是一个认证，让github识别绑定这台机器，允许这台机器提交。执行如下命令：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">cd ~/. ssh
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>~这个符号，表示在用户目录下
+执行代码如果提示：No such file or directory 说明你是第一次使用git。&lt;/p>
+&lt;p>新建新的SSH Key&lt;/p>
+&lt;p>在Git Bash执行代码：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">ssh-keygen -t rsa -C &amp;#34;你的邮箱@gmail.com&amp;#34;
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>注意：此处的&lt;code>-C&lt;/code>的是大写的。&lt;/p>
+&lt;p>然后系统会要求你输入密码（密码在后面每次提交都需要输入，嫌麻烦可以直接两次回车不设置）：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">Enter passphrase (empty for no passphrase):&amp;lt;输入加密串&amp;gt;
+Enter same passphrase again:&amp;lt;再次输入加密串&amp;gt;
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>在回车中会提示你输入一个密码，这个密码会在你提交项目时使用，如果为空的话提交项目时则不用输入。这个设置是防止别人往你的项目里提交内容。&lt;/p>
+&lt;ul>
+&lt;li>输入密码的时候没有 * 字样的，你直接输入就可以了。&lt;/li>
+&lt;li>邮箱输错/密码忘记，&lt;/li>
+&lt;/ul>
+&lt;p>&amp;mdash;待完善
+2020-02-22尝试迁移hexo到hugo&lt;/p></description></item></channel></rss>

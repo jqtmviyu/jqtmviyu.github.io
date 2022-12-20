@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>hugo on Jqtmviyu's Blog</title><link>/tags/hugo/</link><description>Recent content in hugo on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 28 Feb 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/hugo/index.xml" rel="self" type="application/rss+xml"/><item><title>使用netlify部署hugo注意事项</title><link>/p/netlify-and-hugo/</link><pubDate>Fri, 28 Feb 2020 00:00:00 +0000</pubDate><guid>/p/netlify-and-hugo/</guid><description>&lt;h1 id="nextlify部署hugo-blog">nextlify部署hugo blog&lt;/h1>
+&lt;p>参考：&lt;/p>
+&lt;p>hugo官方: &lt;a href="https://gohugo.io/hosting-and-deployment/hosting-on-netlify">https://gohugo.io/hosting-and-deployment/hosting-on-netlify&lt;/a>&lt;/p>
+&lt;p>nextlify官方: &lt;a href="https://docs.netlify.com/integrations/frameworks/hugo/">https://docs.netlify.com/integrations/frameworks/hugo/&lt;/a>&lt;/p>
+&lt;h2 id="步骤">步骤&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>上传项目到github仓库, 该仓库可以是私人仓库&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>hugo的主题必须是&lt;code>git submodule&lt;/code>形式, 如果自定义主题, 上传到gihub仓库上, 以子模块方式引入&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>在&lt;code>.gitignore&lt;/code>里排除 &lt;code>public&lt;/code>文件夹&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>在项目根目录下新建文件&lt;code>netlify.toml&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-toml" data-lang="toml">&lt;span class="p">[&lt;/span>&lt;span class="nx">build&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">publish&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;public&amp;#34;&lt;/span>
+&lt;span class="nx">command&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;hugo --gc --minify&amp;#34;&lt;/span>
+&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">production&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">environment&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">HUGO_VERSION&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;0.65.3&amp;#34;&lt;/span>
+&lt;span class="nx">HUGO_ENV&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;production&amp;#34;&lt;/span>
+&lt;span class="nx">HUGO_ENABLEGITINFO&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;true&amp;#34;&lt;/span>
+&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">split1&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">command&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;hugo --gc --minify --enableGitInfo&amp;#34;&lt;/span>
+&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">split1&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">environment&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">HUGO_VERSION&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;0.65.3&amp;#34;&lt;/span>
+&lt;span class="nx">HUGO_ENV&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;production&amp;#34;&lt;/span>
+&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">deploy&lt;/span>&lt;span class="err">-&lt;/span>&lt;span class="nx">preview&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">command&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL&amp;#34;&lt;/span>
+&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">deploy&lt;/span>&lt;span class="err">-&lt;/span>&lt;span class="nx">preview&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">environment&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">HUGO_VERSION&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;0.65.3&amp;#34;&lt;/span>
+&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">branch&lt;/span>&lt;span class="err">-&lt;/span>&lt;span class="nx">deploy&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">command&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;hugo --gc --minify -b $DEPLOY_PRIME_URL&amp;#34;&lt;/span>
+&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">branch&lt;/span>&lt;span class="err">-&lt;/span>&lt;span class="nx">deploy&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">environment&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">HUGO_VERSION&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;0.65.3&amp;#34;&lt;/span>
+&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">next&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">environment&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">HUGO_ENABLEGITINFO&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;true&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>注册Nextlify，可以用github账号授权&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>选择&lt;code> “New site from Git”——“Github”——选择自己hugo博客源码对应的仓库&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>在&lt;code>Deploy&lt;/code>之前可以先设置下, &lt;code>&amp;quot;site overview&amp;quot;--&amp;quot;site setting&amp;quot;--&amp;quot;change site name&amp;quot;&lt;/code>, 不改的话会默认分配&lt;code>https://xxx-xxx-xxx.netlify.app&lt;/code>一堆符号的二级域名&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>Deploy status badge&lt;/code>徽章可以放到项目的readme上, 可以看到最新部署状态&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Deploy&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>每次仓库更新, netlify就会自动部署&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="可选-绑定域名">可选: 绑定域名&lt;/h2>
+&lt;ol>
+&lt;li>&lt;code>Site settings -- Domain management--Custom domains--Add domain alias--填写域名--verify--Yes,add domain&lt;/code>&lt;/li>
+&lt;li>填写后到DNS 解析提供商里面，将 CNAME 记录值更改为 Netlify 给你的二级域名&lt;/li>
+&lt;li>https: 隔一段时间后点&lt;code>Verify DNS configuration&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;h2 id="可能的问题">可能的问题&lt;/h2>
+&lt;ol>
+&lt;li>报错：&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">Production: master@HEAD Failed
+failed during stage &lt;span class="s1">&amp;#39;building site&amp;#39;&lt;/span>: Build script returned non-zero &lt;span class="nb">exit&lt;/span> code: &lt;span class="m">255&lt;/span>
+&lt;span class="c1"># 解决方法: stackoverflow上找到类似答案，需要修改Netlify控制台的环境变量与实际Hugo版本一致。&lt;/span>
+&lt;span class="c1"># 技术问题千万别用百度，垃圾csdn&lt;/span>
+&lt;span class="c1"># hugo -v&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>“setting”——“Build&amp;amp;deploy”——“Environment”——&amp;quot;Environment variables&amp;quot;——“Edit variables”，左边填“HUGO_VERSION”，右边填“v?.?.?”&lt;/code>。&lt;/p>
+&lt;p>注：版本号以实际为准&lt;/p>
+&lt;ol start="2">
+&lt;li>
+&lt;p>报错&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">The build image &lt;span class="k">for&lt;/span> this site uses Ubuntu 16.04 Xenial Xerus, which is no longer supported.
+&lt;span class="c1"># ubuntu 版本过低&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>&amp;quot;Deploys&amp;quot;--&amp;quot;Delploy settings&amp;quot;--&amp;quot;Build image selection&amp;quot;--&amp;quot;Edit settings&amp;quot;--选最新的&lt;/code>&lt;/p>
+&lt;p>重新部署&lt;/p>
+&lt;/li>
+&lt;/ol></description></item><item><title>用Github Page 搭免费博客</title><link>/p/github-page-blog/</link><pubDate>Mon, 13 Nov 2017 00:00:00 +0000</pubDate><guid>/p/github-page-blog/</guid><description>&lt;h2 id="用github-page-搭免费博客">用Github Page 搭免费博客&lt;/h2>
+&lt;p>一.搭建hexo博客&lt;/p>
+&lt;p>1.安装Node.js&lt;/p>
+&lt;p>下载地址：&lt;a class="link" href="https://nodejs.org/en/" target="_blank" rel="noopener"
+>传送门&lt;/a>&lt;/p>
+&lt;p>下载的文件是.msi后缀的，win10-x64-ltsb2016直接双击安装可能会出现2502、2503错误，在安装文件所在目录下，&lt;code>Shit+右键，在此处打开命令窗口&lt;/code>，输入&lt;code>msiexec /i 文件名.msi&lt;/code> ，就能成功安装。（如果还是无效，用管理员权限cmd）&lt;/p>
+&lt;p>可以通过node -v命令来测试NodeJS是否安装成功。&lt;/p>
+&lt;p>2.安装Git&lt;/p>
+&lt;p>下载地址：&lt;a class="link" href="https://git-scm.com/" target="_blank" rel="noopener"
+>传送门&lt;/a>&lt;/p>
+&lt;p>下载相应版本完成安装，可以通过git -version命令来测试git是否安装成功。&lt;/p>
+&lt;p>3.注册Github账号&lt;/p>
+&lt;p>准备好fq工具，注册时的usename用户名和邮箱很重要，因为默认的博客地址是https://usename.github.io/这种形式的，邮箱则关系到安全和通知。&lt;/p>
+&lt;p>3.1添加SSH Key&lt;/p>
+&lt;p>SSH Key是一个认证，让github识别绑定这台机器，允许这台机器提交。执行如下命令：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">cd ~/. ssh
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>~这个符号，表示在用户目录下
+执行代码如果提示：No such file or directory 说明你是第一次使用git。&lt;/p>
+&lt;p>新建新的SSH Key&lt;/p>
+&lt;p>在Git Bash执行代码：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">ssh-keygen -t rsa -C &amp;#34;你的邮箱@gmail.com&amp;#34;
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>注意：此处的&lt;code>-C&lt;/code>的是大写的。&lt;/p>
+&lt;p>然后系统会要求你输入密码（密码在后面每次提交都需要输入，嫌麻烦可以直接两次回车不设置）：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">Enter passphrase (empty for no passphrase):&amp;lt;输入加密串&amp;gt;
+Enter same passphrase again:&amp;lt;再次输入加密串&amp;gt;
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>在回车中会提示你输入一个密码，这个密码会在你提交项目时使用，如果为空的话提交项目时则不用输入。这个设置是防止别人往你的项目里提交内容。&lt;/p>
+&lt;ul>
+&lt;li>输入密码的时候没有 * 字样的，你直接输入就可以了。&lt;/li>
+&lt;li>邮箱输错/密码忘记，&lt;/li>
+&lt;/ul>
+&lt;p>&amp;mdash;待完善
+2020-02-22尝试迁移hexo到hugo&lt;/p></description></item></channel></rss>
