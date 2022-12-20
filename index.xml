@@ -3,7 +3,8 @@
 &lt;a class="link" href="https://bugxia.com/2396.html" target="_blank" rel="noopener"
 >https://bugxia.com/2396.html&lt;/a>&lt;br>
 &lt;a class="link" href="https://www.jianshu.com/p/559c1e582724" target="_blank" rel="noopener"
->https://www.jianshu.com/p/559c1e582724&lt;/a>&lt;/p>
+>https://www.jianshu.com/p/559c1e582724&lt;/a>&lt;br>
+&lt;a href="https://github.com/LomotHo/n2n-releases">https://github.com/LomotHo/n2n-releases&lt;/a>&lt;/p>
 &lt;h2 id="服务器安装">服务器安装&lt;/h2>
 &lt;ul>
 &lt;li>centos&lt;/li>
@@ -17,7 +18,7 @@ rpm -i n2n-3.0.0-1038.x86_64.rpm
 &lt;span class="c1">#实际使用时，可以去掉 -f 参数，使其后台运行&lt;/span>
 supernode -p 端口 -f
 &lt;/code>&lt;/pre>&lt;/div>&lt;ul>
-&lt;li>EasyN2N 服务端（Supernode）附加参数
+&lt;li>服务端（Supernode）附加参数
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">-p 端口 &lt;span class="p">|&lt;/span> Supernode监听端口，默认 &lt;span class="m">7654&lt;/span>
 -F federation名称 &lt;span class="p">|&lt;/span> supernode federation名称，默认为 *Federation
 -l 主机:端口 &lt;span class="p">|&lt;/span> 和 -F 配合，已知的一台Supernode地址和端口
@@ -30,23 +31,26 @@ supernode -p 端口 -f
 -v &lt;span class="p">|&lt;/span> 输出更多日志
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;/ul>
+&lt;ul>
+&lt;li>
 &lt;p>设置开机启动&lt;/p>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 修改配置文件&lt;/span>
-sudo vim/etc/n2n/edge.conf
-&lt;span class="o">======&lt;/span>
--c&lt;span class="o">=&lt;/span>组织名
--a&lt;span class="o">=&lt;/span>内网地址
--l&lt;span class="o">=&lt;/span>节点公网地址:端口
-&lt;span class="o">======&lt;/span>
-&lt;span class="c1"># 设置自启服务&lt;/span>
-sudo systemctl &lt;span class="nb">enable&lt;/span> edge
-sudo systemctl start edge
-sudo systemctl status edge
-journalctl -f -u edge
+sudo vim /etc/n2n/supernode.conf
+&lt;span class="o">====&lt;/span>
+-p&lt;span class="o">=&lt;/span>端口
+&lt;span class="c1"># 服务端没有密码，为了避免被白嫖，添加组名称配置文件，一行一个&lt;/span>
+-c&lt;span class="o">=&lt;/span>/home/n2n/community.list
+&lt;span class="o">====&lt;/span>
+sudo systemctl &lt;span class="nb">enable&lt;/span> supernode
+sudo systemctl start supernode
+sudo systemctl status supernode
+journalctl -f -u supernode
 &lt;span class="c1"># journalctl 查看日志&lt;/span>
 &lt;span class="c1"># -f 实时最新&lt;/span>
 &lt;span class="c1"># -u 指定服务&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="服务器端口放行">服务器端口放行&lt;/h2>
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h2 id="服务器端口放行">服务器端口放行&lt;/h2>
 &lt;ul>
 &lt;li>腾讯云的防火墙&lt;/li>
 &lt;li>若服务器开启了如iptables\firewalld\ufw等防火墙，需要放行supernode所设置的端口，否则客户端无法连接&lt;/li>
@@ -88,7 +92,7 @@ firewall-cmd --zone&lt;span class="o">=&lt;/span>public --remove-port&lt;span cl
 -M &amp;lt;mtu&amp;gt; &lt;span class="p">|&lt;/span> MTU 值，默认1290
 -r &lt;span class="p">|&lt;/span> 启用数据转发功能，当需要访问该设备的局域网时需要设置
 -A1 &lt;span class="p">|&lt;/span> 禁用载荷加密。不能与key 同时使用&lt;span class="o">(&lt;/span>默认为Twofish&lt;span class="o">)&lt;/span>。
--A2 ... -A5 or -A &lt;span class="p">|&lt;/span> 选择有效载荷加密的密码，需要一个密钥:-A2 &lt;span class="o">=&lt;/span> Twofish&lt;span class="o">(&lt;/span>默认&lt;span class="o">)&lt;/span>，
+-A2 ... -A5 or -A &lt;span class="p">|&lt;/span> 选择有效载荷加密的密码&lt;span class="o">(&lt;/span>和-k一起用&lt;span class="o">)&lt;/span>，需要一个密钥:-A2 &lt;span class="o">=&lt;/span> Twofish&lt;span class="o">(&lt;/span>默认&lt;span class="o">)&lt;/span>，
 &lt;span class="p">|&lt;/span> -A3 or -A &lt;span class="o">(&lt;/span>deprecated&lt;span class="o">)&lt;/span> &lt;span class="o">=&lt;/span> AES-CBC, -A5 &lt;span class="o">=&lt;/span> Speck-CTR.
 -H &lt;span class="p">|&lt;/span> Enable full header encryption. Requires supernode with fixed community.
 -z1 ... -z2 or -z &lt;span class="p">|&lt;/span> Enable compression &lt;span class="k">for&lt;/span> outgoing data packets: -z1 or -z &lt;span class="o">=&lt;/span> lzo1x &lt;span class="o">(&lt;/span>&lt;span class="nv">default&lt;/span>&lt;span class="o">=&lt;/span>disabled&lt;span class="o">)&lt;/span>.
@@ -106,6 +110,9 @@ brew install tuntap --cask
 sudo ifconfig&lt;/p>
 &lt;h2 id="macos-设置开机启动项">macos 设置开机启动项&lt;/h2>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 在 /Library/LaunchDaemons 新增文件 lomotho.n2n-edge.plist，用于 launchd 控制的开机自启（类似 systemd）&lt;/span>
+&lt;span class="c1"># RunAtLoad 开机时是否运行&lt;/span>
+&lt;span class="c1"># KeepAlive 是否需要一直运行&lt;/span>
+&lt;span class="o">====&lt;/span>
 &amp;lt;?xml &lt;span class="nv">version&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;1.0&amp;#34;&lt;/span> &lt;span class="nv">encoding&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;UTF-8&amp;#34;&lt;/span>?&amp;gt;
 &amp;lt;!DOCTYPE plist PUBLIC &lt;span class="s2">&amp;#34;-//Apple//DTD PLIST 1.0//EN&amp;#34;&lt;/span> &lt;span class="s2">&amp;#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&amp;#34;&lt;/span>&amp;gt;
 &amp;lt;plist &lt;span class="nv">version&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;1.0&amp;#34;&lt;/span>&amp;gt;
@@ -123,6 +130,7 @@ sudo ifconfig&lt;/p>
 &amp;lt;/array&amp;gt;
 &amp;lt;/dict&amp;gt;
 &amp;lt;/plist&amp;gt;
+&lt;span class="o">====&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 客户端配置文件&lt;/span>
 &lt;span class="c1"># /usr/local/etc/n2n/edge.conf&lt;/span>
 &lt;span class="c1">#&lt;/span>
@@ -165,7 +173,30 @@ sudo ifconfig&lt;/p>
 &lt;span class="c1"># Specifies the supernode IP and port.&lt;/span>
 &lt;span class="c1">#&lt;/span>
 -l&lt;span class="o">=&lt;/span>x.x.x.x:x
+&lt;span class="c1"># 访问局域网其他设置&lt;/span>
+-r
+&lt;span class="c1"># -Z1为LZO(1x)压缩 -Z2为ZSTD压缩，默认没有&lt;/span>
+-Z2
 &lt;span class="c1">#&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 开启服务&lt;/span>
+launchctl load /Library/LaunchDaemons/lomotho.n2n.edge.plist
+&lt;span class="c1"># 关闭服务&lt;/span>
+launchctl unload /Library/LaunchDaemons/lomotho.n2n.edge.plist
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="linux客户端设置自启动">linux客户端设置自启动&lt;/h2>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">sudo vim /etc/n2n/edge.conf
+&lt;span class="o">======&lt;/span>
+-c&lt;span class="o">=&lt;/span>组织名
+-a&lt;span class="o">=&lt;/span>内网地址
+-l&lt;span class="o">=&lt;/span>节点公网地址:端口
+&lt;span class="o">======&lt;/span>
+&lt;span class="c1"># 设置自启服务&lt;/span>
+sudo systemctl &lt;span class="nb">enable&lt;/span> edge
+sudo systemctl start edge
+sudo systemctl status edge
+journalctl -f -u edge
+&lt;span class="c1"># journalctl 查看日志&lt;/span>
+&lt;span class="c1"># -f 实时最新&lt;/span>
+&lt;span class="c1"># -u 指定服务&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Git常用命令</title><link>/p/git-common-command/</link><pubDate>Tue, 04 Jan 2022 14:15:26 +0800</pubDate><guid>/p/git-common-command/</guid><description>&lt;h1 id="git">Git&lt;/h1>
 &lt;h2 id="git-常用命令">Git 常用命令&lt;/h2>
 &lt;h3 id="仓库">仓库&lt;/h3>
@@ -813,27 +844,17 @@ target="_blank" rel="noopener"
 &lt;h3 id="行内式-1">行内式&lt;/h3>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">![&lt;span class="nt">alt&lt;/span>](&lt;span class="na">url&lt;/span>)
 ps: 为了让图片左对齐, 在前面加一个空格即可
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;figure
->
-&lt;a href="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20210609151206.jpg" >
-&lt;img src="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20210609151206.jpg"
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20210609151206.jpg"
 loading="lazy"
-alt="图片alt">
-&lt;/a>
-&lt;figcaption>图片alt&lt;/figcaption>
-&lt;/figure>&lt;/p>
+alt="图片alt"
+>&lt;/p>
 &lt;h3 id="参考式-1">参考式&lt;/h3>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">![alt][标记]
 [标记]: 图片地址 &amp;#34;Title&amp;#34;
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;figure
->
-&lt;a href="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20210609151206.jpg" >
-&lt;img src="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20210609151206.jpg"
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20210609151206.jpg"
 loading="lazy"
-alt="猫">
-&lt;/a>
-&lt;figcaption>猫&lt;/figcaption>
-&lt;/figure>&lt;/p>
+alt="猫"
+>&lt;/p>
 &lt;h2 id="目录">目录&lt;/h2>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">直接在文章头部加[TOP]
 ps:部分编辑器支持,部分不支持
@@ -1002,7 +1023,7 @@ HTML原始码，只需要复制贴上，剩下的Markdown都会帮你处理
 &lt;p>脚注的内容 &lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/section></description></item><item><title>使用netlify部署hugo注意事项</title><link>/p/netlify-and-hugo/</link><pubDate>Fri, 28 Feb 2020 00:00:00 +0000</pubDate><guid>/p/netlify-and-hugo/</guid><description>&lt;ol>
+&lt;/section></description></item><item><title>About</title><link>/about/</link><pubDate>Tue, 21 Dec 2021 00:00:00 +0000</pubDate><guid>/about/</guid><description>&lt;p>待完善页面&amp;hellip;&lt;/p></description></item><item><title>使用netlify部署hugo注意事项</title><link>/p/netlify-and-hugo/</link><pubDate>Fri, 28 Feb 2020 00:00:00 +0000</pubDate><guid>/p/netlify-and-hugo/</guid><description>&lt;ol>
 &lt;li>登录Nextlify，用github账号授权登陆即可。&lt;/li>
 &lt;li>选择&lt;code> “New site from Git”——“Github”——选择自己hugo博客源码对应的仓库——自动部署&lt;/code>。
 注：可以选择私人仓库，并且public可以配置.gitignore不用上传。&lt;/li>
@@ -1078,7 +1099,7 @@ failed during stage 'building site': Build script returned non-zero exit code: 2
 &lt;h2 id="二">二:&lt;/h2>
 &lt;p>windows→preferences→java→editor→content assist→Auto activation delay(ms)设置200→Auto activation triggers for Java设置.ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghigklmnopqrstuvwxya(注意前面的点不要丢)→保存退出&lt;/p>
 &lt;h2 id="三">三:&lt;/h2>
-&lt;p>windows →preferences→General→keys→Content asist→word completion快捷键删掉→Binding项改为“ALT+/”→When项选择成Editing Text→保存退出&lt;/p></description></item><item><title>git笔记</title><link>/p/git-note/</link><pubDate>Mon, 13 Nov 2017 00:00:00 +0000</pubDate><guid>/p/git-note/</guid><description>&lt;ul>
+&lt;p>windows →preferences→General→keys→Content asist→word completion快捷键删掉→Binding项改为“ALT+/”→When项选择成Editing Text→保存退出&lt;/p></description></item><item><title>Archives</title><link>/archives/</link><pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate><guid>/archives/</guid><description/></item><item><title>git笔记</title><link>/p/git-note/</link><pubDate>Mon, 13 Nov 2017 00:00:00 +0000</pubDate><guid>/p/git-note/</guid><description>&lt;ul>
 &lt;li>通过&lt;code>git int&lt;/code>把目录变成Git可以管理的仓库。&lt;/li>
 &lt;li>所有的版本管理系统，其实只能跟踪文本文件的改动，比如txt、网页、程序代码等。&lt;/li>
 &lt;li>强烈建议使用标准的utf-8编码，不要用windows自带的记事本编辑任何文本，要用utf-8 without BOM。&lt;/li>
@@ -1129,22 +1150,12 @@ failed during stage 'building site': Build script returned non-zero exit code: 2
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git reflog
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>（ps：git base 按两下tab会有命令提示）&lt;/p>
 &lt;h3 id="22工作区暂存区和master分支">2.2.工作区、暂存区和master分支&lt;/h3>
-&lt;p>&lt;figure
->
-&lt;a href="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229044704.jpg" >
-&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229044704.jpg"
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229044704.jpg"
 loading="lazy"
->
-&lt;/a>
-&lt;/figure>&lt;/p>
-&lt;p>&lt;figure
->
-&lt;a href="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229045709.jpg" >
-&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229045709.jpg"
+>&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229045709.jpg"
 loading="lazy"
->
-&lt;/a>
-&lt;/figure>&lt;/p>
+>&lt;/p>
 &lt;p>一旦提交后，如果你又没有对工作区做任何修改，那么工作区就是“干净”的：&lt;/p>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ git status
 &lt;span class="c1"># On branch master&lt;/span>
@@ -1207,28 +1218,18 @@ git commit -m &lt;span class="s2">&amp;#34;xxx&amp;#34;&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="四分支管理">四.分支管理&lt;/h2>
 &lt;h3 id="41创建与合并分支">4.1.创建与合并分支&lt;/h3>
 &lt;p>通过指针的变化&lt;/p>
-&lt;p>&lt;figure
->
-&lt;a href="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229050738.png" >
-&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229050738.png"
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229050738.png"
 loading="lazy"
->
-&lt;/a>
-&lt;/figure>&lt;/p>
+>&lt;/p>
 &lt;ul>
 &lt;li>
 &lt;p>首先，我们创建dev分支，然后切换到dev分支：&lt;/p>
 &lt;p>git checkout -b dev&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;p>&lt;figure
->
-&lt;a href="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229050034.png" >
-&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229050034.png"
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229050034.png"
 loading="lazy"
->
-&lt;/a>
-&lt;/figure>&lt;/p>
+>&lt;/p>
 &lt;p>git checkout命令加上-b参数表示创建并切换，相当于以下两条命令：&lt;/p>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ git branch dev
 $ git checkout dev
@@ -1244,28 +1245,18 @@ master&lt;/p>
 &lt;p>分支的提交&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;p>&lt;figure
->
-&lt;a href="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229051056.png" >
-&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229051056.png"
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229051056.png"
 loading="lazy"
->
-&lt;/a>
-&lt;/figure>&lt;/p>
+>&lt;/p>
 &lt;ul>
 &lt;li>
 &lt;p>切换回主分支&lt;/p>
 &lt;p>git checkout master&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;p>&lt;figure
->
-&lt;a href="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229051225.png" >
-&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229051225.png"
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229051225.png"
 loading="lazy"
->
-&lt;/a>
-&lt;/figure>&lt;/p>
+>&lt;/p>
 &lt;ul>
 &lt;li>
 &lt;p>把dev分支的工作成果合并到master分支上：&lt;/p>
@@ -1273,14 +1264,9 @@ loading="lazy"
 &lt;/li>
 &lt;/ul>
 &lt;p>git merge命令是合并指定分支到&lt;strong>当前&lt;/strong>分支。&lt;/p>
-&lt;p>&lt;figure
->
-&lt;a href="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229051818.png" >
-&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229051818.png"
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229051818.png"
 loading="lazy"
->
-&lt;/a>
-&lt;/figure>&lt;/p>
+>&lt;/p>
 &lt;ul>
 &lt;li>
 &lt;p>删除dev分支&lt;/p>
@@ -1294,27 +1280,17 @@ loading="lazy"
 &lt;h3 id="42解决冲突">4.2.解决冲突&lt;/h3>
 &lt;p>当两条分支对同一个文件的同一个文本块进行了不同的修改，并试图合并时，Git不能自动合并的，称之为冲突(conflict)。解决冲突需要人工处理。&lt;/p>
 &lt;p>dev分支和master分支有不同提交&lt;/p>
-&lt;p>&lt;figure
->
-&lt;a href="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229051904.png" >
-&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229051904.png"
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229051904.png"
 loading="lazy"
->
-&lt;/a>
-&lt;/figure>&lt;/p>
+>&lt;/p>
 &lt;p>这种情况下，Git无法执行“快速合并”，只能试图把各自的修改合并起来，但这种合并就可能会有冲突。&lt;/p>
 &lt;ul>
 &lt;li>git status也可以告诉我们冲突的文件,&amp;laquo;&amp;laquo;&amp;laquo;&amp;lt;，=======，&amp;raquo;&amp;raquo;&amp;raquo;&amp;gt;标记出不同分支的内容。&lt;/li>
 &lt;/ul>
 &lt;p>对于简单的合并，手工编辑，然后去掉这些标记，最后像往常的提交一样先add再commit即可。&lt;/p>
-&lt;p>&lt;figure
->
-&lt;a href="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229051944.png" >
-&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229051944.png"
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229051944.png"
 loading="lazy"
->
-&lt;/a>
-&lt;/figure>&lt;/p>
+>&lt;/p>
 &lt;ul>
 &lt;li>用git log &amp;ndash;graph命令可以看到分支合并图&lt;/li>
 &lt;/ul>
@@ -1330,34 +1306,19 @@ loading="lazy"
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>因为本次合并要创建一个新的commit，所以加上-m参数，把commit描述写进去。&lt;/p>
 &lt;p>查看分支历史&lt;/p>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git log --graph --pretty&lt;span class="o">=&lt;/span>oneline --abbrev-commit
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;figure
->
-&lt;a href="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229052028.png" >
-&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229052028.png"
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229052028.png"
 loading="lazy"
->
-&lt;/a>
-&lt;/figure>&lt;/p>
-&lt;p>&lt;figure
->
-&lt;a href="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229052106.png" >
-&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229052106.png"
+>&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229052106.png"
 loading="lazy"
->
-&lt;/a>
-&lt;/figure>&lt;/p>
+>&lt;/p>
 &lt;p>在实际开发中，应该按照几个基本原则进行分支管理：&lt;/p>
 &lt;p>&lt;code>master&lt;/code>分支应该是非常稳定的，仅用来发布新版本，平时不在上面干活；&lt;/p>
 &lt;p>&lt;code>dev&lt;/code>分支是不稳定的，发布版本时，把&lt;code>dev&lt;/code>分支合并到&lt;code>master&lt;/code>上，发布1.0版本。&lt;/p>
 &lt;p>每个人都有自己的分支，时不时地往&lt;code>dev&lt;/code>上合并。&lt;/p>
-&lt;p>&lt;figure
->
-&lt;a href="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229052221.png" >
-&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229052221.png"
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229052221.png"
 loading="lazy"
->
-&lt;/a>
-&lt;/figure>&lt;/p>
+>&lt;/p>
 &lt;h3 id="44bug分支">4.4.Bug分支&lt;/h3>
 &lt;p>当前工作到一般还不能提交，但是又要修复bug添加bugfix分支，可以用&lt;code>stash&lt;/code>存储工作状态。&lt;/p>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">$ git stash
@@ -1491,4 +1452,4 @@ Enter same passphrase again:&amp;lt;再次输入加密串&amp;gt;
 &amp;quot;file:///D:/Pictures/头图/2.png&amp;quot;,
 &amp;quot;file:///D:/Pictures/头图/3.png&amp;quot;]
 &lt;/code>&lt;/pre>
-&lt;p>图片整体大小用ps调整就可以了。&lt;/p></description></item></channel></rss>
+&lt;p>图片整体大小用ps调整就可以了。&lt;/p></description></item><item><title>Links</title><link>/links/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/links/</guid><description/></item><item><title>Search</title><link>/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/search/</guid><description/></item></channel></rss>
