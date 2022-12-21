@@ -1,4 +1,81 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jqtmviyu's Blog</title><link>/</link><description>Recent content on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 18 Dec 2022 17:02:27 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>n2n部署</title><link>/p/n2n-deploy/</link><pubDate>Sun, 18 Dec 2022 17:02:27 +0800</pubDate><guid>/p/n2n-deploy/</guid><description>&lt;h1 id="n2n">n2n&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jqtmviyu's Blog</title><link>/</link><description>Recent content on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 22 Dec 2022 00:15:53 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>Nginx Proxy Manager</title><link>/p/npm/</link><pubDate>Thu, 22 Dec 2022 00:15:53 +0800</pubDate><guid>/p/npm/</guid><description>&lt;h2 id="安装">安装&lt;/h2>
+&lt;p>&lt;a href="https://github.com/NginxProxyManager/nginx-proxy-manager">https://github.com/NginxProxyManager/nginx-proxy-manager&lt;/a>&lt;/p>
+&lt;p>按照&lt;code>readme&lt;/code>安装即可&lt;/p>
+&lt;h2 id="已知bug">已知bug&lt;/h2>
+&lt;p>版本 v2.9.19&lt;/p>
+&lt;ol>
+&lt;li>申请泛域名证书失败&lt;/li>
+&lt;li>验证证书失败&lt;/li>
+&lt;/ol>
+&lt;p>复现： &lt;code>Test Server Reachability &lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">Communication with the API failed, is NPM running correctly?
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="申请证书方法">申请证书方法&lt;/h2>
+&lt;p>单独申请&lt;/p>
+&lt;p>在&lt;code>Proxy Hosts -- Edit Proxy Host -- SSL -- 关闭Force SSL -- Request a new SSL Certificate&lt;/code>&lt;/p>
+&lt;h2 id="部署静态网站方法">部署静态网站方法&lt;/h2>
+&lt;ol>
+&lt;li>把静态文件夹放到 &lt;code>data/access&lt;/code>里&lt;/li>
+&lt;li>在管理系统上， &lt;code>Proxy Hosts -- Edit Proxy Host -- Advanced&lt;/code>里添加类似以下的配置
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback"> root /data/access/myIndex;
+index index.html;
+location / {
+try_files $uri /index.html /index.html;
+}
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>&lt;code>Detail&lt;/code>的&lt;code>Domain Names&lt;/code>按实际的写， &lt;code>Scheme&lt;/code> &lt;code>IP&lt;/code> &lt;code>Port&lt;/code>随便填&lt;/li>
+&lt;/ol></description></item><item><title>hugo主题stack侧边栏bug</title><link>/p/hugo-theme-bug/</link><pubDate>Wed, 21 Dec 2022 23:59:52 +0800</pubDate><guid>/p/hugo-theme-bug/</guid><description>&lt;img src="/p/hugo-theme-bug/1.jpg" alt="Featured image of post hugo主题stack侧边栏bug" />&lt;ul>
+&lt;li>
+&lt;p>问题描述： 升级hugo主题stack到最新版本后，侧边栏的home菜单在开发模式下不会高亮&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>解决方法： 把&lt;code>exampleSite/content&lt;/code>里的&lt;code>_index.md&lt;/code>复制一份到自己的&lt;code>content&lt;/code>文件夹&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>原因：破坏性更新&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nb">cd&lt;/span> themes/hugo-theme-stack/exampleSite/content
+git log --follow _index.md
+&lt;span class="o">====&lt;/span>
+commit 15d2040f7e4aaf9db8e4459137d146bb42b39bb6
+Author: Jimmy Cai &amp;lt;github@jimmycai.com&amp;gt;
+Date: Fri Mar &lt;span class="m">4&lt;/span> 08:46:27 &lt;span class="m">2022&lt;/span> +0000
+chore&lt;span class="o">(&lt;/span>exampleSite&lt;span class="o">)&lt;/span>: fix home menu item &lt;span class="nv">highlight&lt;/span>
+&lt;span class="o">====&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul></description></item><item><title>n2n部署</title><link>/p/n2n-deploy/</link><pubDate>Sun, 18 Dec 2022 17:02:27 +0800</pubDate><guid>/p/n2n-deploy/</guid><description>&lt;h1 id="n2n">n2n&lt;/h1>
 &lt;p>参考:&lt;br>
 &lt;a class="link" href="https://bugxia.com/2396.html" target="_blank" rel="noopener"
 >https://bugxia.com/2396.html&lt;/a>&lt;br>

@@ -1,4 +1,38 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>hugo on Jqtmviyu's Blog</title><link>/tags/hugo/</link><description>Recent content in hugo on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 28 Feb 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/hugo/index.xml" rel="self" type="application/rss+xml"/><item><title>使用netlify部署hugo注意事项</title><link>/p/netlify-and-hugo/</link><pubDate>Fri, 28 Feb 2020 00:00:00 +0000</pubDate><guid>/p/netlify-and-hugo/</guid><description>&lt;h1 id="nextlify部署hugo-blog">nextlify部署hugo blog&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>hugo on Jqtmviyu's Blog</title><link>/tags/hugo/</link><description>Recent content in hugo on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 21 Dec 2022 23:59:52 +0800</lastBuildDate><atom:link href="/tags/hugo/index.xml" rel="self" type="application/rss+xml"/><item><title>hugo主题stack侧边栏bug</title><link>/p/hugo-theme-bug/</link><pubDate>Wed, 21 Dec 2022 23:59:52 +0800</pubDate><guid>/p/hugo-theme-bug/</guid><description>&lt;img src="/p/hugo-theme-bug/1.jpg" alt="Featured image of post hugo主题stack侧边栏bug" />&lt;ul>
+&lt;li>
+&lt;p>问题描述： 升级hugo主题stack到最新版本后，侧边栏的home菜单在开发模式下不会高亮&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>解决方法： 把&lt;code>exampleSite/content&lt;/code>里的&lt;code>_index.md&lt;/code>复制一份到自己的&lt;code>content&lt;/code>文件夹&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>原因：破坏性更新&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nb">cd&lt;/span> themes/hugo-theme-stack/exampleSite/content
+git log --follow _index.md
+&lt;span class="o">====&lt;/span>
+commit 15d2040f7e4aaf9db8e4459137d146bb42b39bb6
+Author: Jimmy Cai &amp;lt;github@jimmycai.com&amp;gt;
+Date: Fri Mar &lt;span class="m">4&lt;/span> 08:46:27 &lt;span class="m">2022&lt;/span> +0000
+chore&lt;span class="o">(&lt;/span>exampleSite&lt;span class="o">)&lt;/span>: fix home menu item &lt;span class="nv">highlight&lt;/span>
+&lt;span class="o">====&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul></description></item><item><title>使用netlify部署hugo注意事项</title><link>/p/netlify-and-hugo/</link><pubDate>Fri, 28 Feb 2020 00:00:00 +0000</pubDate><guid>/p/netlify-and-hugo/</guid><description>&lt;h1 id="nextlify部署hugo-blog">nextlify部署hugo blog&lt;/h1>
 &lt;p>参考：&lt;/p>
 &lt;p>hugo官方: &lt;a href="https://gohugo.io/hosting-and-deployment/hosting-on-netlify">https://gohugo.io/hosting-and-deployment/hosting-on-netlify&lt;/a>&lt;/p>
 &lt;p>nextlify官方: &lt;a href="https://docs.netlify.com/integrations/frameworks/hugo/">https://docs.netlify.com/integrations/frameworks/hugo/&lt;/a>&lt;/p>
