@@ -35,11 +35,11 @@ alt="image-20221223205141527"
 &lt;p>&lt;code>在用户文件夹下 --&amp;gt; 左上角菜单View --&amp;gt;Show View Options --&amp;gt; Show Library Folder 打勾 &lt;/code>&lt;/p>
 &lt;p>主要关注以下几个文件夹：&lt;/p>
 &lt;ul>
-&lt;li>**Application Support：**保存非App Store下载的App的临时文件和数据库。&lt;/li>
-&lt;li>**Caches：**保存非App Store下载的App的缓存文件。&lt;/li>
-&lt;li>**Logs：**保存非App Store下载的App的日志文件。&lt;/li>
-&lt;li>**Preferences：**保存非App Store下载的App的偏好设置文件。&lt;/li>
-&lt;li>**Containers：**保存从App Store下载的App的日志、缓存、偏好设置、临时文件和数据库。&lt;/li>
+&lt;li>&lt;strong>Application Support&lt;/strong>：保存非App Store下载的App的临时文件和数据库。&lt;/li>
+&lt;li>&lt;strong>Caches&lt;/strong>：保存非App Store下载的App的缓存文件。&lt;/li>
+&lt;li>&lt;strong>Logs&lt;/strong>：保存非App Store下载的App的日志文件。&lt;/li>
+&lt;li>&lt;strong>Preferences&lt;/strong>：保存非App Store下载的App的偏好设置文件。&lt;/li>
+&lt;li>&lt;strong>Containers&lt;/strong>：保存从App Store下载的App的日志、缓存、偏好设置、临时文件和数据库。&lt;/li>
 &lt;li>&lt;strong>Group Containers&lt;/strong>：保存使用了Group App技术的App的临时文件和数据库，例如MS Office全家桶。&lt;/li>
 &lt;/ul>
 &lt;h2 id="使用工具分析和清理">使用工具分析和清理&lt;/h2>
