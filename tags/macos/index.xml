@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>macos on Jqtmviyu's Blog</title><link>/tags/macos/</link><description>Recent content in macos on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 23 Dec 2022 21:11:11 +0800</lastBuildDate><atom:link href="/tags/macos/index.xml" rel="self" type="application/rss+xml"/><item><title>MacOs清理System Data</title><link>/p/clean-macos-system-data/</link><pubDate>Fri, 23 Dec 2022 21:11:11 +0800</pubDate><guid>/p/clean-macos-system-data/</guid><description>&lt;h1 id="清理system-data">清理System Data&lt;/h1>
+&lt;blockquote>
+&lt;p>几乎照搬原文： &lt;a href="https://zhuanlan.zhihu.com/p/349862578">https://zhuanlan.zhihu.com/p/349862578&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="效果">效果&lt;/h2>
+&lt;p>&lt;code> --&amp;gt; About this Mac --&amp;gt; Storage --&amp;gt; System Data&lt;/code>&lt;/p>
+&lt;p>下图是清理后的，大概清理掉8G左右的残留文件&lt;/p>
+&lt;p>&lt;img src="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20221223210805.png"
+loading="lazy"
+alt="image-20221223204229818"
+>&lt;/p>
+&lt;h2 id="存储空间中文件的类别与分析">存储空间中文件的类别与分析&lt;/h2>
+&lt;p>​ &lt;img src="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20221223210750.png"
+loading="lazy"
+alt="image-20221223204806546"
+>&lt;/p>
+&lt;p>​ &lt;strong>其他/”系统数据”&lt;/strong>：硬盘中包含不属于上述所列类别的文件都在“其他”中。此类别主要包括：&lt;/p>
+&lt;ol>
+&lt;li>系统运行时所使用的文件和数据，例如日志文件、缓存、VM 文件和其他运行时系统资源，临时文件和字体等。&lt;/li>
+&lt;li>第三方App 的支持文件（日志、缓存、配置文件、临时文件和数据库等资源）和插件。&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>&lt;strong>日志&lt;/strong> 是用来记录 App 运行时的状态信息，常用于排查程序bug。&lt;/li>
+&lt;li>&lt;strong>缓存&lt;/strong> 是为了提高 App 运行速度，常用于存储经常访问的数据图片等，例如浏览器访问网页时会将常访问网页的页面内容和图片放在缓存中。&lt;/li>
+&lt;li>&lt;strong>配置文件&lt;/strong> 用来存储App 的一些偏好设置信息，&lt;/li>
+&lt;li>&lt;strong>临时文件和数据库&lt;/strong> 是程序运行时生成或下载的数据，例如Adobe Photoshop中项目的索引、导入的各种素材包和滤镜；微信的登录信息、聊天记录和附件等等。&lt;/li>
+&lt;/ul>
+&lt;h2 id="finder-文件体系">Finder 文件体系&lt;/h2>
+&lt;p>&lt;img src="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20221223210759.png"
+loading="lazy"
+alt="image-20221223205141527"
+>&lt;/p>
+&lt;p>带眼睛图标的为默认隐藏文件&lt;/p>
+&lt;p>&lt;strong>显示&lt;code>Library&lt;/code>的操作：&lt;/strong>&lt;/p>
+&lt;p>&lt;code>在用户文件夹下 --&amp;gt; 左上角菜单View --&amp;gt;Show View Options --&amp;gt; Show Library Folder 打勾 &lt;/code>&lt;/p>
+&lt;p>主要关注以下几个文件夹：&lt;/p>
+&lt;ul>
+&lt;li>**Application Support：**保存非App Store下载的App的临时文件和数据库。&lt;/li>
+&lt;li>**Caches：**保存非App Store下载的App的缓存文件。&lt;/li>
+&lt;li>**Logs：**保存非App Store下载的App的日志文件。&lt;/li>
+&lt;li>**Preferences：**保存非App Store下载的App的偏好设置文件。&lt;/li>
+&lt;li>**Containers：**保存从App Store下载的App的日志、缓存、偏好设置、临时文件和数据库。&lt;/li>
+&lt;li>&lt;strong>Group Containers&lt;/strong>：保存使用了Group App技术的App的临时文件和数据库，例如MS Office全家桶。&lt;/li>
+&lt;/ul>
+&lt;h2 id="使用工具分析和清理">使用工具分析和清理&lt;/h2>
+&lt;p>使用的软件为： &lt;code>Cleaner One Pro 免费版&lt;/code>&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>缓存清理&lt;/p>
+&lt;p>&lt;code>Junk Files --&amp;gt; Scan --&amp;gt; Application Caches&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>文件夹分析： 人工找到大文件， 且&lt;code>确定是不需要&lt;/code>的，再删除&lt;/p>
+&lt;p>&lt;code>Disk Map --&amp;gt; 选择 Library --&amp;gt; 人工分析&lt;/code>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>&lt;strong>特别注意：&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>为了避免删错，删前先搜索下文件夹对应的程序或内容，删除后先保留在回收站一段时间，删错了还能还原。&lt;/strong>&lt;/p></description></item></channel></rss>
