@@ -1,0 +1,144 @@
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Submodule 子模块 https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97#_git_submodules 新增 添加子模块 1 2 3 git submodule add &amp;lt;子模块地址&amp;gt; [指定路径(可选)] # 此时 .gitmodules .git/config .git/modules 会添加子模块的信息 # 子模块目录也会下载,不为空"><title>Git Submodules</title><link rel=canonical href=/p/permalinks/><link rel=stylesheet href=/scss/style.min.6dae1168bc4b4544b76ba60ac495427d4659a7b8dccf264a0712326e3565d2ba.css><meta property="og:title" content="Git Submodules"><meta property="og:description" content="Submodule 子模块 https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97#_git_submodules 新增 添加子模块 1 2 3 git submodule add &amp;lt;子模块地址&amp;gt; [指定路径(可选)] # 此时 .gitmodules .git/config .git/modules 会添加子模块的信息 # 子模块目录也会下载,不为空"><meta property="og:url" content="/p/permalinks/"><meta property="og:site_name" content="Jqtmviyu's Blog"><meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="draft"><meta property="article:published_time" content="2022-12-25T23:47:16+08:00"><meta property="article:modified_time" content="2022-12-25T23:47:16+08:00"><meta name=twitter:title content="Git Submodules"><meta name=twitter:description content="Submodule 子模块 https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97#_git_submodules 新增 添加子模块 1 2 3 git submodule add &amp;lt;子模块地址&amp;gt; [指定路径(可选)] # 此时 .gitmodules .git/config .git/modules 会添加子模块的信息 # 子模块目录也会下载,不为空"><link rel="shortcut icon" href=/favicon.png></head><body class=article-page><script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu5dc921b5916569d953912c0faaa2a3c2_62047_300x0_resize_box_2.png width=300 height=300 class=site-logo loading=lazy alt=Avatar></a></figure><div class=site-meta><h1 class=site-name><a href=/>Jqtmviyu's Blog</a></h1><h2 class=site-description>It's never too late to learn.</h2></div></header><ol class=social-menu><li><a href=https://github.com/jqtmviyu target=_blank title=GitHub rel=me><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li><li><a href=mailto:jqtmviyu@gmail.com target=_blank title=Mail rel=me><!doctype html><svg t="1640862754493" class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" p-id="1236" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><defs><style/></defs><path d="M858.656 192H165.344C109.472 192 64 237.44 64 293.312v469.376C64 818.56 109.472 864 165.344 864h693.312C914.528 864 960 818.56 960 762.688V293.312C960 237.44 914.528 192 858.656 192zm0 608H165.344C144.736 8e2 128 783.264 128 762.688V293.312C128 272.736 144.736 256 165.344 256h684.544L542.4 535.808c-14.592 14.56-38.272 14.528-54.752-1.792L243.392 327.264C229.856 315.84 209.664 317.504 198.272 331.008c-11.424 13.472-9.76 33.664 3.744 45.088l242.304 204.96c19.904 19.904 46.048 29.792 72.032 29.792 25.632.0 51.136-9.632 70.176-28.736L896 300.544v462.144C896 783.264 879.264 8e2 858.656 8e2z" p-id="1237" fill="#b6b6b6"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg><span>Home</span></a></li><li><a href=/archives/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg><span>Archives</span></a></li><li><a href=/search/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg><span>Search</span></a></li><li><a href=/links/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M10 14a3.5 3.5.0 005 0l4-4a3.5 3.5.0 00-5-5l-.5.5"/><path d="M14 10a3.5 3.5.0 00-5 0l-4 4a3.5 3.5.0 005 5l.5-.5"/></svg><span>Links</span></a></li><div class=menu-bottom-section><li id=dark-mode-toggle><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><span>Dark Mode</span></li></div></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#新增>新增</a></li><li><a href=#克隆>克隆</a></li><li><a href=#更新>更新</a></li><li><a href=#修改模块>修改模块</a></li><li><a href=#删除模块>删除模块</a></li><li><a href=#拆分已有文件为子模块>拆分已有文件为子模块</a></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/notes/>notes</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/permalinks/>Git Submodules</a></h2></div><footer class=article-time><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg><time class=article-time--published>2022/Dec/25</time></div><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg><time class=article-time--reading>2 minute read</time></div></footer></div></header><section class=article-content><h1 id=submodule-子模块>Submodule 子模块</h1><p><a href=https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97#_git_submodules>https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97#_git_submodules</a></p><h2 id=新增>新增</h2><ul><li>添加子模块</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>git submodule add &lt;子模块地址&gt; <span class=o>[</span>指定路径<span class=o>(</span>可选<span class=o>)]</span>
+<span class=c1># 此时 .gitmodules .git/config .git/modules 会添加子模块的信息</span>
+<span class=c1># 子模块目录也会下载,不为空</span>
+</code></pre></td></tr></table></div></div><ul><li>查看</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>git status
+<span class=c1># 发现只列出 submodule 目录而不是里面所有的文件</span>
+<span class=c1># 对于模块外的项目来说，把子模块整个文件夹当成一个文件</span>
+</code></pre></td></tr></table></div></div><ul><li>提交</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>git add .
+git commmit -m <span class=s1>&#39;git add submodule&#39;</span>
+</code></pre></td></tr></table></div></div><h2 id=克隆>克隆</h2><p>如果是克隆已经添加了子模块的项目</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 拉完主项目，此时子模块的目录是空的</span>
+git submodule init <span class=c1># 初始化本地配置文件</span>
+git submodule update <span class=c1># 拉取对应的提交</span>
+<span class=c1># 或者</span>
+git submodule update --init --recursive
+
+<span class=c1># 或者在拉取的时候添加参数</span>
+git clone &lt;地址&gt; --recurse-submodules
+	
+<span class=c1># 子模块不一定是最新的，版本是在主项目里记录的版本</span>
+</code></pre></td></tr></table></div></div><h2 id=更新>更新</h2><ul><li><p>情况1: 远程仓库的子模块更新了, 本地主项目记录的还是旧的子模块版本</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 子模块是一个独立的git项目，它并不需要知道自己被谁用</span>
+<span class=nb>cd</span> &lt;子模块目录&gt;
+git pull
+<span class=c1># 和第一次添加一样, 并不会在status里显示模块里面的文件更新</span>
+<span class=c1># submodule的版本控制在于submodule git 的 commit id, 所以要提交这些更新记录</span>
+<span class=nb>cd</span> ../../
+git add static/platform
+git commit -m <span class=s1>&#39;submodule update&#39;</span>
+</code></pre></td></tr></table></div></div><p>当项目的子模块很多的时候，可以一个命令更新所有的模块</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>git submodule foreach <span class=s1>&#39;git pull origin master&#39;</span>
+</code></pre></td></tr></table></div></div></li><li><p>情况2: 远程仓库主项目的子模块信息更新了, 本地的子模块还是旧的</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 先更新主项目</span>
+git pull origin master
+<span class=c1># 再根据主项目里的记录更新本地子模块</span>
+git submodule init
+git submodule update
+</code></pre></td></tr></table></div></div></li></ul><ul><li>情况3: 对本地的子模块作了个人的修改: 不能提交到子模块的仓库, 就完全没用</li></ul><h2 id=修改模块>修改模块</h2><p>如果有子模块的修改权，那么把子模块当成单独的项目修改提交</p><h2 id=删除模块>删除模块</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 不要去手动修改 .gitmodules .git/config .git/modules cached</span>
+<span class=c1># 先卸载</span>
+git submodule deinit &lt;子模块目录&gt;
+<span class=c1># 添加 --force 参数，则子模块内有本地修改，也会被移除</span>
+git submodule deinit --force static/platform
+<span class=c1># 删除文件夹</span>
+git rm &lt;子模块目录&gt;
+git commit -m <span class=s2>&#34;delete submodule&#34;</span>
+</code></pre></td></tr></table></div></div><h2 id=拆分已有文件为子模块>拆分已有文件为子模块</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 建立新分支</span>
+<span class=c1># 建立单独的仓库</span>
+<span class=nb>cd</span> &lt;sub-module&gt;
+git init
+git add .
+git commit -m <span class=s2>&#34;version 1.0 of sub-module&#34;</span>
+git remote add origin &lt;sub-module-originUrl&gt;  
+git push -u origin master
+
+<span class=c1># 把文件夹从暂存区和工作区删除</span>
+<span class=nb>cd</span> ../
+git rm -r &lt;sub-module&gt;
+git commit -m <span class=s2>&#34;remove sub-module directory&#34;</span>
+rm -rf &lt;sub-module&gt;
+
+<span class=c1># 注册为子模块</span>
+git submodule add &lt;sub-module-originUrl&gt; &lt;sub文件夹&gt;
+git commit -m <span class=s2>&#34;add submodule version 1.0&#34;</span>
+
+</code></pre></td></tr></table></div></div><ul><li><p>存在问题点：如果要回到拆分前没有子模块的分支，结果发现提示报错</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>error: The following untracked working tree files would be overwritten by checkout:
+        sub/a.txt
+Please move or remove them before you switch branches.
+<span class=c1># 可以强制切换, 注意强制切换前保存修改</span>
+git checkout -f master
+<span class=c1># 再回到test分支，发现子模块文件夹空了</span>
+<span class=nb>cd</span> &lt;sub-module&gt;
+<span class=c1># 找回</span>
+git checkout .
+</code></pre></td></tr></table></div></div></li></ul></section><footer class=article-footer><section class=article-tags><a href=/tags/draft/>draft</a></section><section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg><span><a rel=license href=http://creativecommons.org/licenses/by-nc-sa/4.0/>LICENSED UNDER CC BY-NC-SA 4.0<br></a></span></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>Related content</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/p/clean-macos-system-data/><div class=article-details><h2 class=article-title>MacOs清理System Data</h2></div></a></article><article><a href=/p/npm/><div class=article-details><h2 class=article-title>Nginx Proxy Manager</h2></div></a></article><article><a href=/p/hugo-theme-bug/><div class=article-details><h2 class=article-title>hugo主题stack侧边栏bug</h2></div></a></article><article><a href=/p/n2n-deploy/><div class=article-details><h2 class=article-title>n2n部署</h2></div></a></article><article><a href=/p/git-common-command/><div class=article-details><h2 class=article-title>Git常用命令</h2></div></a></article></div></div></aside><footer class=site-footer><section class=copyright>&copy;
+2017 -
+2022 Jqtmviyu's Blog</section><section class=powerby>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.16.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script><script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script></body></html>

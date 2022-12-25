@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>draft on Jqtmviyu's Blog</title><link>/tags/draft/</link><description>Recent content in draft on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 25 Dec 2022 23:47:16 +0800</lastBuildDate><atom:link href="/tags/draft/index.xml" rel="self" type="application/rss+xml"/><item><title>Git Submodules</title><link>/p/permalinks/</link><pubDate>Sun, 25 Dec 2022 23:47:16 +0800</pubDate><guid>/p/permalinks/</guid><description>&lt;h1 id="submodule-子模块">Submodule 子模块&lt;/h1>
+&lt;p>&lt;a href="https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97#_git_submodules">https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97#_git_submodules&lt;/a>&lt;/p>
+&lt;h2 id="新增">新增&lt;/h2>
+&lt;ul>
+&lt;li>添加子模块&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git submodule add &amp;lt;子模块地址&amp;gt; &lt;span class="o">[&lt;/span>指定路径&lt;span class="o">(&lt;/span>可选&lt;span class="o">)]&lt;/span>
+&lt;span class="c1"># 此时 .gitmodules .git/config .git/modules 会添加子模块的信息&lt;/span>
+&lt;span class="c1"># 子模块目录也会下载,不为空&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>查看&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git status
+&lt;span class="c1"># 发现只列出 submodule 目录而不是里面所有的文件&lt;/span>
+&lt;span class="c1"># 对于模块外的项目来说，把子模块整个文件夹当成一个文件&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>提交&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git add .
+git commmit -m &lt;span class="s1">&amp;#39;git add submodule&amp;#39;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="克隆">克隆&lt;/h2>
+&lt;p>如果是克隆已经添加了子模块的项目&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 拉完主项目，此时子模块的目录是空的&lt;/span>
+git submodule init &lt;span class="c1"># 初始化本地配置文件&lt;/span>
+git submodule update &lt;span class="c1"># 拉取对应的提交&lt;/span>
+&lt;span class="c1"># 或者&lt;/span>
+git submodule update --init --recursive
+&lt;span class="c1"># 或者在拉取的时候添加参数&lt;/span>
+git clone &amp;lt;地址&amp;gt; --recurse-submodules
+&lt;span class="c1"># 子模块不一定是最新的，版本是在主项目里记录的版本&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="更新">更新&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>情况1: 远程仓库的子模块更新了, 本地主项目记录的还是旧的子模块版本&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 子模块是一个独立的git项目，它并不需要知道自己被谁用&lt;/span>
+&lt;span class="nb">cd&lt;/span> &amp;lt;子模块目录&amp;gt;
+git pull
+&lt;span class="c1"># 和第一次添加一样, 并不会在status里显示模块里面的文件更新&lt;/span>
+&lt;span class="c1"># submodule的版本控制在于submodule git 的 commit id, 所以要提交这些更新记录&lt;/span>
+&lt;span class="nb">cd&lt;/span> ../../
+git add static/platform
+git commit -m &lt;span class="s1">&amp;#39;submodule update&amp;#39;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>当项目的子模块很多的时候，可以一个命令更新所有的模块&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git submodule foreach &lt;span class="s1">&amp;#39;git pull origin master&amp;#39;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>情况2: 远程仓库主项目的子模块信息更新了, 本地的子模块还是旧的&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 先更新主项目&lt;/span>
+git pull origin master
+&lt;span class="c1"># 再根据主项目里的记录更新本地子模块&lt;/span>
+git submodule init
+git submodule update
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;ul>
+&lt;li>情况3: 对本地的子模块作了个人的修改: 不能提交到子模块的仓库, 就完全没用&lt;/li>
+&lt;/ul>
+&lt;h2 id="修改模块">修改模块&lt;/h2>
+&lt;p>如果有子模块的修改权，那么把子模块当成单独的项目修改提交&lt;/p>
+&lt;h2 id="删除模块">删除模块&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 不要去手动修改 .gitmodules .git/config .git/modules cached&lt;/span>
+&lt;span class="c1"># 先卸载&lt;/span>
+git submodule deinit &amp;lt;子模块目录&amp;gt;
+&lt;span class="c1"># 添加 --force 参数，则子模块内有本地修改，也会被移除&lt;/span>
+git submodule deinit --force static/platform
+&lt;span class="c1"># 删除文件夹&lt;/span>
+git rm &amp;lt;子模块目录&amp;gt;
+git commit -m &lt;span class="s2">&amp;#34;delete submodule&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="拆分已有文件为子模块">拆分已有文件为子模块&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 建立新分支&lt;/span>
+&lt;span class="c1"># 建立单独的仓库&lt;/span>
+&lt;span class="nb">cd&lt;/span> &amp;lt;sub-module&amp;gt;
+git init
+git add .
+git commit -m &lt;span class="s2">&amp;#34;version 1.0 of sub-module&amp;#34;&lt;/span>
+git remote add origin &amp;lt;sub-module-originUrl&amp;gt;
+git push -u origin master
+&lt;span class="c1"># 把文件夹从暂存区和工作区删除&lt;/span>
+&lt;span class="nb">cd&lt;/span> ../
+git rm -r &amp;lt;sub-module&amp;gt;
+git commit -m &lt;span class="s2">&amp;#34;remove sub-module directory&amp;#34;&lt;/span>
+rm -rf &amp;lt;sub-module&amp;gt;
+&lt;span class="c1"># 注册为子模块&lt;/span>
+git submodule add &amp;lt;sub-module-originUrl&amp;gt; &amp;lt;sub文件夹&amp;gt;
+git commit -m &lt;span class="s2">&amp;#34;add submodule version 1.0&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>
+&lt;p>存在问题点：如果要回到拆分前没有子模块的分支，结果发现提示报错&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">error: The following untracked working tree files would be overwritten by checkout:
+sub/a.txt
+Please move or remove them before you switch branches.
+&lt;span class="c1"># 可以强制切换, 注意强制切换前保存修改&lt;/span>
+git checkout -f master
+&lt;span class="c1"># 再回到test分支，发现子模块文件夹空了&lt;/span>
+&lt;span class="nb">cd&lt;/span> &amp;lt;sub-module&amp;gt;
+&lt;span class="c1"># 找回&lt;/span>
+git checkout .
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul></description></item></channel></rss>
