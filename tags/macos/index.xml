@@ -40,6 +40,7 @@
 &lt;/span>&lt;span class="lnt">16
 &lt;/span>&lt;span class="lnt">17
 &lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
 &lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">brew update-reset &lt;span class="c1"># 重置更新&lt;/span>
@@ -60,6 +61,7 @@ brew reinstall &amp;lt;package&amp;gt; &lt;span class="c1"># 重装&lt;/span>
 brew pin &amp;lt;package&amp;gt; &lt;span class="c1"># 锁定指定包&lt;/span>
 brew unpin &amp;lt;package&amp;gt; &lt;span class="c1"># 取消锁定指定包&lt;/span>
 brew doctor &lt;span class="c1"># 诊断brew&lt;/span>
+brew autoremove &lt;span class="c1"># 删除所有未使用的依赖项&lt;/span>
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h2 id="updating卡住">updating卡住&lt;/h2>
@@ -201,7 +203,28 @@ git -C &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>bre
 &lt;/div>&lt;ol start="5">
 &lt;li>最后记得&lt;code>brew update&lt;/code>&lt;/li>
 &lt;/ol>
-&lt;p>&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;跳过结束 &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;&lt;/p></description></item><item><title>MacOs清理System Data</title><link>/p/clean-macos-system-data/</link><pubDate>Fri, 23 Dec 2022 21:11:11 +0800</pubDate><guid>/p/clean-macos-system-data/</guid><description>&lt;h1 id="清理system-data">清理System Data&lt;/h1>
+&lt;p>&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;跳过结束 &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;&lt;/p>
+&lt;h2 id="依赖项不会自动删除">依赖项不会自动删除&lt;/h2>
+&lt;p>&lt;a href="https://stackoverflow.com/questions/7323261/uninstall-remove-a-homebrew-package-including-all-its-dependencies">https://stackoverflow.com/questions/7323261/uninstall-remove-a-homebrew-package-including-all-its-dependencies&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">brew autoremove
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">brew tap beeftornado/rmtree
+brew rmtree &amp;lt;package&amp;gt;
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>MacOs清理System Data</title><link>/p/clean-macos-system-data/</link><pubDate>Fri, 23 Dec 2022 21:11:11 +0800</pubDate><guid>/p/clean-macos-system-data/</guid><description>&lt;h1 id="清理system-data">清理System Data&lt;/h1>
 &lt;blockquote>
 &lt;p>几乎照搬原文： &lt;a href="https://zhuanlan.zhihu.com/p/349862578">https://zhuanlan.zhihu.com/p/349862578&lt;/a>&lt;/p>
 &lt;/blockquote>
