@@ -1,4 +1,382 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Jqtmviyu's Blog</title><link>/post/</link><description>Recent content in Posts on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 06 Jan 2023 03:14:40 +0800</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Sublime4 Integrate terminal zsh</title><link>/p/sublime4_integrated_terminal/</link><pubDate>Fri, 06 Jan 2023 03:14:40 +0800</pubDate><guid>/p/sublime4_integrated_terminal/</guid><description>&lt;h1 id="sublime4集成终端zsh">sublime4集成终端zsh&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Jqtmviyu's Blog</title><link>/post/</link><description>Recent content in Posts on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 09 Jan 2023 17:37:57 +0800</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml"/><item><title>mac安装Navidrome</title><link>/p/mac-install_navidrome/</link><pubDate>Mon, 09 Jan 2023 17:37:57 +0800</pubDate><guid>/p/mac-install_navidrome/</guid><description>&lt;h1 id="mac安装navidrome">mac安装Navidrome&lt;/h1>
+&lt;blockquote>
+&lt;p>&lt;a href="https://www.navidrome.org/docs/installation/macos/">https://www.navidrome.org/docs/installation/macos/&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="下载">下载&lt;/h2>
+&lt;p>&lt;a href="https://github.com/navidrome/navidrome">https://github.com/navidrome/navidrome&lt;/a>&lt;/p>
+&lt;h2 id="配置文件">配置文件&lt;/h2>
+&lt;p>文档: &lt;a href="https://www.navidrome.org/docs/usage/configuration-options/">https://www.navidrome.org/docs/usage/configuration-options/&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-toml" data-lang="toml">&lt;span class="c"># https://www.navidrome.org/docs/usage/configuration-options/&lt;/span>
+&lt;span class="nx">MusicFolder&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;/Volumes/Data/Music&amp;#34;&lt;/span>
+&lt;span class="nx">DataFolder&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;/Volumes/Data/Music/navidrome/data&amp;#34;&lt;/span>
+&lt;span class="nx">ScanSchedule&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;@every 10m&amp;#34;&lt;/span>
+&lt;span class="nx">TranscodingCacheSize&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;150MiB&amp;#34;&lt;/span> &lt;span class="c"># 转码存档的大小&lt;/span>
+&lt;span class="nx">EnableTranscodingConfig&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="kc">true&lt;/span> &lt;span class="c"># 在UI中启动转码配置&lt;/span>
+&lt;span class="nx">EnableExternalServices&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="kc">false&lt;/span> &lt;span class="c"># 外部集成&lt;/span>
+&lt;span class="nx">EnableStarRating&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="kc">false&lt;/span> &lt;span class="c"># 启用星级&lt;/span>
+&lt;span class="nx">EnableFavourites&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="kc">false&lt;/span> &lt;span class="c"># 启动收藏夹&lt;/span>
+&lt;span class="nx">DefaultLanguage&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;zh&amp;#34;&lt;/span>
+&lt;span class="c"># Port = 4533&lt;/span>
+&lt;span class="c"># CoverArtPriority = &amp;#34;embedded, cover.*, folder.*, front.*&amp;#34;&lt;/span>
+&lt;span class="nx">DefaultTheme&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;Spotify-ish&amp;#34;&lt;/span>
+&lt;span class="nx">AutoImportPlaylists&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;true&amp;#34;&lt;/span> &lt;span class="c"># 启用/禁用.m3u/nsp播放列表自动导入&lt;/span>
+&lt;span class="nx">PlaylistsPath&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;navidrome/playlists&amp;#34;&lt;/span>
+&lt;span class="c"># LogLevel = &amp;#34;error&amp;#34; # info&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>注意事项:&lt;/p>
+&lt;ol>
+&lt;li>&lt;code>DataFolder&lt;/code>用&lt;code>launchctl&lt;/code>启动程序时不能用相对路径, 如果是用命令行启动, 可以用&lt;code>./data&lt;/code>&lt;/li>
+&lt;li>&lt;code>PlaylistsPath&lt;/code>是相对&lt;code>MusicFolder&lt;/code>的&lt;/li>
+&lt;/ol>
+&lt;h2 id="配置开机后台启动">配置开机后台启动&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>添加&lt;code>plist&lt;/code>文件&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash"> &lt;span class="nb">cd&lt;/span> ~/Library/LaunchAgents/
+vim navidrome.plist
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>&lt;code>plist&lt;/code> 文件内容:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-xml" data-lang="xml">&lt;span class="cp">&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt;&lt;/span>
+&lt;span class="cp">&amp;lt;!DOCTYPE plist PUBLIC &amp;#34;-//Apple//DTD PLIST 1.0//EN&amp;#34; &amp;#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&amp;#34;&amp;gt;&lt;/span>
+&lt;span class="nt">&amp;lt;plist&lt;/span> &lt;span class="na">version=&lt;/span>&lt;span class="s">&amp;#34;1.0&amp;#34;&lt;/span>&lt;span class="nt">&amp;gt;&lt;/span>
+&lt;span class="nt">&amp;lt;dict&amp;gt;&lt;/span>
+&lt;span class="nt">&amp;lt;key&amp;gt;&lt;/span>Label&lt;span class="nt">&amp;lt;/key&amp;gt;&lt;/span>
+&lt;span class="nt">&amp;lt;string&amp;gt;&lt;/span>navidrome&lt;span class="nt">&amp;lt;/string&amp;gt;&lt;/span>
+&lt;span class="nt">&amp;lt;key&amp;gt;&lt;/span>ProgramArguments&lt;span class="nt">&amp;lt;/key&amp;gt;&lt;/span>
+&lt;span class="nt">&amp;lt;array&amp;gt;&lt;/span>
+&lt;span class="nt">&amp;lt;string&amp;gt;&lt;/span>/Volumes/Data/Music/navidrome/navidrome&lt;span class="nt">&amp;lt;/string&amp;gt;&lt;/span>
+&lt;span class="nt">&amp;lt;string&amp;gt;&lt;/span>-c&lt;span class="nt">&amp;lt;/string&amp;gt;&lt;/span>
+&lt;span class="nt">&amp;lt;string&amp;gt;&lt;/span>/Volumes/Data/Music/navidrome/navidrome.toml&lt;span class="nt">&amp;lt;/string&amp;gt;&lt;/span>
+&lt;span class="nt">&amp;lt;/array&amp;gt;&lt;/span>
+&lt;span class="nt">&amp;lt;key&amp;gt;&lt;/span>RunAtLoad&lt;span class="nt">&amp;lt;/key&amp;gt;&lt;/span>
+&lt;span class="nt">&amp;lt;true/&amp;gt;&lt;/span>
+&lt;span class="nt">&amp;lt;key&amp;gt;&lt;/span>StandardOutPath&lt;span class="nt">&amp;lt;/key&amp;gt;&lt;/span>
+&lt;span class="nt">&amp;lt;string&amp;gt;&lt;/span>/Volumes/Data/Music/navidrome/navidrome.log&lt;span class="nt">&amp;lt;/string&amp;gt;&lt;/span>
+&lt;span class="nt">&amp;lt;key&amp;gt;&lt;/span>StandardErrorPath&lt;span class="nt">&amp;lt;/key&amp;gt;&lt;/span>
+&lt;span class="nt">&amp;lt;string&amp;gt;&lt;/span>/Volumes/Data/Music/navidrome/navidrome.log&lt;span class="nt">&amp;lt;/string&amp;gt;&lt;/span>
+&lt;span class="nt">&amp;lt;/dict&amp;gt;&lt;/span>
+&lt;span class="nt">&amp;lt;/plist&amp;gt;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>注意事项:别添加到&lt;code>/opt/&lt;/code>目录, 后面想删除删除不掉&lt;/strong>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>添加服务&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">launchctl load navidrome.plist
+&lt;span class="c1"># 删除&lt;/span>
+launchctl unload navidrome.plist
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;h3 id="启动服务">启动服务&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">launchctl start navidrome
+&lt;span class="c1"># 停止&lt;/span>
+launchctl stop navidrome
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="web页面">web页面&lt;/h3>
+&lt;p>http://127.0.0.1:4533&lt;/p>
+&lt;p>注意事项: 记住账号和密码, 把&lt;code>data&lt;/code>删了就把数据清空&lt;/p>
+&lt;h3 id="可选添加智能播放列表">(可选)添加智能播放列表&lt;/h3>
+&lt;p>文档: &lt;a href="https://github.com/navidrome/navidrome/issues/1417">https://github.com/navidrome/navidrome/issues/1417&lt;/a>&lt;/p>
+&lt;p>在&lt;code>PlaylistsPath&lt;/code>配置的目录下添加文件, 文件名即播放列表的名称, 建议编辑完成再移动进去&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;span class="lnt">42
+&lt;/span>&lt;span class="lnt">43
+&lt;/span>&lt;span class="lnt">44
+&lt;/span>&lt;span class="lnt">45
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 最近播放.nsp&lt;/span>
+vim 最近播放.nsp
+&lt;span class="c1">#======&lt;/span>
+&lt;span class="o">{&lt;/span>
+&lt;span class="s2">&amp;#34;all&amp;#34;&lt;/span>: &lt;span class="o">[&lt;/span>
+&lt;span class="o">{&lt;/span>
+&lt;span class="s2">&amp;#34;inTheLast&amp;#34;&lt;/span>: &lt;span class="o">{&lt;/span>
+&lt;span class="s2">&amp;#34;lastPlayed&amp;#34;&lt;/span>: &lt;span class="m">30&lt;/span>
+&lt;span class="o">}&lt;/span>
+&lt;span class="o">}&lt;/span>
+&lt;span class="o">]&lt;/span>,
+&lt;span class="s2">&amp;#34;sort&amp;#34;&lt;/span>: &lt;span class="s2">&amp;#34;lastPlayed&amp;#34;&lt;/span>,
+&lt;span class="s2">&amp;#34;order&amp;#34;&lt;/span>: &lt;span class="s2">&amp;#34;desc&amp;#34;&lt;/span>,
+&lt;span class="s2">&amp;#34;limit&amp;#34;&lt;/span>: &lt;span class="m">100&lt;/span>
+&lt;span class="o">}&lt;/span>
+&lt;span class="c1">#======&lt;/span>
+vim 随机.nsp
+&lt;span class="c1">#======&lt;/span>
+&lt;span class="o">{&lt;/span>
+&lt;span class="s2">&amp;#34;all&amp;#34;&lt;/span>: &lt;span class="o">[&lt;/span>
+&lt;span class="o">{&lt;/span>
+&lt;span class="s2">&amp;#34;gt&amp;#34;&lt;/span>: &lt;span class="o">{&lt;/span>
+&lt;span class="s2">&amp;#34;playCount&amp;#34;&lt;/span>: -1
+&lt;span class="o">}&lt;/span>
+&lt;span class="o">}&lt;/span>
+&lt;span class="o">]&lt;/span>,
+&lt;span class="s2">&amp;#34;sort&amp;#34;&lt;/span>: &lt;span class="s2">&amp;#34;random&amp;#34;&lt;/span>
+&lt;span class="o">}&lt;/span>
+&lt;span class="c1">#======&lt;/span>
+vim 中文.nsp
+&lt;span class="c1">#======&lt;/span>
+&lt;span class="o">{&lt;/span>
+&lt;span class="s2">&amp;#34;all&amp;#34;&lt;/span>: &lt;span class="o">[&lt;/span>
+&lt;span class="o">{&lt;/span>
+&lt;span class="s2">&amp;#34;contains&amp;#34;&lt;/span>: &lt;span class="o">{&lt;/span>
+&lt;span class="s2">&amp;#34;filepath&amp;#34;&lt;/span>: &lt;span class="s2">&amp;#34;中文&amp;#34;&lt;/span>
+&lt;span class="o">}&lt;/span>
+&lt;span class="o">}&lt;/span>
+&lt;span class="o">]&lt;/span>,
+&lt;span class="s2">&amp;#34;sort&amp;#34;&lt;/span>: &lt;span class="s2">&amp;#34;title&amp;#34;&lt;/span>,
+&lt;span class="s2">&amp;#34;order&amp;#34;&lt;/span>: &lt;span class="s2">&amp;#34;desc&amp;#34;&lt;/span>
+&lt;span class="o">}&lt;/span>
+&lt;span class="c1">#======&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>进入web页面, 点右上角&lt;code>运行情况--&amp;gt;完全扫描&lt;/code>就能刷新出播放列表了&lt;/p>
+&lt;p>可选参数:&lt;/p>
+&lt;ul>
+&lt;li>Current list of fields available (case-insensitive):&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-txt" data-lang="txt">title
+album
+artist
+albumartist
+hascoverart
+tracknumber
+discnumber
+year
+size
+compilation
+dateadded
+datemodified
+discsubtitle
+comment
+lyrics
+sorttitle
+sortalbum
+sortartist
+sortalbumartist
+albumtype
+albumcomment
+catalognumber
+filepath
+filetype
+duration
+bitrate
+bpm
+channels
+genre
+loved
+dateloved
+lastplayed
+playcount
+rating
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>Operators available (case-insensitive):&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-txt" data-lang="txt">is
+isNot
+gt
+lt
+contains
+notContains
+startsWith
+endsWith
+inTheRange
+before
+after
+inTheLast
+notInTheLast
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="客户端推荐">客户端推荐&lt;/h3>
+&lt;p>只推荐试用过的:
+&lt;a class="link" href="https://github.com/jeffvli/sonixd" target="_blank" rel="noopener"
+>sonixd(Windows/Linux/macOS)&lt;/a>
+substreamer(android/ios|free|gitlab)
+symfonium(android|试用|palystore)
+&lt;a class="link" href="https://www.navidrome.org/docs/overview/" target="_blank" rel="noopener"
+>更多&lt;/a>&lt;/p>
+&lt;h3 id="缺陷">缺陷&lt;/h3>
+&lt;ul>
+&lt;li>navidrome使用&lt;code>subsonic&lt;/code>api, 无法提供文件夹播放列表&lt;/li>
+&lt;li>对音乐文件只有只读功能, 无法编辑删除&lt;/li>
+&lt;li>智能列表功能未完善, 并不能动态监听&lt;/li>
+&lt;/ul>
+&lt;h3 id="优势">优势&lt;/h3>
+&lt;ul>
+&lt;li>自带的web播放器功能不错&lt;/li>
+&lt;li>只要手机和pc在同个局域网下, 就能共享资源(可通过n2n组网)&lt;/li>
+&lt;/ul></description></item><item><title>Sublime4 Integrate terminal zsh</title><link>/p/sublime4_integrated_terminal/</link><pubDate>Fri, 06 Jan 2023 03:14:40 +0800</pubDate><guid>/p/sublime4_integrated_terminal/</guid><description>&lt;h1 id="sublime4集成终端zsh">sublime4集成终端zsh&lt;/h1>
 &lt;p>&lt;a href="https://stackoverflow.com/questions/31439023/sublime-text-3-has-integrated-terminal">https://stackoverflow.com/questions/31439023/sublime-text-3-has-integrated-terminal&lt;/a>&lt;/p>
 &lt;h2 id="terminus">Terminus&lt;/h2>
 &lt;p>&lt;a href="https://github.com/randy3k/Terminus#user-key-bindings">https://github.com/randy3k/Terminus#user-key-bindings&lt;/a>&lt;/p>
