@@ -359,13 +359,15 @@ notInTheLast
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h3 id="客户端推荐">客户端推荐&lt;/h3>
-&lt;p>只推荐试用过的:
-&lt;a class="link" href="https://github.com/jeffvli/sonixd" target="_blank" rel="noopener"
->sonixd(Windows/Linux/macOS)&lt;/a>
-substreamer(android/ios|free|gitlab)
-symfonium(android|试用|palystore)
+&lt;p>只推荐试用过的:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://github.com/jeffvli/sonixd" target="_blank" rel="noopener"
+>sonixd(Windows/Linux/macOS)&lt;/a>&lt;/li>
+&lt;li>substreamer(android/ios|free|gitlab)&lt;/li>
+&lt;li>symfonium(android|试用|palystore)&lt;br>
 &lt;a class="link" href="https://www.navidrome.org/docs/overview/" target="_blank" rel="noopener"
->更多&lt;/a>&lt;/p>
+>更多&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h3 id="缺陷">缺陷&lt;/h3>
 &lt;ul>
 &lt;li>navidrome使用&lt;code>subsonic&lt;/code>api, 无法提供文件夹播放列表&lt;/li>
