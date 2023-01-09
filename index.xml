@@ -3729,4 +3729,720 @@ Enter same passphrase again:&amp;lt;再次输入加密串&amp;gt;
 &amp;quot;file:///D:/Pictures/头图/2.png&amp;quot;,
 &amp;quot;file:///D:/Pictures/头图/3.png&amp;quot;]
 &lt;/code>&lt;/pre>
-&lt;p>图片整体大小用ps调整就可以了。&lt;/p></description></item><item><title>Links</title><link>/links/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/links/</guid><description/></item><item><title>Search</title><link>/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/search/</guid><description/></item></channel></rss>
+&lt;p>图片整体大小用ps调整就可以了。&lt;/p>
+&lt;h2 id="2-所有配置">2. 所有配置&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt"> 10
+&lt;/span>&lt;span class="lnt"> 11
+&lt;/span>&lt;span class="lnt"> 12
+&lt;/span>&lt;span class="lnt"> 13
+&lt;/span>&lt;span class="lnt"> 14
+&lt;/span>&lt;span class="lnt"> 15
+&lt;/span>&lt;span class="lnt"> 16
+&lt;/span>&lt;span class="lnt"> 17
+&lt;/span>&lt;span class="lnt"> 18
+&lt;/span>&lt;span class="lnt"> 19
+&lt;/span>&lt;span class="lnt"> 20
+&lt;/span>&lt;span class="lnt"> 21
+&lt;/span>&lt;span class="lnt"> 22
+&lt;/span>&lt;span class="lnt"> 23
+&lt;/span>&lt;span class="lnt"> 24
+&lt;/span>&lt;span class="lnt"> 25
+&lt;/span>&lt;span class="lnt"> 26
+&lt;/span>&lt;span class="lnt"> 27
+&lt;/span>&lt;span class="lnt"> 28
+&lt;/span>&lt;span class="lnt"> 29
+&lt;/span>&lt;span class="lnt"> 30
+&lt;/span>&lt;span class="lnt"> 31
+&lt;/span>&lt;span class="lnt"> 32
+&lt;/span>&lt;span class="lnt"> 33
+&lt;/span>&lt;span class="lnt"> 34
+&lt;/span>&lt;span class="lnt"> 35
+&lt;/span>&lt;span class="lnt"> 36
+&lt;/span>&lt;span class="lnt"> 37
+&lt;/span>&lt;span class="lnt"> 38
+&lt;/span>&lt;span class="lnt"> 39
+&lt;/span>&lt;span class="lnt"> 40
+&lt;/span>&lt;span class="lnt"> 41
+&lt;/span>&lt;span class="lnt"> 42
+&lt;/span>&lt;span class="lnt"> 43
+&lt;/span>&lt;span class="lnt"> 44
+&lt;/span>&lt;span class="lnt"> 45
+&lt;/span>&lt;span class="lnt"> 46
+&lt;/span>&lt;span class="lnt"> 47
+&lt;/span>&lt;span class="lnt"> 48
+&lt;/span>&lt;span class="lnt"> 49
+&lt;/span>&lt;span class="lnt"> 50
+&lt;/span>&lt;span class="lnt"> 51
+&lt;/span>&lt;span class="lnt"> 52
+&lt;/span>&lt;span class="lnt"> 53
+&lt;/span>&lt;span class="lnt"> 54
+&lt;/span>&lt;span class="lnt"> 55
+&lt;/span>&lt;span class="lnt"> 56
+&lt;/span>&lt;span class="lnt"> 57
+&lt;/span>&lt;span class="lnt"> 58
+&lt;/span>&lt;span class="lnt"> 59
+&lt;/span>&lt;span class="lnt"> 60
+&lt;/span>&lt;span class="lnt"> 61
+&lt;/span>&lt;span class="lnt"> 62
+&lt;/span>&lt;span class="lnt"> 63
+&lt;/span>&lt;span class="lnt"> 64
+&lt;/span>&lt;span class="lnt"> 65
+&lt;/span>&lt;span class="lnt"> 66
+&lt;/span>&lt;span class="lnt"> 67
+&lt;/span>&lt;span class="lnt"> 68
+&lt;/span>&lt;span class="lnt"> 69
+&lt;/span>&lt;span class="lnt"> 70
+&lt;/span>&lt;span class="lnt"> 71
+&lt;/span>&lt;span class="lnt"> 72
+&lt;/span>&lt;span class="lnt"> 73
+&lt;/span>&lt;span class="lnt"> 74
+&lt;/span>&lt;span class="lnt"> 75
+&lt;/span>&lt;span class="lnt"> 76
+&lt;/span>&lt;span class="lnt"> 77
+&lt;/span>&lt;span class="lnt"> 78
+&lt;/span>&lt;span class="lnt"> 79
+&lt;/span>&lt;span class="lnt"> 80
+&lt;/span>&lt;span class="lnt"> 81
+&lt;/span>&lt;span class="lnt"> 82
+&lt;/span>&lt;span class="lnt"> 83
+&lt;/span>&lt;span class="lnt"> 84
+&lt;/span>&lt;span class="lnt"> 85
+&lt;/span>&lt;span class="lnt"> 86
+&lt;/span>&lt;span class="lnt"> 87
+&lt;/span>&lt;span class="lnt"> 88
+&lt;/span>&lt;span class="lnt"> 89
+&lt;/span>&lt;span class="lnt"> 90
+&lt;/span>&lt;span class="lnt"> 91
+&lt;/span>&lt;span class="lnt"> 92
+&lt;/span>&lt;span class="lnt"> 93
+&lt;/span>&lt;span class="lnt"> 94
+&lt;/span>&lt;span class="lnt"> 95
+&lt;/span>&lt;span class="lnt"> 96
+&lt;/span>&lt;span class="lnt"> 97
+&lt;/span>&lt;span class="lnt"> 98
+&lt;/span>&lt;span class="lnt"> 99
+&lt;/span>&lt;span class="lnt">100
+&lt;/span>&lt;span class="lnt">101
+&lt;/span>&lt;span class="lnt">102
+&lt;/span>&lt;span class="lnt">103
+&lt;/span>&lt;span class="lnt">104
+&lt;/span>&lt;span class="lnt">105
+&lt;/span>&lt;span class="lnt">106
+&lt;/span>&lt;span class="lnt">107
+&lt;/span>&lt;span class="lnt">108
+&lt;/span>&lt;span class="lnt">109
+&lt;/span>&lt;span class="lnt">110
+&lt;/span>&lt;span class="lnt">111
+&lt;/span>&lt;span class="lnt">112
+&lt;/span>&lt;span class="lnt">113
+&lt;/span>&lt;span class="lnt">114
+&lt;/span>&lt;span class="lnt">115
+&lt;/span>&lt;span class="lnt">116
+&lt;/span>&lt;span class="lnt">117
+&lt;/span>&lt;span class="lnt">118
+&lt;/span>&lt;span class="lnt">119
+&lt;/span>&lt;span class="lnt">120
+&lt;/span>&lt;span class="lnt">121
+&lt;/span>&lt;span class="lnt">122
+&lt;/span>&lt;span class="lnt">123
+&lt;/span>&lt;span class="lnt">124
+&lt;/span>&lt;span class="lnt">125
+&lt;/span>&lt;span class="lnt">126
+&lt;/span>&lt;span class="lnt">127
+&lt;/span>&lt;span class="lnt">128
+&lt;/span>&lt;span class="lnt">129
+&lt;/span>&lt;span class="lnt">130
+&lt;/span>&lt;span class="lnt">131
+&lt;/span>&lt;span class="lnt">132
+&lt;/span>&lt;span class="lnt">133
+&lt;/span>&lt;span class="lnt">134
+&lt;/span>&lt;span class="lnt">135
+&lt;/span>&lt;span class="lnt">136
+&lt;/span>&lt;span class="lnt">137
+&lt;/span>&lt;span class="lnt">138
+&lt;/span>&lt;span class="lnt">139
+&lt;/span>&lt;span class="lnt">140
+&lt;/span>&lt;span class="lnt">141
+&lt;/span>&lt;span class="lnt">142
+&lt;/span>&lt;span class="lnt">143
+&lt;/span>&lt;span class="lnt">144
+&lt;/span>&lt;span class="lnt">145
+&lt;/span>&lt;span class="lnt">146
+&lt;/span>&lt;span class="lnt">147
+&lt;/span>&lt;span class="lnt">148
+&lt;/span>&lt;span class="lnt">149
+&lt;/span>&lt;span class="lnt">150
+&lt;/span>&lt;span class="lnt">151
+&lt;/span>&lt;span class="lnt">152
+&lt;/span>&lt;span class="lnt">153
+&lt;/span>&lt;span class="lnt">154
+&lt;/span>&lt;span class="lnt">155
+&lt;/span>&lt;span class="lnt">156
+&lt;/span>&lt;span class="lnt">157
+&lt;/span>&lt;span class="lnt">158
+&lt;/span>&lt;span class="lnt">159
+&lt;/span>&lt;span class="lnt">160
+&lt;/span>&lt;span class="lnt">161
+&lt;/span>&lt;span class="lnt">162
+&lt;/span>&lt;span class="lnt">163
+&lt;/span>&lt;span class="lnt">164
+&lt;/span>&lt;span class="lnt">165
+&lt;/span>&lt;span class="lnt">166
+&lt;/span>&lt;span class="lnt">167
+&lt;/span>&lt;span class="lnt">168
+&lt;/span>&lt;span class="lnt">169
+&lt;/span>&lt;span class="lnt">170
+&lt;/span>&lt;span class="lnt">171
+&lt;/span>&lt;span class="lnt">172
+&lt;/span>&lt;span class="lnt">173
+&lt;/span>&lt;span class="lnt">174
+&lt;/span>&lt;span class="lnt">175
+&lt;/span>&lt;span class="lnt">176
+&lt;/span>&lt;span class="lnt">177
+&lt;/span>&lt;span class="lnt">178
+&lt;/span>&lt;span class="lnt">179
+&lt;/span>&lt;span class="lnt">180
+&lt;/span>&lt;span class="lnt">181
+&lt;/span>&lt;span class="lnt">182
+&lt;/span>&lt;span class="lnt">183
+&lt;/span>&lt;span class="lnt">184
+&lt;/span>&lt;span class="lnt">185
+&lt;/span>&lt;span class="lnt">186
+&lt;/span>&lt;span class="lnt">187
+&lt;/span>&lt;span class="lnt">188
+&lt;/span>&lt;span class="lnt">189
+&lt;/span>&lt;span class="lnt">190
+&lt;/span>&lt;span class="lnt">191
+&lt;/span>&lt;span class="lnt">192
+&lt;/span>&lt;span class="lnt">193
+&lt;/span>&lt;span class="lnt">194
+&lt;/span>&lt;span class="lnt">195
+&lt;/span>&lt;span class="lnt">196
+&lt;/span>&lt;span class="lnt">197
+&lt;/span>&lt;span class="lnt">198
+&lt;/span>&lt;span class="lnt">199
+&lt;/span>&lt;span class="lnt">200
+&lt;/span>&lt;span class="lnt">201
+&lt;/span>&lt;span class="lnt">202
+&lt;/span>&lt;span class="lnt">203
+&lt;/span>&lt;span class="lnt">204
+&lt;/span>&lt;span class="lnt">205
+&lt;/span>&lt;span class="lnt">206
+&lt;/span>&lt;span class="lnt">207
+&lt;/span>&lt;span class="lnt">208
+&lt;/span>&lt;span class="lnt">209
+&lt;/span>&lt;span class="lnt">210
+&lt;/span>&lt;span class="lnt">211
+&lt;/span>&lt;span class="lnt">212
+&lt;/span>&lt;span class="lnt">213
+&lt;/span>&lt;span class="lnt">214
+&lt;/span>&lt;span class="lnt">215
+&lt;/span>&lt;span class="lnt">216
+&lt;/span>&lt;span class="lnt">217
+&lt;/span>&lt;span class="lnt">218
+&lt;/span>&lt;span class="lnt">219
+&lt;/span>&lt;span class="lnt">220
+&lt;/span>&lt;span class="lnt">221
+&lt;/span>&lt;span class="lnt">222
+&lt;/span>&lt;span class="lnt">223
+&lt;/span>&lt;span class="lnt">224
+&lt;/span>&lt;span class="lnt">225
+&lt;/span>&lt;span class="lnt">226
+&lt;/span>&lt;span class="lnt">227
+&lt;/span>&lt;span class="lnt">228
+&lt;/span>&lt;span class="lnt">229
+&lt;/span>&lt;span class="lnt">230
+&lt;/span>&lt;span class="lnt">231
+&lt;/span>&lt;span class="lnt">232
+&lt;/span>&lt;span class="lnt">233
+&lt;/span>&lt;span class="lnt">234
+&lt;/span>&lt;span class="lnt">235
+&lt;/span>&lt;span class="lnt">236
+&lt;/span>&lt;span class="lnt">237
+&lt;/span>&lt;span class="lnt">238
+&lt;/span>&lt;span class="lnt">239
+&lt;/span>&lt;span class="lnt">240
+&lt;/span>&lt;span class="lnt">241
+&lt;/span>&lt;span class="lnt">242
+&lt;/span>&lt;span class="lnt">243
+&lt;/span>&lt;span class="lnt">244
+&lt;/span>&lt;span class="lnt">245
+&lt;/span>&lt;span class="lnt">246
+&lt;/span>&lt;span class="lnt">247
+&lt;/span>&lt;span class="lnt">248
+&lt;/span>&lt;span class="lnt">249
+&lt;/span>&lt;span class="lnt">250
+&lt;/span>&lt;span class="lnt">251
+&lt;/span>&lt;span class="lnt">252
+&lt;/span>&lt;span class="lnt">253
+&lt;/span>&lt;span class="lnt">254
+&lt;/span>&lt;span class="lnt">255
+&lt;/span>&lt;span class="lnt">256
+&lt;/span>&lt;span class="lnt">257
+&lt;/span>&lt;span class="lnt">258
+&lt;/span>&lt;span class="lnt">259
+&lt;/span>&lt;span class="lnt">260
+&lt;/span>&lt;span class="lnt">261
+&lt;/span>&lt;span class="lnt">262
+&lt;/span>&lt;span class="lnt">263
+&lt;/span>&lt;span class="lnt">264
+&lt;/span>&lt;span class="lnt">265
+&lt;/span>&lt;span class="lnt">266
+&lt;/span>&lt;span class="lnt">267
+&lt;/span>&lt;span class="lnt">268
+&lt;/span>&lt;span class="lnt">269
+&lt;/span>&lt;span class="lnt">270
+&lt;/span>&lt;span class="lnt">271
+&lt;/span>&lt;span class="lnt">272
+&lt;/span>&lt;span class="lnt">273
+&lt;/span>&lt;span class="lnt">274
+&lt;/span>&lt;span class="lnt">275
+&lt;/span>&lt;span class="lnt">276
+&lt;/span>&lt;span class="lnt">277
+&lt;/span>&lt;span class="lnt">278
+&lt;/span>&lt;span class="lnt">279
+&lt;/span>&lt;span class="lnt">280
+&lt;/span>&lt;span class="lnt">281
+&lt;/span>&lt;span class="lnt">282
+&lt;/span>&lt;span class="lnt">283
+&lt;/span>&lt;span class="lnt">284
+&lt;/span>&lt;span class="lnt">285
+&lt;/span>&lt;span class="lnt">286
+&lt;/span>&lt;span class="lnt">287
+&lt;/span>&lt;span class="lnt">288
+&lt;/span>&lt;span class="lnt">289
+&lt;/span>&lt;span class="lnt">290
+&lt;/span>&lt;span class="lnt">291
+&lt;/span>&lt;span class="lnt">292
+&lt;/span>&lt;span class="lnt">293
+&lt;/span>&lt;span class="lnt">294
+&lt;/span>&lt;span class="lnt">295
+&lt;/span>&lt;span class="lnt">296
+&lt;/span>&lt;span class="lnt">297
+&lt;/span>&lt;span class="lnt">298
+&lt;/span>&lt;span class="lnt">299
+&lt;/span>&lt;span class="lnt">300
+&lt;/span>&lt;span class="lnt">301
+&lt;/span>&lt;span class="lnt">302
+&lt;/span>&lt;span class="lnt">303
+&lt;/span>&lt;span class="lnt">304
+&lt;/span>&lt;span class="lnt">305
+&lt;/span>&lt;span class="lnt">306
+&lt;/span>&lt;span class="lnt">307
+&lt;/span>&lt;span class="lnt">308
+&lt;/span>&lt;span class="lnt">309
+&lt;/span>&lt;span class="lnt">310
+&lt;/span>&lt;span class="lnt">311
+&lt;/span>&lt;span class="lnt">312
+&lt;/span>&lt;span class="lnt">313
+&lt;/span>&lt;span class="lnt">314
+&lt;/span>&lt;span class="lnt">315
+&lt;/span>&lt;span class="lnt">316
+&lt;/span>&lt;span class="lnt">317
+&lt;/span>&lt;span class="lnt">318
+&lt;/span>&lt;span class="lnt">319
+&lt;/span>&lt;span class="lnt">320
+&lt;/span>&lt;span class="lnt">321
+&lt;/span>&lt;span class="lnt">322
+&lt;/span>&lt;span class="lnt">323
+&lt;/span>&lt;span class="lnt">324
+&lt;/span>&lt;span class="lnt">325
+&lt;/span>&lt;span class="lnt">326
+&lt;/span>&lt;span class="lnt">327
+&lt;/span>&lt;span class="lnt">328
+&lt;/span>&lt;span class="lnt">329
+&lt;/span>&lt;span class="lnt">330
+&lt;/span>&lt;span class="lnt">331
+&lt;/span>&lt;span class="lnt">332
+&lt;/span>&lt;span class="lnt">333
+&lt;/span>&lt;span class="lnt">334
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="p">{&lt;/span>
+&lt;span class="err">/**&lt;/span> &lt;span class="err">减少卡顿&lt;/span> &lt;span class="err">*/&lt;/span>
+&lt;span class="nt">&amp;#34;git.ignoreMissingGitWarning&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;git.suggestSmartCommit&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;files.exclude&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;**/.classpath&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;**/.factorypath&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;**/.project&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;**/.settings&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;**/node_modules/&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;dist&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;**/.git&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;**/.svn&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;**/.hg&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;**/CVS&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;**/.DS_Store&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;**/tmp&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;**/bower_components&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;**/dist&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>
+&lt;span class="p">},&lt;/span>
+&lt;span class="nt">&amp;#34;files.watcherExclude&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;**/.git/objects/**&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;**/.git/subtree-cache/**&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;**/node_modules/**&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;**/tmp/**&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;**/bower_components/**&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;**/dist/**&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>
+&lt;span class="p">},&lt;/span>
+&lt;span class="err">/**&lt;/span> &lt;span class="err">编辑相关&lt;/span> &lt;span class="err">*/&lt;/span>
+&lt;span class="nt">&amp;#34;editor.formatOnSave&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//代码在保存的时候自动格式化&lt;/span>
+&lt;span class="nt">&amp;#34;editor.formatOnSaveMode&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;file&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">设置保存文件时格式化整个文件还是仅被修改处。该配置项仅在&lt;/span> &lt;span class="nt">&amp;#34;editor.formatOnSave&amp;#34;&lt;/span> &lt;span class="err">为&lt;/span> &lt;span class="err">true时生效&lt;/span>
+&lt;span class="s2">&amp;#34;editor.formatOnType&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">设置输入完成后是否自动格式化当前行&lt;/span>
+&lt;span class="nt">&amp;#34;editor.cursorStyle&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;line&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//光标样式&lt;/span>
+&lt;span class="nt">&amp;#34;editor.cursorWidth&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">光标宽度&lt;/span>
+&lt;span class="nt">&amp;#34;editor.fontFamily&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;Sarasa Mono SC Nerd,Sarasa Mono SC&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;editor.lineHeight&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;editor.lineNumbers&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;on&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;editor.minimap.enabled&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;editor.rulers&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mi">100&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="err">//编辑器每行长度&lt;/span>
+&lt;span class="nt">&amp;#34;editor.suggestSelection&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;recentlyUsedByPrefix&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">根据之前的预选&lt;/span>
+&lt;span class="nt">&amp;#34;editor.detectIndentation&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">vscode默认启用了根据文件类型自动设置tabsize的选项&lt;/span>
+&lt;span class="nt">&amp;#34;editor.tabSize&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">重新设定tabsize&lt;/span>
+&lt;span class="nt">&amp;#34;editor.fontSize&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">16&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;editor.wordWrap&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;bounded&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">控制折行&lt;/span>
+&lt;span class="nt">&amp;#34;editor.wordWrapColumn&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">100&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//显示换行&lt;/span>
+&lt;span class="nt">&amp;#34;editor.renderWhitespace&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;selection&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">空白字符显示方式&lt;/span>
+&lt;span class="nt">&amp;#34;editor.guides.indentation&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">控制编辑器是否应呈现缩进指南。&lt;/span>
+&lt;span class="nt">&amp;#34;editor.renderControlCharacters&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;editor.unicodeHighlight.invisibleCharacters&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">控制是否突出显示仅保留空格或完全没有宽度的字符。&lt;/span>
+&lt;span class="nt">&amp;#34;editor.unicodeHighlight.ambiguousCharacters&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">控制是否突出显示可能与基本&lt;/span> &lt;span class="err">ASCII&lt;/span> &lt;span class="err">字符混淆的字符，但当前用户区域设置中常见的字符除外。&lt;/span>
+&lt;span class="nt">&amp;#34;editor.wordSeparators&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;`~!@#$%^&amp;amp;*()=+[{]}\\|;:&amp;#39;\&amp;#34;,.&amp;lt;&amp;gt;/?&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">单词连字符&lt;/span>
+&lt;span class="nt">&amp;#34;editor.guides.bracketPairs&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;active&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">控制是否启用括号对指南&lt;/span>
+&lt;span class="nt">&amp;#34;editor.quickSuggestions&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="err">//开启自动显示建议&lt;/span>
+&lt;span class="nt">&amp;#34;other&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;comments&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;strings&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>
+&lt;span class="p">},&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="nt">&amp;#34;editor.tokenColorCustomizations&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="nt">&amp;#34;comments&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;#008549&amp;#34;&lt;/span> &lt;span class="err">//注释&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="s2">&amp;#34;keywords&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;#c41cbb&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">关键字&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="nt">&amp;#34;variables&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;#37bebe&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">变量名&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="nt">&amp;#34;strings&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;#222222&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">字符串&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="nt">&amp;#34;functions&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;#126bfafb&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">函数名&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="nt">&amp;#34;numbers&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;#f78400&amp;#34;&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">数字&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="p">},&lt;/span>
+&lt;span class="nt">&amp;#34;editor.accessibilitySupport&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;off&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">针对屏幕阅读器进行优化的模式&lt;/span>
+&lt;span class="err">/**&lt;/span> &lt;span class="err">背景图相关&lt;/span> &lt;span class="err">*/&lt;/span>
+&lt;span class="nt">&amp;#34;background.enabled&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;background.useDefault&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;background.customImages&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>
+&lt;span class="s2">&amp;#34;https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20210319174159.png&amp;#34;&lt;/span>
+&lt;span class="p">],&lt;/span>
+&lt;span class="nt">&amp;#34;background.styles&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>
+&lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;content&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;&amp;#39;&amp;#39;&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;pointer-events&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;none&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;position&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;absolute&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;right&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;0&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;bottom&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;0&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;z-index&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;99999&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;width&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;120px&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;background-size&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;100% auto&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;background-position&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;100% 100%&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;background-repeat&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;no-repeat&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;opacity&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">1&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">],&lt;/span>
+&lt;span class="nt">&amp;#34;background.useFront&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="err">/**&lt;/span> &lt;span class="err">主题外观&lt;/span> &lt;span class="err">*/&lt;/span>
+&lt;span class="nt">&amp;#34;workbench.colorTheme&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;Quiet Light&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;workbench.iconTheme&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;material-icon-theme&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;workbench.startupEditor&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;newUntitledFile&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;workbench.editorAssociations&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;*.md&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;default&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;*.svg&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;default&amp;#34;&lt;/span>
+&lt;span class="p">},&lt;/span>
+&lt;span class="nt">&amp;#34;workbench.colorCustomizations&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;editorBracketHighlight.foreground1&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;#ffd700&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;editorBracketHighlight.foreground2&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;#da70d6&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;editorBracketHighlight.foreground3&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;#179fff&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;editorBracketHighlight.foreground4&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;#24d600&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;editorBracketHighlight.foreground5&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;#00d8d8&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;editorBracketHighlight.foreground6&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;#ee0255&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;editorBracketHighlight.unexpectedBracket.foreground&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;#ff0000&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;editor.selectionBackground&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;#67769697&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">选中区域颜色&lt;/span>
+&lt;span class="nt">&amp;#34;editor.selectionHighlightBackground&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;#ffffff10&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">与选区内容相同的颜色&lt;/span>
+&lt;span class="nt">&amp;#34;editor.selectionHighlightBorder&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;#67769697&amp;#34;&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">与选区内容相同的边框颜色&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="p">},&lt;/span>
+&lt;span class="nt">&amp;#34;workbench.editor.wrapTabs&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;breadcrumbs.enabled&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="err">/**&lt;/span> &lt;span class="err">终端设置&lt;/span> &lt;span class="err">*/&lt;/span>
+&lt;span class="nt">&amp;#34;terminal.integrated.profiles.osx&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;zsh&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;path&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;/bin/zsh&amp;#34;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">},&lt;/span>
+&lt;span class="nt">&amp;#34;terminal.integrated.defaultProfile.osx&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;zsh&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;terminal.integrated.fontFamily&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;Sarasa Mono SC Nerd,Sarasa Mono SC&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;terminal.integrated.fontSize&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">12&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;terminal.integrated.profiles.windows&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;git-bash&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;path&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;C:\\Program Files (x86)\\Git\\bin\\bash.exe&amp;#34;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">},&lt;/span>
+&lt;span class="nt">&amp;#34;terminal.integrated.cursorStyle&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;line&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;terminal.integrated.cursorBlinking&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">终端光标闪烁&lt;/span>
+&lt;span class="err">/**&lt;/span> &lt;span class="err">更新相关&lt;/span> &lt;span class="err">*/&lt;/span>
+&lt;span class="nt">&amp;#34;update.mode&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;none&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;update.showReleaseNotes&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;telemetry.telemetryLevel&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;off&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//不发送报告&lt;/span>
+&lt;span class="nt">&amp;#34;extensions.autoUpdate&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="err">/**&lt;/span> &lt;span class="err">html&lt;/span> &lt;span class="err">标签自动补全&lt;/span> &lt;span class="err">*/&lt;/span>
+&lt;span class="nt">&amp;#34;emmet.triggerExpansionOnTab&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">启用后，按下TAB键，将展开Emmet缩写&lt;/span>
+&lt;span class="nt">&amp;#34;emmet.syntaxProfiles&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;vue-html&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;html&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;vue&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;html&amp;#34;&lt;/span>
+&lt;span class="p">},&lt;/span>
+&lt;span class="nt">&amp;#34;emmet.includeLanguages&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;vue-html&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;html&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;vue&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;html&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;javascript&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;javascriptreact&amp;#34;&lt;/span>
+&lt;span class="p">},&lt;/span>
+&lt;span class="err">/**&lt;/span> &lt;span class="err">js代码格式化&lt;/span> &lt;span class="err">*/&lt;/span>
+&lt;span class="nt">&amp;#34;javascript.format.enable&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;javascript.preferences.quoteStyle&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;single&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">js設置单引号&lt;/span>
+&lt;span class="nt">&amp;#34;javascript.format.insertSpaceBeforeFunctionParenthesis&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//函数参数前的括号处理方式&lt;/span>
+&lt;span class="err">/**&lt;/span> &lt;span class="err">prettier&lt;/span> &lt;span class="err">*/&lt;/span>
+&lt;span class="nt">&amp;#34;prettier.requireConfig&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//需要一个“prettierconfig”来格式化prettier&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="nt">&amp;#34;prettier.disableLanguages&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;vue&amp;#34;&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">不格式化vue文件，vue文件的格式化单独设置&lt;/span>
+&lt;span class="nt">&amp;#34;prettier.printWidth&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">100&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">设置prettier单行输出（不折行）的（最大）长度&lt;/span>
+&lt;span class="nt">&amp;#34;prettier.proseWrap&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;preserve&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">使用默认的折行标准&lt;/span>
+&lt;span class="nt">&amp;#34;prettier.tabWidth&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">设置工具每一个水平缩进的空格数&lt;/span>
+&lt;span class="nt">&amp;#34;prettier.endOfLine&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;auto&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">结尾是&lt;/span> &lt;span class="err">\n&lt;/span> &lt;span class="err">\r&lt;/span> &lt;span class="err">\n\r&lt;/span> &lt;span class="err">auto&lt;/span>
+&lt;span class="nt">&amp;#34;prettier.useTabs&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">使用tab（制表位）缩进而非空格&lt;/span>
+&lt;span class="nt">&amp;#34;prettier.semi&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">在语句末尾添加分号&lt;/span>
+&lt;span class="nt">&amp;#34;prettier.singleQuote&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">使用单引号而非双引号&lt;/span>
+&lt;span class="nt">&amp;#34;prettier.quoteProps&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;as-needed&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">对象的&lt;/span> &lt;span class="err">key&lt;/span> &lt;span class="err">仅在必要时用引号&lt;/span>
+&lt;span class="nt">&amp;#34;prettier.trailingComma&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;es5&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">在对象或数组最后一个元素后面是否加逗号&lt;/span>
+&lt;span class="nt">&amp;#34;prettier.bracketSpacing&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">为单行箭头函数的参数添加圆括号，参数个数为1时可以省略圆括号&lt;/span>
+&lt;span class="nt">&amp;#34;prettier.bracketSameLine&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">在多行JSX元素最后一行的末尾添加&lt;/span> &lt;span class="err">&amp;gt;&lt;/span> &lt;span class="err">而使&lt;/span> &lt;span class="err">&amp;gt;&lt;/span> &lt;span class="err">单独一行（不适用于自闭和元素)&lt;/span>
+&lt;span class="nt">&amp;#34;prettier.arrowParens&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;avoid&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">箭头函数参数两边加上括号&lt;/span>
+&lt;span class="err">/**&lt;/span> &lt;span class="err">*/&lt;/span>
+&lt;span class="nt">&amp;#34;html.format.indentHandlebars&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//对&lt;/span> &lt;span class="err">{{#foo&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="err">}&lt;/span> &lt;span class="err">和&lt;/span> &lt;span class="p">{&lt;/span>&lt;span class="err">{/foo&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="err">}&lt;/span> &lt;span class="err">进行格式化与缩进。&lt;/span>
+&lt;span class="err">/**&lt;/span> &lt;span class="err">vue&lt;/span> &lt;span class="err">*/&lt;/span>
+&lt;span class="s2">&amp;#34;[vue]&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="err">指定&lt;/span> &lt;span class="err">*.vue&lt;/span> &lt;span class="err">文件的格式化工具为vetur&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="err">{&lt;/span> &lt;span class="nt">&amp;#34;editor.defaultFormatter&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;octref.vetur&amp;#34;&lt;/span> &lt;span class="p">}&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="s2">&amp;#34;editor.defaultFormatter&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="s2">&amp;#34;johnsoncodehk.volar&amp;#34;&lt;/span>
+&lt;span class="err">},&lt;/span>
+&lt;span class="err">/**&lt;/span> &lt;span class="err">vetur&lt;/span> &lt;span class="err">*/&lt;/span>
+&lt;span class="s2">&amp;#34;vetur.format.defaultFormatter.html&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="s2">&amp;#34;js-beautify-html&amp;#34;&lt;/span>&lt;span class="err">,&lt;/span> &lt;span class="err">//prettier不能格式化template&lt;/span>
+&lt;span class="s2">&amp;#34;vetur.format.defaultFormatter.js&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="s2">&amp;#34;prettier&amp;#34;&lt;/span>&lt;span class="err">,&lt;/span> &lt;span class="err">//让vue中的js按编辑器自带的ts格式进行格式化&lt;/span>
+&lt;span class="s2">&amp;#34;vetur.format.defaultFormatter.css&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="s2">&amp;#34;prettier&amp;#34;&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;span class="s2">&amp;#34;vetur.format.defaultFormatter.less&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="s2">&amp;#34;prettier&amp;#34;&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;span class="s2">&amp;#34;vetur.format.defaultFormatter.scss&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="s2">&amp;#34;prettier&amp;#34;&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;span class="s2">&amp;#34;vetur.format.defaultFormatter.stylus&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="s2">&amp;#34;stylus-supremacy&amp;#34;&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;span class="s2">&amp;#34;vetur.format.defaultFormatter.sass&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="s2">&amp;#34;sass-formatter&amp;#34;&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;span class="s2">&amp;#34;vetur.format.defaultFormatter.postcss&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="s2">&amp;#34;prettier&amp;#34;&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;span class="s2">&amp;#34;vetur.format.defaultFormatter.ts&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="s2">&amp;#34;prettier&amp;#34;&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;span class="s2">&amp;#34;vetur.format.defaultFormatterOptions&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;js-beautify-html&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;wrap_line_length&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;wrap_attributes&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;auto&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">属性强制折行对齐&lt;/span>
+&lt;span class="nt">&amp;#34;end_with_newline&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>
+&lt;span class="p">},&lt;/span>
+&lt;span class="nt">&amp;#34;prettier&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;printWidth&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">100&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;proseWrap&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;preserve&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;tabWidth&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;useTabs&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;endOfLine&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;auto&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;semi&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">去掉代码结尾的分号&lt;/span>
+&lt;span class="nt">&amp;#34;singleQuote&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">使用单引号替代双引号&lt;/span>
+&lt;span class="nt">&amp;#34;quoteProps&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;as-needed&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;trailingComma&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;es5&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">多行时，尽可能打印尾随的逗号&lt;/span>
+&lt;span class="nt">&amp;#34;arrowParens&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;avoid&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="err">//是否使用尾逗号&lt;/span>
+&lt;span class="nt">&amp;#34;bracketSpacing&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span> &lt;span class="err">//对象大括号直接是否有空格&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;span class="s2">&amp;#34;vetur.validation.interpolation&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="s2">&amp;#34;vetur.experimental.templateInterpolationService&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="err">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">template&lt;/span> &lt;span class="err">中自动补全&lt;/span> &lt;span class="err">ts&lt;/span> &lt;span class="err">语法设置的属性&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="s2">&amp;#34;vetur.format.options.useTabs&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="s2">&amp;#34;vetur.format.options.tabSize&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="s2">&amp;#34;vetur.format.scriptInitialIndent&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="s2">&amp;#34;vetur.format.styleInitialIndent&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="s2">&amp;#34;vetur.validation.template&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="err">,&lt;/span> &lt;span class="err">//不使用esLint-Plugin-vue校验template&lt;/span>
+&lt;span class="err">/**&lt;/span> &lt;span class="err">*/&lt;/span>
+&lt;span class="s2">&amp;#34;better-comments.multilineComments&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;span class="s2">&amp;#34;better-comments.highlightPlainText&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;span class="err">/**&lt;/span> &lt;span class="err">eslint配置&lt;/span> &lt;span class="err">*/&lt;/span>
+&lt;span class="s2">&amp;#34;eslint.alwaysShowStatus&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="err">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">设置状态栏是否一直显示ESlint图标项，true表示一直显示&lt;/span>
+&lt;span class="s2">&amp;#34;editor.codeActionsOnSave&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;source.fixAll.eslint&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>
+&lt;span class="p">}&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;span class="s2">&amp;#34;eslint.options&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;extensions&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;.js&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;.vue&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;.jsx&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;.tsx&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="p">}&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;span class="s2">&amp;#34;eslint.codeAction.showDocumentation&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;enable&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>
+&lt;span class="p">}&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;span class="s2">&amp;#34;eslint.run&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="s2">&amp;#34;onType&amp;#34;&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;span class="err">/**&lt;/span> &lt;span class="err">标签增强*/&lt;/span>
+&lt;span class="s2">&amp;#34;better-comments.tags&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="p">[&lt;/span>
+&lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;tag&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;!&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;color&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;#FF2D00&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;strikethrough&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;underline&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;backgroundColor&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;transparent&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;bold&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;italic&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>
+&lt;span class="p">},&lt;/span>
+&lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;tag&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;?&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;color&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;#3498DB&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;strikethrough&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;underline&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;backgroundColor&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;transparent&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;bold&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;italic&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>
+&lt;span class="p">},&lt;/span>
+&lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;tag&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;todo&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;color&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;#FF8C00&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;strikethrough&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;underline&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;backgroundColor&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;transparent&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;bold&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;italic&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">]&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;span class="s2">&amp;#34;javascript.updateImportsOnFileMove.enabled&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="s2">&amp;#34;always&amp;#34;&lt;/span>&lt;span class="err">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">在&lt;/span> &lt;span class="err">VS&lt;/span> &lt;span class="err">Code&lt;/span> &lt;span class="err">中重命名或移动文件时启用/禁用导入路径的自动更新。&lt;/span>
+&lt;span class="s2">&amp;#34;leetcode.endpoint&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="s2">&amp;#34;leetcode-cn&amp;#34;&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;span class="s2">&amp;#34;leetcode.workspaceFolder&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="s2">&amp;#34;/Users/nuc/.leetcode&amp;#34;&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;span class="s2">&amp;#34;leetcode.defaultLanguage&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="s2">&amp;#34;javascript&amp;#34;&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;span class="s2">&amp;#34;remote.SSH.useLocalServer&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;span class="s2">&amp;#34;remote.SSH.connectTimeout&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="mi">30&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;span class="s2">&amp;#34;remote.SSH.remotePlatform&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;192.168.168.3&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;macOS&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;192.168.1.3&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;macOS&amp;#34;&lt;/span>
+&lt;span class="p">}&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;span class="err">/**&lt;/span> &lt;span class="err">vim配置&lt;/span> &lt;span class="err">*/&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="s2">&amp;#34;vim.incsearch&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="err">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">输入搜索时显示下一个匹配项&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="s2">&amp;#34;vim.useSystemClipboard&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="err">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">使用系统的剪切板&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="s2">&amp;#34;vim.useCtrlKeys&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="err">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">由vim接管ctrl+any的按键，而不是vscode&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="s2">&amp;#34;vim.hlsearch&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="err">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">突出显示与当前搜索匹配的所有文本&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="s2">&amp;#34;vim.easymotion&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="s2">&amp;#34;vim.leader&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="s2">&amp;#34;&amp;lt;space&amp;gt;&amp;#34;&lt;/span>&lt;span class="err">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">绑定vim前导键&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="s2">&amp;#34;vim.insertModeKeyBindings&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="err">//&lt;/span> &lt;span class="err">插入模式下的非递归按键绑定&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="nt">&amp;#34;before&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;j&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;j&amp;#34;&lt;/span>&lt;span class="p">],&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="nt">&amp;#34;after&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;&amp;lt;Esc&amp;gt;&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="p">]&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="s2">&amp;#34;vim.normalModeKeyBindingsNonRecursive&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="p">[&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">普通模式下的非递归按键绑定&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="nt">&amp;#34;before&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;&amp;lt;leader&amp;gt;&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;d&amp;#34;&lt;/span>&lt;span class="p">],&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="nt">&amp;#34;after&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;d&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;d&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="p">},&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="nt">&amp;#34;before&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;&amp;lt;C-n&amp;gt;&amp;#34;&lt;/span>&lt;span class="p">],&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="nt">&amp;#34;commands&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;:nohl&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">取消高亮搜索&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="p">},&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="nt">&amp;#34;before&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;K&amp;#34;&lt;/span>&lt;span class="p">],&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="nt">&amp;#34;commands&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;lineBreakInsert&amp;#34;&lt;/span>&lt;span class="p">],&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="nt">&amp;#34;silent&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="p">},&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">光标跳转到终端&lt;/span> &lt;span class="err">用ctrl+`就好了,留下作为调用vscode快捷键的例子&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="nt">&amp;#34;before&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;&amp;lt;leader&amp;gt;&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;t&amp;#34;&lt;/span>&lt;span class="p">],&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="nt">&amp;#34;commands&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;workbench.action.terminal.focus&amp;#34;&lt;/span>&lt;span class="p">],&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="p">]&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="s2">&amp;#34;vim.handleKeys&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">取消vim的按键映射,交给vscode管理&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="nt">&amp;#34;&amp;lt;C-a&amp;gt;&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="nt">&amp;#34;&amp;lt;C-f&amp;gt;&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="nt">&amp;#34;&amp;lt;C-n&amp;gt;&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="p">}&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="err">vim插件自动切换输入法&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="s2">&amp;#34;vim.autoSwitchInputMethod.enable&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="s2">&amp;#34;vim.autoSwitchInputMethod.defaultIM&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="s2">&amp;#34;com.apple.keylayout.ABC&amp;#34;&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="s2">&amp;#34;vim.autoSwitchInputMethod.obtainIMCmd&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="s2">&amp;#34;/usr/local/bin/im-select&amp;#34;&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="s2">&amp;#34;vim.autoSwitchInputMethod.switchIMCmd&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="s2">&amp;#34;/usr/local/bin/im-select {im}&amp;#34;&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;span class="s2">&amp;#34;pasteImage.basePath&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="s2">&amp;#34;${currentFileDir}/${currentFileNameWithoutExt}.assets&amp;#34;&lt;/span>&lt;span class="err">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">图片插件&lt;/span>
+&lt;span class="s2">&amp;#34;window.zoomLevel&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;span class="s2">&amp;#34;markdown-preview-enhanced.previewTheme&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="s2">&amp;#34;vue.css&amp;#34;&lt;/span>&lt;span class="err">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">markdown渲染主题&lt;/span>
+&lt;span class="s2">&amp;#34;markdown-preview-enhanced.automaticallyShowPreviewOfMarkdownBeingEdited&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;span class="s2">&amp;#34;gitlens.hovers.enabled&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;span class="s2">&amp;#34;diffEditor.ignoreTrimWhitespace&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="s2">&amp;#34;npm.scriptExplorerAction&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="s2">&amp;#34;run&amp;#34;&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="s2">&amp;#34;liveServer.settings.donotVerifyTags&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;span class="err">//&lt;/span> &lt;span class="s2">&amp;#34;cssrem.rootFontSize&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="mi">24&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;span class="s2">&amp;#34;security.workspace.trust.enabled&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="err">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">工作区信任&lt;/span>
+&lt;span class="err">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="常用插件">常用插件&lt;/h2>
+&lt;p>&lt;strong>@enabled&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>(推荐) auto close tag&lt;/li>
+&lt;li>(推荐) auto complete tag&lt;/li>
+&lt;li>&lt;em>background&lt;/em>&lt;/li>
+&lt;li>(推荐) better comments&lt;/li>
+&lt;li>(推荐) color highlight&lt;/li>
+&lt;li>dotenv&lt;/li>
+&lt;li>draw.io integration&lt;/li>
+&lt;li>(推荐) error lens&lt;/li>
+&lt;li>es7 react/redux/graphql&lt;/li>
+&lt;li>eslint&lt;/li>
+&lt;li>(推荐) git graph: mac上不支持vscode 1.74版本,1.70可用&lt;/li>
+&lt;li>(推荐) gitlens: mac上graph功能1.74版本同样会导致内存溢出&lt;/li>
+&lt;li>html css support&lt;/li>
+&lt;li>html snippets&lt;/li>
+&lt;li>(推荐) markdown preview enhanced&lt;/li>
+&lt;li>meterial icon theme&lt;/li>
+&lt;li>(推荐) open&lt;/li>
+&lt;li>open in browser&lt;/li>
+&lt;li>paste image&lt;/li>
+&lt;li>(推荐) path intellisense&lt;/li>
+&lt;li>prettier&lt;/li>
+&lt;li>(推荐) project manager&lt;/li>
+&lt;li>reactjs code snippets&lt;/li>
+&lt;li>sublime text keymap&lt;/li>
+&lt;li>svg preview&lt;/li>
+&lt;li>toml language support&lt;/li>
+&lt;li>vetur&lt;/li>
+&lt;li>vscode react refactor&lt;/li>
+&lt;li>vscode-mindmap&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>@disabled&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>code spell checker&lt;/li>
+&lt;li>code metrics&lt;/li>
+&lt;li>css tree&lt;/li>
+&lt;li>css-atuo-prefix&lt;/li>
+&lt;li>easy less&lt;/li>
+&lt;li>easy wxless&lt;/li>
+&lt;li>editorconfig for vs code&lt;/li>
+&lt;li>git-log&amp;ndash;graph&lt;/li>
+&lt;li>github copilot&lt;/li>
+&lt;li>html to jsx&lt;/li>
+&lt;li>i18n ally&lt;/li>
+&lt;li>iconify Iintellisense&lt;/li>
+&lt;li>import cost&lt;/li>
+&lt;li>jquery code snipets&lt;/li>
+&lt;li>live server&lt;/li>
+&lt;li>m3u&lt;/li>
+&lt;li>remote - ssh&lt;/li>
+&lt;li>remote - ssh:editing configuration files&lt;/li>
+&lt;li>remote explorer&lt;/li>
+&lt;li>stylelint&lt;/li>
+&lt;li>typescript vue plugin(volar)&lt;/li>
+&lt;li>vim&lt;/li>
+&lt;li>vue 3 snippets&lt;/li>
+&lt;li>vue language features(volar)&lt;/li>
+&lt;/ul></description></item><item><title>Links</title><link>/links/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/links/</guid><description/></item><item><title>Search</title><link>/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/search/</guid><description/></item></channel></rss>

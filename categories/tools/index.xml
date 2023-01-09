@@ -1,0 +1,1410 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>tools on Jqtmviyu's Blog</title><link>/categories/tools/</link><description>Recent content in tools on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 09 Jan 2023 17:37:57 +0800</lastBuildDate><atom:link href="/categories/tools/index.xml" rel="self" type="application/rss+xml"/><item><title>mac安装Navidrome</title><link>/p/mac-install_navidrome/</link><pubDate>Mon, 09 Jan 2023 17:37:57 +0800</pubDate><guid>/p/mac-install_navidrome/</guid><description>&lt;h1 id="mac安装navidrome">mac安装Navidrome&lt;/h1>
+&lt;blockquote>
+&lt;p>&lt;a href="https://www.navidrome.org/docs/installation/macos/">https://www.navidrome.org/docs/installation/macos/&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="下载">下载&lt;/h2>
+&lt;p>&lt;a href="https://github.com/navidrome/navidrome">https://github.com/navidrome/navidrome&lt;/a>&lt;/p>
+&lt;h2 id="配置文件">配置文件&lt;/h2>
+&lt;p>文档: &lt;a href="https://www.navidrome.org/docs/usage/configuration-options/">https://www.navidrome.org/docs/usage/configuration-options/&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-toml" data-lang="toml">&lt;span class="c"># https://www.navidrome.org/docs/usage/configuration-options/&lt;/span>
+&lt;span class="nx">MusicFolder&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;/Volumes/Data/Music&amp;#34;&lt;/span>
+&lt;span class="nx">DataFolder&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;/Volumes/Data/Music/navidrome/data&amp;#34;&lt;/span>
+&lt;span class="nx">ScanSchedule&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;@every 10m&amp;#34;&lt;/span>
+&lt;span class="nx">TranscodingCacheSize&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;150MiB&amp;#34;&lt;/span> &lt;span class="c"># 转码存档的大小&lt;/span>
+&lt;span class="nx">EnableTranscodingConfig&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="kc">true&lt;/span> &lt;span class="c"># 在UI中启动转码配置&lt;/span>
+&lt;span class="nx">EnableExternalServices&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="kc">false&lt;/span> &lt;span class="c"># 外部集成&lt;/span>
+&lt;span class="nx">EnableStarRating&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="kc">false&lt;/span> &lt;span class="c"># 启用星级&lt;/span>
+&lt;span class="nx">EnableFavourites&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="kc">false&lt;/span> &lt;span class="c"># 启动收藏夹&lt;/span>
+&lt;span class="nx">DefaultLanguage&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;zh&amp;#34;&lt;/span>
+&lt;span class="c"># Port = 4533&lt;/span>
+&lt;span class="c"># CoverArtPriority = &amp;#34;embedded, cover.*, folder.*, front.*&amp;#34;&lt;/span>
+&lt;span class="nx">DefaultTheme&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;Spotify-ish&amp;#34;&lt;/span>
+&lt;span class="nx">AutoImportPlaylists&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;true&amp;#34;&lt;/span> &lt;span class="c"># 启用/禁用.m3u/nsp播放列表自动导入&lt;/span>
+&lt;span class="nx">PlaylistsPath&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;navidrome/playlists&amp;#34;&lt;/span>
+&lt;span class="c"># LogLevel = &amp;#34;error&amp;#34; # info&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>注意事项:&lt;/p>
+&lt;ol>
+&lt;li>&lt;code>DataFolder&lt;/code>用&lt;code>launchctl&lt;/code>启动程序时不能用相对路径, 如果是用命令行启动, 可以用&lt;code>./data&lt;/code>&lt;/li>
+&lt;li>&lt;code>PlaylistsPath&lt;/code>是相对&lt;code>MusicFolder&lt;/code>的&lt;/li>
+&lt;/ol>
+&lt;h2 id="配置开机后台启动">配置开机后台启动&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>添加&lt;code>plist&lt;/code>文件&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash"> &lt;span class="nb">cd&lt;/span> ~/Library/LaunchAgents/
+vim navidrome.plist
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>&lt;code>plist&lt;/code> 文件内容:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-xml" data-lang="xml">&lt;span class="cp">&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt;&lt;/span>
+&lt;span class="cp">&amp;lt;!DOCTYPE plist PUBLIC &amp;#34;-//Apple//DTD PLIST 1.0//EN&amp;#34; &amp;#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&amp;#34;&amp;gt;&lt;/span>
+&lt;span class="nt">&amp;lt;plist&lt;/span> &lt;span class="na">version=&lt;/span>&lt;span class="s">&amp;#34;1.0&amp;#34;&lt;/span>&lt;span class="nt">&amp;gt;&lt;/span>
+&lt;span class="nt">&amp;lt;dict&amp;gt;&lt;/span>
+&lt;span class="nt">&amp;lt;key&amp;gt;&lt;/span>Label&lt;span class="nt">&amp;lt;/key&amp;gt;&lt;/span>
+&lt;span class="nt">&amp;lt;string&amp;gt;&lt;/span>navidrome&lt;span class="nt">&amp;lt;/string&amp;gt;&lt;/span>
+&lt;span class="nt">&amp;lt;key&amp;gt;&lt;/span>ProgramArguments&lt;span class="nt">&amp;lt;/key&amp;gt;&lt;/span>
+&lt;span class="nt">&amp;lt;array&amp;gt;&lt;/span>
+&lt;span class="nt">&amp;lt;string&amp;gt;&lt;/span>/Volumes/Data/Music/navidrome/navidrome&lt;span class="nt">&amp;lt;/string&amp;gt;&lt;/span>
+&lt;span class="nt">&amp;lt;string&amp;gt;&lt;/span>-c&lt;span class="nt">&amp;lt;/string&amp;gt;&lt;/span>
+&lt;span class="nt">&amp;lt;string&amp;gt;&lt;/span>/Volumes/Data/Music/navidrome/navidrome.toml&lt;span class="nt">&amp;lt;/string&amp;gt;&lt;/span>
+&lt;span class="nt">&amp;lt;/array&amp;gt;&lt;/span>
+&lt;span class="nt">&amp;lt;key&amp;gt;&lt;/span>RunAtLoad&lt;span class="nt">&amp;lt;/key&amp;gt;&lt;/span>
+&lt;span class="nt">&amp;lt;true/&amp;gt;&lt;/span>
+&lt;span class="nt">&amp;lt;key&amp;gt;&lt;/span>StandardOutPath&lt;span class="nt">&amp;lt;/key&amp;gt;&lt;/span>
+&lt;span class="nt">&amp;lt;string&amp;gt;&lt;/span>/Volumes/Data/Music/navidrome/navidrome.log&lt;span class="nt">&amp;lt;/string&amp;gt;&lt;/span>
+&lt;span class="nt">&amp;lt;key&amp;gt;&lt;/span>StandardErrorPath&lt;span class="nt">&amp;lt;/key&amp;gt;&lt;/span>
+&lt;span class="nt">&amp;lt;string&amp;gt;&lt;/span>/Volumes/Data/Music/navidrome/navidrome.log&lt;span class="nt">&amp;lt;/string&amp;gt;&lt;/span>
+&lt;span class="nt">&amp;lt;/dict&amp;gt;&lt;/span>
+&lt;span class="nt">&amp;lt;/plist&amp;gt;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>注意事项:别添加到&lt;code>/opt/&lt;/code>目录, 后面想删除删除不掉&lt;/strong>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>添加服务&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">launchctl load navidrome.plist
+&lt;span class="c1"># 删除&lt;/span>
+launchctl unload navidrome.plist
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;h3 id="启动服务">启动服务&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">launchctl start navidrome
+&lt;span class="c1"># 停止&lt;/span>
+launchctl stop navidrome
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="web页面">web页面&lt;/h3>
+&lt;p>http://127.0.0.1:4533&lt;/p>
+&lt;p>注意事项: 记住账号和密码, 把&lt;code>data&lt;/code>删了就把数据清空&lt;/p>
+&lt;h3 id="可选添加智能播放列表">(可选)添加智能播放列表&lt;/h3>
+&lt;p>文档: &lt;a href="https://github.com/navidrome/navidrome/issues/1417">https://github.com/navidrome/navidrome/issues/1417&lt;/a>&lt;/p>
+&lt;p>在&lt;code>PlaylistsPath&lt;/code>配置的目录下添加文件, 文件名即播放列表的名称, 建议编辑完成再移动进去&lt;/p>
+&lt;p>参考:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;span class="lnt">42
+&lt;/span>&lt;span class="lnt">43
+&lt;/span>&lt;span class="lnt">44
+&lt;/span>&lt;span class="lnt">45
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 最近播放.nsp&lt;/span>
+vim 最近播放.nsp
+&lt;span class="c1">#======&lt;/span>
+&lt;span class="o">{&lt;/span>
+&lt;span class="s2">&amp;#34;all&amp;#34;&lt;/span>: &lt;span class="o">[&lt;/span>
+&lt;span class="o">{&lt;/span>
+&lt;span class="s2">&amp;#34;inTheLast&amp;#34;&lt;/span>: &lt;span class="o">{&lt;/span>
+&lt;span class="s2">&amp;#34;lastPlayed&amp;#34;&lt;/span>: &lt;span class="m">30&lt;/span>
+&lt;span class="o">}&lt;/span>
+&lt;span class="o">}&lt;/span>
+&lt;span class="o">]&lt;/span>,
+&lt;span class="s2">&amp;#34;sort&amp;#34;&lt;/span>: &lt;span class="s2">&amp;#34;lastPlayed&amp;#34;&lt;/span>,
+&lt;span class="s2">&amp;#34;order&amp;#34;&lt;/span>: &lt;span class="s2">&amp;#34;desc&amp;#34;&lt;/span>,
+&lt;span class="s2">&amp;#34;limit&amp;#34;&lt;/span>: &lt;span class="m">100&lt;/span>
+&lt;span class="o">}&lt;/span>
+&lt;span class="c1">#======&lt;/span>
+vim 随机.nsp
+&lt;span class="c1">#======&lt;/span>
+&lt;span class="o">{&lt;/span>
+&lt;span class="s2">&amp;#34;all&amp;#34;&lt;/span>: &lt;span class="o">[&lt;/span>
+&lt;span class="o">{&lt;/span>
+&lt;span class="s2">&amp;#34;gt&amp;#34;&lt;/span>: &lt;span class="o">{&lt;/span>
+&lt;span class="s2">&amp;#34;playCount&amp;#34;&lt;/span>: -1
+&lt;span class="o">}&lt;/span>
+&lt;span class="o">}&lt;/span>
+&lt;span class="o">]&lt;/span>,
+&lt;span class="s2">&amp;#34;sort&amp;#34;&lt;/span>: &lt;span class="s2">&amp;#34;random&amp;#34;&lt;/span>
+&lt;span class="o">}&lt;/span>
+&lt;span class="c1">#======&lt;/span>
+vim 中文.nsp
+&lt;span class="c1">#======&lt;/span>
+&lt;span class="o">{&lt;/span>
+&lt;span class="s2">&amp;#34;all&amp;#34;&lt;/span>: &lt;span class="o">[&lt;/span>
+&lt;span class="o">{&lt;/span>
+&lt;span class="s2">&amp;#34;contains&amp;#34;&lt;/span>: &lt;span class="o">{&lt;/span>
+&lt;span class="s2">&amp;#34;filepath&amp;#34;&lt;/span>: &lt;span class="s2">&amp;#34;中文&amp;#34;&lt;/span>
+&lt;span class="o">}&lt;/span>
+&lt;span class="o">}&lt;/span>
+&lt;span class="o">]&lt;/span>,
+&lt;span class="s2">&amp;#34;sort&amp;#34;&lt;/span>: &lt;span class="s2">&amp;#34;title&amp;#34;&lt;/span>,
+&lt;span class="s2">&amp;#34;order&amp;#34;&lt;/span>: &lt;span class="s2">&amp;#34;desc&amp;#34;&lt;/span>
+&lt;span class="o">}&lt;/span>
+&lt;span class="c1">#======&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>进入web页面, 点右上角&lt;code>运行情况--&amp;gt;完全扫描&lt;/code>就能刷新出播放列表了&lt;/p>
+&lt;p>可选参数:&lt;/p>
+&lt;ul>
+&lt;li>Current list of fields available (case-insensitive):&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-txt" data-lang="txt">title
+album
+artist
+albumartist
+hascoverart
+tracknumber
+discnumber
+year
+size
+compilation
+dateadded
+datemodified
+discsubtitle
+comment
+lyrics
+sorttitle
+sortalbum
+sortartist
+sortalbumartist
+albumtype
+albumcomment
+catalognumber
+filepath
+filetype
+duration
+bitrate
+bpm
+channels
+genre
+loved
+dateloved
+lastplayed
+playcount
+rating
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>Operators available (case-insensitive):&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-txt" data-lang="txt">is
+isNot
+gt
+lt
+contains
+notContains
+startsWith
+endsWith
+inTheRange
+before
+after
+inTheLast
+notInTheLast
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="客户端推荐">客户端推荐&lt;/h3>
+&lt;p>只推荐试用过的:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://github.com/jeffvli/sonixd" target="_blank" rel="noopener"
+>sonixd(Windows/Linux/macOS)&lt;/a>&lt;/li>
+&lt;li>substreamer(android/ios|free|gitlab)&lt;/li>
+&lt;li>symfonium(android|试用|palystore)&lt;br>
+&lt;a class="link" href="https://www.navidrome.org/docs/overview/" target="_blank" rel="noopener"
+>更多&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="缺陷">缺陷&lt;/h3>
+&lt;ul>
+&lt;li>navidrome使用&lt;code>subsonic&lt;/code>api, 无法提供文件夹播放列表&lt;/li>
+&lt;li>对音乐文件只有只读功能, 无法编辑删除&lt;/li>
+&lt;li>智能列表功能未完善, 并不能动态监听&lt;/li>
+&lt;/ul>
+&lt;h3 id="优势">优势&lt;/h3>
+&lt;ul>
+&lt;li>自带的web播放器功能不错&lt;/li>
+&lt;li>只要手机和pc在同个局域网下, 就能共享资源(可通过n2n组网)&lt;/li>
+&lt;/ul></description></item><item><title>Sublime4 Integrate terminal zsh</title><link>/p/sublime4_integrated_terminal/</link><pubDate>Fri, 06 Jan 2023 03:14:40 +0800</pubDate><guid>/p/sublime4_integrated_terminal/</guid><description>&lt;h1 id="sublime4集成终端zsh">sublime4集成终端zsh&lt;/h1>
+&lt;p>&lt;a href="https://stackoverflow.com/questions/31439023/sublime-text-3-has-integrated-terminal">https://stackoverflow.com/questions/31439023/sublime-text-3-has-integrated-terminal&lt;/a>&lt;/p>
+&lt;h2 id="terminus">Terminus&lt;/h2>
+&lt;p>&lt;a href="https://github.com/randy3k/Terminus#user-key-bindings">https://github.com/randy3k/Terminus#user-key-bindings&lt;/a>&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>安装插件&lt;code>Terminus&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>配置字体:&lt;/p>
+&lt;p>2.1. &lt;code>Preferences--&amp;gt;setting&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;font_face&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;Sarasa Mono SC Nerd&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;panel_background_color&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;$background_color&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>2.2 &lt;code>Preferences--&amp;gt;setting--&amp;gt;Package Setgings--&amp;gt;Terminus-Settings&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;view_settings&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;font_face&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;Sarasa Mono SC Nerd&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="p">},&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>配置快捷键:&lt;/p>
+&lt;p>&lt;code>Preferences--&amp;gt;setting--&amp;gt;Package Setgings--&amp;gt;Terminus-Settings&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="p">[&lt;/span>
+&lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;keys&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;ctrl+`&amp;#34;&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="nt">&amp;#34;command&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;toggle_terminus_panel&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nt">&amp;#34;args&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nt">&amp;#34;cmd&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;/bin/zsh&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;span class="nt">&amp;#34;cwd&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;${file_path:${folder}}&amp;#34;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;h2 id="注意事项">注意事项&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>Sublime Text &amp;gt;= 4114 and Terminus v0.3.20 解决内存占用问题.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>关闭可以用&lt;code>exit&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>设置&lt;code>nerd&lt;/code>字体解决符号异常&lt;/p>
+&lt;/li>
+&lt;/ul></description></item><item><title>Homebrew</title><link>/p/homebrew/</link><pubDate>Tue, 27 Dec 2022 18:35:37 +0800</pubDate><guid>/p/homebrew/</guid><description>&lt;h1 id="homebrew">homebrew&lt;/h1>
+&lt;h2 id="安装教程">安装教程&lt;/h2>
+&lt;p>&lt;a href="https://brew.idayer.com">https://brew.idayer.com&lt;/a>&lt;/p>
+&lt;p>或者直接看镜像源的教程 &lt;a href="https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/">https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">/bin/bash -c &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>curl -fsSL https://cdn.jsdelivr.net/gh/ineo6/homebrew-install/install.sh&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="卸载">卸载&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">/bin/bash -c &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>curl -fsSL https://cdn.jsdelivr.net/gh/ineo6/homebrew-install/uninstall.sh&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="其他命令">其他命令&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">brew update-reset &lt;span class="c1"># 重置更新&lt;/span>
+brew list &lt;span class="c1">#列出已安装的包&lt;/span>
+brew list --formulae &lt;span class="c1"># 所有已安装的 Formulae&lt;/span>
+brew list --cask &lt;span class="c1"># 所有已安装的 Casks&lt;/span>
+brew deps --installed --tree &lt;span class="c1"># 查看已安装软件的依赖&lt;/span>
+brew info &lt;span class="c1"># 显示安装了包数量，文件数量，和总占用空间&lt;/span>
+brew info &amp;lt;package&amp;gt; &lt;span class="c1"># 显示某个包的信息&lt;/span>
+brew outdated &lt;span class="c1"># 查看哪些安装包需要更新&lt;/span>
+brew upgrade &lt;span class="c1"># 更新所有已落后的包&lt;/span>
+brew upgrade &amp;lt;package&amp;gt; &lt;span class="c1"># 单独更新某个包&lt;/span>
+brew cleanup &lt;span class="c1"># 清理所有包的旧版本&lt;/span>
+brew cleanup &amp;lt;package&amp;gt; &lt;span class="c1"># 清理指定的旧版本包&lt;/span>
+brew cleanup -n &lt;span class="c1"># 查看可清理的旧版本包&lt;/span>
+brew uninstall --force &amp;lt;package&amp;gt; &lt;span class="c1"># 强制卸载某个软件&lt;/span>
+brew reinstall &amp;lt;package&amp;gt; &lt;span class="c1"># 重装&lt;/span>
+brew pin &amp;lt;package&amp;gt; &lt;span class="c1"># 锁定指定包&lt;/span>
+brew unpin &amp;lt;package&amp;gt; &lt;span class="c1"># 取消锁定指定包&lt;/span>
+brew doctor &lt;span class="c1"># 诊断brew&lt;/span>
+brew autoremove &lt;span class="c1"># 删除所有未使用的依赖项&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="updating卡住">updating卡住&lt;/h2>
+&lt;p>方法1: 按住ctrl + c取消本次更新&lt;/p>
+&lt;p>方法2: 替换镜像源&lt;/p>
+&lt;p>建议直接看镜像源教程 &lt;a href="https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/">https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/&lt;/a>&lt;/p>
+&lt;p>&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;以下内容可以跳过: &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;&lt;/p>
+&lt;p>平时我们执行 brew 命令安装软件的时候，跟以下 4 个仓库地址有关：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-text" data-lang="text">1. brew.git 源代码仓库
+2. homebrew-core.git 核心源
+3. homebrew-bottles 预编译二进制软件包
+4. Homebrew Cask 提供 macOS 应用和大型二进制文件的安装(带gui之类的)
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>通过以下操作将这 4 个仓库地址全部替换为 清华 提供的地址&lt;/p>
+&lt;ol>
+&lt;li>替换 / 还原 brew.git 仓库地址&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 清华&lt;/span>
+git -C &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>brew --repo&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git
+&lt;span class="c1"># 还原为官方&lt;/span>
+git -C &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>brew --repo&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> remote set-url origin https://github.com/Homebrew/brew.git
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="2">
+&lt;li>替换 / 还原 homebrew-core.git 仓库地址&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 清华&lt;/span>
+git -C &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>brew --repo homebrew/core&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git
+&lt;span class="c1"># 还原为官方&lt;/span>
+git -C &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>brew --repo homebrew/core&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> remote set-url origin https://github.com/Homebrew/homebrew-core.git
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="3">
+&lt;li>
+&lt;p>替换 / 还原 homebrew-bottles 访问地址&lt;/p>
+&lt;p>这个步骤跟你的 macOS 系统使用的 shell 版本有关系&lt;/p>
+&lt;p>所以，先来查看当前使用的 shell 版本&lt;code>echo $SHELL&lt;/code>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 如果你的输出结果是 /bin/zsh，参考下方的 zsh 终端操作方式&lt;/span>
+&lt;span class="c1"># 如果你的输出结果是 /bin/bash，参考下方的 bash 终端操作方式&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>3.1 zsh 终端操作方式&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 清华&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="s1">&amp;#39;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/bottles&amp;#39;&lt;/span> &amp;gt;&amp;gt; ~/.zshrc
+&lt;span class="nb">source&lt;/span> ~/.zshrc
+&lt;span class="c1"># 还原为官方提供的 homebrew-bottles 访问地址&lt;/span>
+vi ~/.zshrc
+&lt;span class="c1"># 然后，删除 HOMEBREW_BOTTLE_DOMAIN 这一行配置&lt;/span>
+&lt;span class="nb">source&lt;/span> ~/.zshrc
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>3.2 bash 终端操作方式&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 清华&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="s1">&amp;#39;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/bottles&amp;#39;&lt;/span> &amp;gt;&amp;gt; ~/.bash_profile
+&lt;span class="nb">source&lt;/span> ~/.bash_profile
+&lt;span class="c1"># 还原为官方提供的 homebrew-bottles 访问地址&lt;/span>
+vi ~/.bash_profile
+&lt;span class="c1"># 然后，删除 HOMEBREW_BOTTLE_DOMAIN 这一行配置&lt;/span>
+&lt;span class="nb">source&lt;/span> ~/.bash_profile
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="4">
+&lt;li>替换/还原 homebrew/cask 地址&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 替换 homebrew/cask&lt;/span>
+git -C &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>brew --repo homebrew/cask&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask.git
+&lt;span class="c1"># 还原&lt;/span>
+git -C &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>brew --repo homebrew/cask&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> remote set-url origin https://github.com/Homebrew/homebrew-cask.git
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="5">
+&lt;li>最后记得&lt;code>brew update&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;p>&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;跳过结束 &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;&lt;/p>
+&lt;h2 id="依赖项不会自动删除">依赖项不会自动删除&lt;/h2>
+&lt;p>&lt;a href="https://stackoverflow.com/questions/7323261/uninstall-remove-a-homebrew-package-including-all-its-dependencies">https://stackoverflow.com/questions/7323261/uninstall-remove-a-homebrew-package-including-all-its-dependencies&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">brew autoremove
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">brew tap beeftornado/rmtree
+brew rmtree &amp;lt;package&amp;gt;
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Nginx Proxy Manager</title><link>/p/npm/</link><pubDate>Thu, 22 Dec 2022 00:15:53 +0800</pubDate><guid>/p/npm/</guid><description>&lt;h2 id="安装">安装&lt;/h2>
+&lt;p>&lt;a href="https://github.com/NginxProxyManager/nginx-proxy-manager">https://github.com/NginxProxyManager/nginx-proxy-manager&lt;/a>&lt;/p>
+&lt;p>按照&lt;code>readme&lt;/code>安装即可&lt;/p>
+&lt;h2 id="已知bug">已知bug&lt;/h2>
+&lt;p>版本 v2.9.19&lt;/p>
+&lt;ol>
+&lt;li>申请泛域名证书失败&lt;/li>
+&lt;li>验证证书失败&lt;/li>
+&lt;/ol>
+&lt;p>复现： &lt;code>Test Server Reachability &lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">Communication with the API failed, is NPM running correctly?
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="申请证书方法">申请证书方法&lt;/h2>
+&lt;p>单独申请&lt;/p>
+&lt;p>在&lt;code>Proxy Hosts -- Edit Proxy Host -- SSL -- 关闭Force SSL -- Request a new SSL Certificate&lt;/code>&lt;/p>
+&lt;h2 id="部署静态网站方法">部署静态网站方法&lt;/h2>
+&lt;ol>
+&lt;li>把静态文件夹放到 &lt;code>data/access&lt;/code>里&lt;/li>
+&lt;li>在管理系统上， &lt;code>Proxy Hosts -- Edit Proxy Host -- Advanced&lt;/code>里添加类似以下的配置
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback"> root /data/access/myIndex;
+index index.html;
+location / {
+try_files $uri /index.html /index.html;
+}
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>&lt;code>Detail&lt;/code>的&lt;code>Domain Names&lt;/code>按实际的写， &lt;code>Scheme&lt;/code> &lt;code>IP&lt;/code> &lt;code>Port&lt;/code>随便填&lt;/li>
+&lt;/ol></description></item><item><title>hugo主题stack侧边栏bug</title><link>/p/hugo-theme-bug/</link><pubDate>Wed, 21 Dec 2022 23:59:52 +0800</pubDate><guid>/p/hugo-theme-bug/</guid><description>&lt;ul>
+&lt;li>
+&lt;p>问题描述： 升级hugo主题stack到最新版本后，侧边栏的home菜单在开发模式下不会高亮&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>解决方法： 把&lt;code>exampleSite/content&lt;/code>里的&lt;code>_index.md&lt;/code>复制一份到自己的&lt;code>content&lt;/code>文件夹&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>原因：破坏性更新&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nb">cd&lt;/span> themes/hugo-theme-stack/exampleSite/content
+git log --follow _index.md
+&lt;span class="o">====&lt;/span>
+commit 15d2040f7e4aaf9db8e4459137d146bb42b39bb6
+Author: Jimmy Cai &amp;lt;github@jimmycai.com&amp;gt;
+Date: Fri Mar &lt;span class="m">4&lt;/span> 08:46:27 &lt;span class="m">2022&lt;/span> +0000
+chore&lt;span class="o">(&lt;/span>exampleSite&lt;span class="o">)&lt;/span>: fix home menu item &lt;span class="nv">highlight&lt;/span>
+&lt;span class="o">====&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul></description></item><item><title>n2n部署</title><link>/p/n2n-deploy/</link><pubDate>Sun, 18 Dec 2022 17:02:27 +0800</pubDate><guid>/p/n2n-deploy/</guid><description>&lt;h1 id="n2n">n2n&lt;/h1>
+&lt;p>参考:&lt;br>
+&lt;a class="link" href="https://bugxia.com/2396.html" target="_blank" rel="noopener"
+>https://bugxia.com/2396.html&lt;/a>&lt;br>
+&lt;a class="link" href="https://www.jianshu.com/p/559c1e582724" target="_blank" rel="noopener"
+>https://www.jianshu.com/p/559c1e582724&lt;/a>&lt;br>
+&lt;a href="https://github.com/LomotHo/n2n-releases">https://github.com/LomotHo/n2n-releases&lt;/a>&lt;/p>
+&lt;h2 id="服务器安装">服务器安装&lt;/h2>
+&lt;ul>
+&lt;li>centos&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># RPM安装&lt;/span>
+yum install libzstd -y
+wget https://github.com/ntop/n2n/releases/download/3.0/n2n-3.0.0-1038.x86_64.rpm
+rpm -i n2n-3.0.0-1038.x86_64.rpm
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="启动服务器">启动服务器&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">启动服务端
+&lt;span class="c1">#实际使用时，可以去掉 -f 参数，使其后台运行&lt;/span>
+supernode -p 端口 -f
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>服务端（Supernode）附加参数
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">-p 端口 &lt;span class="p">|&lt;/span> Supernode监听端口，默认 &lt;span class="m">7654&lt;/span>
+-F federation名称 &lt;span class="p">|&lt;/span> supernode federation名称，默认为 *Federation
+-l 主机:端口 &lt;span class="p">|&lt;/span> 和 -F 配合，已知的一台Supernode地址和端口
+-M &lt;span class="p">|&lt;/span> 关闭非用户名密码认证的群组的MAC和IP地址欺骗保护功能
+-V 文本 &lt;span class="p">|&lt;/span> 自定义字符串（最长19位），用于在管理输出日志中展示
+-c 组名称配置文件路径 &lt;span class="p">|&lt;/span> 该配置文件中包含允许使用的组名称
+-a IP段 &lt;span class="p">|&lt;/span> 用于自动分配IP，格式如 -a 192.168.0.0-192.168.255.0/24
+-t 端口 &lt;span class="p">|&lt;/span> 用于管理supernode
+--management_password 文本 &lt;span class="p">|&lt;/span> 管理端的密码
+-v &lt;span class="p">|&lt;/span> 输出更多日志
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;ul>
+&lt;li>
+&lt;p>设置开机启动&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 修改配置文件&lt;/span>
+sudo vim /etc/n2n/supernode.conf
+&lt;span class="o">====&lt;/span>
+-p&lt;span class="o">=&lt;/span>端口
+&lt;span class="c1"># 服务端没有密码，为了避免被白嫖，添加组名称配置文件，一行一个&lt;/span>
+-c&lt;span class="o">=&lt;/span>/home/n2n/community.list
+&lt;span class="o">====&lt;/span>
+sudo systemctl &lt;span class="nb">enable&lt;/span> supernode
+sudo systemctl start supernode
+sudo systemctl status supernode
+journalctl -f -u supernode
+&lt;span class="c1"># journalctl 查看日志&lt;/span>
+&lt;span class="c1"># -f 实时最新&lt;/span>
+&lt;span class="c1"># -u 指定服务&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h2 id="服务器端口放行">服务器端口放行&lt;/h2>
+&lt;ul>
+&lt;li>腾讯云的防火墙&lt;/li>
+&lt;li>若服务器开启了如iptables\firewalld\ufw等防火墙，需要放行supernode所设置的端口，否则客户端无法连接&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1">#firewalld &lt;/span>
+firewall-cmd --zone&lt;span class="o">=&lt;/span>public --add-port&lt;span class="o">=&lt;/span>9527/udp --permanent
+firewall-cmd --reload
+&lt;span class="c1">#iptables&lt;/span>
+iptables -I INPUT -p udp --dport &lt;span class="m">9527&lt;/span> -j ACCEPT
+service iptables save
+service iptables restart
+&lt;span class="c1">#ufw&lt;/span>
+ufw allow 9527/udp
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>centos7 默认是firewall&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 查看状态&lt;/span>
+systemctl status firewalld
+&lt;span class="c1"># 或者&lt;/span>
+firewall-cmd --state
+&lt;span class="c1">#　查看所有开放端口&lt;/span>
+firewall-cmd --zone&lt;span class="o">=&lt;/span>public --list-ports
+&lt;span class="c1"># 禁用端口&lt;/span>
+firewall-cmd --zone&lt;span class="o">=&lt;/span>public --remove-port&lt;span class="o">=&lt;/span>5672/tcp --permanent &lt;span class="c1">#关闭5672端口&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="客户端组建n2n虚拟局域网">客户端组建N2N虚拟局域网&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">sudo edge -a 局域网ip -c n2n组名 -l &lt;span class="o">[&lt;/span>公网ip&lt;span class="o">]&lt;/span>:公网端口 -f
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>参数说明&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">-a &amp;lt;mode:address&amp;gt; &lt;span class="p">|&lt;/span> n2n网卡的ip地址，即本机的n2n的ip。直接填写IP或者使用 DHCP &lt;span class="s1">&amp;#39;-r -a dhcp:0.0.0.0&amp;#39;&lt;/span>
+-c &amp;lt;community&amp;gt; &lt;span class="p">|&lt;/span> n2n组，只有相同组的edge之间才能进行通讯
+-k &amp;lt;encrypt key&amp;gt; &lt;span class="p">|&lt;/span> edge的加密密码
+-s &amp;lt;netmask&amp;gt; &lt;span class="p">|&lt;/span> 子网掩码 可选 &lt;span class="o">(&lt;/span>255.255.255.0&lt;span class="o">)&lt;/span>.
+-l &amp;lt;supernode host:port&amp;gt; &lt;span class="p">|&lt;/span> supernode的ip和端口
+-i &amp;lt;reg_interval&amp;gt; &lt;span class="p">|&lt;/span> 注册时间间隔，用于NAT打洞&lt;span class="o">(&lt;/span>默认为20秒&lt;span class="o">)&lt;/span>
+-L &amp;lt;reg_ttl&amp;gt; &lt;span class="p">|&lt;/span> 当通过超级节点UDP NAT打洞时，注册数据包的TTL&lt;span class="o">(&lt;/span>默认0不设置&lt;span class="o">)&lt;/span>
+-p &amp;lt;&lt;span class="nb">local&lt;/span> port&amp;gt; &lt;span class="p">|&lt;/span> 固定本地UDP端口
+-u &amp;lt;UID&amp;gt; &lt;span class="p">|&lt;/span> 如果不想用root来运行edge，则可指定本机账号的uid，windows下可忽略
+-g &amp;lt;GID&amp;gt; &lt;span class="p">|&lt;/span> 如果不想用root来运行edge，则可指定本机账号的groupid，windows下可忽略
+-f &lt;span class="p">|&lt;/span> 带-f时前台运行，不添加-f 参数时作为守护进程运行
+-m &amp;lt;MAC address&amp;gt; &lt;span class="p">|&lt;/span> n2n虚拟网卡的MAC地址，默认随机设置
+&lt;span class="p">|&lt;/span> eg. -m 01:02:03:04:05:06
+-M &amp;lt;mtu&amp;gt; &lt;span class="p">|&lt;/span> MTU 值，默认1290
+-r &lt;span class="p">|&lt;/span> 启用数据转发功能，当需要访问该设备的局域网时需要设置
+-A1 &lt;span class="p">|&lt;/span> 禁用载荷加密。不能与key 同时使用&lt;span class="o">(&lt;/span>默认为Twofish&lt;span class="o">)&lt;/span>。
+-A2 ... -A5 or -A &lt;span class="p">|&lt;/span> 选择有效载荷加密的密码&lt;span class="o">(&lt;/span>和-k一起用&lt;span class="o">)&lt;/span>，需要一个密钥:-A2 &lt;span class="o">=&lt;/span> Twofish&lt;span class="o">(&lt;/span>默认&lt;span class="o">)&lt;/span>，
+&lt;span class="p">|&lt;/span> -A3 or -A &lt;span class="o">(&lt;/span>deprecated&lt;span class="o">)&lt;/span> &lt;span class="o">=&lt;/span> AES-CBC, -A5 &lt;span class="o">=&lt;/span> Speck-CTR.
+-H &lt;span class="p">|&lt;/span> Enable full header encryption. Requires supernode with fixed community.
+-z1 ... -z2 or -z &lt;span class="p">|&lt;/span> Enable compression &lt;span class="k">for&lt;/span> outgoing data packets: -z1 or -z &lt;span class="o">=&lt;/span> lzo1x &lt;span class="o">(&lt;/span>&lt;span class="nv">default&lt;/span>&lt;span class="o">=&lt;/span>disabled&lt;span class="o">)&lt;/span>.
+-E &lt;span class="p">|&lt;/span> 接受多播MAC地址&lt;span class="o">(&lt;/span>&lt;span class="nv">默认&lt;/span>&lt;span class="o">=&lt;/span>drop&lt;span class="o">)&lt;/span>
+-S &lt;span class="p">|&lt;/span> 不要连接P2P ，总是使用超级节点转发数据
+-n &amp;lt;cidr:gateway&amp;gt; &lt;span class="p">|&lt;/span> 通过gw路由IPv4网络。使用0.0.0.0/0作为默认gw。可多次设置。
+-v &lt;span class="p">|&lt;/span> 详细日志
+-t &amp;lt;port&amp;gt; &lt;span class="p">|&lt;/span> 管理UDP端口&lt;span class="o">(&lt;/span>用于机器上的多个edges&lt;span class="o">)&lt;/span>。
+环境变量:
+N2N_KEY &lt;span class="p">|&lt;/span> 加密密钥&lt;span class="o">(&lt;/span>ASCII&lt;span class="o">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="安装tuntap">安装tuntap&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">brew tap happynclient/taps
+brew install tuntap --cask
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>.查看系统信息，您会看到一个名为 tap0的虚拟网卡
+sudo ifconfig&lt;/p>
+&lt;h2 id="macos-设置开机启动项">macos 设置开机启动项&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 在 /Library/LaunchDaemons 新增文件 lomotho.n2n-edge.plist，用于 launchd 控制的开机自启（类似 systemd）&lt;/span>
+&lt;span class="c1"># RunAtLoad 开机时是否运行&lt;/span>
+&lt;span class="c1"># KeepAlive 是否需要一直运行&lt;/span>
+&lt;span class="o">====&lt;/span>
+&amp;lt;?xml &lt;span class="nv">version&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;1.0&amp;#34;&lt;/span> &lt;span class="nv">encoding&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;UTF-8&amp;#34;&lt;/span>?&amp;gt;
+&amp;lt;!DOCTYPE plist PUBLIC &lt;span class="s2">&amp;#34;-//Apple//DTD PLIST 1.0//EN&amp;#34;&lt;/span> &lt;span class="s2">&amp;#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&amp;#34;&lt;/span>&amp;gt;
+&amp;lt;plist &lt;span class="nv">version&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;1.0&amp;#34;&lt;/span>&amp;gt;
+&amp;lt;dict&amp;gt;
+&amp;lt;key&amp;gt;KeepAlive&amp;lt;/key&amp;gt;
+&amp;lt;true/&amp;gt;
+&amp;lt;key&amp;gt;RunAtLoad&amp;lt;/key&amp;gt;
+&amp;lt;true/&amp;gt;
+&amp;lt;key&amp;gt;Label&amp;lt;/key&amp;gt;
+&amp;lt;string&amp;gt;lomotho.n2n.edge&amp;lt;/string&amp;gt;
+&amp;lt;key&amp;gt;ProgramArguments&amp;lt;/key&amp;gt;
+&amp;lt;array&amp;gt;
+&amp;lt;string&amp;gt;/usr/local/bin/edge&amp;lt;/string&amp;gt;
+&amp;lt;string&amp;gt;/usr/local/etc/n2n/edge.conf&amp;lt;/string&amp;gt;
+&amp;lt;/array&amp;gt;
+&amp;lt;/dict&amp;gt;
+&amp;lt;/plist&amp;gt;
+&lt;span class="o">====&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;span class="lnt">42
+&lt;/span>&lt;span class="lnt">43
+&lt;/span>&lt;span class="lnt">44
+&lt;/span>&lt;span class="lnt">45
+&lt;/span>&lt;span class="lnt">46
+&lt;/span>&lt;span class="lnt">47
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 客户端配置文件&lt;/span>
+&lt;span class="c1"># /usr/local/etc/n2n/edge.conf&lt;/span>
+&lt;span class="c1">#&lt;/span>
+&lt;span class="c1"># The configuration file is similar to the command line, with one option per line. An equal&lt;/span>
+&lt;span class="c1"># sign &amp;#39;=&amp;#39; should be used between key and value. Example: -c=mynetwork or --community=mynetwork&lt;/span>
+&lt;span class="c1"># This file contains a basic configuration example, please refer to the help (-h) for the full&lt;/span>
+&lt;span class="c1"># list of available options.&lt;/span>
+&lt;span class="c1">#&lt;/span>
+&lt;span class="c1"># -d|--tun-device&lt;/span>
+&lt;span class="c1"># Specifies the name of the TUN interface. &lt;/span>
+&lt;span class="c1">#&lt;/span>
+&lt;span class="c1"># -d=n2n0&lt;/span>
+&lt;span class="c1">#&lt;/span>
+&lt;span class="c1"># -c|--community&lt;/span>
+&lt;span class="c1"># Specifies the n2n community name the edge belongs to.&lt;/span>
+&lt;span class="c1">#&lt;/span>
+-c&lt;span class="o">=&lt;/span>xxx
+&lt;span class="c1">#&lt;/span>
+&lt;span class="c1"># -k&lt;/span>
+&lt;span class="c1"># Sets the encryption key (ASCII). The environment variable N2N_KEY=&amp;lt;key&amp;gt; can also be used. &lt;/span>
+&lt;span class="c1">#&lt;/span>
+&lt;span class="c1"># -k=mypassword&lt;/span>
+&lt;span class="c1">#&lt;/span>
+&lt;span class="c1"># -m&lt;/span>
+&lt;span class="c1"># Specified the MAC address for the TAP interface (random otherwise).&lt;/span>
+&lt;span class="c1">#&lt;/span>
+&lt;span class="c1"># -m=DE:AD:BE:EF:99:99&lt;/span>
+&lt;span class="c1">#&lt;/span>
+&lt;span class="c1"># -a&lt;/span>
+&lt;span class="c1"># Sets the interface address. For DHCP use &amp;#39;-r -a dhcp:0.0.0.0&amp;#39;.&lt;/span>
+&lt;span class="c1">#&lt;/span>
+-a&lt;span class="o">=&lt;/span>x.x.x.x
+&lt;span class="c1">#&lt;/span>
+&lt;span class="c1"># -p&lt;/span>
+&lt;span class="c1"># Sets the local UDP port to a fixed port.&lt;/span>
+&lt;span class="c1">#&lt;/span>
+&lt;span class="c1"># -p=50001&lt;/span>
+&lt;span class="c1">#&lt;/span>
+&lt;span class="c1"># -l|--supernode-list&lt;/span>
+&lt;span class="c1"># Specifies the supernode IP and port.&lt;/span>
+&lt;span class="c1">#&lt;/span>
+-l&lt;span class="o">=&lt;/span>x.x.x.x:x
+&lt;span class="c1"># 访问局域网其他设置&lt;/span>
+-r
+&lt;span class="c1"># -Z1为LZO(1x)压缩 -Z2为ZSTD压缩，默认没有&lt;/span>
+-Z2
+&lt;span class="c1">#&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 开启服务&lt;/span>
+launchctl load /Library/LaunchDaemons/lomotho.n2n.edge.plist
+&lt;span class="c1"># 关闭服务&lt;/span>
+launchctl unload /Library/LaunchDaemons/lomotho.n2n.edge.plist
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="linux客户端设置自启动">linux客户端设置自启动&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">sudo vim /etc/n2n/edge.conf
+&lt;span class="o">======&lt;/span>
+-c&lt;span class="o">=&lt;/span>组织名
+-a&lt;span class="o">=&lt;/span>内网地址
+-l&lt;span class="o">=&lt;/span>节点公网地址:端口
+&lt;span class="o">======&lt;/span>
+&lt;span class="c1"># 设置自启服务&lt;/span>
+sudo systemctl &lt;span class="nb">enable&lt;/span> edge
+sudo systemctl start edge
+sudo systemctl status edge
+journalctl -f -u edge
+&lt;span class="c1"># journalctl 查看日志&lt;/span>
+&lt;span class="c1"># -f 实时最新&lt;/span>
+&lt;span class="c1"># -u 指定服务&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>使用netlify部署hugo注意事项</title><link>/p/netlify-and-hugo/</link><pubDate>Fri, 28 Feb 2020 00:00:00 +0000</pubDate><guid>/p/netlify-and-hugo/</guid><description>&lt;h1 id="nextlify部署hugo-blog">nextlify部署hugo blog&lt;/h1>
+&lt;p>参考：&lt;/p>
+&lt;p>hugo官方: &lt;a href="https://gohugo.io/hosting-and-deployment/hosting-on-netlify">https://gohugo.io/hosting-and-deployment/hosting-on-netlify&lt;/a>&lt;/p>
+&lt;p>nextlify官方: &lt;a href="https://docs.netlify.com/integrations/frameworks/hugo/">https://docs.netlify.com/integrations/frameworks/hugo/&lt;/a>&lt;/p>
+&lt;h2 id="步骤">步骤&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>上传项目到github仓库, 该仓库可以是私人仓库&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>hugo的主题必须是&lt;code>git submodule&lt;/code>形式, 如果自定义主题, 上传到gihub仓库上, 以子模块方式引入&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>在&lt;code>.gitignore&lt;/code>里排除 &lt;code>public&lt;/code>文件夹&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>在项目根目录下新建文件&lt;code>netlify.toml&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-toml" data-lang="toml">&lt;span class="p">[&lt;/span>&lt;span class="nx">build&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">publish&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;public&amp;#34;&lt;/span>
+&lt;span class="nx">command&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;hugo --gc --minify&amp;#34;&lt;/span>
+&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">production&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">environment&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">HUGO_VERSION&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;0.65.3&amp;#34;&lt;/span>
+&lt;span class="nx">HUGO_ENV&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;production&amp;#34;&lt;/span>
+&lt;span class="nx">HUGO_ENABLEGITINFO&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;true&amp;#34;&lt;/span>
+&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">split1&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">command&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;hugo --gc --minify --enableGitInfo&amp;#34;&lt;/span>
+&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">split1&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">environment&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">HUGO_VERSION&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;0.65.3&amp;#34;&lt;/span>
+&lt;span class="nx">HUGO_ENV&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;production&amp;#34;&lt;/span>
+&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">deploy&lt;/span>&lt;span class="err">-&lt;/span>&lt;span class="nx">preview&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">command&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL&amp;#34;&lt;/span>
+&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">deploy&lt;/span>&lt;span class="err">-&lt;/span>&lt;span class="nx">preview&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">environment&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">HUGO_VERSION&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;0.65.3&amp;#34;&lt;/span>
+&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">branch&lt;/span>&lt;span class="err">-&lt;/span>&lt;span class="nx">deploy&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">command&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;hugo --gc --minify -b $DEPLOY_PRIME_URL&amp;#34;&lt;/span>
+&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">branch&lt;/span>&lt;span class="err">-&lt;/span>&lt;span class="nx">deploy&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">environment&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">HUGO_VERSION&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;0.65.3&amp;#34;&lt;/span>
+&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">next&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">environment&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="nx">HUGO_ENABLEGITINFO&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;true&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>注册Nextlify，可以用github账号授权&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>选择&lt;code> “New site from Git”——“Github”——选择自己hugo博客源码对应的仓库&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>在&lt;code>Deploy&lt;/code>之前可以先设置下, &lt;code>&amp;quot;site overview&amp;quot;--&amp;quot;site setting&amp;quot;--&amp;quot;change site name&amp;quot;&lt;/code>, 不改的话会默认分配&lt;code>https://xxx-xxx-xxx.netlify.app&lt;/code>一堆符号的二级域名&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>Deploy status badge&lt;/code>徽章可以放到项目的readme上, 可以看到最新部署状态&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Deploy&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>每次仓库更新, netlify就会自动部署&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="可选-绑定域名">可选: 绑定域名&lt;/h2>
+&lt;ol>
+&lt;li>&lt;code>Site settings -- Domain management--Custom domains--Add domain alias--填写域名--verify--Yes,add domain&lt;/code>&lt;/li>
+&lt;li>填写后到DNS 解析提供商里面，将 CNAME 记录值更改为 Netlify 给你的二级域名&lt;/li>
+&lt;li>https: 隔一段时间后点&lt;code>Verify DNS configuration&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;h2 id="可能的问题">可能的问题&lt;/h2>
+&lt;ol>
+&lt;li>报错：&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">Production: master@HEAD Failed
+failed during stage &lt;span class="s1">&amp;#39;building site&amp;#39;&lt;/span>: Build script returned non-zero &lt;span class="nb">exit&lt;/span> code: &lt;span class="m">255&lt;/span>
+&lt;span class="c1"># 解决方法: stackoverflow上找到类似答案，需要修改Netlify控制台的环境变量与实际Hugo版本一致。&lt;/span>
+&lt;span class="c1"># 技术问题千万别用百度，垃圾csdn&lt;/span>
+&lt;span class="c1"># hugo -v&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>“setting”——“Build&amp;amp;deploy”——“Environment”——&amp;quot;Environment variables&amp;quot;——“Edit variables”，左边填“HUGO_VERSION”，右边填“v?.?.?”&lt;/code>。&lt;/p>
+&lt;p>注：版本号以实际为准&lt;/p>
+&lt;ol start="2">
+&lt;li>
+&lt;p>报错&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">The build image &lt;span class="k">for&lt;/span> this site uses Ubuntu 16.04 Xenial Xerus, which is no longer supported.
+&lt;span class="c1"># ubuntu 版本过低&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>&amp;quot;Deploys&amp;quot;--&amp;quot;Delploy settings&amp;quot;--&amp;quot;Build image selection&amp;quot;--&amp;quot;Edit settings&amp;quot;--选最新的&lt;/code>&lt;/p>
+&lt;p>重新部署&lt;/p>
+&lt;/li>
+&lt;/ol></description></item><item><title>解决eclipse未自动补全问题的记录</title><link>/p/eclipse-error/</link><pubDate>Sat, 21 Dec 2019 00:00:00 +0000</pubDate><guid>/p/eclipse-error/</guid><description>&lt;p>参考方法:&lt;a class="link" href="https://blog.csdn.net/weixin_41741743/article/details/82814954" target="_blank" rel="noopener"
+>https://blog.csdn.net/weixin_41741743/article/details/82814954&lt;/a>&lt;/p>
+&lt;p>教训:学习编程不要用中文版&lt;/p>
+&lt;h2 id="一">一:&lt;/h2>
+&lt;p>windows→preferences→java→editor→content assist→advanced→勾选Java Prolosals→选中Template Proposals→保存退出&lt;/p>
+&lt;p>注意:发现重新打开会有丢失这一配置现象.&lt;/p>
+&lt;h2 id="二">二:&lt;/h2>
+&lt;p>windows→preferences→java→editor→content assist→Auto activation delay(ms)设置200→Auto activation triggers for Java设置.ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghigklmnopqrstuvwxya(注意前面的点不要丢)→保存退出&lt;/p>
+&lt;h2 id="三">三:&lt;/h2>
+&lt;p>windows →preferences→General→keys→Content asist→word completion快捷键删掉→Binding项改为“ALT+/”→When项选择成Editing Text→保存退出&lt;/p></description></item><item><title>用Github Page 搭免费博客</title><link>/p/github-page-blog/</link><pubDate>Mon, 13 Nov 2017 00:00:00 +0000</pubDate><guid>/p/github-page-blog/</guid><description>&lt;h2 id="用github-page-搭免费博客">用Github Page 搭免费博客&lt;/h2>
+&lt;p>一.搭建hexo博客&lt;/p>
+&lt;p>1.安装Node.js&lt;/p>
+&lt;p>下载地址：&lt;a class="link" href="https://nodejs.org/en/" target="_blank" rel="noopener"
+>传送门&lt;/a>&lt;/p>
+&lt;p>下载的文件是.msi后缀的，win10-x64-ltsb2016直接双击安装可能会出现2502、2503错误，在安装文件所在目录下，&lt;code>Shit+右键，在此处打开命令窗口&lt;/code>，输入&lt;code>msiexec /i 文件名.msi&lt;/code> ，就能成功安装。（如果还是无效，用管理员权限cmd）&lt;/p>
+&lt;p>可以通过node -v命令来测试NodeJS是否安装成功。&lt;/p>
+&lt;p>2.安装Git&lt;/p>
+&lt;p>下载地址：&lt;a class="link" href="https://git-scm.com/" target="_blank" rel="noopener"
+>传送门&lt;/a>&lt;/p>
+&lt;p>下载相应版本完成安装，可以通过git -version命令来测试git是否安装成功。&lt;/p>
+&lt;p>3.注册Github账号&lt;/p>
+&lt;p>准备好fq工具，注册时的usename用户名和邮箱很重要，因为默认的博客地址是https://usename.github.io/这种形式的，邮箱则关系到安全和通知。&lt;/p>
+&lt;p>3.1添加SSH Key&lt;/p>
+&lt;p>SSH Key是一个认证，让github识别绑定这台机器，允许这台机器提交。执行如下命令：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">cd ~/. ssh
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>~这个符号，表示在用户目录下
+执行代码如果提示：No such file or directory 说明你是第一次使用git。&lt;/p>
+&lt;p>新建新的SSH Key&lt;/p>
+&lt;p>在Git Bash执行代码：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">ssh-keygen -t rsa -C &amp;#34;你的邮箱@gmail.com&amp;#34;
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>注意：此处的&lt;code>-C&lt;/code>的是大写的。&lt;/p>
+&lt;p>然后系统会要求你输入密码（密码在后面每次提交都需要输入，嫌麻烦可以直接两次回车不设置）：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">Enter passphrase (empty for no passphrase):&amp;lt;输入加密串&amp;gt;
+Enter same passphrase again:&amp;lt;再次输入加密串&amp;gt;
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>在回车中会提示你输入一个密码，这个密码会在你提交项目时使用，如果为空的话提交项目时则不用输入。这个设置是防止别人往你的项目里提交内容。&lt;/p>
+&lt;ul>
+&lt;li>输入密码的时候没有 * 字样的，你直接输入就可以了。&lt;/li>
+&lt;li>邮箱输错/密码忘记，&lt;/li>
+&lt;/ul>
+&lt;p>&amp;mdash;待完善
+2020-02-22尝试迁移hexo到hugo&lt;/p></description></item></channel></rss>
