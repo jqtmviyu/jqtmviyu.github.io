@@ -543,7 +543,7 @@ sudo vim /etc/udev/rules.d/backlight.rules
 <span class=o>====</span>
 <span class=nv>ACTION</span><span class=o>==</span><span class=s2>&#34;add&#34;</span>, <span class=nv>SUBSYSTEM</span><span class=o>==</span><span class=s2>&#34;backlight&#34;</span>, <span class=nv>RUN</span><span class=o>+=</span><span class=s2>&#34;/bin/chgrp hxx </span><span class=nv>$sys</span><span class=s2>/class/backlight/intel_backlight/brightness&#34;</span>, <span class=nv>RUN</span><span class=o>+=</span><span class=s2>&#34;/bin/chmod g+w </span><span class=nv>$sys</span><span class=s2>/class/backlight/intel_backlight/brightness&#34;</span>
 <span class=o>====</span>
-</code></pre></td></tr></table></div></div><h4 id=音量模块>音量模块</h4><p>滚轮滑动调节音量，左键静音，右键打开配置面板</p><h3 id=sxhkd>sxhkd</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table></div></div><h4 id=音量模块>音量模块</h4><p>滚轮滑动调节音量，左键静音，右键打开配置面板</p><h3 id=sxhkd>sxhkd</h3><p><code>~/.config/sxhkd/sxhkdrc</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback># 自动切换状态, 浮动和窗口模式, 类似的还有有全屏和窗口

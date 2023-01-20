@@ -792,6 +792,7 @@ sudo vim /etc/udev/rules.d/backlight.rules
 &lt;/div>&lt;h4 id="音量模块">音量模块&lt;/h4>
 &lt;p>滚轮滑动调节音量，左键静音，右键打开配置面板&lt;/p>
 &lt;h3 id="sxhkd">sxhkd&lt;/h3>
+&lt;p>&lt;code>~/.config/sxhkd/sxhkdrc&lt;/code>&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
