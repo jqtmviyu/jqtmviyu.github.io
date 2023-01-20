@@ -1,0 +1,1688 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>bspwm on Jqtmviyu's Blog</title><link>/tags/bspwm/</link><description>Recent content in bspwm on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 20 Jan 2023 11:36:40 +0800</lastBuildDate><atom:link href="/tags/bspwm/index.xml" rel="self" type="application/rss+xml"/><item><title>Arch_desktop(endeavouros)</title><link>/p/endeavouros_bspwm_install/</link><pubDate>Fri, 20 Jan 2023 11:36:40 +0800</pubDate><guid>/p/endeavouros_bspwm_install/</guid><description>&lt;h1 id="arch">arch&lt;/h1>
+&lt;p>直接装 &lt;a class="link" href="https://endeavouros.com/" target="_blank" rel="noopener"
+>endeavouros&lt;/a> , 省事， 官方提供了中国的镜像下载， 我修改软件源后选择的在线安装 bspwm社区版&lt;/p>
+&lt;p>ps: arcolinux建议不要用，官方的的网页又乱又杂， 教程全在youtube里，国内需要修改文件才能在线安装。endeavouros论坛里的教程很有用，还方便搜索。&lt;/p>
+&lt;p>参考教程：&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;a href="https://www.bilibili.com/read/cv17475290/">https://www.bilibili.com/read/cv17475290/&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://wiki.archlinux.org/title/Installation_guide_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">https://wiki.archlinux.org/title/Installation_guide_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="壁纸">壁纸&lt;/h2>
+&lt;p>登录器壁纸： &lt;code>/etc/lightdm/slick-greeter.conf&lt;/code>&lt;/p>
+&lt;p>桌面壁纸: &lt;code>nitrogen&lt;/code>默认配置路径&lt;code>~/.config/nitrogen/&lt;/code>&lt;/p>
+&lt;h2 id="yay">yay&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">sudo pacman -S yay
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="vscode-zsh终端里的特殊图标变方块">vscode zsh终端里的特殊图标变方块&lt;/h2>
+&lt;p>更换支持图标的字体&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">yay -S nerd-fonts-sarasa-mono &lt;span class="c1"># 带图标补丁的等距更纱黑体&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="vim">vim&lt;/h2>
+&lt;h3 id="设置默认编辑器">设置默认编辑器&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 查看软件安装路径&lt;/span>
+whereis vim
+&lt;span class="c1"># 查看默认编辑器&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="nv">$EDITOR&lt;/span>
+&lt;span class="c1"># 设置为vim&lt;/span>
+&lt;span class="nb">export&lt;/span> &lt;span class="nv">EDITOR&lt;/span>&lt;span class="o">=&lt;/span>/usr/bin/vim
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="vim设置">vim设置&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 在vim编辑器中， 输入:set nu, 取消:set nonu&lt;/span>
+&lt;span class="c1"># 默认显示&lt;/span>
+vim ~/.vimrc
+&lt;span class="c1">#######&lt;/span>
+&lt;span class="s2">&amp;#34;显示行号
+&lt;/span>&lt;span class="s2">set nu
+&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>启动时隐去援助提示
+&lt;span class="nb">set&lt;/span> &lt;span class="nv">shortmess&lt;/span>&lt;span class="o">=&lt;/span>atI
+&lt;span class="s2">&amp;#34;语法高亮
+&lt;/span>&lt;span class="s2">syntax on
+&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>搜索高亮
+&lt;span class="nb">set&lt;/span> hlsearch
+&lt;span class="s2">&amp;#34;显示匹配
+&lt;/span>&lt;span class="s2">set showmatch
+&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>搜索忽略大小写
+&lt;span class="nb">set&lt;/span> ic
+&lt;span class="s2">&amp;#34;显示文件名和路径
+&lt;/span>&lt;span class="s2">set laststatus=2
+&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>文件自动检测外部更改
+&lt;span class="nb">set&lt;/span> autoread
+&lt;span class="s2">&amp;#34;自动对齐
+&lt;/span>&lt;span class="s2">set autoindent
+&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>智能缩进
+&lt;span class="nb">set&lt;/span> smartindent
+&lt;span class="s2">&amp;#34;浅色显示当前行
+&lt;/span>&lt;span class="s2">autocmd InsertLeave * se nocul
+&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>用浅色高亮当前行
+autocmd InsertEnter * se cul
+&lt;span class="s2">&amp;#34;显示输入的命令
+&lt;/span>&lt;span class="s2">set showcmd
+&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>不要闪烁
+&lt;span class="nb">set&lt;/span> novisualbell
+&lt;span class="s2">&amp;#34;显示标尺，就是在右下角显示光标位置
+&lt;/span>&lt;span class="s2">set ruler
+&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>鼠标可用
+&lt;span class="nb">set&lt;/span> &lt;span class="nv">mouse&lt;/span>&lt;span class="o">=&lt;/span>a
+&lt;span class="s2">&amp;#34;共享剪切板
+&lt;/span>&lt;span class="s2">set clipboard=unnamed
+&lt;/span>&lt;span class="s2">########
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="和系统剪切板互通">和系统剪切板互通&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">vim --version&lt;span class="p">|&lt;/span> grep &lt;span class="s2">&amp;#34;clipboard&amp;#34;&lt;/span>
+&lt;span class="c1"># +clipboard，不支持则会是 -clipboard&lt;/span>
+&lt;span class="c1"># 安装gvim&lt;/span>
+sudo pacman -S gvim
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="强制保存只读文件">强制保存只读文件&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">:w !sudo tee %
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="shell">shell&lt;/h2>
+&lt;h3 id="查看系统下的shell">查看系统下的shell&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">cat /etc/shells
+&lt;span class="c1"># 设置默认shell为zsh&lt;/span>
+chsh -s /bin/zsh
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="zsh插件">zsh插件&lt;/h3>
+&lt;p>选择更加轻量的&lt;code>prezto&lt;/code>框架&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 安装prezto zsh 框架&lt;/span>
+&lt;span class="c1"># 主题推荐: zsh-theme-powerlevel10k&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="su-root和su---root">su root和su - root&lt;/h3>
+&lt;p>&lt;code>su root&lt;/code> 获取root的执行权限，没有改变用户环境&lt;/p>
+&lt;p>&lt;code>su - root&lt;/code> 切换root用户，更改环境变量&lt;/p>
+&lt;h2 id="pacman">pacman&lt;/h2>
+&lt;h3 id="添加软件源arch系">添加软件源(arch系)&lt;/h3>
+&lt;blockquote>
+&lt;p>包括archlinux和 archlinuxcn源&lt;/p>
+&lt;p>ps: 2022/9/21 清华源失败， 中科源可用&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;a class="link" href="https://mirrors.ustc.edu.cn/help/archlinux.html" target="_blank" rel="noopener"
+>官方文档&lt;/a>&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>编辑 &lt;code>/etc/pacman.d/mirrorlist&lt;/code> ，在文件的最顶端添加&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nv">Server&lt;/span> &lt;span class="o">=&lt;/span> https://mirrors.ustc.edu.cn/archlinux/&lt;span class="nv">$repo&lt;/span>/os/&lt;span class="nv">$arch&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>在 &lt;code>/etc/pacman.conf&lt;/code> 文件末尾添加两行：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">[archlinuxcn]
+Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>然后请安装 &lt;code>archlinuxcn-keyring&lt;/code> 包以导入 GPG key。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">sudo pacman -S archlinuxcn-keyring
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">sudo pacman -Sy
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;h3 id="可选arhclinuxcn-添加多个源">(可选)arhclinuxcn 添加多个源&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">sudo pacman -S archlinuxcn-mirrorlist-git
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">sudo vim /etc/pacman.conf
+&lt;span class="o">===========&lt;/span>
+&lt;span class="o">[&lt;/span>archlinuxcn&lt;span class="o">]&lt;/span>
+&lt;span class="nv">Include&lt;/span> &lt;span class="o">=&lt;/span> /etc/pacman.d/archlinuxcn-mirrorlist
+&lt;span class="o">===========&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">sudo vim /etc/pacman.d/archlinux-mirrorlist
+&lt;span class="c1">#去掉使用的地址的注释即可&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="可选镜像源排序">(可选)镜像源排序&lt;/h3>
+&lt;p>先备份 /etc/pacman.d/mirrorlist&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>下面命令将过滤官方镜像列表中的前 5 个镜像，按速度排列并覆盖 /etc/pacman.d/mirrorlist&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">reflector -l &lt;span class="m">5&lt;/span> --sort rate --save /etc/pacman.d/mirrorlist
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>下面这个命令会从官方镜像列表中获取200个最近同步过的源，并对这200个源进行大文件下载来，根据在你电脑里的下载速度进行排序，写入mirrorlist（强烈推荐）&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">reflector --verbose -l &lt;span class="m">200&lt;/span> -p http --sort rate --save /etc/pacman.d/mirrorlist
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="换源后要清理缓存">换源后要清理缓存&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 清理所有缓存文件 &lt;/span>
+pacman -Scc
+&lt;span class="c1"># 强制更新源列表&lt;/span>
+pacman -Syy
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="可选pacman-包图形管理工具">(可选)pacman 包图形管理工具&lt;/h3>
+&lt;p>&lt;code>pamac-manager&lt;/code>&lt;/p>
+&lt;h3 id="pacman-安装提示签名未知">pacman 安装提示签名未知&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">vim /etc/pacman.conf
+&lt;span class="c1"># 原来的配置&lt;/span>
+&lt;span class="o">[&lt;/span>archlinuxcn&lt;span class="o">]&lt;/span>
+&lt;span class="nv">SigLevel&lt;/span> &lt;span class="o">=&lt;/span> Optional TrustedOnly
+&lt;span class="c1"># 新的配置&lt;/span>
+&lt;span class="c1"># SigLevel = Optional TrustedOnly&lt;/span>
+&lt;span class="nv">SigLevel&lt;/span> &lt;span class="o">=&lt;/span> Never
+&lt;span class="c1"># 害怕安全问题, 可以安装后再改回来&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="安装中文输入法">安装中文输入法&lt;/h2>
+&lt;h3 id="fitix5-rime-配置文件目录">fitix5 rime 配置文件目录&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">~/.local/share/fcitx5/rime
+&lt;span class="c1"># 安装主题主题&lt;/span>
+pacman -S fcitx5-material-color
+vim ~/.config/fcitx5/conf/classicui.conf
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="取消rime-f4-快捷键">取消rime F4 快捷键&lt;/h3>
+&lt;p>修改&lt;code>default.custom.yaml&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="nt">patch&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">switcher/hotkeys&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">noop&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="桌面配置">桌面配置&lt;/h2>
+&lt;p>&lt;a class="link" href="https://github.com/jqtmviyu/my-bspwm-config" target="_blank" rel="noopener"
+>bspwm, polybar个人配置文件&lt;/a>&lt;/p>
+&lt;h3 id="bspwm">bspwm&lt;/h3>
+&lt;p>配置文件参考：&lt;/p>
+&lt;p>&lt;a href="https://github.com/arcolinux/arcolinux-bspwm">https://github.com/arcolinux/arcolinux-bspwm&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://github.com/EndeavourOS-Community-Editions/bspwm">https://github.com/EndeavourOS-Community-Editions/bspwm&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;span class="lnt">42
+&lt;/span>&lt;span class="lnt">43
+&lt;/span>&lt;span class="lnt">44
+&lt;/span>&lt;span class="lnt">45
+&lt;/span>&lt;span class="lnt">46
+&lt;/span>&lt;span class="lnt">47
+&lt;/span>&lt;span class="lnt">48
+&lt;/span>&lt;span class="lnt">49
+&lt;/span>&lt;span class="lnt">50
+&lt;/span>&lt;span class="lnt">51
+&lt;/span>&lt;span class="lnt">52
+&lt;/span>&lt;span class="lnt">53
+&lt;/span>&lt;span class="lnt">54
+&lt;/span>&lt;span class="lnt">55
+&lt;/span>&lt;span class="lnt">56
+&lt;/span>&lt;span class="lnt">57
+&lt;/span>&lt;span class="lnt">58
+&lt;/span>&lt;span class="lnt">59
+&lt;/span>&lt;span class="lnt">60
+&lt;/span>&lt;span class="lnt">61
+&lt;/span>&lt;span class="lnt">62
+&lt;/span>&lt;span class="lnt">63
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">vim ~/.config/bspwm/bspwmrc
+&lt;span class="o">====&lt;/span>
+&lt;span class="c1">#! /bin/sh&lt;/span>
+&lt;span class="k">if&lt;/span> pgrep firewall-applet &lt;span class="p">&amp;amp;&lt;/span>&amp;gt; /dev/null&lt;span class="p">;&lt;/span>&lt;span class="k">then&lt;/span> pkill firewall-applet&lt;span class="p">;&lt;/span>&lt;span class="k">fi&lt;/span> &lt;span class="p">&amp;amp;&lt;/span>
+pgrep -x sxhkd &amp;gt; /dev/null &lt;span class="o">||&lt;/span> sxhkd &lt;span class="p">&amp;amp;&lt;/span>
+bspc monitor -d I II III IV V VI VII VIII IX X
+bspc config border_width &lt;span class="m">4&lt;/span>
+bspc config window_gap &lt;span class="m">12&lt;/span>
+bspc config split_ratio 0.52
+bspc config borderless_monocle &lt;span class="nb">true&lt;/span>
+bspc config gapless_monocle &lt;span class="nb">true&lt;/span>
+bspc config pointer_follows_focus &lt;span class="nb">true&lt;/span>
+bspc config focus_follows_pointer &lt;span class="nb">true&lt;/span>
+&lt;span class="c1"># bspc rule -a Gimp desktop=&amp;#39;^8&amp;#39; state=floating follow=on&lt;/span>
+bspc rule -a Thunar &lt;span class="nv">desktop&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;^3&amp;#39;&lt;/span> &lt;span class="nv">follow&lt;/span>&lt;span class="o">=&lt;/span>on
+bspc rule -a mplayer2 &lt;span class="nv">state&lt;/span>&lt;span class="o">=&lt;/span>floating
+bspc rule -a Yad &lt;span class="nv">state&lt;/span>&lt;span class="o">=&lt;/span>floating
+bspc rule -a Kupfer.py &lt;span class="nv">focus&lt;/span>&lt;span class="o">=&lt;/span>on
+&lt;span class="c1"># bspc rule -a flameshot manage=off&lt;/span>
+bspc rule -a flameshot &lt;span class="nv">state&lt;/span>&lt;span class="o">=&lt;/span>floating
+bspc rule -a xfce4-power-manager &lt;span class="nv">state&lt;/span>&lt;span class="o">=&lt;/span>floating
+bspc rule -a copyq &lt;span class="nv">state&lt;/span>&lt;span class="o">=&lt;/span>floating &lt;span class="nv">follow&lt;/span>&lt;span class="o">=&lt;/span>on
+&lt;span class="c1"># Border&lt;/span>
+bspc config focused_border_color &lt;span class="s2">&amp;#34;#6c71c4&amp;#34;&lt;/span>
+bspc config normal_border_color &lt;span class="s2">&amp;#34;#073642&amp;#34;&lt;/span>
+bspc config active_border_color &lt;span class="s2">&amp;#34;#073642&amp;#34;&lt;/span>
+&lt;span class="c1">#&lt;/span>
+&lt;span class="c1"># Autostart&lt;/span>
+&lt;span class="c1">#&lt;/span>
+&lt;span class="c1"># Set display from arandr saved script&lt;/span>
+sh ~/.screenlayout/monitor.sh &lt;span class="p">&amp;amp;&lt;/span>
+&lt;span class="c1"># Bar&lt;/span>
+flameshot &lt;span class="p">&amp;amp;&lt;/span>
+&lt;span class="c1"># xfce4-power-manager &amp;amp;&lt;/span>
+~/.config/polybar/launch.sh &lt;span class="p">&amp;amp;&lt;/span>
+&lt;span class="c1"># Notifications&lt;/span>
+/usr/bin/dunst &lt;span class="p">&amp;amp;&lt;/span>
+&lt;span class="c1"># Polkit&lt;/span>
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &lt;span class="p">&amp;amp;&lt;/span>
+&lt;span class="c1"># Wallpaper&lt;/span>
+nitrogen --restore &lt;span class="p">&amp;amp;&lt;/span>
+&lt;span class="c1"># Dex&lt;/span>
+dex -a -s /etc/xdg/autostart/:~/.config/autostart/ &lt;span class="p">&amp;amp;&lt;/span>
+&lt;span class="c1"># Picom&lt;/span>
+picom -b &lt;span class="p">&amp;amp;&lt;/span>
+&lt;span class="c1"># Network Applet&lt;/span>
+nm-applet --indicator &lt;span class="p">&amp;amp;&lt;/span>
+&lt;span class="c1"># Cursor&lt;/span>
+xsetroot -cursor_name left_ptr &lt;span class="p">&amp;amp;&lt;/span>
+&lt;span class="c1"># Low battery notifier&lt;/span>
+~/.config/bspwm/scripts/low_bat_notifier.sh
+&lt;span class="o">====&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="自启动管理">自启动管理&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>自启动文件夹：&lt;code>/etc/xdg/autostart/&lt;/code>和&lt;code>~/.config/autostart&lt;/code>&lt;/p>
+&lt;p>修改&lt;code>.desktop&lt;/code>文件中的&lt;code>Hidden=true&lt;/code>来取消启动&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>至于bspwm中的， 通过&lt;code>pgrep firewall-applet || firewall-applet&lt;/code>避免重复启动&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="polybar">polybar&lt;/h3>
+&lt;p>&lt;a href="https://github.com/polybar/polybar/wiki/Configuration">https://github.com/polybar/polybar/wiki/Configuration&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>font-0 &lt;/code># 配置是索引1对应的字体，后面要用到该字体，直接用=1&lt;/li>
+&lt;li>&lt;code>modules-left modules-center modules-right&lt;/code> : 对应三个区域的模块，spa是空隙，具体模块看wiki&lt;/li>
+&lt;/ul>
+&lt;p>修改的地方：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">modules-left = powermenu sps bspwm sps keyhint sps sps title
+modules-right =netspeed sps cpu sps memory sps temperature sps filesystem sps backlight sps pulseaudio sps date
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="bspwm配置查看模块">bspwm配置查看模块&lt;/h4>
+&lt;p>鼠标左键查看bspwm, 右键查看sxhkd&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="o">[&lt;/span>module/keyhint&lt;span class="o">]&lt;/span>
+&lt;span class="nb">type&lt;/span> &lt;span class="o">=&lt;/span> custom/text
+&lt;span class="nv">content&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>
+click-left &lt;span class="o">=&lt;/span> xfce4-terminal -e &lt;span class="s2">&amp;#34;vim -R /home/&lt;/span>&lt;span class="nv">$USER&lt;/span>&lt;span class="s2">/.config/bspwm/bspwmrc&amp;#34;&lt;/span>
+click-right &lt;span class="o">=&lt;/span> xfce4-terminal -e &lt;span class="s2">&amp;#34;vim -R /home/&lt;/span>&lt;span class="nv">$USER&lt;/span>&lt;span class="s2">/.config/sxhkd/sxhkdrc&amp;#34;&lt;/span>
+content-foreground &lt;span class="o">=&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">colors&lt;/span>&lt;span class="p">.blue-darker&lt;/span>&lt;span class="si">}&lt;/span>
+content-padding &lt;span class="o">=&lt;/span> &lt;span class="m">1&lt;/span>
+margin-right &lt;span class="o">=&lt;/span> &lt;span class="m">0&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="网速模块">网速模块&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="o">[&lt;/span>module/netspeed&lt;span class="o">]&lt;/span>
+&lt;span class="nb">type&lt;/span> &lt;span class="o">=&lt;/span> internal/network
+&lt;span class="p">;&lt;/span> Set correct interface name &lt;span class="k">for&lt;/span> the module to work
+&lt;span class="p">;&lt;/span> Try eth0 &lt;span class="k">for&lt;/span> ethernet or wlan0 &lt;span class="k">for&lt;/span> wireless
+&lt;span class="p">;&lt;/span>
+&lt;span class="p">;&lt;/span> You can also run &lt;span class="s1">&amp;#39;ip link&amp;#39;&lt;/span> in a terminal
+&lt;span class="p">;&lt;/span> to know the interace names on your system.
+&lt;span class="nv">interface&lt;/span> &lt;span class="o">=&lt;/span> wlan0
+&lt;span class="nv">interval&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="m">3&lt;/span>
+label-connected &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;%{T1}龍%{T-}%{T2}%downspeed:8%%{T-}&amp;#34;&lt;/span>
+label-disconnected &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;%{T2}⚠ %{T-}&amp;#34;&lt;/span>
+label-connected-background &lt;span class="o">=&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">colors&lt;/span>&lt;span class="p">.bg&lt;/span>&lt;span class="si">}&lt;/span>
+label-connected-foreground &lt;span class="o">=&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">colors&lt;/span>&lt;span class="p">.blue&lt;/span>&lt;span class="si">}&lt;/span>
+label-disconnected-foreground &lt;span class="o">=&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">colors&lt;/span>&lt;span class="p">.red&lt;/span>&lt;span class="si">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="cpu占用模块">cpu占用模块&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="o">[&lt;/span>module/cpu&lt;span class="o">]&lt;/span>
+&lt;span class="nb">type&lt;/span> &lt;span class="o">=&lt;/span> internal/cpu
+&lt;span class="p">;&lt;/span> Seconds to sleep between updates
+&lt;span class="p">;&lt;/span> Default: &lt;span class="m">1&lt;/span>
+&lt;span class="nv">interval&lt;/span> &lt;span class="o">=&lt;/span> 0.5
+&lt;span class="nv">label&lt;/span> &lt;span class="o">=&lt;/span> %&lt;span class="o">{&lt;/span>T1&lt;span class="o">}&lt;/span>%&lt;span class="o">{&lt;/span>T-&lt;span class="o">}&lt;/span>%&lt;span class="o">{&lt;/span>T2&lt;span class="o">}&lt;/span> %percentage:2%%%&lt;span class="o">{&lt;/span>T-&lt;span class="o">}&lt;/span>
+label-foreground &lt;span class="o">=&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">colors&lt;/span>&lt;span class="p">.blue&lt;/span>&lt;span class="si">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="ram占用模块">RAM占用模块&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="o">[&lt;/span>module/memory&lt;span class="o">]&lt;/span>
+&lt;span class="nb">type&lt;/span> &lt;span class="o">=&lt;/span> internal/memory
+&lt;span class="nv">interval&lt;/span> &lt;span class="o">=&lt;/span> 0.5
+&lt;span class="nv">format&lt;/span> &lt;span class="o">=&lt;/span> &amp;lt;label&amp;gt;
+&lt;span class="nv">label&lt;/span> &lt;span class="o">=&lt;/span> %&lt;span class="o">{&lt;/span>T1&lt;span class="o">}&lt;/span>%&lt;span class="o">{&lt;/span>T-&lt;span class="o">}&lt;/span>%&lt;span class="o">{&lt;/span>T2&lt;span class="o">}&lt;/span> %percentage_used%%%&lt;span class="o">{&lt;/span>T-&lt;span class="o">}&lt;/span>
+label-foreground &lt;span class="o">=&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">colors&lt;/span>&lt;span class="p">.blue&lt;/span>&lt;span class="si">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="温度模块">温度模块&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="o">[&lt;/span>module/temperature&lt;span class="o">]&lt;/span>
+&lt;span class="nb">type&lt;/span> &lt;span class="o">=&lt;/span> internal/temperature
+&lt;span class="p">;&lt;/span> Seconds to sleep between updates
+&lt;span class="p">;&lt;/span> Default: &lt;span class="m">1&lt;/span>
+&lt;span class="nv">interval&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="m">1&lt;/span>
+&lt;span class="p">;&lt;/span> Thermal zone to use
+&lt;span class="p">;&lt;/span> To list all the zone types, run
+&lt;span class="p">;&lt;/span> $ &lt;span class="k">for&lt;/span> i in /sys/class/thermal/thermal_zone*&lt;span class="p">;&lt;/span> &lt;span class="k">do&lt;/span> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$i&lt;/span>&lt;span class="s2">: &lt;/span>&lt;span class="k">$(&lt;/span>&amp;lt;&lt;span class="nv">$i&lt;/span>/type&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">done&lt;/span>
+&lt;span class="p">;&lt;/span> Default: &lt;span class="m">0&lt;/span>
+thermal-zone &lt;span class="o">=&lt;/span> &lt;span class="m">0&lt;/span>
+&lt;span class="p">;&lt;/span> Full path of temperature sysfs path
+&lt;span class="p">;&lt;/span> Use &lt;span class="sb">`&lt;/span>sensors&lt;span class="sb">`&lt;/span> to find preferred temperature source, &lt;span class="k">then&lt;/span> run
+&lt;span class="p">;&lt;/span> $ &lt;span class="k">for&lt;/span> i in /sys/class/hwmon/hwmon*/temp*_input&lt;span class="p">;&lt;/span> &lt;span class="k">do&lt;/span> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>&amp;lt;&lt;span class="k">$(&lt;/span>dirname &lt;span class="nv">$i&lt;/span>&lt;span class="k">)&lt;/span>/name&lt;span class="k">)&lt;/span>&lt;span class="s2">: &lt;/span>&lt;span class="k">$(&lt;/span>cat &lt;span class="si">${&lt;/span>&lt;span class="nv">i&lt;/span>&lt;span class="p">%_*&lt;/span>&lt;span class="si">}&lt;/span>_label 2&amp;gt;/dev/null &lt;span class="o">||&lt;/span> &lt;span class="nb">echo&lt;/span> &lt;span class="k">$(&lt;/span>basename &lt;span class="si">${&lt;/span>&lt;span class="nv">i&lt;/span>&lt;span class="p">%_*&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="k">))&lt;/span>&lt;span class="s2"> &lt;/span>&lt;span class="k">$(&lt;/span>readlink -f &lt;span class="nv">$i&lt;/span>&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">done&lt;/span>
+&lt;span class="p">;&lt;/span> to find path to desired file
+&lt;span class="p">;&lt;/span> Default reverts to thermal zone setting
+hwmon-path &lt;span class="o">=&lt;/span> /sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input
+&lt;span class="p">;&lt;/span> Base temperature &lt;span class="k">for&lt;/span> where to start the ramp &lt;span class="o">(&lt;/span>in degrees celsius&lt;span class="o">)&lt;/span>
+&lt;span class="p">;&lt;/span> Default: &lt;span class="m">0&lt;/span>
+base-temperature &lt;span class="o">=&lt;/span> &lt;span class="m">0&lt;/span>
+&lt;span class="p">;&lt;/span> Threshold temperature to display warning label &lt;span class="o">(&lt;/span>in degrees celsius&lt;span class="o">)&lt;/span>
+&lt;span class="p">;&lt;/span> Default: &lt;span class="m">80&lt;/span>
+warn-temperature &lt;span class="o">=&lt;/span> &lt;span class="m">80&lt;/span>
+&lt;span class="nv">label&lt;/span> &lt;span class="o">=&lt;/span> %&lt;span class="o">{&lt;/span>T1&lt;span class="o">}&lt;/span>%&lt;span class="o">{&lt;/span>T-&lt;span class="o">}&lt;/span>: %&lt;span class="o">{&lt;/span>T2&lt;span class="o">}&lt;/span>%temperature-c%%&lt;span class="o">{&lt;/span>T-&lt;span class="o">}&lt;/span>
+label-warn &lt;span class="o">=&lt;/span> %&lt;span class="o">{&lt;/span>T1&lt;span class="o">}&lt;/span>%&lt;span class="o">{&lt;/span>T-&lt;span class="o">}&lt;/span>: %&lt;span class="o">{&lt;/span>T2&lt;span class="o">}&lt;/span>%temperature-c%%&lt;span class="o">{&lt;/span>T-&lt;span class="o">}&lt;/span>
+label-foreground &lt;span class="o">=&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">colors&lt;/span>&lt;span class="p">.cyan&lt;/span>&lt;span class="si">}&lt;/span>
+label-warn-foreground &lt;span class="o">=&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">colors&lt;/span>&lt;span class="p">.red&lt;/span>&lt;span class="si">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="存储空间占用模块">存储空间占用模块&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="o">[&lt;/span>module/filesystem&lt;span class="o">]&lt;/span>
+&lt;span class="nb">type&lt;/span> &lt;span class="o">=&lt;/span> internal/fs
+&lt;span class="p">;&lt;/span> Mountpoints to display
+mount-0 &lt;span class="o">=&lt;/span> /
+&lt;span class="p">;&lt;/span> mount-1 &lt;span class="o">=&lt;/span> /home
+&lt;span class="p">;&lt;/span> mount-2 &lt;span class="o">=&lt;/span> /var
+&lt;span class="p">;&lt;/span> Seconds to sleep between updates
+&lt;span class="p">;&lt;/span> Default: &lt;span class="m">30&lt;/span>
+&lt;span class="nv">interval&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="m">10&lt;/span>
+&lt;span class="p">;&lt;/span> Display fixed precision values
+&lt;span class="p">;&lt;/span> Default: &lt;span class="nb">false&lt;/span>
+fixed-values &lt;span class="o">=&lt;/span> &lt;span class="nb">true&lt;/span>
+&lt;span class="p">;&lt;/span> Spacing &lt;span class="o">(&lt;/span>number of spaces, pixels, points&lt;span class="o">)&lt;/span> between entries
+&lt;span class="p">;&lt;/span> Default: &lt;span class="m">2&lt;/span>
+&lt;span class="nv">spacing&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="m">1&lt;/span>
+&lt;span class="p">;&lt;/span> Default: &lt;span class="m">90&lt;/span>
+&lt;span class="p">;&lt;/span> New in version 3.6.0
+warn-percentage &lt;span class="o">=&lt;/span> &lt;span class="m">75&lt;/span>
+label-mounted &lt;span class="o">=&lt;/span>%&lt;span class="o">{&lt;/span>T1&lt;span class="o">}&lt;/span>%&lt;span class="o">{&lt;/span>T-&lt;span class="o">}&lt;/span> %&lt;span class="o">{&lt;/span>T2&lt;span class="o">}&lt;/span>%percentage_free%%%&lt;span class="o">{&lt;/span>T-&lt;span class="o">}&lt;/span>
+label-mounted-foreground &lt;span class="o">=&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">colors&lt;/span>&lt;span class="p">.cyan&lt;/span>&lt;span class="si">}&lt;/span>
+label-mounted-foreground &lt;span class="o">=&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">colors&lt;/span>&lt;span class="p">.cyan&lt;/span>&lt;span class="si">}&lt;/span>
+label-warn-foreground &lt;span class="o">=&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">colors&lt;/span>&lt;span class="p">.red&lt;/span>&lt;span class="si">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="亮度模块">亮度模块&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 启用滚动调节亮度功能&lt;/span>
+&lt;span class="c1"># 该目录下的子文件夹名称对应card名&lt;/span>
+ls -l /sys/class/backlight/
+&lt;span class="c1"># 手动调试&lt;/span>
+&lt;span class="nb">cd&lt;/span> /sys/class/backlight/intel_backlight
+ls -al
+&lt;span class="c1"># max就是最大亮度&lt;/span>
+sudo vim brightness
+&lt;span class="c1"># 添加权限 hxx改成你自己的用户组&lt;/span>
+sudo vim /etc/udev/rules.d/backlight.rules
+&lt;span class="o">====&lt;/span>
+&lt;span class="nv">ACTION&lt;/span>&lt;span class="o">==&lt;/span>&lt;span class="s2">&amp;#34;add&amp;#34;&lt;/span>, &lt;span class="nv">SUBSYSTEM&lt;/span>&lt;span class="o">==&lt;/span>&lt;span class="s2">&amp;#34;backlight&amp;#34;&lt;/span>, &lt;span class="nv">RUN&lt;/span>&lt;span class="o">+=&lt;/span>&lt;span class="s2">&amp;#34;/bin/chgrp hxx &lt;/span>&lt;span class="nv">$sys&lt;/span>&lt;span class="s2">/class/backlight/intel_backlight/brightness&amp;#34;&lt;/span>, &lt;span class="nv">RUN&lt;/span>&lt;span class="o">+=&lt;/span>&lt;span class="s2">&amp;#34;/bin/chmod g+w &lt;/span>&lt;span class="nv">$sys&lt;/span>&lt;span class="s2">/class/backlight/intel_backlight/brightness&amp;#34;&lt;/span>
+&lt;span class="o">====&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="音量模块">音量模块&lt;/h4>
+&lt;p>滚轮滑动调节音量，左键静音，右键打开配置面板&lt;/p>
+&lt;h3 id="sxhkd">sxhkd&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback"># 自动切换状态, 浮动和窗口模式, 类似的还有有全屏和窗口
+super + shift + space
+bspc node -t {tiled,floating}
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="全部配置">全部配置&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt"> 10
+&lt;/span>&lt;span class="lnt"> 11
+&lt;/span>&lt;span class="lnt"> 12
+&lt;/span>&lt;span class="lnt"> 13
+&lt;/span>&lt;span class="lnt"> 14
+&lt;/span>&lt;span class="lnt"> 15
+&lt;/span>&lt;span class="lnt"> 16
+&lt;/span>&lt;span class="lnt"> 17
+&lt;/span>&lt;span class="lnt"> 18
+&lt;/span>&lt;span class="lnt"> 19
+&lt;/span>&lt;span class="lnt"> 20
+&lt;/span>&lt;span class="lnt"> 21
+&lt;/span>&lt;span class="lnt"> 22
+&lt;/span>&lt;span class="lnt"> 23
+&lt;/span>&lt;span class="lnt"> 24
+&lt;/span>&lt;span class="lnt"> 25
+&lt;/span>&lt;span class="lnt"> 26
+&lt;/span>&lt;span class="lnt"> 27
+&lt;/span>&lt;span class="lnt"> 28
+&lt;/span>&lt;span class="lnt"> 29
+&lt;/span>&lt;span class="lnt"> 30
+&lt;/span>&lt;span class="lnt"> 31
+&lt;/span>&lt;span class="lnt"> 32
+&lt;/span>&lt;span class="lnt"> 33
+&lt;/span>&lt;span class="lnt"> 34
+&lt;/span>&lt;span class="lnt"> 35
+&lt;/span>&lt;span class="lnt"> 36
+&lt;/span>&lt;span class="lnt"> 37
+&lt;/span>&lt;span class="lnt"> 38
+&lt;/span>&lt;span class="lnt"> 39
+&lt;/span>&lt;span class="lnt"> 40
+&lt;/span>&lt;span class="lnt"> 41
+&lt;/span>&lt;span class="lnt"> 42
+&lt;/span>&lt;span class="lnt"> 43
+&lt;/span>&lt;span class="lnt"> 44
+&lt;/span>&lt;span class="lnt"> 45
+&lt;/span>&lt;span class="lnt"> 46
+&lt;/span>&lt;span class="lnt"> 47
+&lt;/span>&lt;span class="lnt"> 48
+&lt;/span>&lt;span class="lnt"> 49
+&lt;/span>&lt;span class="lnt"> 50
+&lt;/span>&lt;span class="lnt"> 51
+&lt;/span>&lt;span class="lnt"> 52
+&lt;/span>&lt;span class="lnt"> 53
+&lt;/span>&lt;span class="lnt"> 54
+&lt;/span>&lt;span class="lnt"> 55
+&lt;/span>&lt;span class="lnt"> 56
+&lt;/span>&lt;span class="lnt"> 57
+&lt;/span>&lt;span class="lnt"> 58
+&lt;/span>&lt;span class="lnt"> 59
+&lt;/span>&lt;span class="lnt"> 60
+&lt;/span>&lt;span class="lnt"> 61
+&lt;/span>&lt;span class="lnt"> 62
+&lt;/span>&lt;span class="lnt"> 63
+&lt;/span>&lt;span class="lnt"> 64
+&lt;/span>&lt;span class="lnt"> 65
+&lt;/span>&lt;span class="lnt"> 66
+&lt;/span>&lt;span class="lnt"> 67
+&lt;/span>&lt;span class="lnt"> 68
+&lt;/span>&lt;span class="lnt"> 69
+&lt;/span>&lt;span class="lnt"> 70
+&lt;/span>&lt;span class="lnt"> 71
+&lt;/span>&lt;span class="lnt"> 72
+&lt;/span>&lt;span class="lnt"> 73
+&lt;/span>&lt;span class="lnt"> 74
+&lt;/span>&lt;span class="lnt"> 75
+&lt;/span>&lt;span class="lnt"> 76
+&lt;/span>&lt;span class="lnt"> 77
+&lt;/span>&lt;span class="lnt"> 78
+&lt;/span>&lt;span class="lnt"> 79
+&lt;/span>&lt;span class="lnt"> 80
+&lt;/span>&lt;span class="lnt"> 81
+&lt;/span>&lt;span class="lnt"> 82
+&lt;/span>&lt;span class="lnt"> 83
+&lt;/span>&lt;span class="lnt"> 84
+&lt;/span>&lt;span class="lnt"> 85
+&lt;/span>&lt;span class="lnt"> 86
+&lt;/span>&lt;span class="lnt"> 87
+&lt;/span>&lt;span class="lnt"> 88
+&lt;/span>&lt;span class="lnt"> 89
+&lt;/span>&lt;span class="lnt"> 90
+&lt;/span>&lt;span class="lnt"> 91
+&lt;/span>&lt;span class="lnt"> 92
+&lt;/span>&lt;span class="lnt"> 93
+&lt;/span>&lt;span class="lnt"> 94
+&lt;/span>&lt;span class="lnt"> 95
+&lt;/span>&lt;span class="lnt"> 96
+&lt;/span>&lt;span class="lnt"> 97
+&lt;/span>&lt;span class="lnt"> 98
+&lt;/span>&lt;span class="lnt"> 99
+&lt;/span>&lt;span class="lnt">100
+&lt;/span>&lt;span class="lnt">101
+&lt;/span>&lt;span class="lnt">102
+&lt;/span>&lt;span class="lnt">103
+&lt;/span>&lt;span class="lnt">104
+&lt;/span>&lt;span class="lnt">105
+&lt;/span>&lt;span class="lnt">106
+&lt;/span>&lt;span class="lnt">107
+&lt;/span>&lt;span class="lnt">108
+&lt;/span>&lt;span class="lnt">109
+&lt;/span>&lt;span class="lnt">110
+&lt;/span>&lt;span class="lnt">111
+&lt;/span>&lt;span class="lnt">112
+&lt;/span>&lt;span class="lnt">113
+&lt;/span>&lt;span class="lnt">114
+&lt;/span>&lt;span class="lnt">115
+&lt;/span>&lt;span class="lnt">116
+&lt;/span>&lt;span class="lnt">117
+&lt;/span>&lt;span class="lnt">118
+&lt;/span>&lt;span class="lnt">119
+&lt;/span>&lt;span class="lnt">120
+&lt;/span>&lt;span class="lnt">121
+&lt;/span>&lt;span class="lnt">122
+&lt;/span>&lt;span class="lnt">123
+&lt;/span>&lt;span class="lnt">124
+&lt;/span>&lt;span class="lnt">125
+&lt;/span>&lt;span class="lnt">126
+&lt;/span>&lt;span class="lnt">127
+&lt;/span>&lt;span class="lnt">128
+&lt;/span>&lt;span class="lnt">129
+&lt;/span>&lt;span class="lnt">130
+&lt;/span>&lt;span class="lnt">131
+&lt;/span>&lt;span class="lnt">132
+&lt;/span>&lt;span class="lnt">133
+&lt;/span>&lt;span class="lnt">134
+&lt;/span>&lt;span class="lnt">135
+&lt;/span>&lt;span class="lnt">136
+&lt;/span>&lt;span class="lnt">137
+&lt;/span>&lt;span class="lnt">138
+&lt;/span>&lt;span class="lnt">139
+&lt;/span>&lt;span class="lnt">140
+&lt;/span>&lt;span class="lnt">141
+&lt;/span>&lt;span class="lnt">142
+&lt;/span>&lt;span class="lnt">143
+&lt;/span>&lt;span class="lnt">144
+&lt;/span>&lt;span class="lnt">145
+&lt;/span>&lt;span class="lnt">146
+&lt;/span>&lt;span class="lnt">147
+&lt;/span>&lt;span class="lnt">148
+&lt;/span>&lt;span class="lnt">149
+&lt;/span>&lt;span class="lnt">150
+&lt;/span>&lt;span class="lnt">151
+&lt;/span>&lt;span class="lnt">152
+&lt;/span>&lt;span class="lnt">153
+&lt;/span>&lt;span class="lnt">154
+&lt;/span>&lt;span class="lnt">155
+&lt;/span>&lt;span class="lnt">156
+&lt;/span>&lt;span class="lnt">157
+&lt;/span>&lt;span class="lnt">158
+&lt;/span>&lt;span class="lnt">159
+&lt;/span>&lt;span class="lnt">160
+&lt;/span>&lt;span class="lnt">161
+&lt;/span>&lt;span class="lnt">162
+&lt;/span>&lt;span class="lnt">163
+&lt;/span>&lt;span class="lnt">164
+&lt;/span>&lt;span class="lnt">165
+&lt;/span>&lt;span class="lnt">166
+&lt;/span>&lt;span class="lnt">167
+&lt;/span>&lt;span class="lnt">168
+&lt;/span>&lt;span class="lnt">169
+&lt;/span>&lt;span class="lnt">170
+&lt;/span>&lt;span class="lnt">171
+&lt;/span>&lt;span class="lnt">172
+&lt;/span>&lt;span class="lnt">173
+&lt;/span>&lt;span class="lnt">174
+&lt;/span>&lt;span class="lnt">175
+&lt;/span>&lt;span class="lnt">176
+&lt;/span>&lt;span class="lnt">177
+&lt;/span>&lt;span class="lnt">178
+&lt;/span>&lt;span class="lnt">179
+&lt;/span>&lt;span class="lnt">180
+&lt;/span>&lt;span class="lnt">181
+&lt;/span>&lt;span class="lnt">182
+&lt;/span>&lt;span class="lnt">183
+&lt;/span>&lt;span class="lnt">184
+&lt;/span>&lt;span class="lnt">185
+&lt;/span>&lt;span class="lnt">186
+&lt;/span>&lt;span class="lnt">187
+&lt;/span>&lt;span class="lnt">188
+&lt;/span>&lt;span class="lnt">189
+&lt;/span>&lt;span class="lnt">190
+&lt;/span>&lt;span class="lnt">191
+&lt;/span>&lt;span class="lnt">192
+&lt;/span>&lt;span class="lnt">193
+&lt;/span>&lt;span class="lnt">194
+&lt;/span>&lt;span class="lnt">195
+&lt;/span>&lt;span class="lnt">196
+&lt;/span>&lt;span class="lnt">197
+&lt;/span>&lt;span class="lnt">198
+&lt;/span>&lt;span class="lnt">199
+&lt;/span>&lt;span class="lnt">200
+&lt;/span>&lt;span class="lnt">201
+&lt;/span>&lt;span class="lnt">202
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1">#&lt;/span>
+&lt;span class="c1"># wm independent hotkeys&lt;/span>
+&lt;span class="c1">#&lt;/span>
+&lt;span class="c1"># terminal emulator&lt;/span>
+super + Return
+xfce4-terminal
+&lt;span class="c1"># program launcher&lt;/span>
+super + d
+rofi -modi drun -show drun -line-padding &lt;span class="m">4&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;span class="se">&lt;/span> -columns &lt;span class="m">2&lt;/span> -padding &lt;span class="m">50&lt;/span> -hide-scrollbar -terminal xfce4-terminal &lt;span class="se">\
+&lt;/span>&lt;span class="se">&lt;/span> -show-icons -drun-icon-theme &lt;span class="s2">&amp;#34;Qogir-dark&amp;#34;&lt;/span> -font &lt;span class="s2">&amp;#34;Droid Sans Regular 14&amp;#34;&lt;/span>
+&lt;span class="c1"># show open window&lt;/span>
+alt + Tab
+rofi -modi drun -show window -line-padding &lt;span class="m">4&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;span class="se">&lt;/span> -columns &lt;span class="m">2&lt;/span> -padding &lt;span class="m">50&lt;/span> -hide-scrollbar -terminal xfce4-terminal &lt;span class="se">\
+&lt;/span>&lt;span class="se">&lt;/span> -show-icons -drun-icon-theme &lt;span class="s2">&amp;#34;Qogir-dark&amp;#34;&lt;/span> -font &lt;span class="s2">&amp;#34;Droid Sans Regular 14&amp;#34;&lt;/span>
+&lt;span class="c1"># show ssh sesssions&lt;/span>
+super + &lt;span class="nb">shift&lt;/span> + d
+rofi -modi drun -show ssh -line-padding &lt;span class="m">4&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;span class="se">&lt;/span> -columns &lt;span class="m">2&lt;/span> -padding &lt;span class="m">50&lt;/span> -hide-scrollbar -terminal xfce4-terminal &lt;span class="se">\
+&lt;/span>&lt;span class="se">&lt;/span> -show-icons -drun-icon-theme &lt;span class="s2">&amp;#34;Qogir-dark&amp;#34;&lt;/span> -font &lt;span class="s2">&amp;#34;Droid Sans Regular 14&amp;#34;&lt;/span>
+&lt;span class="c1"># power-menu &lt;/span>
+super + &lt;span class="nb">shift&lt;/span> + e
+~/.config/rofi/powermenu.sh
+&lt;span class="c1"># make sxhkd reload its configuration files:&lt;/span>
+super + Escape
+pkill -USR1 -x sxhkd
+&lt;span class="c1">#&lt;/span>
+&lt;span class="c1"># bspwm hotkeys&lt;/span>
+&lt;span class="c1">#&lt;/span>
+&lt;span class="c1"># quit/restart bspwm&lt;/span>
+super + alt + &lt;span class="o">{&lt;/span>q,r&lt;span class="o">}&lt;/span>
+bspc &lt;span class="o">{&lt;/span>quit,wm -r&lt;span class="o">}&lt;/span>
+&lt;span class="c1"># close and kill&lt;/span>
+super + &lt;span class="o">{&lt;/span>_,shift + &lt;span class="o">}&lt;/span>q
+bspc node -&lt;span class="o">{&lt;/span>c,k&lt;span class="o">}&lt;/span>
+&lt;span class="c1"># alternate between the tiled and monocle layout&lt;/span>
+super + m
+bspc desktop -l next
+&lt;span class="c1"># send the newest marked node to the newest preselected node&lt;/span>
+super + y
+bspc node newest.marked.local -n newest.!automatic.local
+&lt;span class="c1"># swap the current node and the biggest window&lt;/span>
+super + g
+bspc node -s biggest.window
+&lt;span class="c1">#&lt;/span>
+&lt;span class="c1"># state/flags&lt;/span>
+&lt;span class="c1">#&lt;/span>
+&lt;span class="c1"># set the window state&lt;/span>
+super + &lt;span class="o">{&lt;/span>t,shift + t&lt;span class="o">}&lt;/span>
+bspc node -t &lt;span class="o">{&lt;/span>tiled,pseudo_tiled&lt;span class="o">}&lt;/span>
+super + &lt;span class="nb">shift&lt;/span> + space
+bspc node -t &lt;span class="o">{&lt;/span>floating,tiled&lt;span class="o">}&lt;/span>
+super + f
+bspc node -t &lt;span class="o">{&lt;/span>fullscreen,tiled&lt;span class="o">}&lt;/span>
+&lt;span class="c1"># set the node flags&lt;/span>
+super + ctrl + &lt;span class="o">{&lt;/span>m,x,y,z&lt;span class="o">}&lt;/span>
+bspc node -g &lt;span class="o">{&lt;/span>marked,locked,sticky,private&lt;span class="o">}&lt;/span>
+&lt;span class="c1"># focus/swap&lt;/span>
+&lt;span class="c1">#&lt;/span>
+&lt;span class="c1"># focus the node in the given direction&lt;/span>
+super + &lt;span class="o">{&lt;/span>_,shift + &lt;span class="o">}{&lt;/span>h,j,k,l&lt;span class="o">}&lt;/span>
+bspc node -&lt;span class="o">{&lt;/span>f,s&lt;span class="o">}&lt;/span> &lt;span class="o">{&lt;/span>west,south,north,east&lt;span class="o">}&lt;/span>
+&lt;span class="c1"># focus the node for the given path jump&lt;/span>
+super + &lt;span class="o">{&lt;/span>p,b,comma,period&lt;span class="o">}&lt;/span>
+bspc node -f @&lt;span class="o">{&lt;/span>parent,brother,first,second&lt;span class="o">}&lt;/span>
+&lt;span class="c1"># focus the next/previous window in the current desktop&lt;/span>
+super + &lt;span class="o">{&lt;/span>_,shift + &lt;span class="o">}&lt;/span>c
+bspc node -f &lt;span class="o">{&lt;/span>next,prev&lt;span class="o">}&lt;/span>.local.!hidden.window
+&lt;span class="c1"># focus the next/previous desktop in the current monitor&lt;/span>
+super + bracket&lt;span class="o">{&lt;/span>left,right&lt;span class="o">}&lt;/span>
+bspc desktop -f &lt;span class="o">{&lt;/span>prev,next&lt;span class="o">}&lt;/span>.local
+&lt;span class="c1"># focus the last node/desktop&lt;/span>
+super + &lt;span class="o">{&lt;/span>grave,Tab&lt;span class="o">}&lt;/span>
+bspc &lt;span class="o">{&lt;/span>node,desktop&lt;span class="o">}&lt;/span> -f last
+&lt;span class="c1"># focus the older or newer node in the focus history&lt;/span>
+super + &lt;span class="o">{&lt;/span>o,i&lt;span class="o">}&lt;/span>
+bspc wm -h off&lt;span class="p">;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;span class="se">&lt;/span> bspc node &lt;span class="o">{&lt;/span>older,newer&lt;span class="o">}&lt;/span> -f&lt;span class="p">;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;span class="se">&lt;/span> bspc wm -h on
+&lt;span class="c1"># focus or send to the given desktop&lt;/span>
+super + &lt;span class="o">{&lt;/span>_,shift + &lt;span class="o">}{&lt;/span>1-9,0&lt;span class="o">}&lt;/span>
+bspc &lt;span class="o">{&lt;/span>desktop -f,node -d&lt;span class="o">}&lt;/span> &lt;span class="s1">&amp;#39;^{1-9,10}&amp;#39;&lt;/span>
+&lt;span class="c1">#&lt;/span>
+&lt;span class="c1"># preselect&lt;/span>
+&lt;span class="c1">#&lt;/span>
+&lt;span class="c1"># preselect the direction&lt;/span>
+super + ctrl + &lt;span class="o">{&lt;/span>h,j,k,l&lt;span class="o">}&lt;/span>
+bspc node -p &lt;span class="o">{&lt;/span>west,south,north,east&lt;span class="o">}&lt;/span>
+&lt;span class="c1"># preselect the ratio&lt;/span>
+super + ctrl + &lt;span class="o">{&lt;/span>1-9&lt;span class="o">}&lt;/span>
+bspc node -o 0.&lt;span class="o">{&lt;/span>1-9&lt;span class="o">}&lt;/span>
+&lt;span class="c1"># cancel the preselection for the focused node&lt;/span>
+super + ctrl + space
+bspc node -p cancel
+&lt;span class="c1"># cancel the preselection for the focused desktop&lt;/span>
+super + ctrl + &lt;span class="nb">shift&lt;/span> + space
+bspc query -N -d &lt;span class="p">|&lt;/span> xargs -I id -n &lt;span class="m">1&lt;/span> bspc node id -p cancel
+&lt;span class="c1">#&lt;/span>
+&lt;span class="c1"># move/resize&lt;/span>
+&lt;span class="c1">#&lt;/span>
+&lt;span class="c1"># expand a window by moving one of its side outward&lt;/span>
+super + alt + &lt;span class="o">{&lt;/span>h,j,k,l&lt;span class="o">}&lt;/span>
+bspc node -z &lt;span class="o">{&lt;/span>left -20 0,bottom &lt;span class="m">0&lt;/span> 20,top &lt;span class="m">0&lt;/span> -20,right &lt;span class="m">20&lt;/span> 0&lt;span class="o">}&lt;/span>
+&lt;span class="c1"># contract a window by moving one of its side inward&lt;/span>
+super + alt + &lt;span class="nb">shift&lt;/span> + &lt;span class="o">{&lt;/span>h,j,k,l&lt;span class="o">}&lt;/span>
+bspc node -z &lt;span class="o">{&lt;/span>right -20 0,top &lt;span class="m">0&lt;/span> 20,bottom &lt;span class="m">0&lt;/span> -20,left &lt;span class="m">20&lt;/span> 0&lt;span class="o">}&lt;/span>
+&lt;span class="c1"># move a floating window&lt;/span>
+super + &lt;span class="o">{&lt;/span>Left,Down,Up,Right&lt;span class="o">}&lt;/span>
+bspc node -v &lt;span class="o">{&lt;/span>-20 0,0 20,0 -20,20 0&lt;span class="o">}&lt;/span>
+&lt;span class="c1">#&lt;/span>
+&lt;span class="c1"># Special hotkeys&lt;/span>
+&lt;span class="c1">#&lt;/span>
+&lt;span class="c1"># Multimedia keys&lt;/span>
+XF86AudioRaiseVolume
+amixer -q &lt;span class="nb">set&lt;/span> Master 5%+ unmute
+&lt;span class="c1"># Still multimedia&lt;/span>
+XF86AudioLowerVolume
+amixer -q &lt;span class="nb">set&lt;/span> Master 5%- unmute
+&lt;span class="c1"># still&lt;/span>
+XF86AudioMute
+amixer -D pulse sset Master toggle-mute
+&lt;span class="c1"># amixer -q set Master toggle&lt;/span>
+&lt;span class="c1"># Simple amixer command seems to have problems unmuting device&lt;/span>
+&lt;span class="c1"># Brightness up&lt;/span>
+XF86MonBrightnessUp
+xbacklight -inc &lt;span class="m">5&lt;/span>
+&lt;span class="c1"># And brightness down&lt;/span>
+XF86MonBrightnessDown
+xbacklight -dec &lt;span class="m">5&lt;/span>
+&lt;span class="c1"># Screenshot&lt;/span>
+Print
+flameshot gui
+super + Print
+~/.config/bspwm/scripts/screenshot.sh
+&lt;span class="c1"># Shortcuts&lt;/span>
+super + s
+flameshot gui
+&lt;span class="c1"># clipbord&lt;/span>
+super + v
+copyq toggle
+super + alt + F1
+~/.config/bspwm/scripts/keybindings_rofi.sh
+&lt;span class="c1"># browser&lt;/span>
+super + F1
+google-chrome-stable
+&lt;span class="c1"># vscode &lt;/span>
+super + F2
+code
+&lt;span class="c1"># thunar&lt;/span>
+super + F3
+thunar
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="picom-非活动窗口透明度调整">picom 非活动窗口透明度调整&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">vim ~/.config/picom.conf
+&lt;span class="o">=====&lt;/span>
+inactive-opacity &lt;span class="o">=&lt;/span> 0.95&lt;span class="p">;&lt;/span>
+active-opacity &lt;span class="o">=&lt;/span> 1&lt;span class="p">;&lt;/span>
+&lt;span class="o">=====&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="按键映射cap_lock">按键映射(cap_lock)&lt;/h3>
+&lt;blockquote>
+&lt;p>把cap_lock单击映射为esc, 长按+hjkl 映射为方向键&lt;/p>
+&lt;/blockquote>
+&lt;p>使用&lt;code>xev&lt;/code> 获得&lt;code>keycode&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">yay -S xcape
+vim ~/.Xmodmap
+&lt;span class="o">======&lt;/span>
+keycode &lt;span class="nv">66&lt;/span> &lt;span class="o">=&lt;/span> Mode_switch
+keysym &lt;span class="nv">h&lt;/span> &lt;span class="o">=&lt;/span> h H Left
+keysym &lt;span class="nv">l&lt;/span> &lt;span class="o">=&lt;/span> l L Right
+keysym &lt;span class="nv">k&lt;/span> &lt;span class="o">=&lt;/span> k K Up
+keysym &lt;span class="nv">j&lt;/span> &lt;span class="o">=&lt;/span> j J &lt;span class="nv">Down&lt;/span>
+&lt;span class="o">======&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">vim config/autostart/keymap.desktop
+&lt;span class="o">========&lt;/span>
+&lt;span class="o">[&lt;/span>Desktop Entry&lt;span class="o">]&lt;/span>
+&lt;span class="nv">Version&lt;/span>&lt;span class="o">=&lt;/span>1.0
+&lt;span class="nv">Type&lt;/span>&lt;span class="o">=&lt;/span>Application
+&lt;span class="nv">Name&lt;/span>&lt;span class="o">=&lt;/span>keymap
+&lt;span class="nv">Encoding&lt;/span>&lt;span class="o">=&lt;/span>UTF-8
+&lt;span class="nv">Exec&lt;/span>&lt;span class="o">=&lt;/span>/bin/bash -c &lt;span class="s2">&amp;#34;/usr/bin/xmodmap ~/.Xmodmap; xcape -e &amp;#39;Mode_switch=Escape&amp;#39;&amp;#34;&lt;/span>
+&lt;span class="nv">Icon&lt;/span>&lt;span class="o">=&lt;/span>application-default-icon
+&lt;span class="nv">Hidden&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="nb">false&lt;/span>
+X-GNOME-Autostart-enabled&lt;span class="o">=&lt;/span>&lt;span class="nb">true&lt;/span>
+&lt;span class="o">======&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="查看窗口class">查看窗口class&lt;/h3>
+&lt;p>安装 &lt;code>xorg-xprop&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">xprop &lt;span class="c1"># 把光标移到窗口上&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="查看键盘按键对应符号">查看键盘按键对应符号&lt;/h3>
+&lt;p>给sxhkd使用&lt;/p>
+&lt;p>安装&lt;code>xorg-xev&lt;/code>, 终端输入&lt;code>xev&lt;/code>启动&lt;/p>
+&lt;h3 id="i3lock-失败锁定的次数">i3lock 失败锁定的次数&lt;/h3>
+&lt;p>&lt;a class="link" href="https://wiki.archlinux.org/title/security#Lock_out_user_after_three_failed_login_attempts" target="_blank" rel="noopener"
+>pam&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">/etc/security/faillock.conf. 锁定参数：
+unlock_time— 锁定时间（以秒为单位，默认为 &lt;span class="m">10&lt;/span> 分钟）。
+fail_interval— 登录失败可能导致锁定的时间（以秒为单位，默认为 &lt;span class="m">15&lt;/span> 分钟）。
+deny— 锁定前登录失败的次数（默认 3）。
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="neofetch-修改logo">neofetch 修改logo&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">vim ~/.bashrc
+&lt;span class="nb">alias&lt;/span> &lt;span class="nv">neofetch&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;neofetch --ascii_distro arch --disable distro&amp;#34;&lt;/span>
+&lt;span class="nb">source&lt;/span> ~/.bashrc
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="wm桌面高分辨率下设置缩放">wm桌面高分辨率下设置缩放&lt;/h3>
+&lt;p>资料&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;a href="https://forum.endeavouros.com/t/xresources-and-scaling/21458/3">https://forum.endeavouros.com/t/xresources-and-scaling/21458/3&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://dougie.io/linux/hidpi-retina-i3wm/">https://dougie.io/linux/hidpi-retina-i3wm/&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://forum.endeavouros.com/t/ten-tweaks-for-eos-i3-wm-on-lenovo-with-high-dpi/10363">https://forum.endeavouros.com/t/ten-tweaks-for-eos-i3-wm-on-lenovo-with-high-dpi/10363&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;p>1.&lt;a class="link" href="https://wiki.archlinux.org/title/HiDPI#X_Resources" target="_blank" rel="noopener"
+>X Resources设置&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">vim ~/.Xresources
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">Xft.dpi: &lt;span class="m">110&lt;/span>
+URxvt.font: xft:NotoSans-Regular:size&lt;span class="o">=&lt;/span>&lt;span class="m">14&lt;/span>
+Xft.autohint: &lt;span class="m">1&lt;/span>
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintfull
+Xft.hinting: &lt;span class="m">1&lt;/span>
+Xft.antialias: &lt;span class="m">1&lt;/span>
+Xft.rgba: rgb
+Xcursor.size: &lt;span class="m">32&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>修改第一行的dpi和第二行的字体&lt;/p>
+&lt;p>dpi 96的时候是100%&lt;/p>
+&lt;ol start="2">
+&lt;li>&lt;a class="link" href="https://wiki.archlinux.org/title/HiDPI#:~:text=QT_FONT_DPI%3D96%20clementine-,GDK%203%20%28GTK%203%29,-Note%3A%20As" target="_blank" rel="noopener"
+>gtk3设置&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">vim ~/.profile
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nb">export&lt;/span> &lt;span class="nv">GDK_SCALE&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">1&lt;/span>
+&lt;span class="nb">export&lt;/span> &lt;span class="nv">GDK_DPI_SCALE&lt;/span>&lt;span class="o">=&lt;/span>1.2
+&lt;span class="nb">export&lt;/span> &lt;span class="nv">QT_AUTO_SCREEN_SCALE_FACTOR&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">1&lt;/span>
+&lt;span class="nb">export&lt;/span> &lt;span class="nv">QT_AUTO_SCREEN_SET_FACTOR&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">1&lt;/span>
+&lt;span class="nb">export&lt;/span> &lt;span class="nv">QT_QPA_PLATFORMTHEME&lt;/span>&lt;span class="o">=&lt;/span>qt5ct
+&lt;span class="nb">export&lt;/span> &lt;span class="nv">QT_SCALE_FACTOR&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">1&lt;/span>
+&lt;span class="nb">export&lt;/span> &lt;span class="nv">QT_FONT_DPI&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">120&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>第一个是把界面放大，第二个是把文字缩回去&lt;/p>
+&lt;ol start="3">
+&lt;li>生效需要&lt;code>xrdb ~/.Xresources&lt;/code>, 并且重启&lt;/li>
+&lt;/ol>
+&lt;h3 id="rofi字体大小">rofi字体大小&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">rofi --help
+vim ~/.config/rofi/config.rasi
+vim ~/.config/rofi/powermenu.rasi
+&lt;span class="o">===========&lt;/span>
+configuration &lt;span class="o">{&lt;/span>
+font: &lt;span class="s2">&amp;#34;Sourcecode Pro Regular 26&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>
+window &lt;span class="o">{&lt;/span>
+width: 260px&lt;span class="p">;&lt;/span>
+&lt;span class="o">===========&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>通过sxhkd启动的rofi 窗口, 需要改sxhkd文件, 字体可能通过参数传递过去的&lt;/p>
+&lt;h3 id="rofi透明度改为不透明">rofi透明度改为不透明&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">vim ~/.config/picom.conf
+&lt;span class="c1"># 添加规则&lt;/span>
+opacity-rule &lt;span class="o">=&lt;/span> &lt;span class="o">[&lt;/span>&lt;span class="s2">&amp;#34;100:class_g = &amp;#39;Rofi&amp;#39;&amp;#34;&lt;/span>&lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="c1"># 修改rofi的皮肤&lt;/span>
+&lt;span class="c1"># endeavouros 带了一个皮肤 arc_dark_transparent_colors.rasi&lt;/span>
+&lt;span class="c1"># 把除了 background-color 的透明度为0， 其他项都改为100%&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="grub分辨率">grub分辨率&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">sudo vim /etc/default/grub
+&lt;span class="o">=============&lt;/span>
+&lt;span class="c1"># 上面两条是自动加载上次内核, 没有安装多个内核的不用管&lt;/span>
+&lt;span class="nv">GRUB_GFXMODE&lt;/span>&lt;span class="o">=&lt;/span>1360x768x32,auto
+&lt;span class="o">=============&lt;/span>
+grub-mkconfig -o /boot/grub/grub.cfg
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="grub启动项">grub启动项&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 检查内核&lt;/span>
+uname -r
+&lt;span class="c1"># 多个内核设置&lt;/span>
+sudo vim /etc/default/grub
+&lt;span class="o">==================&lt;/span>
+&lt;span class="nv">GRUB_DEFAULT&lt;/span>&lt;span class="o">=&lt;/span>saved
+&lt;span class="nv">GRUB_SAVEDEFAULT&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;true&amp;#34;&lt;/span>
+&lt;span class="nv">GRUB_TIMEOUT&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">2&lt;/span> &lt;span class="c1"># 倒计时&lt;/span>
+&lt;span class="nv">GRUB_DISABLE_SUBMENU&lt;/span>&lt;span class="o">=&lt;/span>y
+&lt;span class="nv">GRUB_TIMEOUT_STYLE&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;hidden&amp;#39;&lt;/span>
+&lt;span class="c1"># 设成menu倒计时就不生效了&lt;/span>
+&lt;span class="o">====================&lt;/span>
+grub-mkconfig -o /boot/grub/grub.cfg
+reboot
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="grub主题">grub主题&lt;/h3>
+&lt;p>&lt;a class="link" href="https://github.com/vinceliuice/grub2-themes" target="_blank" rel="noopener"
+>tela&lt;/a>&lt;/p>
+&lt;h3 id="清理垃圾">清理垃圾&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">sudo journalctl --disk-usage &lt;span class="c1">#查看日志大小&lt;/span>
+sudo journalctl --vacuum-time&lt;span class="o">=&lt;/span>5d &lt;span class="c1">#超过5天的自动删除&lt;/span>
+sudo journalctl --vacuum-size&lt;span class="o">=&lt;/span>500M &lt;span class="c1">#超过500M的自动删除&lt;/span>
+sudo rm /var/lib/systemd/coredump/* &lt;span class="c1">#崩溃日志，文件不多，也不大，删不删随你&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="feh图片查看器">feh图片查看器&lt;/h3>
+&lt;p>&lt;a class="link" href="https://man.finalrewind.org/1/feh" target="_blank" rel="noopener"
+>快捷键&lt;/a>&lt;/p>
+&lt;p>上下： 缩放&lt;/p>
+&lt;p>左右： 上一张下一张&lt;/p>
+&lt;p>/: 图片适应窗口&lt;/p>
+&lt;p>d: 显示文件名&lt;/p>
+&lt;p>m：显示菜单&lt;/p>
+&lt;p>o: 显示/隐藏鼠标&lt;/p>
+&lt;p>q: 退出&lt;/p>
+&lt;p>x: 关闭&lt;/p>
+&lt;p>默认配置文件&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">vim ~/.config/feh/themes
+feh --scale-down --auto-zom -d --start-at
+&lt;span class="c1"># feh在窗口管理器中有bug, 第一次缩放不正常，按r刷新后正常&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>建议用&lt;code>gpicview &lt;/code>， 同样很轻量&lt;/p>
+&lt;h3 id="设置默认浏览器">设置默认浏览器&lt;/h3>
+&lt;blockquote>
+&lt;p>~/.config/mimeapps.list&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="o">[&lt;/span>Default Applications&lt;span class="o">]&lt;/span>
+text/html&lt;span class="o">=&lt;/span>google-chrome.desktop
+x-scheme-handler/http&lt;span class="o">=&lt;/span>google-chrome.desktop
+x-scheme-handler/https&lt;span class="o">=&lt;/span>google-chrome.desktop
+x-scheme-handler/about&lt;span class="o">=&lt;/span>google-chrome.desktop
+x-scheme-handler/unknown&lt;span class="o">=&lt;/span>google-chrome.desktop
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="笔记本扬声器没有声音">笔记本扬声器没有声音&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 取消静音通道&lt;/span>
+&lt;span class="c1"># 默认情况下，ALSA 将所有通道静音，所有这些都需要手动取消静音。这可以使用 amixer 来完成&lt;/span>
+amixer sset Master unmute
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="亮度">亮度&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 使用light 或者 xbacklight&lt;/span>
+&lt;span class="nv">xbacklight&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="m">80&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="代理">代理&lt;/h2>
+&lt;h3 id="shell-clash推荐">shell-clash(推荐)&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 安装&lt;/span>
+&lt;span class="c1"># 查看服务&lt;/span>
+systemctl status clash
+&lt;span class="c1"># 安装路径&lt;/span>
+&lt;span class="nb">cd&lt;/span> /usr/share/clash
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="全部超时但log不报错">全部超时，但log不报错&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 其他设备可以，但就一台电脑全部超时，可能是时间不对&lt;/span>
+&lt;span class="c1"># 查看时间&lt;/span>
+date
+&lt;span class="c1"># 查看时区&lt;/span>
+date +“%Z %z”
+&lt;span class="c1"># 输出UTC +0800 才是东八区&lt;/span>
+&lt;span class="c1"># 设置时区&lt;/span>
+&lt;span class="c1"># 在 /etc/profile末尾添加&lt;/span>
+&lt;span class="nb">export&lt;/span> &lt;span class="nv">TZ&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;Asia/Shanghai&amp;#39;&lt;/span>
+&lt;span class="c1"># 然后执行&lt;/span>
+&lt;span class="nb">source&lt;/span> /etc/profile
+&lt;span class="c1"># 再次查看时区&lt;/span>
+&lt;span class="c1">#　通过ntp同步网络时间&lt;/span>
+sudo ntpdate cn.pool.ntp.org
+&lt;span class="c1"># 设置开机同步&lt;/span>
+sudo systemctl &lt;span class="nb">enable&lt;/span> ntpd.service
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="软件推荐">软件推荐&lt;/h2>
+&lt;h3 id="开发类">开发类&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>vscode&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>gvim&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>typora-free/obsidian: markdown文本编辑器&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>xface4 terminal&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>zsh + zprezto+syntax-highlighting+autosuggestions+powerlevel10k&lt;/p>
+&lt;blockquote>
+&lt;p>先安装zsh&lt;/p>
+&lt;p>到 prezto 的github页面照文档安装&lt;/p>
+&lt;p>修改prezto配置文件, 修改主题名, 添加两个插件&lt;/p>
+&lt;p>p10k configure 对主题进行配置&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>notepadqq&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="效率类">效率类&lt;/h3>
+&lt;ul>
+&lt;li>fzf 模糊搜索&lt;/li>
+&lt;li>rofi 启动器&lt;/li>
+&lt;li>火焰截图&lt;/li>
+&lt;li>copyq 剪切板管理&lt;/li>
+&lt;li>ranger 终端里的文件管理器&lt;/li>
+&lt;li>ybohu 支持tmux的可分屏终端&lt;/li>
+&lt;li>meld 文件对比&lt;/li>
+&lt;li>xdm/Motrix 下载器&lt;/li>
+&lt;li>peek录制动态图片&lt;/li>
+&lt;li>stacer 清理软件/服务启动项管理/host编辑&lt;/li>
+&lt;li>peazip 解压软件 banzip&lt;/li>
+&lt;li>wechat-uos&lt;/li>
+&lt;li>ristretto/gpicview 图片查看&lt;/li>
+&lt;/ul>
+&lt;h3 id="娱乐生活类">娱乐生活类&lt;/h3>
+&lt;ul>
+&lt;li>yesplaymusic 网易云第三方&lt;/li>
+&lt;li>listen1 音乐聚合&lt;/li>
+&lt;li>Audacious 类似foobar的本地音乐播放器&lt;/li>
+&lt;li>wps: 参考wiki, 装国外版, 装中文字体&lt;/li>
+&lt;li>mpv&lt;/li>
+&lt;li>kdenlive/openshot 剪视频&lt;/li>
+&lt;li>kazam 简单录屏&lt;/li>
+&lt;/ul>
+&lt;h3 id="cli工具类">cli/工具类&lt;/h3>
+&lt;ul>
+&lt;li>htop: top的快捷键版&lt;/li>
+&lt;li>xfce电源管理&lt;/li>
+&lt;li>ARandR 分辨率设置&lt;/li>
+&lt;li>picom 透明度渲染合成&lt;/li>
+&lt;li>nitrogen 壁纸&lt;/li>
+&lt;li>timeshift 系统备份&lt;/li>
+&lt;li>byohu screen和tmux的包装器, 快捷键友好&lt;/li>
+&lt;li>neofetch 显示系统信息&lt;/li>
+&lt;li>balenaEtcher 烧录写盘&lt;/li>
+&lt;li>catfusg 全局文件搜索&lt;/li>
+&lt;li>journalctl 实时查看日志&lt;/li>
+&lt;li>geeqie/gwenview 图片查看&lt;/li>
+&lt;li>gparted 分区工具&lt;/li>
+&lt;li>stacer： 垃圾清理&lt;/li>
+&lt;/ul></description></item></channel></rss>
