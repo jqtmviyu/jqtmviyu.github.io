@@ -1,4 +1,72 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>vscode on Jqtmviyu's Blog</title><link>/tags/vscode/</link><description>Recent content in vscode on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 22 Jan 2023 00:35:35 +0800</lastBuildDate><atom:link href="/tags/vscode/index.xml" rel="self" type="application/rss+xml"/><item><title>Vscode 等宽字体</title><link>/p/vscode_mono_font/</link><pubDate>Sun, 22 Jan 2023 00:35:35 +0800</pubDate><guid>/p/vscode_mono_font/</guid><description>&lt;h1 id="vscode等宽字体选择更纱黑体">vscode等宽字体选择:更纱黑体&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>vscode on Jqtmviyu's Blog</title><link>/tags/vscode/</link><description>Recent content in vscode on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 22 Jan 2023 00:48:41 +0800</lastBuildDate><atom:link href="/tags/vscode/index.xml" rel="self" type="application/rss+xml"/><item><title>Vscode Remote记住密码</title><link>/p/vscode_remote_rember_password/</link><pubDate>Sun, 22 Jan 2023 00:48:41 +0800</pubDate><guid>/p/vscode_remote_rember_password/</guid><description>&lt;h1 id="linux-ssh-remote到mac记住密码">linux ssh remote到mac记住密码&lt;/h1>
+&lt;ol>
+&lt;li>
+&lt;p>在linux上生成ssh-keygen&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nb">cd&lt;/span> ~/.ssh
+ssh-kengen -t rsa -f ./mac_id_rsa
+&lt;span class="c1"># man ssh-keygen&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>修改&lt;code>config&lt;/code>文件&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">vim config
+&lt;span class="c1"># 添加以下内容&lt;/span>
+Host mac
+HostName 你的mac的ip
+User 你的mac上的用户名
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/mac_id_rsa
+&lt;span class="nv">StrictHostKeyChecking&lt;/span>&lt;span class="o">=&lt;/span>no
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>把公钥&lt;code>mac_id_rsa.pub&lt;/code>复制到mac上, 同样放到&lt;code>~/.ssh&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>把公钥文件导入到&lt;code>~/.ssh/authorized_keys&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">cat mac_id_rsa.pub &amp;gt;&amp;gt; authorized_keys
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>注意事项:&lt;/p>
+&lt;ul>
+&lt;li>文件权限
+&lt;ul>
+&lt;li>&lt;code>config&lt;/code>: 600&lt;/li>
+&lt;li>&lt;code>私钥&lt;/code>: 600&lt;/li>
+&lt;li>&lt;code>公钥&lt;/code>: 644&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol></description></item><item><title>Vscode 等宽字体</title><link>/p/vscode_mono_font/</link><pubDate>Sun, 22 Jan 2023 00:35:35 +0800</pubDate><guid>/p/vscode_mono_font/</guid><description>&lt;h1 id="vscode等宽字体选择更纱黑体">vscode等宽字体选择:更纱黑体&lt;/h1>
 &lt;h2 id="下载链接">下载链接&lt;/h2>
 &lt;p>&lt;a class="link" href="https://github.com/be5invis/Sarasa-Gothic" target="_blank" rel="noopener"
 >GitHub - be5invis/Sarasa-Gothic: Sarasa Gothic / 更纱黑体 / 更紗黑體 / 更紗ゴシック / 사라사 고딕&lt;/a>&lt;/p>
