@@ -1,4 +1,28 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>linux on Jqtmviyu's Blog</title><link>/tags/linux/</link><description>Recent content in linux on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 20 Jan 2023 11:36:40 +0800</lastBuildDate><atom:link href="/tags/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>Arch桌面安装(endeavouros)</title><link>/p/endeavouros_bspwm_install/</link><pubDate>Fri, 20 Jan 2023 11:36:40 +0800</pubDate><guid>/p/endeavouros_bspwm_install/</guid><description>&lt;h1 id="arch">arch&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>linux on Jqtmviyu's Blog</title><link>/tags/linux/</link><description>Recent content in linux on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 22 Jan 2023 00:41:45 +0800</lastBuildDate><atom:link href="/tags/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>Arch安装deb包</title><link>/p/arch_install_debbian_package/</link><pubDate>Sun, 22 Jan 2023 00:41:45 +0800</pubDate><guid>/p/arch_install_debbian_package/</guid><description>&lt;h1 id="arch安装deb包">arch安装deb包&lt;/h1>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1">#　安装debtap&lt;/span>
+yay -S debtap
+&lt;span class="c1"># 更新debtap数据库&lt;/span>
+sudo debtap -u
+&lt;span class="c1"># 使用debtap转换deb包&lt;/span>
+debtap xxx.deb
+&lt;span class="c1"># 安装&lt;/span>
+sudo pacman -U xxx.pkg
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="转typora免费版098失败">转typora免费版0.9.8失败&lt;/h2>
+&lt;p>&lt;code>gir1.2-gnomekeyring-1.0&lt;/code>改为&lt;code>gnome-keyring&lt;/code>&lt;/p></description></item><item><title>Arch桌面安装(endeavouros)</title><link>/p/endeavouros_bspwm_install/</link><pubDate>Fri, 20 Jan 2023 11:36:40 +0800</pubDate><guid>/p/endeavouros_bspwm_install/</guid><description>&lt;h1 id="arch">arch&lt;/h1>
 &lt;p>直接装 &lt;a class="link" href="https://endeavouros.com/" target="_blank" rel="noopener"
 >endeavouros&lt;/a> , 省事， 官方提供了中国的镜像下载， 我修改软件源后选择的在线安装 bspwm社区版&lt;/p>
 &lt;p>ps: arcolinux建议不要用，官方的的网页又乱又杂， 教程全在youtube里，国内需要修改文件才能在线安装。endeavouros论坛里的教程很有用，还方便搜索。&lt;/p>
