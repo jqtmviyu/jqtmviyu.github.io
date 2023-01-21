@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>arch on Jqtmviyu's Blog</title><link>/tags/arch/</link><description>Recent content in arch on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 20 Jan 2023 11:36:40 +0800</lastBuildDate><atom:link href="/tags/arch/index.xml" rel="self" type="application/rss+xml"/><item><title>Arch_desktop(endeavouros)</title><link>/p/endeavouros_bspwm_install/</link><pubDate>Fri, 20 Jan 2023 11:36:40 +0800</pubDate><guid>/p/endeavouros_bspwm_install/</guid><description>&lt;h1 id="arch">arch&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>arch on Jqtmviyu's Blog</title><link>/tags/arch/</link><description>Recent content in arch on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 20 Jan 2023 11:36:40 +0800</lastBuildDate><atom:link href="/tags/arch/index.xml" rel="self" type="application/rss+xml"/><item><title>Arch桌面安装(endeavouros)</title><link>/p/endeavouros_bspwm_install/</link><pubDate>Fri, 20 Jan 2023 11:36:40 +0800</pubDate><guid>/p/endeavouros_bspwm_install/</guid><description>&lt;h1 id="arch">arch&lt;/h1>
 &lt;p>直接装 &lt;a class="link" href="https://endeavouros.com/" target="_blank" rel="noopener"
 >endeavouros&lt;/a> , 省事， 官方提供了中国的镜像下载， 我修改软件源后选择的在线安装 bspwm社区版&lt;/p>
 &lt;p>ps: arcolinux建议不要用，官方的的网页又乱又杂， 教程全在youtube里，国内需要修改文件才能在线安装。endeavouros论坛里的教程很有用，还方便搜索。&lt;/p>
@@ -378,11 +378,47 @@ vim ~/.config/fcitx5/conf/classicui.conf
 &lt;/div>
 &lt;/div>&lt;h2 id="桌面配置">桌面配置&lt;/h2>
 &lt;p>&lt;a class="link" href="https://github.com/jqtmviyu/my-bspwm-config" target="_blank" rel="noopener"
->bspwm, polybar个人配置文件&lt;/a>&lt;/p>
+>bspwm, polybar, sxhkd 个人配置文件&lt;/a>&lt;/p>
 &lt;h3 id="bspwm">bspwm&lt;/h3>
+&lt;p>配置文件参考：&lt;/p>
 &lt;p>配置文件参考：&lt;/p>
 &lt;p>&lt;a href="https://github.com/arcolinux/arcolinux-bspwm">https://github.com/arcolinux/arcolinux-bspwm&lt;/a>&lt;/p>
 &lt;p>&lt;a href="https://github.com/EndeavourOS-Community-Editions/bspwm">https://github.com/EndeavourOS-Community-Editions/bspwm&lt;/a>&lt;/p>
+&lt;p>教程参考:&lt;/p>
+&lt;p>&lt;a href="https://wiki.archlinux.org/title/Bspwm">https://wiki.archlinux.org/title/Bspwm&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://www.bilibili.com/read/cv7417123/">https://www.bilibili.com/read/cv7417123/&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://github.com/baskerville/bspwm/wiki">https://github.com/baskerville/bspwm/wiki&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://dev.to/l04db4l4nc3r/bspwm-a-bare-bones-window-manager-44di">https://dev.to/l04db4l4nc3r/bspwm-a-bare-bones-window-manager-44di&lt;/a>&lt;/p>
+&lt;h4 id="bspwm的开机启动项">bspwm的开机启动项&lt;/h4>
+&lt;p>&lt;code>/usr/share/xsessions/bspwm.desktop&lt;/code>&lt;/p>
+&lt;h4 id="获取类名">获取类名&lt;/h4>
+&lt;ol>
+&lt;li>
+&lt;p>安装&lt;a class="link" href="https://archlinux.org/packages/?name=xorg-xprop" target="_blank" rel="noopener"
+>xorg-xprop&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>xprop | grep WM_CLASS&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h4 id="窗口规则属性">窗口规则属性:&lt;/h4>
+&lt;ul>
+&lt;li>hidden - 隐藏且不占用任何平铺空间。&lt;/li>
+&lt;li>sticky - 停留在其监视器的聚焦桌面上。&lt;/li>
+&lt;li>private - 尝试保持相同的平铺位置/大小。&lt;/li>
+&lt;li>locked - 忽略node &amp;ndash;close消息。&lt;/li>
+&lt;li>marked - 已标记（对延迟操作有用）。标记的节点在发送到预选节点后变为未标记。&lt;/li>
+&lt;li>center - 中心窗口 if state=floating。&lt;/li>
+&lt;li>follow - 更改为窗口的监视器/桌面。&lt;/li>
+&lt;li>manage - 窗口被管理。非托管窗口不是树的一部分。&lt;/li>
+&lt;li>focus - 聚焦窗口。&lt;/li>
+&lt;li>border - 窗口边框的可见性。&lt;/li>
+&lt;/ul>
+&lt;h4 id="浮动窗口">浮动窗口&lt;/h4>
+&lt;p>移动: 按住super+鼠标左键&lt;/p>
+&lt;p>调整大小: 按住super+鼠标右键&lt;/p>
+&lt;h4 id="只有一个窗口时去掉间隙">只有一个窗口时去掉间隙&lt;/h4>
+&lt;p>&lt;code>bspc config single_monocle true&lt;/code>&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1

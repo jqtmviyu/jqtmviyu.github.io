@@ -378,7 +378,7 @@ notInTheLast
 &lt;ul>
 &lt;li>自带的web播放器功能不错&lt;/li>
 &lt;li>只要手机和pc在同个局域网下, 就能共享资源(可通过n2n组网)&lt;/li>
-&lt;/ul></description></item><item><title>Sublime4 Integrate terminal zsh</title><link>/p/sublime4_integrated_terminal/</link><pubDate>Fri, 06 Jan 2023 03:14:40 +0800</pubDate><guid>/p/sublime4_integrated_terminal/</guid><description>&lt;h1 id="sublime4集成终端zsh">sublime4集成终端zsh&lt;/h1>
+&lt;/ul></description></item><item><title>sublime4集成终端zsh</title><link>/p/sublime4_integrated_terminal/</link><pubDate>Fri, 06 Jan 2023 03:14:40 +0800</pubDate><guid>/p/sublime4_integrated_terminal/</guid><description>&lt;h1 id="sublime4集成终端zsh">sublime4集成终端zsh&lt;/h1>
 &lt;p>&lt;a href="https://stackoverflow.com/questions/31439023/sublime-text-3-has-integrated-terminal">https://stackoverflow.com/questions/31439023/sublime-text-3-has-integrated-terminal&lt;/a>&lt;/p>
 &lt;h2 id="terminus">Terminus&lt;/h2>
 &lt;p>&lt;a href="https://github.com/randy3k/Terminus#user-key-bindings">https://github.com/randy3k/Terminus#user-key-bindings&lt;/a>&lt;/p>

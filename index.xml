@@ -1,4 +1,106 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jqtmviyu's Blog</title><link>/</link><description>Recent content on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 20 Jan 2023 11:36:40 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>Arch_desktop(endeavouros)</title><link>/p/endeavouros_bspwm_install/</link><pubDate>Fri, 20 Jan 2023 11:36:40 +0800</pubDate><guid>/p/endeavouros_bspwm_install/</guid><description>&lt;h1 id="arch">arch&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jqtmviyu's Blog</title><link>/</link><description>Recent content on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 21 Jan 2023 19:14:54 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>bspwm添加全部浮动的空间</title><link>/p/bspwm_floating_space/</link><pubDate>Sat, 21 Jan 2023 19:14:54 +0800</pubDate><guid>/p/bspwm_floating_space/</guid><description>&lt;h1 id="bspwm添加全部浮动的空间">bspwm添加全部浮动的空间&lt;/h1>
+&lt;p>例如: 希望添加到第10号的空间全部都是浮动的&lt;/p>
+&lt;p>把下面的脚本添加进bspwmrc中&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="cp">#! /bin/bash
+&lt;/span>&lt;span class="cp">&lt;/span>
+&lt;span class="nv">FLOATING_DESKTOP_ID&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="k">$(&lt;/span>bspc query -D -d &lt;span class="s1">&amp;#39;^10&amp;#39;&lt;/span>&lt;span class="k">)&lt;/span>
+bspc subscribe node &lt;span class="p">|&lt;/span> &lt;span class="k">while&lt;/span> &lt;span class="nb">read&lt;/span> -a msg &lt;span class="p">;&lt;/span> &lt;span class="k">do&lt;/span>
+&lt;span class="nv">desk_id&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">msg&lt;/span>&lt;span class="p">[2]&lt;/span>&lt;span class="si">}&lt;/span>
+&lt;span class="nv">wid&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">msg&lt;/span>&lt;span class="p">[3]&lt;/span>&lt;span class="si">}&lt;/span>
+&lt;span class="o">[&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$FLOATING_DESKTOP_ID&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$desk_id&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="o">]&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> bspc node &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$wid&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> -t floating
+&lt;span class="k">done&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>arch 使用蓝牙</title><link>/p/arch_bluetooth/</link><pubDate>Sat, 21 Jan 2023 18:55:01 +0800</pubDate><guid>/p/arch_bluetooth/</guid><description>&lt;h1 id="arch-使用蓝牙">arch 使用蓝牙&lt;/h1>
+&lt;p>环境: endeavouros bspwm社区版&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 一般已经安装了&lt;/span>
+sudo pacman -S bluez bluez-utils
+sudo systemctl &lt;span class="nb">enable&lt;/span> bluetooth.service
+sudo systemctl start bluetooth.service
+&lt;span class="c1"># pulseaudio-bluetooth不用安装,有pipewire-pulse&lt;/span>
+&lt;span class="c1"># pavucontrol 音量图形化管理,一般已经安装了&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">systemctl start bluetooth
+systemctl &lt;span class="nb">enable&lt;/span> bluetooth
+systemctl start --user pipewire-pulse
+systemctl &lt;span class="nb">enable&lt;/span> --user pipewire-pulse
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>命令方式:(建议直接用blueman)&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">bluetoothctl &lt;span class="c1"># 进入蓝牙管理工具环境&lt;/span>
+&lt;span class="o">[&lt;/span>bluetooth&lt;span class="o">]&lt;/span>&lt;span class="c1"># power on 打开蓝牙&lt;/span>
+&lt;span class="o">[&lt;/span>bluetooth&lt;span class="o">]&lt;/span>&lt;span class="c1"># agent on 开启代理&lt;/span>
+&lt;span class="o">[&lt;/span>bluetooth&lt;span class="o">]&lt;/span>&lt;span class="c1"># scan on 扫描蓝牙设备&lt;/span>
+&lt;span class="o">[&lt;/span>bluetooth&lt;span class="o">]&lt;/span>&lt;span class="c1"># pair xx:xx:xx:... 配对该设备&lt;/span>
+&lt;span class="o">[&lt;/span>bluetooth&lt;span class="o">]&lt;/span>&lt;span class="c1"># trust xx:xx:xx:... 信任该设备&lt;/span>
+&lt;span class="o">[&lt;/span>bluetooth&lt;span class="o">]&lt;/span>&lt;span class="c1"># connect xx:xx:... 连接该设备&lt;/span>
+&lt;span class="o">[&lt;/span>bluetooth&lt;span class="o">]&lt;/span>&lt;span class="c1"># disconnect xx:xx:... 断开蓝牙&lt;/span>
+&lt;span class="o">[&lt;/span>bluetooth&lt;span class="o">]&lt;/span>&lt;span class="c1"># help 查看帮助信息&lt;/span>
+&lt;span class="o">[&lt;/span>bluetooth&lt;span class="o">]&lt;/span>&lt;span class="c1"># show 查看本机蓝牙信息&lt;/span>
+&lt;span class="o">[&lt;/span>bluetooth&lt;span class="o">]&lt;/span>&lt;span class="c1"># discoverable yes 设置蓝牙可被发现&lt;/span>
+&lt;span class="o">[&lt;/span>bluetooth&lt;span class="o">]&lt;/span>&lt;span class="c1"># info xx:xx:xx:... 查看该蓝牙设备的信息&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 安装图形管理界面&lt;/span>
+sudo pacman -S blueman
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Arch桌面安装(endeavouros)</title><link>/p/endeavouros_bspwm_install/</link><pubDate>Fri, 20 Jan 2023 11:36:40 +0800</pubDate><guid>/p/endeavouros_bspwm_install/</guid><description>&lt;h1 id="arch">arch&lt;/h1>
 &lt;p>直接装 &lt;a class="link" href="https://endeavouros.com/" target="_blank" rel="noopener"
 >endeavouros&lt;/a> , 省事， 官方提供了中国的镜像下载， 我修改软件源后选择的在线安装 bspwm社区版&lt;/p>
 &lt;p>ps: arcolinux建议不要用，官方的的网页又乱又杂， 教程全在youtube里，国内需要修改文件才能在线安装。endeavouros论坛里的教程很有用，还方便搜索。&lt;/p>
@@ -378,11 +480,47 @@ vim ~/.config/fcitx5/conf/classicui.conf
 &lt;/div>
 &lt;/div>&lt;h2 id="桌面配置">桌面配置&lt;/h2>
 &lt;p>&lt;a class="link" href="https://github.com/jqtmviyu/my-bspwm-config" target="_blank" rel="noopener"
->bspwm, polybar个人配置文件&lt;/a>&lt;/p>
+>bspwm, polybar, sxhkd 个人配置文件&lt;/a>&lt;/p>
 &lt;h3 id="bspwm">bspwm&lt;/h3>
+&lt;p>配置文件参考：&lt;/p>
 &lt;p>配置文件参考：&lt;/p>
 &lt;p>&lt;a href="https://github.com/arcolinux/arcolinux-bspwm">https://github.com/arcolinux/arcolinux-bspwm&lt;/a>&lt;/p>
 &lt;p>&lt;a href="https://github.com/EndeavourOS-Community-Editions/bspwm">https://github.com/EndeavourOS-Community-Editions/bspwm&lt;/a>&lt;/p>
+&lt;p>教程参考:&lt;/p>
+&lt;p>&lt;a href="https://wiki.archlinux.org/title/Bspwm">https://wiki.archlinux.org/title/Bspwm&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://www.bilibili.com/read/cv7417123/">https://www.bilibili.com/read/cv7417123/&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://github.com/baskerville/bspwm/wiki">https://github.com/baskerville/bspwm/wiki&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://dev.to/l04db4l4nc3r/bspwm-a-bare-bones-window-manager-44di">https://dev.to/l04db4l4nc3r/bspwm-a-bare-bones-window-manager-44di&lt;/a>&lt;/p>
+&lt;h4 id="bspwm的开机启动项">bspwm的开机启动项&lt;/h4>
+&lt;p>&lt;code>/usr/share/xsessions/bspwm.desktop&lt;/code>&lt;/p>
+&lt;h4 id="获取类名">获取类名&lt;/h4>
+&lt;ol>
+&lt;li>
+&lt;p>安装&lt;a class="link" href="https://archlinux.org/packages/?name=xorg-xprop" target="_blank" rel="noopener"
+>xorg-xprop&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>xprop | grep WM_CLASS&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h4 id="窗口规则属性">窗口规则属性:&lt;/h4>
+&lt;ul>
+&lt;li>hidden - 隐藏且不占用任何平铺空间。&lt;/li>
+&lt;li>sticky - 停留在其监视器的聚焦桌面上。&lt;/li>
+&lt;li>private - 尝试保持相同的平铺位置/大小。&lt;/li>
+&lt;li>locked - 忽略node &amp;ndash;close消息。&lt;/li>
+&lt;li>marked - 已标记（对延迟操作有用）。标记的节点在发送到预选节点后变为未标记。&lt;/li>
+&lt;li>center - 中心窗口 if state=floating。&lt;/li>
+&lt;li>follow - 更改为窗口的监视器/桌面。&lt;/li>
+&lt;li>manage - 窗口被管理。非托管窗口不是树的一部分。&lt;/li>
+&lt;li>focus - 聚焦窗口。&lt;/li>
+&lt;li>border - 窗口边框的可见性。&lt;/li>
+&lt;/ul>
+&lt;h4 id="浮动窗口">浮动窗口&lt;/h4>
+&lt;p>移动: 按住super+鼠标左键&lt;/p>
+&lt;p>调整大小: 按住super+鼠标右键&lt;/p>
+&lt;h4 id="只有一个窗口时去掉间隙">只有一个窗口时去掉间隙&lt;/h4>
+&lt;p>&lt;code>bspc config single_monocle true&lt;/code>&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
@@ -2066,7 +2204,7 @@ notInTheLast
 &lt;ul>
 &lt;li>自带的web播放器功能不错&lt;/li>
 &lt;li>只要手机和pc在同个局域网下, 就能共享资源(可通过n2n组网)&lt;/li>
-&lt;/ul></description></item><item><title>Sublime4 Integrate terminal zsh</title><link>/p/sublime4_integrated_terminal/</link><pubDate>Fri, 06 Jan 2023 03:14:40 +0800</pubDate><guid>/p/sublime4_integrated_terminal/</guid><description>&lt;h1 id="sublime4集成终端zsh">sublime4集成终端zsh&lt;/h1>
+&lt;/ul></description></item><item><title>sublime4集成终端zsh</title><link>/p/sublime4_integrated_terminal/</link><pubDate>Fri, 06 Jan 2023 03:14:40 +0800</pubDate><guid>/p/sublime4_integrated_terminal/</guid><description>&lt;h1 id="sublime4集成终端zsh">sublime4集成终端zsh&lt;/h1>
 &lt;p>&lt;a href="https://stackoverflow.com/questions/31439023/sublime-text-3-has-integrated-terminal">https://stackoverflow.com/questions/31439023/sublime-text-3-has-integrated-terminal&lt;/a>&lt;/p>
 &lt;h2 id="terminus">Terminus&lt;/h2>
 &lt;p>&lt;a href="https://github.com/randy3k/Terminus#user-key-bindings">https://github.com/randy3k/Terminus#user-key-bindings&lt;/a>&lt;/p>
