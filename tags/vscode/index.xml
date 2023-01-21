@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>vscode on Jqtmviyu's Blog</title><link>/tags/vscode/</link><description>Recent content in vscode on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 22 Jan 2023 00:35:35 +0800</lastBuildDate><atom:link href="/tags/vscode/index.xml" rel="self" type="application/rss+xml"/><item><title>Vscode 等宽字体</title><link>/p/vscode_mono_font/</link><pubDate>Sun, 22 Jan 2023 00:35:35 +0800</pubDate><guid>/p/vscode_mono_font/</guid><description>&lt;h1 id="vscode等宽字体选择更纱黑体">vscode等宽字体选择:更纱黑体&lt;/h1>
+&lt;h2 id="下载链接">下载链接&lt;/h2>
+&lt;p>&lt;a class="link" href="https://github.com/be5invis/Sarasa-Gothic" target="_blank" rel="noopener"
+>GitHub - be5invis/Sarasa-Gothic: Sarasa Gothic / 更纱黑体 / 更紗黑體 / 更紗ゴシック / 사라사 고딕&lt;/a>&lt;/p>
+&lt;h2 id="一般安装哪些字体">一般安装哪些字体&lt;/h2>
+&lt;p>一般下载微调字体(不带unhinted), 想部分安装就ttf, 选sc简体中文, 编程安装mono, 系统ui更改安装UI, 文章阅读安装gothic&lt;/p>
+&lt;h2 id="为什么选择中英文等宽">为什么选择中英文等宽&lt;/h2>
+&lt;p>两个英文符号宽度等于一个中文汉字宽度, 在编辑器或者终端里能很好地对齐&lt;/p>
+&lt;h2 id="releases里的版本说明">Releases里的版本说明&lt;/h2>
+&lt;h3 id="ttf和ttc">ttf和ttc&lt;/h3>
+&lt;ul>
+&lt;li>ttf－TrueType字体文件格式&lt;/li>
+&lt;li>ttc－TrueType字体集文件格式（更纱黑体按照字重进行分类，合并了相近ttf字体文件）&lt;/li>
+&lt;/ul>
+&lt;ul>
+&lt;li>
+&lt;p>下载哪个?&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>数量: ttf解压后几十个字体安装包, ttc下载解压后只有10个(安装后在字体管理里能看到所有字体)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>大小: ttf全部安装比ttc体积大, 但能选择部分安装&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>希望大而全的选ttc, 部分安装的选ttf&lt;/strong>&lt;/p>
+&lt;h3 id="unhinted">unhinted&lt;/h3>
+&lt;p>无微调字体&lt;/p>
+&lt;blockquote>
+&lt;p>字体微调（FontHinting）是一种字形渲染技术，主要用来对字体显示进行优化，解释起来可能复杂费解。简单说吧，它的主要目的就是在字体显示的时候通过某种技术，对字体的笔画曲线进行调整，将字体显示的更加美观。&lt;br>
+对linux来说，字体微调可以分为字体文件本身自带的微调和系统微调（freetype）。字体本身的微调是字体制作厂商在制作字体时，对单个字体进行的调整，在生成字体时将微调的信息加入字体文件中，这就是为什么我们看更纱黑体的微调字体比起无微调字体要大一些。系统微调就是依靠系统本身的字体渲染引擎对字体进行微调，在linux下主要是就是freetype。
+字体微调的直观效果就是，在字体显示时，字体的笔画更加清晰可辨。但是字体文件本身的微调，需要针对一个一个字体进行单独调整。&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>需要连字等效果的, 不要选无微调&lt;/strong>&lt;/p>
+&lt;h3 id="gothicmonotermuifixed">Gothic/mono/term/UI/fixed&lt;/h3>
+&lt;ul>
+&lt;li>拉丁/希腊/西里尔字符集为 Inter
+&lt;ul>
+&lt;li>引号 ( &lt;code>“”&lt;/code>) 为全角—— Gothic&lt;/li>
+&lt;li>引号 ( &lt;code>“”&lt;/code>) 窄—— UI&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>拉丁/希腊/西里尔字符集为 Iosevka
+&lt;ul>
+&lt;li>破折号（&lt;code>——&lt;/code>）是全宽—— Mono&lt;/li>
+&lt;li>破折号（&lt;code>——&lt;/code>）为半宽—— Term&lt;/li>
+&lt;li>不连字，破折号（&lt;code>——&lt;/code>）为半宽——fixed&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="clsctcjkhc">cl/sc/tc/jk/hc&lt;/h3>
+&lt;ul>
+&lt;li>cl－古典汉字字形&lt;/li>
+&lt;li>sc－简体汉字字形&lt;/li>
+&lt;li>tc－繁体汉字字形&lt;/li>
+&lt;li>j－日文汉字字形&lt;/li>
+&lt;li>k－韩文汉字字形&lt;/li>
+&lt;li>hc－香港汉字字形&lt;/li>
+&lt;/ul>
+&lt;h3 id="slab">slab&lt;/h3>
+&lt;p>超厚笔划字形&lt;/p>
+&lt;h3 id="regularitalicextralightlightsemiboldboldextralightitaliclightitalicsemibolditalicbolditalic">regular/italic/extralight/light/semibold/bold/extralightitalic/lightitalic/semibolditalic/bolditalic&lt;/h3>
+&lt;ul>
+&lt;li>regular－常规字体&lt;/li>
+&lt;li>italic－斜体字体&lt;/li>
+&lt;li>extralight－超细字体&lt;/li>
+&lt;li>light－细体字体&lt;/li>
+&lt;li>semibold－半粗字体&lt;/li>
+&lt;li>bold－粗体字体&lt;/li>
+&lt;li>extralightitalic－超细斜体&lt;/li>
+&lt;li>lightitalic－细斜字体&lt;/li>
+&lt;li>semibolditalic－半粗斜体&lt;/li>
+&lt;li>bolditalic－粗斜字体&lt;/li>
+&lt;/ul>
+&lt;h2 id="不喜欢更纱里的英文">不喜欢更纱里的英文?&lt;/h2>
+&lt;p>暂时只发现可以和 &lt;code>ubuntu mono&lt;/code>结合使用&lt;/p>
+&lt;h2 id="vscode设置">vscode设置&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="s2">&amp;#34;editor.fontLigatures&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="err">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">是否启用字体连字&lt;/span>
+&lt;span class="s2">&amp;#34;editor.fontFamily&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="s2">&amp;#34;Sarasa Mono SC Nerd,Sarasa Mono SC&amp;#34;&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="sarasa-mono-sc-nerd">Sarasa Mono SC Nerd&lt;/h3>
+&lt;blockquote>
+&lt;p>&lt;code>Nerd fonts&lt;/code> 提供了很多图标字体，特别适合各种Shell/NeoVim/Emacs主题，例如 zsh 的 &lt;a class="link" href="https://github.com/romkatv/powerlevel10k" target="_blank" rel="noopener"
+>&lt;code>p10k&lt;/code>&lt;/a>, &lt;a class="link" href="https://github.com/powerline/powerline" target="_blank" rel="noopener"
+>&lt;code>Powerline&lt;/code>&lt;/a> 等等。&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;a class="link" href="https://github.com/laishulu/Sarasa-Mono-SC-Nerd" target="_blank" rel="noopener"
+>GitHub - laishulu/Sarasa-Mono-SC-Nerd&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://github.com/ryanoasis/nerd-fonts" target="_blank" rel="noopener"
+>其他nerd-fonts&lt;/a>&lt;/p>
+&lt;h2 id="其他方案">其他方案&lt;/h2>
+&lt;ol>
+&lt;li>&lt;a class="link" href="https://github.com/adobe-fonts/source-han-sans" target="_blank" rel="noopener"
+>思源黑体hw&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://www.jetbrains.com/lp/mono/#intro" target="_blank" rel="noopener"
+>JetBrains Mono&lt;/a> 不支持中文等宽&lt;/li>
+&lt;li>&lt;a class="link" href="https://github.com/subframe7536/Maple-font" target="_blank" rel="noopener"
+>Maple-font&lt;/a> : 不喜欢花体不要装italic (推荐)&lt;/li>
+&lt;/ol></description></item></channel></rss>
