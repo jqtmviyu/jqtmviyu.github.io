@@ -159,6 +159,21 @@ sudo pacman -S gvim
 &lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">:w !sudo tee %
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
+&lt;/div>&lt;h3 id="配置同步">配置同步&lt;/h3>
+&lt;p>系统用户配置&lt;code>/etc/vimrc&lt;/code>&lt;/p>
+&lt;p>例如希望多用户配置相同, 或者系统管理员的配置和某个用户的相同: 使用软链接&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">sudo cp /etc/vimrc
+sudo rm -f /etc/vimrc
+sudo ln -s /home/hxx/.vimrc /etc/vimrc
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
 &lt;/div>&lt;h2 id="shell">shell&lt;/h2>
 &lt;h3 id="查看系统下的shell">查看系统下的shell&lt;/h3>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -1264,7 +1279,7 @@ keysym &lt;span class="nv">j&lt;/span> &lt;span class="o">=&lt;/span> j J &lt;sp
 &lt;/span>&lt;span class="lnt">12
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">vim config/autostart/keymap.desktop
+&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">vim ~/.config/autostart/keymap.desktop
 &lt;span class="o">========&lt;/span>
 &lt;span class="o">[&lt;/span>Desktop Entry&lt;span class="o">]&lt;/span>
 &lt;span class="nv">Version&lt;/span>&lt;span class="o">=&lt;/span>1.0
