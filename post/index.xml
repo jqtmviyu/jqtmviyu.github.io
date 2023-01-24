@@ -42,7 +42,7 @@ C --> D[(网络)]
 &lt;p>保护和隐藏原始资源服务器:&lt;/p>
 &lt;div class="mermaid">graph LR
 a(用户) --> b[(反向代理服务器)]
-subgraph
+subgraph identifier[" "]
 c[防火墙] --> d[(资源服务器)]
 end
 b--> c
@@ -66,7 +66,7 @@ g[(资源服务器)] --> f[(反向代理服务器F)] --> c(用户C)
 &lt;li>行为管理工具: 例如某信服&lt;/li>
 &lt;/ul>
 &lt;div class="mermaid">graph LR
-subgraph
+subgraph identifier[" "]
 a(用户A) --> c[交换机] --> d[(行为管理工具)]
 b(用户B) --> c[交换机]
 end
