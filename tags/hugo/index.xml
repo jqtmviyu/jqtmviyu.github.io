@@ -9,7 +9,7 @@
 &lt;p>原因：破坏性更新&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
 &lt;/span>&lt;span class="lnt"> 2
 &lt;/span>&lt;span class="lnt"> 3
 &lt;/span>&lt;span class="lnt"> 4
@@ -21,21 +21,25 @@
 &lt;/span>&lt;span class="lnt">10
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="nb">cd&lt;/span> themes/hugo-theme-stack/exampleSite/content
-git log --follow _index.md
-&lt;span class="o">====&lt;/span>
-commit 15d2040f7e4aaf9db8e4459137d146bb42b39bb6
-Author: Jimmy Cai &amp;lt;github@jimmycai.com&amp;gt;
-Date: Fri Mar &lt;span class="m">4&lt;/span> 08:46:27 &lt;span class="m">2022&lt;/span> +0000
-chore&lt;span class="o">(&lt;/span>exampleSite&lt;span class="o">)&lt;/span>: fix home menu item &lt;span class="nv">highlight&lt;/span>
-&lt;span class="o">====&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> themes/hugo-theme-stack/exampleSite/content
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git log --follow _index.md
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">====&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">commit 15d2040f7e4aaf9db8e4459137d146bb42b39bb6
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Author: Jimmy Cai &amp;lt;github@jimmycai.com&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Date: Fri Mar &lt;span class="m">4&lt;/span> 08:46:27 &lt;span class="m">2022&lt;/span> +0000
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> chore&lt;span class="o">(&lt;/span>exampleSite&lt;span class="o">)&lt;/span>: fix home menu item &lt;span class="nv">highlight&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">====&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;/li>
 &lt;/ul></description></item><item><title>使用netlify部署hugo注意事项</title><link>/p/netlify-and-hugo/</link><pubDate>Fri, 28 Feb 2020 00:00:00 +0000</pubDate><guid>/p/netlify-and-hugo/</guid><description>&lt;h1 id="nextlify部署hugo-blog">nextlify部署hugo blog&lt;/h1>
 &lt;p>参考：&lt;/p>
-&lt;p>hugo官方: &lt;a href="https://gohugo.io/hosting-and-deployment/hosting-on-netlify">https://gohugo.io/hosting-and-deployment/hosting-on-netlify&lt;/a>&lt;/p>
-&lt;p>nextlify官方: &lt;a href="https://docs.netlify.com/integrations/frameworks/hugo/">https://docs.netlify.com/integrations/frameworks/hugo/&lt;/a>&lt;/p>
+&lt;p>hugo官方: &lt;a class="link" href="https://gohugo.io/hosting-and-deployment/hosting-on-netlify" target="_blank" rel="noopener"
+>https://gohugo.io/hosting-and-deployment/hosting-on-netlify&lt;/a>&lt;/p>
+&lt;p>nextlify官方: &lt;a class="link" href="https://docs.netlify.com/integrations/frameworks/hugo/" target="_blank" rel="noopener"
+>https://docs.netlify.com/integrations/frameworks/hugo/&lt;/a>&lt;/p>
 &lt;h2 id="步骤">步骤&lt;/h2>
 &lt;ol>
 &lt;li>
@@ -51,7 +55,7 @@ chore&lt;span class="o">(&lt;/span>exampleSite&lt;span class="o">)&lt;/span>: fi
 &lt;p>在项目根目录下新建文件&lt;code>netlify.toml&lt;/code>&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
 &lt;/span>&lt;span class="lnt"> 2
 &lt;/span>&lt;span class="lnt"> 3
 &lt;/span>&lt;span class="lnt"> 4
@@ -83,29 +87,37 @@ chore&lt;span class="o">(&lt;/span>exampleSite&lt;span class="o">)&lt;/span>: fi
 &lt;/span>&lt;span class="lnt">30
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-toml" data-lang="toml">&lt;span class="p">[&lt;/span>&lt;span class="nx">build&lt;/span>&lt;span class="p">]&lt;/span>
-&lt;span class="nx">publish&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;public&amp;#34;&lt;/span>
-&lt;span class="nx">command&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;hugo --gc --minify&amp;#34;&lt;/span>
-&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">production&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">environment&lt;/span>&lt;span class="p">]&lt;/span>
-&lt;span class="nx">HUGO_VERSION&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;0.65.3&amp;#34;&lt;/span>
-&lt;span class="nx">HUGO_ENV&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;production&amp;#34;&lt;/span>
-&lt;span class="nx">HUGO_ENABLEGITINFO&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;true&amp;#34;&lt;/span>
-&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">split1&lt;/span>&lt;span class="p">]&lt;/span>
-&lt;span class="nx">command&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;hugo --gc --minify --enableGitInfo&amp;#34;&lt;/span>
-&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">split1&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">environment&lt;/span>&lt;span class="p">]&lt;/span>
-&lt;span class="nx">HUGO_VERSION&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;0.65.3&amp;#34;&lt;/span>
-&lt;span class="nx">HUGO_ENV&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;production&amp;#34;&lt;/span>
-&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">deploy&lt;/span>&lt;span class="err">-&lt;/span>&lt;span class="nx">preview&lt;/span>&lt;span class="p">]&lt;/span>
-&lt;span class="nx">command&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL&amp;#34;&lt;/span>
-&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">deploy&lt;/span>&lt;span class="err">-&lt;/span>&lt;span class="nx">preview&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">environment&lt;/span>&lt;span class="p">]&lt;/span>
-&lt;span class="nx">HUGO_VERSION&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;0.65.3&amp;#34;&lt;/span>
-&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">branch&lt;/span>&lt;span class="err">-&lt;/span>&lt;span class="nx">deploy&lt;/span>&lt;span class="p">]&lt;/span>
-&lt;span class="nx">command&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;hugo --gc --minify -b $DEPLOY_PRIME_URL&amp;#34;&lt;/span>
-&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">branch&lt;/span>&lt;span class="err">-&lt;/span>&lt;span class="nx">deploy&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">environment&lt;/span>&lt;span class="p">]&lt;/span>
-&lt;span class="nx">HUGO_VERSION&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;0.65.3&amp;#34;&lt;/span>
-&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">next&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">environment&lt;/span>&lt;span class="p">]&lt;/span>
-&lt;span class="nx">HUGO_ENABLEGITINFO&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;true&amp;#34;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-toml" data-lang="toml">&lt;span class="line">&lt;span class="cl">&lt;span class="p">[&lt;/span>&lt;span class="nx">build&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">publish&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;public&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">command&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;hugo --gc --minify&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">production&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">environment&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">HUGO_VERSION&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;0.65.3&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">HUGO_ENV&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;production&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">HUGO_ENABLEGITINFO&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;true&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">split1&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">command&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;hugo --gc --minify --enableGitInfo&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">split1&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">environment&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">HUGO_VERSION&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;0.65.3&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">HUGO_ENV&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;production&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">deploy-preview&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">command&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">deploy-preview&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">environment&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">HUGO_VERSION&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;0.65.3&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">branch-deploy&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">command&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;hugo --gc --minify -b $DEPLOY_PRIME_URL&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">branch-deploy&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">environment&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">HUGO_VERSION&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;0.65.3&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">[&lt;/span>&lt;span class="nx">context&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">next&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">environment&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">HUGO_ENABLEGITINFO&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;true&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;/li>
 &lt;li>
@@ -139,19 +151,19 @@ chore&lt;span class="o">(&lt;/span>exampleSite&lt;span class="o">)&lt;/span>: fi
 &lt;/ol>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;span class="lnt">4
 &lt;/span>&lt;span class="lnt">5
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">Production: master@HEAD Failed
-failed during stage &lt;span class="s1">&amp;#39;building site&amp;#39;&lt;/span>: Build script returned non-zero &lt;span class="nb">exit&lt;/span> code: &lt;span class="m">255&lt;/span>
-&lt;span class="c1"># 解决方法: stackoverflow上找到类似答案，需要修改Netlify控制台的环境变量与实际Hugo版本一致。&lt;/span>
-&lt;span class="c1"># 技术问题千万别用百度，垃圾csdn&lt;/span>
-&lt;span class="c1"># hugo -v&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">Production: master@HEAD Failed
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">failed during stage &lt;span class="s1">&amp;#39;building site&amp;#39;&lt;/span>: Build script returned non-zero &lt;span class="nb">exit&lt;/span> code: &lt;span class="m">255&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 解决方法: stackoverflow上找到类似答案，需要修改Netlify控制台的环境变量与实际Hugo版本一致。&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 技术问题千万别用百度，垃圾csdn&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># hugo -v&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>&lt;code>“setting”——“Build&amp;amp;deploy”——“Environment”——&amp;quot;Environment variables&amp;quot;——“Edit variables”，左边填“HUGO_VERSION”，右边填“v?.?.?”&lt;/code>。&lt;/p>
 &lt;p>注：版本号以实际为准&lt;/p>
@@ -160,13 +172,13 @@ failed during stage &lt;span class="s1">&amp;#39;building site&amp;#39;&lt;/span
 &lt;p>报错&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">The build image &lt;span class="k">for&lt;/span> this site uses Ubuntu 16.04 Xenial Xerus, which is no longer supported.
-&lt;span class="c1"># ubuntu 版本过低&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">The build image &lt;span class="k">for&lt;/span> this site uses Ubuntu 16.04 Xenial Xerus, which is no longer supported.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># ubuntu 版本过低&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>&lt;code>&amp;quot;Deploys&amp;quot;--&amp;quot;Delploy settings&amp;quot;--&amp;quot;Build image selection&amp;quot;--&amp;quot;Edit settings&amp;quot;--选最新的&lt;/code>&lt;/p>
 &lt;p>重新部署&lt;/p>
@@ -188,11 +200,11 @@ failed during stage &lt;span class="s1">&amp;#39;building site&amp;#39;&lt;/span
 &lt;p>SSH Key是一个认证，让github识别绑定这台机器，允许这台机器提交。执行如下命令：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">cd ~/. ssh
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">cd ~/. ssh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>~这个符号，表示在用户目录下
 执行代码如果提示：No such file or directory 说明你是第一次使用git。&lt;/p>
@@ -200,23 +212,23 @@ failed during stage &lt;span class="s1">&amp;#39;building site&amp;#39;&lt;/span
 &lt;p>在Git Bash执行代码：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">ssh-keygen -t rsa -C &amp;#34;你的邮箱@gmail.com&amp;#34;
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">ssh-keygen -t rsa -C &amp;#34;你的邮箱@gmail.com&amp;#34;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>注意：此处的&lt;code>-C&lt;/code>的是大写的。&lt;/p>
 &lt;p>然后系统会要求你输入密码（密码在后面每次提交都需要输入，嫌麻烦可以直接两次回车不设置）：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">Enter passphrase (empty for no passphrase):&amp;lt;输入加密串&amp;gt;
-Enter same passphrase again:&amp;lt;再次输入加密串&amp;gt;
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">Enter passphrase (empty for no passphrase):&amp;lt;输入加密串&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Enter same passphrase again:&amp;lt;再次输入加密串&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>在回车中会提示你输入一个密码，这个密码会在你提交项目时使用，如果为空的话提交项目时则不用输入。这个设置是防止别人往你的项目里提交内容。&lt;/p>
 &lt;ul>

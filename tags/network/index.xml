@@ -4,43 +4,44 @@
 >https://bugxia.com/2396.html&lt;/a>&lt;br>
 &lt;a class="link" href="https://www.jianshu.com/p/559c1e582724" target="_blank" rel="noopener"
 >https://www.jianshu.com/p/559c1e582724&lt;/a>&lt;br>
-&lt;a href="https://github.com/LomotHo/n2n-releases">https://github.com/LomotHo/n2n-releases&lt;/a>&lt;/p>
+&lt;a class="link" href="https://github.com/LomotHo/n2n-releases" target="_blank" rel="noopener"
+>https://github.com/LomotHo/n2n-releases&lt;/a>&lt;/p>
 &lt;h2 id="服务器安装">服务器安装&lt;/h2>
 &lt;ul>
 &lt;li>centos&lt;/li>
 &lt;/ul>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;span class="lnt">4
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># RPM安装&lt;/span>
-yum install libzstd -y
-wget https://github.com/ntop/n2n/releases/download/3.0/n2n-3.0.0-1038.x86_64.rpm
-rpm -i n2n-3.0.0-1038.x86_64.rpm
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># RPM安装&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">yum install libzstd -y
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">wget https://github.com/ntop/n2n/releases/download/3.0/n2n-3.0.0-1038.x86_64.rpm
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">rpm -i n2n-3.0.0-1038.x86_64.rpm
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h2 id="启动服务器">启动服务器&lt;/h2>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">启动服务端
-&lt;span class="c1">#实际使用时，可以去掉 -f 参数，使其后台运行&lt;/span>
-supernode -p 端口 -f
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">启动服务端
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#实际使用时，可以去掉 -f 参数，使其后台运行&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">supernode -p 端口 -f
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;ul>
 &lt;li>服务端（Supernode）附加参数
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
 &lt;/span>&lt;span class="lnt"> 2
 &lt;/span>&lt;span class="lnt"> 3
 &lt;/span>&lt;span class="lnt"> 4
@@ -52,17 +53,17 @@ supernode -p 端口 -f
 &lt;/span>&lt;span class="lnt">10
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">-p 端口 &lt;span class="p">|&lt;/span> Supernode监听端口，默认 &lt;span class="m">7654&lt;/span>
--F federation名称 &lt;span class="p">|&lt;/span> supernode federation名称，默认为 *Federation
--l 主机:端口 &lt;span class="p">|&lt;/span> 和 -F 配合，已知的一台Supernode地址和端口
--M &lt;span class="p">|&lt;/span> 关闭非用户名密码认证的群组的MAC和IP地址欺骗保护功能
--V 文本 &lt;span class="p">|&lt;/span> 自定义字符串（最长19位），用于在管理输出日志中展示
--c 组名称配置文件路径 &lt;span class="p">|&lt;/span> 该配置文件中包含允许使用的组名称
--a IP段 &lt;span class="p">|&lt;/span> 用于自动分配IP，格式如 -a 192.168.0.0-192.168.255.0/24
--t 端口 &lt;span class="p">|&lt;/span> 用于管理supernode
---management_password 文本 &lt;span class="p">|&lt;/span> 管理端的密码
--v &lt;span class="p">|&lt;/span> 输出更多日志
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">-p 端口 &lt;span class="p">|&lt;/span> Supernode监听端口，默认 &lt;span class="m">7654&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-F federation名称 &lt;span class="p">|&lt;/span> supernode federation名称，默认为 *Federation
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-l 主机:端口 &lt;span class="p">|&lt;/span> 和 -F 配合，已知的一台Supernode地址和端口
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-M &lt;span class="p">|&lt;/span> 关闭非用户名密码认证的群组的MAC和IP地址欺骗保护功能
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-V 文本 &lt;span class="p">|&lt;/span> 自定义字符串（最长19位），用于在管理输出日志中展示
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-c 组名称配置文件路径 &lt;span class="p">|&lt;/span> 该配置文件中包含允许使用的组名称
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-a IP段 &lt;span class="p">|&lt;/span> 用于自动分配IP，格式如 -a 192.168.0.0-192.168.255.0/24
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-t 端口 &lt;span class="p">|&lt;/span> 用于管理supernode
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--management_password 文本 &lt;span class="p">|&lt;/span> 管理端的密码
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-v &lt;span class="p">|&lt;/span> 输出更多日志
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;/li>
 &lt;/ul>
@@ -71,7 +72,7 @@ supernode -p 端口 -f
 &lt;p>设置开机启动&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
 &lt;/span>&lt;span class="lnt"> 2
 &lt;/span>&lt;span class="lnt"> 3
 &lt;/span>&lt;span class="lnt"> 4
@@ -87,21 +88,21 @@ supernode -p 端口 -f
 &lt;/span>&lt;span class="lnt">14
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 修改配置文件&lt;/span>
-sudo vim /etc/n2n/supernode.conf
-&lt;span class="o">====&lt;/span>
--p&lt;span class="o">=&lt;/span>端口
-&lt;span class="c1"># 服务端没有密码，为了避免被白嫖，添加组名称配置文件，一行一个&lt;/span>
--c&lt;span class="o">=&lt;/span>/home/n2n/community.list
-&lt;span class="o">====&lt;/span>
-sudo systemctl &lt;span class="nb">enable&lt;/span> supernode
-sudo systemctl start supernode
-sudo systemctl status supernode
-journalctl -f -u supernode
-&lt;span class="c1"># journalctl 查看日志&lt;/span>
-&lt;span class="c1"># -f 实时最新&lt;/span>
-&lt;span class="c1"># -u 指定服务&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 修改配置文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo vim /etc/n2n/supernode.conf
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">====&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-p&lt;span class="o">=&lt;/span>端口
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 服务端没有密码，为了避免被白嫖，添加组名称配置文件，一行一个&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-c&lt;span class="o">=&lt;/span>/home/n2n/community.list
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">====&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo systemctl &lt;span class="nb">enable&lt;/span> supernode
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo systemctl start supernode
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo systemctl status supernode
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">journalctl -f -u supernode
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># journalctl 查看日志&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># -f 实时最新&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># -u 指定服务&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;/li>
 &lt;/ul>
@@ -112,7 +113,7 @@ journalctl -f -u supernode
 &lt;/ul>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;span class="lnt">4
@@ -123,21 +124,21 @@ journalctl -f -u supernode
 &lt;/span>&lt;span class="lnt">9
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1">#firewalld &lt;/span>
-firewall-cmd --zone&lt;span class="o">=&lt;/span>public --add-port&lt;span class="o">=&lt;/span>9527/udp --permanent
-firewall-cmd --reload
-&lt;span class="c1">#iptables&lt;/span>
-iptables -I INPUT -p udp --dport &lt;span class="m">9527&lt;/span> -j ACCEPT
-service iptables save
-service iptables restart
-&lt;span class="c1">#ufw&lt;/span>
-ufw allow 9527/udp
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#firewalld &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">firewall-cmd --zone&lt;span class="o">=&lt;/span>public --add-port&lt;span class="o">=&lt;/span>9527/udp --permanent
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">firewall-cmd --reload
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#iptables&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">iptables -I INPUT -p udp --dport &lt;span class="m">9527&lt;/span> -j ACCEPT
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">service iptables save
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">service iptables restart
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#ufw&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ufw allow 9527/udp
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>centos7 默认是firewall&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;span class="lnt">4
@@ -147,29 +148,29 @@ ufw allow 9527/udp
 &lt;/span>&lt;span class="lnt">8
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 查看状态&lt;/span>
-systemctl status firewalld
-&lt;span class="c1"># 或者&lt;/span>
-firewall-cmd --state
-&lt;span class="c1">#　查看所有开放端口&lt;/span>
-firewall-cmd --zone&lt;span class="o">=&lt;/span>public --list-ports
-&lt;span class="c1"># 禁用端口&lt;/span>
-firewall-cmd --zone&lt;span class="o">=&lt;/span>public --remove-port&lt;span class="o">=&lt;/span>5672/tcp --permanent &lt;span class="c1">#关闭5672端口&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 查看状态&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">systemctl status firewalld
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 或者&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">firewall-cmd --state
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#　查看所有开放端口&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">firewall-cmd --zone&lt;span class="o">=&lt;/span>public --list-ports
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 禁用端口&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">firewall-cmd --zone&lt;span class="o">=&lt;/span>public --remove-port&lt;span class="o">=&lt;/span>5672/tcp --permanent &lt;span class="c1">#关闭5672端口&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h2 id="客户端组建n2n虚拟局域网">客户端组建N2N虚拟局域网&lt;/h2>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">sudo edge -a 局域网ip -c n2n组名 -l &lt;span class="o">[&lt;/span>公网ip&lt;span class="o">]&lt;/span>:公网端口 -f
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo edge -a 局域网ip -c n2n组名 -l &lt;span class="o">[&lt;/span>公网ip&lt;span class="o">]&lt;/span>:公网端口 -f
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>参数说明&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
 &lt;/span>&lt;span class="lnt"> 2
 &lt;/span>&lt;span class="lnt"> 3
 &lt;/span>&lt;span class="lnt"> 4
@@ -199,52 +200,53 @@ firewall-cmd --zone&lt;span class="o">=&lt;/span>public --remove-port&lt;span cl
 &lt;/span>&lt;span class="lnt">28
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">-a &amp;lt;mode:address&amp;gt; &lt;span class="p">|&lt;/span> n2n网卡的ip地址，即本机的n2n的ip。直接填写IP或者使用 DHCP &lt;span class="s1">&amp;#39;-r -a dhcp:0.0.0.0&amp;#39;&lt;/span>
--c &amp;lt;community&amp;gt; &lt;span class="p">|&lt;/span> n2n组，只有相同组的edge之间才能进行通讯
--k &amp;lt;encrypt key&amp;gt; &lt;span class="p">|&lt;/span> edge的加密密码
--s &amp;lt;netmask&amp;gt; &lt;span class="p">|&lt;/span> 子网掩码 可选 &lt;span class="o">(&lt;/span>255.255.255.0&lt;span class="o">)&lt;/span>.
--l &amp;lt;supernode host:port&amp;gt; &lt;span class="p">|&lt;/span> supernode的ip和端口
--i &amp;lt;reg_interval&amp;gt; &lt;span class="p">|&lt;/span> 注册时间间隔，用于NAT打洞&lt;span class="o">(&lt;/span>默认为20秒&lt;span class="o">)&lt;/span>
--L &amp;lt;reg_ttl&amp;gt; &lt;span class="p">|&lt;/span> 当通过超级节点UDP NAT打洞时，注册数据包的TTL&lt;span class="o">(&lt;/span>默认0不设置&lt;span class="o">)&lt;/span>
--p &amp;lt;&lt;span class="nb">local&lt;/span> port&amp;gt; &lt;span class="p">|&lt;/span> 固定本地UDP端口
--u &amp;lt;UID&amp;gt; &lt;span class="p">|&lt;/span> 如果不想用root来运行edge，则可指定本机账号的uid，windows下可忽略
--g &amp;lt;GID&amp;gt; &lt;span class="p">|&lt;/span> 如果不想用root来运行edge，则可指定本机账号的groupid，windows下可忽略
--f &lt;span class="p">|&lt;/span> 带-f时前台运行，不添加-f 参数时作为守护进程运行
--m &amp;lt;MAC address&amp;gt; &lt;span class="p">|&lt;/span> n2n虚拟网卡的MAC地址，默认随机设置
-&lt;span class="p">|&lt;/span> eg. -m 01:02:03:04:05:06
--M &amp;lt;mtu&amp;gt; &lt;span class="p">|&lt;/span> MTU 值，默认1290
--r &lt;span class="p">|&lt;/span> 启用数据转发功能，当需要访问该设备的局域网时需要设置
--A1 &lt;span class="p">|&lt;/span> 禁用载荷加密。不能与key 同时使用&lt;span class="o">(&lt;/span>默认为Twofish&lt;span class="o">)&lt;/span>。
--A2 ... -A5 or -A &lt;span class="p">|&lt;/span> 选择有效载荷加密的密码&lt;span class="o">(&lt;/span>和-k一起用&lt;span class="o">)&lt;/span>，需要一个密钥:-A2 &lt;span class="o">=&lt;/span> Twofish&lt;span class="o">(&lt;/span>默认&lt;span class="o">)&lt;/span>，
-&lt;span class="p">|&lt;/span> -A3 or -A &lt;span class="o">(&lt;/span>deprecated&lt;span class="o">)&lt;/span> &lt;span class="o">=&lt;/span> AES-CBC, -A5 &lt;span class="o">=&lt;/span> Speck-CTR.
--H &lt;span class="p">|&lt;/span> Enable full header encryption. Requires supernode with fixed community.
--z1 ... -z2 or -z &lt;span class="p">|&lt;/span> Enable compression &lt;span class="k">for&lt;/span> outgoing data packets: -z1 or -z &lt;span class="o">=&lt;/span> lzo1x &lt;span class="o">(&lt;/span>&lt;span class="nv">default&lt;/span>&lt;span class="o">=&lt;/span>disabled&lt;span class="o">)&lt;/span>.
--E &lt;span class="p">|&lt;/span> 接受多播MAC地址&lt;span class="o">(&lt;/span>&lt;span class="nv">默认&lt;/span>&lt;span class="o">=&lt;/span>drop&lt;span class="o">)&lt;/span>
--S &lt;span class="p">|&lt;/span> 不要连接P2P ，总是使用超级节点转发数据
--n &amp;lt;cidr:gateway&amp;gt; &lt;span class="p">|&lt;/span> 通过gw路由IPv4网络。使用0.0.0.0/0作为默认gw。可多次设置。
--v &lt;span class="p">|&lt;/span> 详细日志
--t &amp;lt;port&amp;gt; &lt;span class="p">|&lt;/span> 管理UDP端口&lt;span class="o">(&lt;/span>用于机器上的多个edges&lt;span class="o">)&lt;/span>。
-环境变量:
-N2N_KEY &lt;span class="p">|&lt;/span> 加密密钥&lt;span class="o">(&lt;/span>ASCII&lt;span class="o">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">-a &amp;lt;mode:address&amp;gt; &lt;span class="p">|&lt;/span> n2n网卡的ip地址，即本机的n2n的ip。直接填写IP或者使用 DHCP &lt;span class="s1">&amp;#39;-r -a dhcp:0.0.0.0&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-c &amp;lt;community&amp;gt; &lt;span class="p">|&lt;/span> n2n组，只有相同组的edge之间才能进行通讯
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-k &amp;lt;encrypt key&amp;gt; &lt;span class="p">|&lt;/span> edge的加密密码
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-s &amp;lt;netmask&amp;gt; &lt;span class="p">|&lt;/span> 子网掩码 可选 &lt;span class="o">(&lt;/span>255.255.255.0&lt;span class="o">)&lt;/span>.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-l &amp;lt;supernode host:port&amp;gt; &lt;span class="p">|&lt;/span> supernode的ip和端口
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-i &amp;lt;reg_interval&amp;gt; &lt;span class="p">|&lt;/span> 注册时间间隔，用于NAT打洞&lt;span class="o">(&lt;/span>默认为20秒&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-L &amp;lt;reg_ttl&amp;gt; &lt;span class="p">|&lt;/span> 当通过超级节点UDP NAT打洞时，注册数据包的TTL&lt;span class="o">(&lt;/span>默认0不设置&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-p &amp;lt;&lt;span class="nb">local&lt;/span> port&amp;gt; &lt;span class="p">|&lt;/span> 固定本地UDP端口
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-u &amp;lt;UID&amp;gt; &lt;span class="p">|&lt;/span> 如果不想用root来运行edge，则可指定本机账号的uid，windows下可忽略
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-g &amp;lt;GID&amp;gt; &lt;span class="p">|&lt;/span> 如果不想用root来运行edge，则可指定本机账号的groupid，windows下可忽略
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-f &lt;span class="p">|&lt;/span> 带-f时前台运行，不添加-f 参数时作为守护进程运行
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-m &amp;lt;MAC address&amp;gt; &lt;span class="p">|&lt;/span> n2n虚拟网卡的MAC地址，默认随机设置
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">|&lt;/span> eg. -m 01:02:03:04:05:06
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-M &amp;lt;mtu&amp;gt; &lt;span class="p">|&lt;/span> MTU 值，默认1290
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-r &lt;span class="p">|&lt;/span> 启用数据转发功能，当需要访问该设备的局域网时需要设置
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-A1 &lt;span class="p">|&lt;/span> 禁用载荷加密。不能与key 同时使用&lt;span class="o">(&lt;/span>默认为Twofish&lt;span class="o">)&lt;/span>。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-A2 ... -A5 or -A &lt;span class="p">|&lt;/span> 选择有效载荷加密的密码&lt;span class="o">(&lt;/span>和-k一起用&lt;span class="o">)&lt;/span>，需要一个密钥:-A2 &lt;span class="o">=&lt;/span> Twofish&lt;span class="o">(&lt;/span>默认&lt;span class="o">)&lt;/span>，
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">|&lt;/span> -A3 or -A &lt;span class="o">(&lt;/span>deprecated&lt;span class="o">)&lt;/span> &lt;span class="o">=&lt;/span> AES-CBC, -A5 &lt;span class="o">=&lt;/span> Speck-CTR.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-H &lt;span class="p">|&lt;/span> Enable full header encryption. Requires supernode with fixed community.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-z1 ... -z2 or -z &lt;span class="p">|&lt;/span> Enable compression &lt;span class="k">for&lt;/span> outgoing data packets: -z1 or -z &lt;span class="o">=&lt;/span> lzo1x &lt;span class="o">(&lt;/span>&lt;span class="nv">default&lt;/span>&lt;span class="o">=&lt;/span>disabled&lt;span class="o">)&lt;/span>.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-E &lt;span class="p">|&lt;/span> 接受多播MAC地址&lt;span class="o">(&lt;/span>默认&lt;span class="o">=&lt;/span>drop&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-S &lt;span class="p">|&lt;/span> 不要连接P2P ，总是使用超级节点转发数据
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-n &amp;lt;cidr:gateway&amp;gt; &lt;span class="p">|&lt;/span> 通过gw路由IPv4网络。使用0.0.0.0/0作为默认gw。可多次设置。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-v &lt;span class="p">|&lt;/span> 详细日志
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-t &amp;lt;port&amp;gt; &lt;span class="p">|&lt;/span> 管理UDP端口&lt;span class="o">(&lt;/span>用于机器上的多个edges&lt;span class="o">)&lt;/span>。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">环境变量:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">N2N_KEY &lt;span class="p">|&lt;/span> 加密密钥&lt;span class="o">(&lt;/span>ASCII&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h2 id="安装tuntap">安装tuntap&lt;/h2>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">brew tap happynclient/taps
-brew install tuntap --cask
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">brew tap happynclient/taps
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">brew install tuntap --cask
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>.查看系统信息，您会看到一个名为 tap0的虚拟网卡
 sudo ifconfig&lt;/p>
 &lt;h2 id="macos-设置开机启动项">macos 设置开机启动项&lt;/h2>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
 &lt;/span>&lt;span class="lnt"> 2
 &lt;/span>&lt;span class="lnt"> 3
 &lt;/span>&lt;span class="lnt"> 4
@@ -268,33 +270,33 @@ sudo ifconfig&lt;/p>
 &lt;/span>&lt;span class="lnt">22
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 在 /Library/LaunchDaemons 新增文件 lomotho.n2n-edge.plist，用于 launchd 控制的开机自启（类似 systemd）&lt;/span>
-&lt;span class="c1"># RunAtLoad 开机时是否运行&lt;/span>
-&lt;span class="c1"># KeepAlive 是否需要一直运行&lt;/span>
-&lt;span class="o">====&lt;/span>
-&amp;lt;?xml &lt;span class="nv">version&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;1.0&amp;#34;&lt;/span> &lt;span class="nv">encoding&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;UTF-8&amp;#34;&lt;/span>?&amp;gt;
-&amp;lt;!DOCTYPE plist PUBLIC &lt;span class="s2">&amp;#34;-//Apple//DTD PLIST 1.0//EN&amp;#34;&lt;/span> &lt;span class="s2">&amp;#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&amp;#34;&lt;/span>&amp;gt;
-&amp;lt;plist &lt;span class="nv">version&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;1.0&amp;#34;&lt;/span>&amp;gt;
-&amp;lt;dict&amp;gt;
-&amp;lt;key&amp;gt;KeepAlive&amp;lt;/key&amp;gt;
-&amp;lt;true/&amp;gt;
-&amp;lt;key&amp;gt;RunAtLoad&amp;lt;/key&amp;gt;
-&amp;lt;true/&amp;gt;
-&amp;lt;key&amp;gt;Label&amp;lt;/key&amp;gt;
-&amp;lt;string&amp;gt;lomotho.n2n.edge&amp;lt;/string&amp;gt;
-&amp;lt;key&amp;gt;ProgramArguments&amp;lt;/key&amp;gt;
-&amp;lt;array&amp;gt;
-&amp;lt;string&amp;gt;/usr/local/bin/edge&amp;lt;/string&amp;gt;
-&amp;lt;string&amp;gt;/usr/local/etc/n2n/edge.conf&amp;lt;/string&amp;gt;
-&amp;lt;/array&amp;gt;
-&amp;lt;/dict&amp;gt;
-&amp;lt;/plist&amp;gt;
-&lt;span class="o">====&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 在 /Library/LaunchDaemons 新增文件 lomotho.n2n-edge.plist，用于 launchd 控制的开机自启（类似 systemd）&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># RunAtLoad 开机时是否运行&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># KeepAlive 是否需要一直运行&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">====&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;?xml &lt;span class="nv">version&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;1.0&amp;#34;&lt;/span> &lt;span class="nv">encoding&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;UTF-8&amp;#34;&lt;/span>?&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;!DOCTYPE plist PUBLIC &lt;span class="s2">&amp;#34;-//Apple//DTD PLIST 1.0//EN&amp;#34;&lt;/span> &lt;span class="s2">&amp;#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;plist &lt;span class="nv">version&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;1.0&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;lt;dict&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;lt;key&amp;gt;KeepAlive&amp;lt;/key&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;lt;true/&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;lt;key&amp;gt;RunAtLoad&amp;lt;/key&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;lt;true/&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;lt;key&amp;gt;Label&amp;lt;/key&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;lt;string&amp;gt;lomotho.n2n.edge&amp;lt;/string&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;lt;key&amp;gt;ProgramArguments&amp;lt;/key&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;lt;array&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;lt;string&amp;gt;/usr/local/bin/edge&amp;lt;/string&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;lt;string&amp;gt;/usr/local/etc/n2n/edge.conf&amp;lt;/string&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;lt;/array&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;lt;/dict&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&amp;lt;/plist&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">====&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
 &lt;/span>&lt;span class="lnt"> 2
 &lt;/span>&lt;span class="lnt"> 3
 &lt;/span>&lt;span class="lnt"> 4
@@ -343,74 +345,75 @@ sudo ifconfig&lt;/p>
 &lt;/span>&lt;span class="lnt">47
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 客户端配置文件&lt;/span>
-&lt;span class="c1"># /usr/local/etc/n2n/edge.conf&lt;/span>
-&lt;span class="c1">#&lt;/span>
-&lt;span class="c1"># The configuration file is similar to the command line, with one option per line. An equal&lt;/span>
-&lt;span class="c1"># sign &amp;#39;=&amp;#39; should be used between key and value. Example: -c=mynetwork or --community=mynetwork&lt;/span>
-&lt;span class="c1"># This file contains a basic configuration example, please refer to the help (-h) for the full&lt;/span>
-&lt;span class="c1"># list of available options.&lt;/span>
-&lt;span class="c1">#&lt;/span>
-&lt;span class="c1"># -d|--tun-device&lt;/span>
-&lt;span class="c1"># Specifies the name of the TUN interface. &lt;/span>
-&lt;span class="c1">#&lt;/span>
-&lt;span class="c1"># -d=n2n0&lt;/span>
-&lt;span class="c1">#&lt;/span>
-&lt;span class="c1"># -c|--community&lt;/span>
-&lt;span class="c1"># Specifies the n2n community name the edge belongs to.&lt;/span>
-&lt;span class="c1">#&lt;/span>
--c&lt;span class="o">=&lt;/span>xxx
-&lt;span class="c1">#&lt;/span>
-&lt;span class="c1"># -k&lt;/span>
-&lt;span class="c1"># Sets the encryption key (ASCII). The environment variable N2N_KEY=&amp;lt;key&amp;gt; can also be used. &lt;/span>
-&lt;span class="c1">#&lt;/span>
-&lt;span class="c1"># -k=mypassword&lt;/span>
-&lt;span class="c1">#&lt;/span>
-&lt;span class="c1"># -m&lt;/span>
-&lt;span class="c1"># Specified the MAC address for the TAP interface (random otherwise).&lt;/span>
-&lt;span class="c1">#&lt;/span>
-&lt;span class="c1"># -m=DE:AD:BE:EF:99:99&lt;/span>
-&lt;span class="c1">#&lt;/span>
-&lt;span class="c1"># -a&lt;/span>
-&lt;span class="c1"># Sets the interface address. For DHCP use &amp;#39;-r -a dhcp:0.0.0.0&amp;#39;.&lt;/span>
-&lt;span class="c1">#&lt;/span>
--a&lt;span class="o">=&lt;/span>x.x.x.x
-&lt;span class="c1">#&lt;/span>
-&lt;span class="c1"># -p&lt;/span>
-&lt;span class="c1"># Sets the local UDP port to a fixed port.&lt;/span>
-&lt;span class="c1">#&lt;/span>
-&lt;span class="c1"># -p=50001&lt;/span>
-&lt;span class="c1">#&lt;/span>
-&lt;span class="c1"># -l|--supernode-list&lt;/span>
-&lt;span class="c1"># Specifies the supernode IP and port.&lt;/span>
-&lt;span class="c1">#&lt;/span>
--l&lt;span class="o">=&lt;/span>x.x.x.x:x
-&lt;span class="c1"># 访问局域网其他设置&lt;/span>
--r
-&lt;span class="c1"># -Z1为LZO(1x)压缩 -Z2为ZSTD压缩，默认没有&lt;/span>
--Z2
-&lt;span class="c1">#&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 客户端配置文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># /usr/local/etc/n2n/edge.conf&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># The configuration file is similar to the command line, with one option per line. An equal&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># sign &amp;#39;=&amp;#39; should be used between key and value. Example: -c=mynetwork or --community=mynetwork&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># This file contains a basic configuration example, please refer to the help (-h) for the full&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># list of available options.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># -d|--tun-device&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Specifies the name of the TUN interface. &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># -d=n2n0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># -c|--community&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Specifies the n2n community name the edge belongs to.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-c&lt;span class="o">=&lt;/span>xxx
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># -k&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Sets the encryption key (ASCII). The environment variable N2N_KEY=&amp;lt;key&amp;gt; can also be used. &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># -k=mypassword&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># -m&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Specified the MAC address for the TAP interface (random otherwise).&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># -m=DE:AD:BE:EF:99:99&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># -a&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Sets the interface address. For DHCP use &amp;#39;-r -a dhcp:0.0.0.0&amp;#39;.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-a&lt;span class="o">=&lt;/span>x.x.x.x
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># -p&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Sets the local UDP port to a fixed port.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># -p=50001&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># -l|--supernode-list&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Specifies the supernode IP and port.&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-l&lt;span class="o">=&lt;/span>x.x.x.x:x
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 访问局域网其他设置&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-r
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># -Z1为LZO(1x)压缩 -Z2为ZSTD压缩，默认没有&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-Z2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;span class="lnt">4
 &lt;/span>&lt;span class="lnt">5
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 开启服务&lt;/span>
-launchctl load /Library/LaunchDaemons/lomotho.n2n.edge.plist
-&lt;span class="c1"># 关闭服务&lt;/span>
-launchctl unload /Library/LaunchDaemons/lomotho.n2n.edge.plist
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 开启服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">launchctl load /Library/LaunchDaemons/lomotho.n2n.edge.plist
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 关闭服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">launchctl unload /Library/LaunchDaemons/lomotho.n2n.edge.plist
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h2 id="linux客户端设置自启动">linux客户端设置自启动&lt;/h2>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
 &lt;/span>&lt;span class="lnt"> 2
 &lt;/span>&lt;span class="lnt"> 3
 &lt;/span>&lt;span class="lnt"> 4
@@ -426,20 +429,20 @@ launchctl unload /Library/LaunchDaemons/lomotho.n2n.edge.plist
 &lt;/span>&lt;span class="lnt">14
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">sudo vim /etc/n2n/edge.conf
-&lt;span class="o">======&lt;/span>
--c&lt;span class="o">=&lt;/span>组织名
--a&lt;span class="o">=&lt;/span>内网地址
--l&lt;span class="o">=&lt;/span>节点公网地址:端口
-&lt;span class="o">======&lt;/span>
-&lt;span class="c1"># 设置自启服务&lt;/span>
-sudo systemctl &lt;span class="nb">enable&lt;/span> edge
-sudo systemctl start edge
-sudo systemctl status edge
-journalctl -f -u edge
-&lt;span class="c1"># journalctl 查看日志&lt;/span>
-&lt;span class="c1"># -f 实时最新&lt;/span>
-&lt;span class="c1"># -u 指定服务&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo vim /etc/n2n/edge.conf
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">======&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-c&lt;span class="o">=&lt;/span>组织名
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-a&lt;span class="o">=&lt;/span>内网地址
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-l&lt;span class="o">=&lt;/span>节点公网地址:端口
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">======&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 设置自启服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo systemctl &lt;span class="nb">enable&lt;/span> edge
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo systemctl start edge
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo systemctl status edge
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">journalctl -f -u edge
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># journalctl 查看日志&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># -f 实时最新&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># -u 指定服务&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div></description></item></channel></rss>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>nginx on Jqtmviyu's Blog</title><link>/tags/nginx/</link><description>Recent content in nginx on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 22 Dec 2022 00:15:53 +0800</lastBuildDate><atom:link href="/tags/nginx/index.xml" rel="self" type="application/rss+xml"/><item><title>Nginx Proxy Manager</title><link>/p/npm/</link><pubDate>Thu, 22 Dec 2022 00:15:53 +0800</pubDate><guid>/p/npm/</guid><description>&lt;h2 id="安装">安装&lt;/h2>
-&lt;p>&lt;a href="https://github.com/NginxProxyManager/nginx-proxy-manager">https://github.com/NginxProxyManager/nginx-proxy-manager&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://github.com/NginxProxyManager/nginx-proxy-manager" target="_blank" rel="noopener"
+>https://github.com/NginxProxyManager/nginx-proxy-manager&lt;/a>&lt;/p>
 &lt;p>按照&lt;code>readme&lt;/code>安装即可&lt;/p>
 &lt;h2 id="已知bug">已知bug&lt;/h2>
 &lt;p>版本 v2.9.19&lt;/p>
@@ -10,11 +11,11 @@
 &lt;p>复现： &lt;code>Test Server Reachability &lt;/code>&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">Communication with the API failed, is NPM running correctly?
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">Communication with the API failed, is NPM running correctly?
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h2 id="申请证书方法">申请证书方法&lt;/h2>
 &lt;p>单独申请&lt;/p>
@@ -25,19 +26,19 @@
 &lt;li>在管理系统上， &lt;code>Proxy Hosts -- Edit Proxy Host -- Advanced&lt;/code>里添加类似以下的配置
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;span class="lnt">4
 &lt;/span>&lt;span class="lnt">5
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback"> root /data/access/myIndex;
-index index.html;
-location / {
-try_files $uri /index.html /index.html;
-}
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"> root /data/access/myIndex;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> index index.html;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> location / {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> try_files $uri /index.html /index.html;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> }
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;/li>
 &lt;li>&lt;code>Detail&lt;/code>的&lt;code>Domain Names&lt;/code>按实际的写， &lt;code>Scheme&lt;/code> &lt;code>IP&lt;/code> &lt;code>Port&lt;/code>随便填&lt;/li>

@@ -7,21 +7,12 @@
 &lt;ul>
 &lt;li>
 &lt;p>访问原本无法反问的服务器: 例如梯子&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback"> graph LR
-A(用户) --&amp;gt; B{代理}
-A -.墙.-&amp;gt; C
-B --&amp;gt; C[(服务器)]
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;div class="mermaid"> graph LR
+A(用户) --> B{代理}
+A -.墙.-> C
+B --> C[(服务器)]
 &lt;/div>
-&lt;/div>&lt;/li>
+&lt;/li>
 &lt;li>
 &lt;p>加速访问服务器: 例如&lt;code>用户-&amp;gt;代理&lt;/code>, &lt;code>代理-&amp;gt;服务器&lt;/code>带宽更高&lt;/p>
 &lt;/li>
@@ -30,21 +21,12 @@ B --&amp;gt; C[(服务器)]
 &lt;/li>
 &lt;li>
 &lt;p>客户端访问授权: 例如作为防火墙来判断能否连外网&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">graph LR
-A(用户A) --&amp;gt; C{代理}
-B(用户B) --&amp;gt; C
-C --&amp;gt; D[(网络)]
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;div class="mermaid">graph LR
+A(用户A) --> C{代理}
+B(用户B) --> C
+C --> D[(网络)]
 &lt;/div>
-&lt;/div>&lt;/li>
+&lt;/li>
 &lt;li>
 &lt;p>隐藏访问者的行踪: 服务器并不知道是用户访问了自己, 而以为是代理服务器, 代理服务器也可以叫&amp;quot;肉鸡&amp;quot;&lt;/p>
 &lt;/li>
@@ -58,43 +40,22 @@ C --&amp;gt; D[(网络)]
 &lt;ul>
 &lt;li>
 &lt;p>保护和隐藏原始资源服务器:&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
-&lt;/span>&lt;span class="lnt">6
-&lt;/span>&lt;span class="lnt">7
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">graph LR
-a(用户) --&amp;gt; b[(反向代理服务器)]
+&lt;div class="mermaid">graph LR
+a(用户) --> b[(反向代理服务器)]
 subgraph
-c[防火墙] --&amp;gt; d[(资源服务器)]
+c[防火墙] --> d[(资源服务器)]
 end
-b--&amp;gt; c
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+b--> c
 &lt;/div>
-&lt;/div>&lt;/li>
+&lt;/li>
 &lt;li>
 &lt;p>负载均衡: 当反向代理服务器不止一个的时候, 甚至可以做成集群,让不同的代理服务器去响应不同的用户,当代理服务器具备cache功能, 且用户和代理服务器在同一个网络,就能得到高质量的速度,这就是CDN的核心.&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">graph RL
-g[(资源服务器)] --&amp;gt; d[(反向代理服务器D)] --&amp;gt; a(用户A)
-g[(资源服务器)] --&amp;gt; e[(反向代理服务器E)] --&amp;gt; b(用户B)
-g[(资源服务器)] --&amp;gt; f[(反向代理服务器F)] --&amp;gt; c(用户C)
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;div class="mermaid">graph RL
+g[(资源服务器)] --> d[(反向代理服务器D)] --> a(用户A)
+g[(资源服务器)] --> e[(反向代理服务器E)] --> b(用户B)
+g[(资源服务器)] --> f[(反向代理服务器F)] --> c(用户C)
 &lt;/div>
-&lt;/div>&lt;/li>
+&lt;/li>
 &lt;/ul>
 &lt;h2 id="透明代理">透明代理&lt;/h2>
 &lt;blockquote>
@@ -104,22 +65,10 @@ g[(资源服务器)] --&amp;gt; f[(反向代理服务器F)] --&amp;gt; c(用户C
 &lt;ul>
 &lt;li>行为管理工具: 例如某信服&lt;/li>
 &lt;/ul>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
-&lt;/span>&lt;span class="lnt">6
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">graph LR
+&lt;div class="mermaid">graph LR
 subgraph
-a(用户A) --&amp;gt; c[交换机] --&amp;gt; d[(行为管理工具)]
-b(用户B) --&amp;gt; c[交换机]
+a(用户A) --> c[交换机] --> d[(行为管理工具)]
+b(用户B) --> c[交换机]
 end
-d --&amp;gt; e[(互联网)]
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
+d --> e[(互联网)]
 &lt;/div></description></item></channel></rss>

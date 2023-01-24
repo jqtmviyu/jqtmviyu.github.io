@@ -7,21 +7,12 @@
 &lt;ul>
 &lt;li>
 &lt;p>访问原本无法反问的服务器: 例如梯子&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback"> graph LR
-A(用户) --&amp;gt; B{代理}
-A -.墙.-&amp;gt; C
-B --&amp;gt; C[(服务器)]
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;div class="mermaid"> graph LR
+A(用户) --> B{代理}
+A -.墙.-> C
+B --> C[(服务器)]
 &lt;/div>
-&lt;/div>&lt;/li>
+&lt;/li>
 &lt;li>
 &lt;p>加速访问服务器: 例如&lt;code>用户-&amp;gt;代理&lt;/code>, &lt;code>代理-&amp;gt;服务器&lt;/code>带宽更高&lt;/p>
 &lt;/li>
@@ -30,21 +21,12 @@ B --&amp;gt; C[(服务器)]
 &lt;/li>
 &lt;li>
 &lt;p>客户端访问授权: 例如作为防火墙来判断能否连外网&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">graph LR
-A(用户A) --&amp;gt; C{代理}
-B(用户B) --&amp;gt; C
-C --&amp;gt; D[(网络)]
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;div class="mermaid">graph LR
+A(用户A) --> C{代理}
+B(用户B) --> C
+C --> D[(网络)]
 &lt;/div>
-&lt;/div>&lt;/li>
+&lt;/li>
 &lt;li>
 &lt;p>隐藏访问者的行踪: 服务器并不知道是用户访问了自己, 而以为是代理服务器, 代理服务器也可以叫&amp;quot;肉鸡&amp;quot;&lt;/p>
 &lt;/li>
@@ -58,43 +40,22 @@ C --&amp;gt; D[(网络)]
 &lt;ul>
 &lt;li>
 &lt;p>保护和隐藏原始资源服务器:&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
-&lt;/span>&lt;span class="lnt">6
-&lt;/span>&lt;span class="lnt">7
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">graph LR
-a(用户) --&amp;gt; b[(反向代理服务器)]
+&lt;div class="mermaid">graph LR
+a(用户) --> b[(反向代理服务器)]
 subgraph
-c[防火墙] --&amp;gt; d[(资源服务器)]
+c[防火墙] --> d[(资源服务器)]
 end
-b--&amp;gt; c
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+b--> c
 &lt;/div>
-&lt;/div>&lt;/li>
+&lt;/li>
 &lt;li>
 &lt;p>负载均衡: 当反向代理服务器不止一个的时候, 甚至可以做成集群,让不同的代理服务器去响应不同的用户,当代理服务器具备cache功能, 且用户和代理服务器在同一个网络,就能得到高质量的速度,这就是CDN的核心.&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">graph RL
-g[(资源服务器)] --&amp;gt; d[(反向代理服务器D)] --&amp;gt; a(用户A)
-g[(资源服务器)] --&amp;gt; e[(反向代理服务器E)] --&amp;gt; b(用户B)
-g[(资源服务器)] --&amp;gt; f[(反向代理服务器F)] --&amp;gt; c(用户C)
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;div class="mermaid">graph RL
+g[(资源服务器)] --> d[(反向代理服务器D)] --> a(用户A)
+g[(资源服务器)] --> e[(反向代理服务器E)] --> b(用户B)
+g[(资源服务器)] --> f[(反向代理服务器F)] --> c(用户C)
 &lt;/div>
-&lt;/div>&lt;/li>
+&lt;/li>
 &lt;/ul>
 &lt;h2 id="透明代理">透明代理&lt;/h2>
 &lt;blockquote>
@@ -104,24 +65,12 @@ g[(资源服务器)] --&amp;gt; f[(反向代理服务器F)] --&amp;gt; c(用户C
 &lt;ul>
 &lt;li>行为管理工具: 例如某信服&lt;/li>
 &lt;/ul>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
-&lt;/span>&lt;span class="lnt">2
-&lt;/span>&lt;span class="lnt">3
-&lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
-&lt;/span>&lt;span class="lnt">6
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">graph LR
+&lt;div class="mermaid">graph LR
 subgraph
-a(用户A) --&amp;gt; c[交换机] --&amp;gt; d[(行为管理工具)]
-b(用户B) --&amp;gt; c[交换机]
+a(用户A) --> c[交换机] --> d[(行为管理工具)]
+b(用户B) --> c[交换机]
 end
-d --&amp;gt; e[(互联网)]
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
+d --> e[(互联网)]
 &lt;/div></description></item><item><title>Vscode 等宽字体</title><link>/p/vscode_mono_font/</link><pubDate>Sun, 22 Jan 2023 00:35:35 +0800</pubDate><guid>/p/vscode_mono_font/</guid><description>&lt;h1 id="vscode等宽字体选择更纱黑体">vscode等宽字体选择:更纱黑体&lt;/h1>
 &lt;h2 id="下载链接">下载链接&lt;/h2>
 &lt;p>&lt;a class="link" href="https://github.com/be5invis/Sarasa-Gothic" target="_blank" rel="noopener"
@@ -201,13 +150,13 @@ d --&amp;gt; e[(互联网)]
 &lt;h2 id="vscode设置">vscode设置&lt;/h2>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="s2">&amp;#34;editor.fontLigatures&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="err">,&lt;/span> &lt;span class="err">//&lt;/span> &lt;span class="err">是否启用字体连字&lt;/span>
-&lt;span class="s2">&amp;#34;editor.fontFamily&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="s2">&amp;#34;Sarasa Mono SC Nerd,Sarasa Mono SC&amp;#34;&lt;/span>&lt;span class="err">,&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="line">&lt;span class="cl">&lt;span class="s2">&amp;#34;editor.fontLigatures&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="err">,&lt;/span> &lt;span class="c1">// 是否启用字体连字
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="s2">&amp;#34;editor.fontFamily&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="s2">&amp;#34;Sarasa Mono SC Nerd,Sarasa Mono SC&amp;#34;&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h3 id="sarasa-mono-sc-nerd">Sarasa Mono SC Nerd&lt;/h3>
 &lt;blockquote>
@@ -232,68 +181,68 @@ d --&amp;gt; e[(互联网)]
 &lt;h2 id="标题">标题&lt;/h2>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;span class="lnt">4
 &lt;/span>&lt;span class="lnt">5
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown"> # 一级标题&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">h1&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-## 二级标题&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">h2&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-### 三级标题&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">h3&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-#### 四级标题&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">h4&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-##### 五级标题&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">h5&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl"> # 一级标题&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">h1&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ## 二级标题&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">h2&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ### 三级标题&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">h3&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> #### 四级标题&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">h4&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ##### 五级标题&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">h5&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h2 id="强调">强调&lt;/h2>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown"> &lt;span class="ge">*斜体的文字*&lt;/span>
-&lt;span class="ge">_斜体的文字_&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl"> &lt;span class="ge">*斜体的文字*&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="ge">_斜体的文字_&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>&lt;em>斜体的文字&lt;/em>&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown"> &lt;span class="gs">**粗体的文字**&lt;/span>
-&lt;span class="gs">__粗体的文字__&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl"> &lt;span class="ge">**&lt;/span>粗体的文字**
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="ge">__&lt;/span>粗体的文字__
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>&lt;strong>粗体的文字&lt;/strong>&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">***加粗斜体的文字***
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">***加粗斜体的文字***
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>&lt;em>&lt;strong>加粗斜体的文字&lt;/strong>&lt;/em>&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown"> &lt;span class="gd">~~删除线的文字~~&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl"> &lt;span class="gd">~~删除线的文字~~&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>&lt;del>删除线的文字&lt;/del>&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">这些~~符号~~*可以***组合**
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">这些~~符号~~*可以***组合**
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>这些&lt;del>符号&lt;/del>&lt;em>可以&lt;/em>&lt;strong>组合&lt;/strong>&lt;/p>
 &lt;h2 id="超链接">超链接&lt;/h2>
@@ -301,22 +250,22 @@ d --&amp;gt; e[(互联网)]
 &lt;h3 id="行内式">行内式&lt;/h3>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">[&lt;span class="nt">链接文字&lt;/span>](&lt;span class="na">链接地址 &amp;#34;title可选&amp;#34;&lt;/span>)
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">[&lt;span class="nt">链接文字&lt;/span>](&lt;span class="na">链接地址 &amp;#34;title可选&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>例:&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">[&lt;span class="nt">GitHub&lt;/span>](&lt;span class="na">http://github.com&lt;/span>)
-[&lt;span class="nt">GitHub&lt;/span>](&lt;span class="na">http://github.com &amp;#34;这就是个提示&amp;#34;&lt;/span>)
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">[&lt;span class="nt">GitHub&lt;/span>](&lt;span class="na">http://github.com&lt;/span>)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[&lt;span class="nt">GitHub&lt;/span>](&lt;span class="na">http://github.com &amp;#34;这就是个提示&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>例:
 &lt;a class="link" href="http://github.com" target="_blank" rel="noopener"
@@ -331,40 +280,41 @@ target="_blank" rel="noopener"
 &lt;/blockquote>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">[链接文字][链接标记]
-[链接标记]:链接地址 &amp;#34;链接标题&amp;#34; &lt;span class="sb">`任意地方添加`&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">[链接文字][链接标记]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[链接标记]:链接地址 &amp;#34;链接标题&amp;#34; &lt;span class="sb">`任意地方添加`&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>如果链接文字可以当链接标记:&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">[链接文字][]
-[链接文字]: 链接文字
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">[链接文字][]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[链接文字]: 链接文字
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>&lt;a class="link" href="%e9%93%be%e6%8e%a5%e6%96%87%e5%ad%97" >链接文字&lt;/a>&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;span class="lnt">4
 &lt;/span>&lt;span class="lnt">5
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">例:[Github][1]、[Google][2]、[知乎][]是我经常去的网站。
-[1]: http://github.com
-[2]: http://www.google.com
-[知乎]: https://www.zhihu.com/
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">例:[Github][1]、[Google][2]、[知乎][]是我经常去的网站。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[1]: http://github.com
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[2]: http://www.google.com
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[知乎]: https://www.zhihu.com/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>例:&lt;a class="link" href="http://github.com" target="_blank" rel="noopener"
 >Github&lt;/a>、&lt;a class="link" href="http://www.google.com" target="_blank" rel="noopener"
@@ -373,35 +323,37 @@ target="_blank" rel="noopener"
 &lt;h3 id="自动短链接">自动短链接&lt;/h3>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">http:&lt;/span>&lt;span class="err">//&lt;/span>&lt;span class="na">example&lt;/span>&lt;span class="err">.&lt;/span>&lt;span class="na">com&lt;/span>&lt;span class="p">/&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">address&lt;/span>&lt;span class="err">@&lt;/span>&lt;span class="na">example&lt;/span>&lt;span class="err">.&lt;/span>&lt;span class="na">com&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">http:&lt;/span>&lt;span class="err">//&lt;/span>&lt;span class="na">example&lt;/span>&lt;span class="err">.&lt;/span>&lt;span class="na">com&lt;/span>&lt;span class="p">/&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">address&lt;/span>&lt;span class="err">@&lt;/span>&lt;span class="na">example&lt;/span>&lt;span class="err">.&lt;/span>&lt;span class="na">com&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>&lt;a href="http://example.com/">http://example.com/&lt;/a>&lt;/p>
-&lt;p>&lt;a href="mailto:address@example.com">address@example.com&lt;/a>&lt;/p>
+&lt;/div>&lt;p>&lt;a class="link" href="http://example.com/" target="_blank" rel="noopener"
+>http://example.com/&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="mailto:address@example.com" >address@example.com&lt;/a>&lt;/p>
 &lt;h2 id="锚点">锚点&lt;/h2>
 &lt;p>网页中，锚点其实就是页内超链接，也就是链接本文档内部的某些元素，实现当前页面中的跳转。&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">span&lt;/span> &lt;span class="na">id&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;jump&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>锚点&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">span&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-[&lt;span class="nt">文字&lt;/span>](&lt;span class="na">#jump&lt;/span>)
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">span&lt;/span> &lt;span class="na">id&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;jump&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>锚点&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">span&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[&lt;span class="nt">文字&lt;/span>](&lt;span class="na">#jump&lt;/span>)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>例：&lt;a class="link" href="#jump" >跳转到开头&lt;/a> (ps: windows要按住ctrl, mac要按主cmd)&lt;/p>
 &lt;h2 id="列表">列表&lt;/h2>
 &lt;h3 id="无序列表">无序列表&lt;/h3>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
 &lt;/span>&lt;span class="lnt"> 2
 &lt;/span>&lt;span class="lnt"> 3
 &lt;/span>&lt;span class="lnt"> 4
@@ -414,16 +366,18 @@ target="_blank" rel="noopener"
 &lt;/span>&lt;span class="lnt">11
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="k">*&lt;/span> 无序列表一
-&lt;span class="k">*&lt;/span> 无序列表二
-&lt;span class="k">*&lt;/span> 无序列表三
-&lt;span class="k">-&lt;/span> 无序列表一
-&lt;span class="k">-&lt;/span> 无序列表二
-&lt;span class="k">-&lt;/span> 无序列表三
-+ 无序列表一
-+ 无序列表二
-+ 无序列表三
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">&lt;span class="k">*&lt;/span> 无序列表一
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">*&lt;/span> 无序列表二
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">*&lt;/span> 无序列表三
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">-&lt;/span> 无序列表一
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">-&lt;/span> 无序列表二
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">-&lt;/span> 无序列表三
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">+ 无序列表一
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">+ 无序列表二
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">+ 无序列表三
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;ul>
 &lt;li>无序列表一&lt;/li>
@@ -460,11 +414,11 @@ target="_blank" rel="noopener"
 &lt;h3 id="定义型列表">定义型列表&lt;/h3>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">定义型列表由名词和解释组成。一行写上定义，紧跟一行写上解释。解释的写法冒号紧跟一个缩进(Tab)
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">定义型列表由名词和解释组成。一行写上定义，紧跟一行写上解释。解释的写法冒号紧跟一个缩进(Tab)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;dl>
 &lt;dt>Markdown&lt;/dt>
@@ -473,7 +427,7 @@ target="_blank" rel="noopener"
 &lt;h3 id="列表缩进">列表缩进&lt;/h3>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
 &lt;/span>&lt;span class="lnt"> 2
 &lt;/span>&lt;span class="lnt"> 3
 &lt;/span>&lt;span class="lnt"> 4
@@ -488,14 +442,20 @@ target="_blank" rel="noopener"
 &lt;/span>&lt;span class="lnt">13
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="k">*&lt;/span> 轻轻的我走了， 正如我轻轻的来； 我轻轻的招手， 作别西天的云彩。
-那河畔的金柳， 是夕阳中的新娘； 波光里的艳影， 在我的心头荡漾。
-软泥上的青荇， 油油的在水底招摇； 在康河的柔波里， 我甘心做一条水草！
-那榆荫下的一潭， 不是清泉， 是天上虹； 揉碎在浮藻间， 沉淀着彩虹似的梦。
-&lt;span class="k">*&lt;/span> 寻梦？撑一支长篙， 向青草更青处漫溯； 满载一船星辉， 在星辉斑斓里放歌。
-但我不能放歌， 悄悄是别离的笙箫； 夏虫也为我沉默， 沉默是今晚的康桥！
-悄悄的我走了， 正如我悄悄的来； 我挥一挥衣袖， 不带走一片云彩。
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">&lt;span class="k">*&lt;/span> 轻轻的我走了， 正如我轻轻的来； 我轻轻的招手， 作别西天的云彩。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 那河畔的金柳， 是夕阳中的新娘； 波光里的艳影， 在我的心头荡漾。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 软泥上的青荇， 油油的在水底招摇； 在康河的柔波里， 我甘心做一条水草！
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 那榆荫下的一潭， 不是清泉， 是天上虹； 揉碎在浮藻间， 沉淀着彩虹似的梦。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">*&lt;/span> 寻梦？撑一支长篙， 向青草更青处漫溯； 满载一船星辉， 在星辉斑斓里放歌。
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 但我不能放歌， 悄悄是别离的笙箫； 夏虫也为我沉默， 沉默是今晚的康桥！
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 悄悄的我走了， 正如我悄悄的来； 我挥一挥衣袖， 不带走一片云彩。
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;ul>
 &lt;li>
@@ -513,19 +473,17 @@ target="_blank" rel="noopener"
 &lt;h3 id="包含引用的列表">包含引用的列表&lt;/h3>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;span class="lnt">4
-&lt;/span>&lt;span class="lnt">5
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="k">*&lt;/span> 阅读的方法
-&lt;span class="k">
-&lt;/span>&lt;span class="k"> &amp;gt; &lt;/span>&lt;span class="ge">静下心
-&lt;/span>&lt;span class="ge">&lt;/span>&lt;span class="k"> &amp;gt; &lt;/span>&lt;span class="ge">打开书本
-&lt;/span>&lt;span class="ge">&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">&lt;span class="k">*&lt;/span> 阅读的方法
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k"> &amp;gt; &lt;/span>&lt;span class="ge">静下心
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="ge">&lt;/span>&lt;span class="k"> &amp;gt; &lt;/span>&lt;span class="ge">打开书本
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;ul>
 &lt;li>
@@ -539,11 +497,11 @@ target="_blank" rel="noopener"
 &lt;h2 id="引用">引用&lt;/h2>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="k">&amp;gt; &lt;/span>&lt;span class="ge">引用的内容
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">&lt;span class="k">&amp;gt; &lt;/span>&lt;span class="ge">引用的内容
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;blockquote>
 &lt;p>引用的内容&lt;/p>
@@ -551,15 +509,15 @@ target="_blank" rel="noopener"
 &lt;h3 id="引用的多层嵌套">引用的多层嵌套&lt;/h3>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="k">&amp;gt; &lt;/span>&lt;span class="ge">第一层
-&lt;/span>&lt;span class="ge">&lt;/span>&lt;span class="k">&amp;gt; &lt;/span>&lt;span class="ge">&amp;gt; 第二层
-&lt;/span>&lt;span class="ge">&lt;/span>&lt;span class="k">&amp;gt; &lt;/span>&lt;span class="ge">&amp;gt; &amp;gt; 第三层
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">&lt;span class="k">&amp;gt; &lt;/span>&lt;span class="ge">第一层
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="ge">&lt;/span>&lt;span class="k">&amp;gt; &lt;/span>&lt;span class="ge">&amp;gt; 第二层
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="ge">&lt;/span>&lt;span class="k">&amp;gt; &lt;/span>&lt;span class="ge">&amp;gt; &amp;gt; 第三层
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;blockquote>
 &lt;p>第一层&lt;/p>
@@ -575,11 +533,11 @@ target="_blank" rel="noopener"
 &lt;blockquote>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-js" data-lang="js">&lt;span class="kd">let&lt;/span> &lt;span class="nx">a&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="kc">null&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-js" data-lang="js">&lt;span class="line">&lt;span class="cl">&lt;span class="kd">let&lt;/span> &lt;span class="nx">a&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="kc">null&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>&lt;strong>加粗&lt;/strong>&lt;/p>
 &lt;/blockquote>
@@ -587,13 +545,13 @@ target="_blank" rel="noopener"
 &lt;h3 id="行内式-1">行内式&lt;/h3>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">![&lt;span class="nt">alt&lt;/span>](&lt;span class="na">url&lt;/span>)
-ps: 为了让图片左对齐, 在前面加一个空格即可
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">![&lt;span class="nt">alt&lt;/span>](&lt;span class="na">url&lt;/span>)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ps: 为了让图片左对齐, 在前面加一个空格即可
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>&lt;img src="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20210609151206.jpg"
 loading="lazy"
@@ -602,14 +560,15 @@ alt="图片alt"
 &lt;h3 id="参考式-1">参考式&lt;/h3>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">![alt][标记]
-[标记]: 图片地址 &amp;#34;Title&amp;#34;
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">![alt][标记]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[标记]: 图片地址 &amp;#34;Title&amp;#34;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>&lt;img src="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20210609151206.jpg"
 loading="lazy"
@@ -618,44 +577,44 @@ alt="猫"
 &lt;h2 id="目录">目录&lt;/h2>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">直接在文章头部加[TOP]
-ps:部分编辑器支持,部分不支持
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">直接在文章头部加[TOP]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ps:部分编辑器支持,部分不支持
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h2 id="脚注">脚注&lt;/h2>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">添加脚注的地方[^1]
-[^1]: 脚注的内容
-ps: 脚注和脚注之间应该空一行
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">添加脚注的地方[^1]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[^1]: 脚注的内容
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ps: 脚注和脚注之间应该空一行
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>添加脚注的地方&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/p>
 &lt;h2 id="表格">表格&lt;/h2>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;span class="lnt">4
 &lt;/span>&lt;span class="lnt">5
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">|学号|姓名|分数|
-|-|-|-|
-|小明|男|75|
-|小红|女|79|
-|小陆|男|92|
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">|学号|姓名|分数|
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">|-|-|-|
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">|小明|男|75|
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">|小红|女|79|
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">|小陆|男|92|
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;table>
 &lt;thead>
@@ -686,19 +645,19 @@ ps: 脚注和脚注之间应该空一行
 &lt;h3 id="省略写法">省略写法&lt;/h3>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;span class="lnt">4
 &lt;/span>&lt;span class="lnt">5
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">学号|姓名|分数
--|-|-
-小明|男|75
-小红|女|79
-小陆|男|92
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">学号|姓名|分数
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-|-|-
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">小明|男|75
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">小红|女|79
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">小陆|男|92
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;table>
 &lt;thead>
@@ -729,7 +688,7 @@ ps: 脚注和脚注之间应该空一行
 &lt;h3 id="对齐">对齐&lt;/h3>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;span class="lnt">4
@@ -738,13 +697,14 @@ ps: 脚注和脚注之间应该空一行
 &lt;/span>&lt;span class="lnt">7
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">学号|姓名|分数
-:-|:-:|-:
-小明|男|75
-小红|女|79
-小陆|男|92
-ps: 第一列左对齐, 第二列居中, 第三列右对齐
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">学号|姓名|分数
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">:-|:-:|-:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">小明|男|75
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">小红|女|79
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">小陆|男|92
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ps: 第一列左对齐, 第二列居中, 第三列右对齐
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;table>
 &lt;thead>
@@ -775,15 +735,15 @@ ps: 第一列左对齐, 第二列居中, 第三列右对齐
 &lt;h2 id="分隔线">分隔线&lt;/h2>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">***
----
-___
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">***
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">---
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">___
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;hr>
 &lt;hr>
@@ -792,38 +752,38 @@ ___
 &lt;h3 id="行内式-2">行内式&lt;/h3>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="sb">`代码`&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">&lt;span class="sb">`代码`&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>&lt;code>test&lt;/code>&lt;/p>
 &lt;h3 id="代码块">代码块&lt;/h3>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">​```js
-let a = 1
-​```
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">​```js
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">let a = 1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">​```
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-js" data-lang="js">&lt;span class="kd">let&lt;/span> &lt;span class="nx">a&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">1&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-js" data-lang="js">&lt;span class="line">&lt;span class="cl">&lt;span class="kd">let&lt;/span> &lt;span class="nx">a&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">1&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h3 id="可展开的代码块">可展开的代码块&lt;/h3>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;span class="lnt">4
@@ -831,13 +791,13 @@ let a = 1
 &lt;/span>&lt;span class="lnt">6
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">details&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">summary&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>CLICK ME&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">summary&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">pre&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;&lt;/span>&lt;span class="nt">code&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>let a = 0
-return a
-&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">code&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;/&lt;/span>&lt;span class="nt">pre&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">details&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">details&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">summary&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>CLICK ME&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">summary&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">pre&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;&lt;/span>&lt;span class="nt">code&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>let a = 0
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">return a
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">code&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;/&lt;/span>&lt;span class="nt">pre&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">details&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;details>
 &lt;summary>CLICK ME&lt;/summary>
@@ -848,7 +808,7 @@ return a
 &lt;h2 id="html">HTML&lt;/h2>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
 &lt;/span>&lt;span class="lnt"> 2
 &lt;/span>&lt;span class="lnt"> 3
 &lt;/span>&lt;span class="lnt"> 4
@@ -865,21 +825,22 @@ return a
 &lt;/span>&lt;span class="lnt">15
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-markdown" data-lang="markdown">在代码区块里面，&lt;span class="err">&amp;amp;&lt;/span>、&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">和&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>会自动转成HTML实体
-HTML原始码，只需要复制贴上，剩下的Markdown都会帮你处理
-&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">table&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">tr&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">td&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>1&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">td&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">td&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>2&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">td&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">td&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>3&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">td&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">tr&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">tr&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">td&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>4&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">td&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">td&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>5&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">td&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">td&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>6&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">td&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">tr&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">table&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">在代码区块里面，&lt;span class="err">&amp;amp;&lt;/span>、&lt;span class="err">&amp;lt;&lt;/span>和&amp;gt;会自动转成HTML实体
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">HTML原始码，只需要复制贴上，剩下的Markdown都会帮你处理
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">table&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">tr&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">td&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>1&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">td&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">td&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>2&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">td&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">td&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>3&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">td&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">tr&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">tr&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">td&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>4&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">td&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">td&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>5&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">td&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">td&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>6&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">td&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">tr&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">table&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;table>
 &lt;tr>
@@ -893,11 +854,11 @@ HTML原始码，只需要复制贴上，剩下的Markdown都会帮你处理
 &lt;td>6&lt;/td>
 &lt;/tr>
 &lt;/table>
-&lt;section class="footnotes" role="doc-endnotes">
+&lt;div class="footnotes" role="doc-endnotes">
 &lt;hr>
 &lt;ol>
-&lt;li id="fn:1" role="doc-endnote">
-&lt;p>脚注的内容 &lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;li id="fn:1">
+&lt;p>脚注的内容&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/section></description></item></channel></rss>
+&lt;/div></description></item></channel></rss>

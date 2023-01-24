@@ -1,28 +1,30 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>macos on Jqtmviyu's Blog</title><link>/tags/macos/</link><description>Recent content in macos on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 27 Dec 2022 18:35:37 +0800</lastBuildDate><atom:link href="/tags/macos/index.xml" rel="self" type="application/rss+xml"/><item><title>Homebrew</title><link>/p/homebrew/</link><pubDate>Tue, 27 Dec 2022 18:35:37 +0800</pubDate><guid>/p/homebrew/</guid><description>&lt;h1 id="homebrew">homebrew&lt;/h1>
 &lt;h2 id="安装教程">安装教程&lt;/h2>
-&lt;p>&lt;a href="https://brew.idayer.com">https://brew.idayer.com&lt;/a>&lt;/p>
-&lt;p>或者直接看镜像源的教程 &lt;a href="https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/">https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://brew.idayer.com" target="_blank" rel="noopener"
+>https://brew.idayer.com&lt;/a>&lt;/p>
+&lt;p>或者直接看镜像源的教程 &lt;a class="link" href="https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/" target="_blank" rel="noopener"
+>https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/&lt;/a>&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">/bin/bash -c &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>curl -fsSL https://cdn.jsdelivr.net/gh/ineo6/homebrew-install/install.sh&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">/bin/bash -c &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>curl -fsSL https://cdn.jsdelivr.net/gh/ineo6/homebrew-install/install.sh&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h2 id="卸载">卸载&lt;/h2>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">/bin/bash -c &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>curl -fsSL https://cdn.jsdelivr.net/gh/ineo6/homebrew-install/uninstall.sh&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">/bin/bash -c &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>curl -fsSL https://cdn.jsdelivr.net/gh/ineo6/homebrew-install/uninstall.sh&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h2 id="其他命令">其他命令&lt;/h2>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
 &lt;/span>&lt;span class="lnt"> 2
 &lt;/span>&lt;span class="lnt"> 3
 &lt;/span>&lt;span class="lnt"> 4
@@ -43,46 +45,47 @@
 &lt;/span>&lt;span class="lnt">19
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">brew update-reset &lt;span class="c1"># 重置更新&lt;/span>
-brew list &lt;span class="c1">#列出已安装的包&lt;/span>
-brew list --formulae &lt;span class="c1"># 所有已安装的 Formulae&lt;/span>
-brew list --cask &lt;span class="c1"># 所有已安装的 Casks&lt;/span>
-brew deps --installed --tree &lt;span class="c1"># 查看已安装软件的依赖&lt;/span>
-brew info &lt;span class="c1"># 显示安装了包数量，文件数量，和总占用空间&lt;/span>
-brew info &amp;lt;package&amp;gt; &lt;span class="c1"># 显示某个包的信息&lt;/span>
-brew outdated &lt;span class="c1"># 查看哪些安装包需要更新&lt;/span>
-brew upgrade &lt;span class="c1"># 更新所有已落后的包&lt;/span>
-brew upgrade &amp;lt;package&amp;gt; &lt;span class="c1"># 单独更新某个包&lt;/span>
-brew cleanup &lt;span class="c1"># 清理所有包的旧版本&lt;/span>
-brew cleanup &amp;lt;package&amp;gt; &lt;span class="c1"># 清理指定的旧版本包&lt;/span>
-brew cleanup -n &lt;span class="c1"># 查看可清理的旧版本包&lt;/span>
-brew uninstall --force &amp;lt;package&amp;gt; &lt;span class="c1"># 强制卸载某个软件&lt;/span>
-brew reinstall &amp;lt;package&amp;gt; &lt;span class="c1"># 重装&lt;/span>
-brew pin &amp;lt;package&amp;gt; &lt;span class="c1"># 锁定指定包&lt;/span>
-brew unpin &amp;lt;package&amp;gt; &lt;span class="c1"># 取消锁定指定包&lt;/span>
-brew doctor &lt;span class="c1"># 诊断brew&lt;/span>
-brew autoremove &lt;span class="c1"># 删除所有未使用的依赖项&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">brew update-reset &lt;span class="c1"># 重置更新&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">brew list &lt;span class="c1">#列出已安装的包&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">brew list --formulae &lt;span class="c1"># 所有已安装的 Formulae&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">brew list --cask &lt;span class="c1"># 所有已安装的 Casks&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">brew deps --installed --tree &lt;span class="c1"># 查看已安装软件的依赖&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">brew info &lt;span class="c1"># 显示安装了包数量，文件数量，和总占用空间&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">brew info &amp;lt;package&amp;gt; &lt;span class="c1"># 显示某个包的信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">brew outdated &lt;span class="c1"># 查看哪些安装包需要更新&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">brew upgrade &lt;span class="c1"># 更新所有已落后的包&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">brew upgrade &amp;lt;package&amp;gt; &lt;span class="c1"># 单独更新某个包&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">brew cleanup &lt;span class="c1"># 清理所有包的旧版本&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">brew cleanup &amp;lt;package&amp;gt; &lt;span class="c1"># 清理指定的旧版本包&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">brew cleanup -n &lt;span class="c1"># 查看可清理的旧版本包&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">brew uninstall --force &amp;lt;package&amp;gt; &lt;span class="c1"># 强制卸载某个软件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">brew reinstall &amp;lt;package&amp;gt; &lt;span class="c1"># 重装&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">brew pin &amp;lt;package&amp;gt; &lt;span class="c1"># 锁定指定包&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">brew unpin &amp;lt;package&amp;gt; &lt;span class="c1"># 取消锁定指定包&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">brew doctor &lt;span class="c1"># 诊断brew&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">brew autoremove &lt;span class="c1"># 删除所有未使用的依赖项&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h2 id="updating卡住">updating卡住&lt;/h2>
 &lt;p>方法1: 按住ctrl + c取消本次更新&lt;/p>
 &lt;p>方法2: 替换镜像源&lt;/p>
-&lt;p>建议直接看镜像源教程 &lt;a href="https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/">https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/&lt;/a>&lt;/p>
+&lt;p>建议直接看镜像源教程 &lt;a class="link" href="https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/" target="_blank" rel="noopener"
+>https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/&lt;/a>&lt;/p>
 &lt;p>&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;以下内容可以跳过: &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;&lt;/p>
 &lt;p>平时我们执行 brew 命令安装软件的时候，跟以下 4 个仓库地址有关：&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;span class="lnt">4
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-text" data-lang="text">1. brew.git 源代码仓库
-2. homebrew-core.git 核心源
-3. homebrew-bottles 预编译二进制软件包
-4. Homebrew Cask 提供 macOS 应用和大型二进制文件的安装(带gui之类的)
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-text" data-lang="text">&lt;span class="line">&lt;span class="cl">1. brew.git 源代码仓库
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2. homebrew-core.git 核心源
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">3. homebrew-bottles 预编译二进制软件包
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">4. Homebrew Cask 提供 macOS 应用和大型二进制文件的安装(带gui之类的)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>通过以下操作将这 4 个仓库地址全部替换为 清华 提供的地址&lt;/p>
 &lt;ol>
@@ -90,36 +93,38 @@ brew autoremove &lt;span class="c1"># 删除所有未使用的依赖项&lt;/span
 &lt;/ol>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;span class="lnt">4
 &lt;/span>&lt;span class="lnt">5
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 清华&lt;/span>
-git -C &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>brew --repo&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git
-&lt;span class="c1"># 还原为官方&lt;/span>
-git -C &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>brew --repo&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> remote set-url origin https://github.com/Homebrew/brew.git
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 清华&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git -C &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>brew --repo&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 还原为官方&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git -C &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>brew --repo&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> remote set-url origin https://github.com/Homebrew/brew.git
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;ol start="2">
 &lt;li>替换 / 还原 homebrew-core.git 仓库地址&lt;/li>
 &lt;/ol>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;span class="lnt">4
 &lt;/span>&lt;span class="lnt">5
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 清华&lt;/span>
-git -C &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>brew --repo homebrew/core&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git
-&lt;span class="c1"># 还原为官方&lt;/span>
-git -C &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>brew --repo homebrew/core&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> remote set-url origin https://github.com/Homebrew/homebrew-core.git
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 清华&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git -C &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>brew --repo homebrew/core&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 还原为官方&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git -C &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>brew --repo homebrew/core&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> remote set-url origin https://github.com/Homebrew/homebrew-core.git
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;ol start="3">
 &lt;li>
@@ -130,18 +135,18 @@ git -C &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>bre
 &lt;/ol>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 如果你的输出结果是 /bin/zsh，参考下方的 zsh 终端操作方式&lt;/span>
-&lt;span class="c1"># 如果你的输出结果是 /bin/bash，参考下方的 bash 终端操作方式&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 如果你的输出结果是 /bin/zsh，参考下方的 zsh 终端操作方式&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 如果你的输出结果是 /bin/bash，参考下方的 bash 终端操作方式&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>3.1 zsh 终端操作方式&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;span class="lnt">4
@@ -151,19 +156,20 @@ git -C &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>bre
 &lt;/span>&lt;span class="lnt">8
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 清华&lt;/span>
-&lt;span class="nb">echo&lt;/span> &lt;span class="s1">&amp;#39;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/bottles&amp;#39;&lt;/span> &amp;gt;&amp;gt; ~/.zshrc
-&lt;span class="nb">source&lt;/span> ~/.zshrc
-&lt;span class="c1"># 还原为官方提供的 homebrew-bottles 访问地址&lt;/span>
-vi ~/.zshrc
-&lt;span class="c1"># 然后，删除 HOMEBREW_BOTTLE_DOMAIN 这一行配置&lt;/span>
-&lt;span class="nb">source&lt;/span> ~/.zshrc
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 清华&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s1">&amp;#39;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/bottles&amp;#39;&lt;/span> &amp;gt;&amp;gt; ~/.zshrc
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">source&lt;/span> ~/.zshrc
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 还原为官方提供的 homebrew-bottles 访问地址&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">vi ~/.zshrc
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 然后，删除 HOMEBREW_BOTTLE_DOMAIN 这一行配置&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">source&lt;/span> ~/.zshrc
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>3.2 bash 终端操作方式&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;span class="lnt">4
@@ -173,60 +179,64 @@ vi ~/.zshrc
 &lt;/span>&lt;span class="lnt">8
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 清华&lt;/span>
-&lt;span class="nb">echo&lt;/span> &lt;span class="s1">&amp;#39;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/bottles&amp;#39;&lt;/span> &amp;gt;&amp;gt; ~/.bash_profile
-&lt;span class="nb">source&lt;/span> ~/.bash_profile
-&lt;span class="c1"># 还原为官方提供的 homebrew-bottles 访问地址&lt;/span>
-vi ~/.bash_profile
-&lt;span class="c1"># 然后，删除 HOMEBREW_BOTTLE_DOMAIN 这一行配置&lt;/span>
-&lt;span class="nb">source&lt;/span> ~/.bash_profile
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 清华&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s1">&amp;#39;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/bottles&amp;#39;&lt;/span> &amp;gt;&amp;gt; ~/.bash_profile
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">source&lt;/span> ~/.bash_profile
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 还原为官方提供的 homebrew-bottles 访问地址&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">vi ~/.bash_profile
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 然后，删除 HOMEBREW_BOTTLE_DOMAIN 这一行配置&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">source&lt;/span> ~/.bash_profile
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;ol start="4">
 &lt;li>替换/还原 homebrew/cask 地址&lt;/li>
 &lt;/ol>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;span class="lnt">4
 &lt;/span>&lt;span class="lnt">5
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># 替换 homebrew/cask&lt;/span>
-git -C &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>brew --repo homebrew/cask&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask.git
-&lt;span class="c1"># 还原&lt;/span>
-git -C &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>brew --repo homebrew/cask&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> remote set-url origin https://github.com/Homebrew/homebrew-cask.git
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 替换 homebrew/cask&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git -C &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>brew --repo homebrew/cask&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask.git
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 还原&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git -C &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>brew --repo homebrew/cask&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> remote set-url origin https://github.com/Homebrew/homebrew-cask.git
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;ol start="5">
 &lt;li>最后记得&lt;code>brew update&lt;/code>&lt;/li>
 &lt;/ol>
 &lt;p>&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;跳过结束 &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;&lt;/p>
 &lt;h2 id="依赖项不会自动删除">依赖项不会自动删除&lt;/h2>
-&lt;p>&lt;a href="https://stackoverflow.com/questions/7323261/uninstall-remove-a-homebrew-package-including-all-its-dependencies">https://stackoverflow.com/questions/7323261/uninstall-remove-a-homebrew-package-including-all-its-dependencies&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://stackoverflow.com/questions/7323261/uninstall-remove-a-homebrew-package-including-all-its-dependencies" target="_blank" rel="noopener"
+>https://stackoverflow.com/questions/7323261/uninstall-remove-a-homebrew-package-including-all-its-dependencies&lt;/a>&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">brew autoremove
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">brew autoremove
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">brew tap beeftornado/rmtree
-brew rmtree &amp;lt;package&amp;gt;
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">brew tap beeftornado/rmtree
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">brew rmtree &amp;lt;package&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div></description></item><item><title>MacOs清理System Data</title><link>/p/clean-macos-system-data/</link><pubDate>Fri, 23 Dec 2022 21:11:11 +0800</pubDate><guid>/p/clean-macos-system-data/</guid><description>&lt;h1 id="清理system-data">清理System Data&lt;/h1>
 &lt;blockquote>
-&lt;p>几乎照搬原文： &lt;a href="https://zhuanlan.zhihu.com/p/349862578">https://zhuanlan.zhihu.com/p/349862578&lt;/a>&lt;/p>
+&lt;p>几乎照搬原文： &lt;a class="link" href="https://zhuanlan.zhihu.com/p/349862578" target="_blank" rel="noopener"
+>https://zhuanlan.zhihu.com/p/349862578&lt;/a>&lt;/p>
 &lt;/blockquote>
 &lt;h2 id="效果">效果&lt;/h2>
 &lt;p>&lt;code> --&amp;gt; About this Mac --&amp;gt; Storage --&amp;gt; System Data&lt;/code>&lt;/p>
