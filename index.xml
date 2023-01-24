@@ -1,4 +1,128 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jqtmviyu's Blog</title><link>/</link><description>Recent content on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 22 Jan 2023 00:48:41 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>Vscode Remote记住密码</title><link>/p/vscode_remote_rember_password/</link><pubDate>Sun, 22 Jan 2023 00:48:41 +0800</pubDate><guid>/p/vscode_remote_rember_password/</guid><description>&lt;h1 id="linux-ssh-remote到mac记住密码">linux ssh remote到mac记住密码&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jqtmviyu's Blog</title><link>/</link><description>Recent content on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 24 Jan 2023 10:41:18 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>正向|反向|透明代理</title><link>/p/proxy/</link><pubDate>Tue, 24 Jan 2023 10:41:18 +0800</pubDate><guid>/p/proxy/</guid><description>&lt;h1 id="正向反向透明-代理">正向|反向|透明 代理&lt;/h1>
+&lt;h2 id="正向代理">正向代理&lt;/h2>
+&lt;blockquote>
+&lt;p>正向代理是一个位于客户端和原始服务器(origin server)之间的服务器，为了从原始服务器取得内容，客户端向代理发送一个请求并指定目标(原始服务器)，然后代理向原始服务器转交请求并将获得的内容返回给客户端。客户端必须设置正向代理服务器，当然前提是要知道正向代理服务器的IP地址，还有代理程序的端口。&lt;/p>
+&lt;/blockquote>
+&lt;p>常见用途:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>访问原本无法反问的服务器: 例如梯子&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback"> graph LR
+A(用户) --&amp;gt; B{代理}
+A -.墙.-&amp;gt; C
+B --&amp;gt; C[(服务器)]
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>加速访问服务器: 例如&lt;code>用户-&amp;gt;代理&lt;/code>, &lt;code>代理-&amp;gt;服务器&lt;/code>带宽更高&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>cache: 例如 A用户通过代理访问服务器, B用户通过代理访相同资源命中cache, 不用再访问服务器&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>客户端访问授权: 例如作为防火墙来判断能否连外网&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">graph LR
+A(用户A) --&amp;gt; C{代理}
+B(用户B) --&amp;gt; C
+C --&amp;gt; D[(网络)]
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>隐藏访问者的行踪: 服务器并不知道是用户访问了自己, 而以为是代理服务器, 代理服务器也可以叫&amp;quot;肉鸡&amp;quot;&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="反向代理">反向代理&lt;/h2>
+&lt;blockquote>
+&lt;p>客户端向反向代理的命名空间(name-space)中的内容发送普通请求，接着反向代理将判断向何处(原始服务器)转交请求，并将获得的内容返回给客户端，就像这些内容原本就是它自己的一样.&lt;/p>
+&lt;p>反向代理结论与正向代理正好相反，对于客户端而言它就像是原始服务器，并且客户端不需要进行任何特别的设置。&lt;/p>
+&lt;/blockquote>
+&lt;p>常见用途:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>保护和隐藏原始资源服务器:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">graph LR
+a(用户) --&amp;gt; b[(反向代理服务器)]
+subgraph
+c[防火墙] --&amp;gt; d[(资源服务器)]
+end
+b--&amp;gt; c
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>负载均衡: 当反向代理服务器不止一个的时候, 甚至可以做成集群,让不同的代理服务器去响应不同的用户,当代理服务器具备cache功能, 且用户和代理服务器在同一个网络,就能得到高质量的速度,这就是CDN的核心.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">graph RL
+g[(资源服务器)] --&amp;gt; d[(反向代理服务器D)] --&amp;gt; a(用户A)
+g[(资源服务器)] --&amp;gt; e[(反向代理服务器E)] --&amp;gt; b(用户B)
+g[(资源服务器)] --&amp;gt; f[(反向代理服务器F)] --&amp;gt; c(用户C)
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h2 id="透明代理">透明代理&lt;/h2>
+&lt;blockquote>
+&lt;p>客户端根本不需要知道有代理服务器的存在，它改编你的request fields（报文），并会传送真实IP。&lt;/p>
+&lt;/blockquote>
+&lt;p>常见用途:&lt;/p>
+&lt;ul>
+&lt;li>行为管理工具: 例如某信服&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">graph LR
+subgraph
+a(用户A) --&amp;gt; c[交换机] --&amp;gt; d[(行为管理工具)]
+b(用户B) --&amp;gt; c[交换机]
+end
+d --&amp;gt; e[(互联网)]
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Vscode Remote记住密码</title><link>/p/vscode_remote_rember_password/</link><pubDate>Sun, 22 Jan 2023 00:48:41 +0800</pubDate><guid>/p/vscode_remote_rember_password/</guid><description>&lt;h1 id="linux-ssh-remote到mac记住密码">linux ssh remote到mac记住密码&lt;/h1>
 &lt;ol>
 &lt;li>
 &lt;p>在linux上生成ssh-keygen&lt;/p>
