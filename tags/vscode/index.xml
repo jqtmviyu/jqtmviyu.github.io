@@ -1,4 +1,58 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>vscode on Jqtmviyu's Blog</title><link>/tags/vscode/</link><description>Recent content in vscode on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 22 Jan 2023 00:48:41 +0800</lastBuildDate><atom:link href="/tags/vscode/index.xml" rel="self" type="application/rss+xml"/><item><title>Vscode Remote记住密码</title><link>/p/vscode_remote_rember_password/</link><pubDate>Sun, 22 Jan 2023 00:48:41 +0800</pubDate><guid>/p/vscode_remote_rember_password/</guid><description>&lt;h1 id="linux-ssh-remote到mac记住密码">linux ssh remote到mac记住密码&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>vscode on Jqtmviyu's Blog</title><link>/tags/vscode/</link><description>Recent content in vscode on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 25 Jan 2023 21:31:49 +0800</lastBuildDate><atom:link href="/tags/vscode/index.xml" rel="self" type="application/rss+xml"/><item><title>Vscode Vim模式下切换输入法状态</title><link>/p/vscode_vimmode_switch_im/</link><pubDate>Wed, 25 Jan 2023 21:31:49 +0800</pubDate><guid>/p/vscode_vimmode_switch_im/</guid><description>&lt;h1 id="vscode-vim模式下切换输入法状态">Vscode Vim模式下切换输入法状态&lt;/h1>
+&lt;p>操作系统: linux arch&lt;/p>
+&lt;p>输入法: fcitx5+rime&lt;/p>
+&lt;p>目的: 在vscode的命令和插入模式下, 能自动切换中英文输入法&lt;/p>
+&lt;p>官方为mac和windown提供建议, 安装&lt;code>im-select&lt;/code>, 但linux下并没有&lt;/p>
+&lt;p>查看&lt;a class="link" href="https://github.com/daipeihust/im-select" target="_blank" rel="noopener"
+>im-select&lt;/a>readme, 说法是linux有自己的切换工具,并不需要&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>方法一:&lt;/p>
+&lt;p>添加到vscode config文件中:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// 在输入法中切换
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// 保证fcitx5-configtool设置英文为第一输入法,rime为第二输入法
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="s2">&amp;#34;vim.autoSwitchInputMethod.enable&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2">&amp;#34;vim.autoSwitchInputMethod.defaultIM&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="s2">&amp;#34;1&amp;#34;&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2">&amp;#34;vim.autoSwitchInputMethod.obtainIMCmd&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="s2">&amp;#34;/usr/bin/fcitx5-remote&amp;#34;&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2">&amp;#34;vim.autoSwitchInputMethod.switchIMCmd&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="s2">&amp;#34;/usr/bin/fcitx-remote5 -t {im}&amp;#34;&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>方法二:&lt;/p>
+&lt;p>来源: &lt;a class="link" href="https://github.com/fcitx/fcitx5-rime/issues/30#issuecomment-957001110" target="_blank" rel="noopener"
+>rime issue&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// 只是切换rime的中英文
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// 并没有切换输入法
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="s2">&amp;#34;vim.autoSwitchInputMethod.enable&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2">&amp;#34;vim.autoSwitchInputMethod.defaultIM&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="s2">&amp;#34;b true&amp;#34;&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2">&amp;#34;vim.autoSwitchInputMethod.obtainIMCmd&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="s2">&amp;#34;/usr/bin/busctl call --user org.fcitx.Fcitx5 /rime org.fcitx.Fcitx.Rime1 IsAsciiMode&amp;#34;&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2">&amp;#34;vim.autoSwitchInputMethod.switchIMCmd&amp;#34;&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="s2">&amp;#34;/usr/bin/busctl call --user org.fcitx.Fcitx5 /rime org.fcitx.Fcitx.Rime1 SetAsciiMode {im}&amp;#34;&lt;/span>&lt;span class="err">,&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>随意选一种即可.我喜欢方法二.&lt;/p>
+&lt;/li>
+&lt;/ul></description></item><item><title>Vscode Remote记住密码</title><link>/p/vscode_remote_rember_password/</link><pubDate>Sun, 22 Jan 2023 00:48:41 +0800</pubDate><guid>/p/vscode_remote_rember_password/</guid><description>&lt;h1 id="linux-ssh-remote到mac记住密码">linux ssh remote到mac记住密码&lt;/h1>
 &lt;ol>
 &lt;li>
 &lt;p>在linux上生成ssh-keygen&lt;/p>
