@@ -1,4 +1,35 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Jqtmviyu's Blog</title><link>/post/</link><description>Recent content in Posts on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 25 Jan 2023 21:31:49 +0800</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Vscode Vim模式下切换输入法状态</title><link>/p/vscode_vimmode_switch_im/</link><pubDate>Wed, 25 Jan 2023 21:31:49 +0800</pubDate><guid>/p/vscode_vimmode_switch_im/</guid><description>&lt;h1 id="vscode-vim模式下切换输入法状态">Vscode Vim模式下切换输入法状态&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Jqtmviyu's Blog</title><link>/post/</link><description>Recent content in Posts on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 27 Jan 2023 23:44:44 +0800</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Vim取消鼠标移动光标模式</title><link>/p/vim_mouse_mode/</link><pubDate>Fri, 27 Jan 2023 23:44:44 +0800</pubDate><guid>/p/vim_mouse_mode/</guid><description>&lt;h1 id="vim取消鼠标移动光标模式">vim取消鼠标移动光标模式&lt;/h1>
+&lt;ol>
+&lt;li>
+&lt;p>vim普通用户加载的配置文件路径为&lt;code>~/.vimrc&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>vim管理员用户加载的配置文件路径为&lt;code>/etc/vimrc&lt;/code>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>问题点:添加配置&lt;code>set mouse=&amp;quot;&amp;quot;&lt;/code>在切换到管理员时不生效&lt;/p>
+&lt;p>解决方法: 修改默认配置文件&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo vim
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 输入命令&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">:echo &lt;span class="nv">$VIMRUNTIME&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># cd进入目录, 找到default.vim文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo vim default.vim
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 找到 set mouse=a&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 用&amp;#34;注释掉&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Vscode Vim模式下切换输入法状态</title><link>/p/vscode_vimmode_switch_im/</link><pubDate>Wed, 25 Jan 2023 21:31:49 +0800</pubDate><guid>/p/vscode_vimmode_switch_im/</guid><description>&lt;h1 id="vscode-vim模式下切换输入法状态">Vscode Vim模式下切换输入法状态&lt;/h1>
 &lt;p>操作系统: linux arch&lt;/p>
 &lt;p>输入法: fcitx5+rime&lt;/p>
 &lt;p>目的: 在vscode的命令和插入模式下, 能自动切换中英文输入法&lt;/p>
