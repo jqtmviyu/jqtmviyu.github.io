@@ -1,4 +1,169 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jqtmviyu's Blog</title><link>/</link><description>Recent content on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 27 Jan 2023 23:44:44 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>Vim取消鼠标移动光标模式</title><link>/p/vim_mouse_mode/</link><pubDate>Fri, 27 Jan 2023 23:44:44 +0800</pubDate><guid>/p/vim_mouse_mode/</guid><description>&lt;h1 id="vim取消鼠标移动光标模式">vim取消鼠标移动光标模式&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jqtmviyu's Blog</title><link>/</link><description>Recent content on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 01 Mar 2023 19:29:22 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>2023年, Obsidian完全可以替代Typora了</title><link>/p/obsidian_instead_typora/</link><pubDate>Wed, 01 Mar 2023 19:29:22 +0800</pubDate><guid>/p/obsidian_instead_typora/</guid><description>&lt;h1 id="2023年-obsidian完全可以替代typora了">2023年, Obsidian完全可以替代Typora了&lt;/h1>
+&lt;h2 id="typora">Typora&lt;/h2>
+&lt;h3 id="缺点">缺点&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>macos+intel, Typora在所见所得的模式下, 只要内容一多, 就会开始卡顿,切换到源码模式就不卡了&lt;br>
+搜了下, 可能是自带WebKit的原因&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>typora会在换行时插入空白行, 类似的还有渲染时会忽略一些格式, 导致你在预览模式下是正常的, 但发布到博客, 或者用vscode打开, 会发现很多格式不规范, 例如缩进 换行 对齐&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>免费版停止在0.98, 不会有新功能, arch上安装旧版本也比较麻烦&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="优点">优点&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>表格非常好用&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>和picgo整合的图片上传功能非常好用&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="obsidian">Obsidian&lt;/h2>
+&lt;h3 id="优点-1">优点&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>免费&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>所见所得模式下比Typora流畅多了&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>有丰富的插件市场&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>双链(我没用这功能)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>把整个文件夹同步(例如放到onedrive里), 配置也跟着同步&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>多窗口, 多标签模式&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="缺点-1">缺点&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>像vscode一样, 如果是从Typora迁移过来, 默认初始配置会觉得不顺手&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>市场插件太多了, 有点难挑&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="插件">插件&lt;/h3>
+&lt;p>可以看下开发者的文章 &lt;a class="link" href="https://zhuanlan.zhihu.com/p/570867991" target="_blank" rel="noopener"
+>两年后，我还在用的 Obsidian 插件&lt;/a>&lt;/p>
+&lt;p>说下我自己在用的:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Auto Link Title: 粘贴链接时自动获取网页标题&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Clear Unused Images Collapse All: 自动清除不再使用的图片&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Commander: 添加快捷图标, 点击时使用指定命令&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Easy Typing: 格式化类&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Excalidraw: 画图, 类似draw, 手绘风&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Hider: 隐藏不需要的菜单&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Hover Editor: 悬浮窗口模式&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Icon Folder: 给文件夹或者文件添加图标&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Image auto upload Plugin Local Images Plus: 类似typora结合picgo上传图片&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Obsidian42 - BRAT: 安装非官方市场插件&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Pandoc Plugin: 导出其他格式&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Quiet Outline: 大纲&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Recent Files: 最近打开的文件&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Table Enhancer: 表格增强(终于接近typora了)&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="主题">主题&lt;/h3>
+&lt;p>当然是类似Typora的 &lt;code>Typora-vue&lt;/code>&lt;/p>
+&lt;p>顺便改下, 把h标签hover选择器去掉, 把颜色改成高亮颜色, 让它常驻&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-css" data-lang="css">&lt;span class="line">&lt;span class="cl">&lt;span class="p">.&lt;/span>&lt;span class="nc">markdown-preview-view&lt;/span> &lt;span class="nt">h1&lt;/span>&lt;span class="p">::&lt;/span>&lt;span class="nd">before&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="自定义css">自定义css&lt;/h4>
+&lt;p>给outline 添加数字序号&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-css" data-lang="css">&lt;span class="line">&lt;span class="cl">&lt;span class="c">/* container of first layer headings. */&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">.&lt;/span>&lt;span class="nc">outline&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">counter-reset&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">rootCounter&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">.&lt;/span>&lt;span class="nc">outline&lt;/span> &lt;span class="p">.&lt;/span>&lt;span class="nc">tree-item&lt;/span> &lt;span class="p">.&lt;/span>&lt;span class="nc">tree-item-self&lt;/span> &lt;span class="p">.&lt;/span>&lt;span class="nc">tree-item-inner&lt;/span>&lt;span class="p">::&lt;/span>&lt;span class="nd">before&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">content&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="nf">counters&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">rootCounter&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;.&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="s2">&amp;#34;. &amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">counter-increment&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">rootCounter&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">/* container of the ohter headings. */&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">/* NOTE: It is not .outline anymore. So we need a new counter */&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">.&lt;/span>&lt;span class="nc">tree-item-children&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">counter-reset&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">innerCounter&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">.&lt;/span>&lt;span class="nc">tree-item-children&lt;/span> &lt;span class="p">.&lt;/span>&lt;span class="nc">tree-item&lt;/span> &lt;span class="p">.&lt;/span>&lt;span class="nc">tree-item-self&lt;/span> &lt;span class="p">.&lt;/span>&lt;span class="nc">tree-item-inner&lt;/span>&lt;span class="p">::&lt;/span>&lt;span class="nd">before&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">content&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="nf">counters&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">rootCounter&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;.&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="s2">&amp;#34;.&amp;#34;&lt;/span> &lt;span class="nf">counters&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">innerCounter&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;.&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="s2">&amp;#34;. &amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">counter-increment&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">innerCounter&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;img src="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20230301195019.png"
+loading="lazy"
+alt="长这个样子"
+>&lt;/p></description></item><item><title>Vim取消鼠标移动光标模式</title><link>/p/vim_mouse_mode/</link><pubDate>Fri, 27 Jan 2023 23:44:44 +0800</pubDate><guid>/p/vim_mouse_mode/</guid><description>&lt;h1 id="vim取消鼠标移动光标模式">vim取消鼠标移动光标模式&lt;/h1>
 &lt;ol>
 &lt;li>
 &lt;p>vim普通用户加载的配置文件路径为&lt;code>~/.vimrc&lt;/code>&lt;/p>
