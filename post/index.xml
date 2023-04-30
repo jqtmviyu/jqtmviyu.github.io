@@ -1,4 +1,52 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Jqtmviyu's Blog</title><link>/post/</link><description>Recent content in Posts on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 29 Mar 2023 16:45:21 +0800</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Migrating_from_Visual_Studio_Code_to_VSCodium</title><link>/p/migrating_from_visual_studio_code_to_vscodium/</link><pubDate>Wed, 29 Mar 2023 16:45:21 +0800</pubDate><guid>/p/migrating_from_visual_studio_code_to_vscodium/</guid><description>&lt;h1 id="迁移vscode到vscodium">迁移vscode到vscodium&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Jqtmviyu's Blog</title><link>/post/</link><description>Recent content in Posts on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 30 Apr 2023 17:43:06 +0800</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml"/><item><title>远程开发如何启动vite服务</title><link>/p/ssh_and_start_vite_project/</link><pubDate>Sun, 30 Apr 2023 17:43:06 +0800</pubDate><guid>/p/ssh_and_start_vite_project/</guid><description>&lt;p>问题场景: 使用vscode ssh 远程开发如何访问远程服务器上启动的vite项目&lt;/p>
+&lt;p>方法一:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">npx vite --host 0.0.0.0
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>方法二:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 编辑vite.config.ts&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">server: &lt;span class="o">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> port: 9999,
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> host: &lt;span class="s2">&amp;#34;0.0.0.0&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">}&lt;/span>,
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>方法三:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 修改package.json&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2">&amp;#34;scripts&amp;#34;&lt;/span>: &lt;span class="o">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;dev&amp;#34;&lt;/span>: &lt;span class="s2">&amp;#34;vite&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;start&amp;#34;&lt;/span>: &lt;span class="s2">&amp;#34;vite --host 0.0.0.0&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;build&amp;#34;&lt;/span>: &lt;span class="s2">&amp;#34;vue-tsc --noEmit &amp;amp;&amp;amp; vite build&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;serve&amp;#34;&lt;/span>: &lt;span class="s2">&amp;#34;vite preview&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">}&lt;/span>,
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Migrating_from_Visual_Studio_Code_to_VSCodium</title><link>/p/migrating_from_visual_studio_code_to_vscodium/</link><pubDate>Wed, 29 Mar 2023 16:45:21 +0800</pubDate><guid>/p/migrating_from_visual_studio_code_to_vscodium/</guid><description>&lt;h1 id="迁移vscode到vscodium">迁移vscode到vscodium&lt;/h1>
 &lt;blockquote>
 &lt;p>为什么要迁移?
 intel芯片的 macos 上, 最新版的vscode在使用具有&lt;code>git graph&lt;/code>功能的插件时,总是内存溢出无响应
