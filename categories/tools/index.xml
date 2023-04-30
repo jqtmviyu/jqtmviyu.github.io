@@ -30,7 +30,105 @@ intel芯片的 macos 上, 最新版的vscode在使用具有&lt;code>git graph&lt
 &lt;li>复制快捷键: &lt;code>cp $HOME/Library/Application\ Support/Code/User/keybindings.json $HOME/Library/Application\ Support/VSCodium/User/keybindings.json&lt;/code>&lt;/li>
 &lt;li>复制配置文件: &lt;code>cp $HOME/Library/Application\ Support/Code/User/settings.json $HOME/Library/Application\ Support/VSCodium/User/settings.json&lt;/code>&lt;/li>
 &lt;li>复制用户代码提示: &lt;code>cp -r $HOME/Library/Application\ Support/Code/User/snippets $HOME/Library/Application\ Support/VSCodium/User/snippets&lt;/code>&lt;/li>
-&lt;/ul></description></item><item><title>Obsidian_个性化主题</title><link>/p/obsidian_theme_setting/</link><pubDate>Fri, 24 Mar 2023 12:20:52 +0800</pubDate><guid>/p/obsidian_theme_setting/</guid><description>&lt;ul>
+&lt;/ul></description></item><item><title>Keeweb_Last Modified_error</title><link>/p/keeweb_last_modified_error_on_jianguoyun/</link><pubDate>Tue, 28 Mar 2023 14:02:18 +0800</pubDate><guid>/p/keeweb_last_modified_error_on_jianguoyun/</guid><description>&lt;h1 id="重新编译keeweb修复坚果云last-modified错误">重新编译keeWeb修复坚果云Last-Modified错误&lt;/h1>
+&lt;h2 id="问题描述">问题描述&lt;/h2>
+&lt;p>问题描述: keeWeb使用坚果云webdav会报错没有Last-Modified&lt;/p>
+&lt;p>官方issue: &lt;a class="link" href="https://github.com/keeweb/keeweb/issues/1523" target="_blank" rel="noopener"
+>https://github.com/keeweb/keeweb/issues/1523&lt;/a>&lt;/p>
+&lt;p>总结:坚果云webdav返回响应头里没有Last-Modified&lt;/p>
+&lt;h2 id="其它方案">其它方案&lt;/h2>
+&lt;p>之前因为这个原因, 换成了 &lt;code>keepassxc&lt;/code>了, 但要另外装一个软件&lt;code>CloudMounter&lt;/code>来把webdav挂载到本地硬盘上.&lt;/p>
+&lt;h2 id="重新编译">重新编译&lt;/h2>
+&lt;p>参考: &lt;a class="link" href="https://www.cyqsd.cn/8017.html" target="_blank" rel="noopener"
+>https://www.cyqsd.cn/8017.html&lt;/a>&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>clone 主仓库: &lt;a class="link" href="https://github.com/keeweb/keeweb" target="_blank" rel="noopener"
+>https://github.com/keeweb/keeweb&lt;/a> 到本地&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>全局安装构建工具&lt;code>Grunt&lt;/code>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">npm install grunt-cli -g
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="3">
+&lt;li>安装npm包&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">npm install
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="4">
+&lt;li>修改代码&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-js" data-lang="js">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// /app/scripts/storage/storage-webdav.js
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// 搜到const rev = xhr.getResponseHeader(&amp;#39;Last-Modified&amp;#39;), 大概330行
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">//把下面的 if 判断逻辑注释掉
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// if (!rev &amp;amp;&amp;amp; !config.nostat) {
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// this.logger.debug(
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// config.op + &amp;#39; error&amp;#39;,
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// config.path,
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// &amp;#39;no headers&amp;#39;,
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// this.logger.ts(ts)
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// );
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// if (callback) {
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// callback(Locale.webdavNoLastModified, xhr);
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// callback = null;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// }
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// return;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// }
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="5">
+&lt;li>打包 mac 安装包&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">grunt dev-desktop-darwin --skip-sign --force
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="6">
+&lt;li>安装: &lt;code>/tmp/desktop/KeeWeb-darwin-x64&lt;/code>目录下的app直接拖到&lt;code>Applications&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;h2 id="内存占用">内存占用&lt;/h2>
+&lt;p>keepassxc: 95m&lt;br>
+CloudMounter:176m&lt;/p>
+&lt;p>keeweb: 460m&lt;/p>
+&lt;p>&lt;strong>electron真是占用大呀. 本地应用还不如直接用 keepassxc + CloudMounter, CloudMounter还支持挂载alist等webdav, 或许部署到服务器是个更好的选择.&lt;/strong>&lt;/p></description></item><item><title>Obsidian_个性化主题</title><link>/p/obsidian_theme_setting/</link><pubDate>Fri, 24 Mar 2023 12:20:52 +0800</pubDate><guid>/p/obsidian_theme_setting/</guid><description>&lt;ul>
 &lt;li>Obsidian上的主题样式非常多, 我之前使用了 &lt;code>typora_vue&lt;/code> 这个主题, 并且直接修改了下载后的文件,但这样会在升级后被覆盖&lt;/li>
 &lt;li>其实官方提供了一个设置的地方, 可以让我们覆盖样式, 就是 &lt;code>外观--css代码片段&lt;/code>, 把自己的css样式文件放到指定文件夹就行, 不影响原主题的升级, 想取消把开关关闭即可&lt;/li>
 &lt;li>直接打开开发工具&lt;code>view-Toggle Developer Tools&lt;/code>, 按自己的需求写css就行&lt;/li>
