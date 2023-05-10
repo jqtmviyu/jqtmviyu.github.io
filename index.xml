@@ -1,4 +1,100 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jqtmviyu's Blog</title><link>/</link><description>Recent content on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 09 May 2023 23:20:19 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>vite全局变量</title><link>/p/vite_global_variable/</link><pubDate>Tue, 09 May 2023 23:20:19 +0800</pubDate><guid>/p/vite_global_variable/</guid><description>&lt;h2 id="环境变量挂载到全局">环境变量挂载到全局&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jqtmviyu's Blog</title><link>/</link><description>Recent content on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 10 May 2023 23:02:26 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>Macos降级</title><link>/p/macos_system_downgrade/</link><pubDate>Wed, 10 May 2023 23:02:26 +0800</pubDate><guid>/p/macos_system_downgrade/</guid><description>&lt;h1 id="macos-保存资料从ventura降级到monterey兼容其他版本升级后降级">macos 保存资料从ventura降级到monterey(兼容其他版本升级后降级)&lt;/h1>
+&lt;blockquote>
+&lt;p>原理: 在同一块硬盘上同时装两个系统, 然后手动迁移数据, 用一段时间没问题后把原来的系统删除&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>
+&lt;p>1: 为什么不用时间机器备份?
+: 从高降到低版本, 有网友说不支持还原, 而且需要另外的硬盘&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>2: 有哪些缺点?
+这样做相当于重装系统, 手动迁移数据会有少数需要驱动的应用需要重装, 部分应用的设置丢失&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>3: 大概需要花多少时间?
+建议至少空闲1天出来才动手&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>4: 重装前有条件还是用时间机器完全备份, 至少也要用手机把应用(包括homebrw里的)拍下照&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="分区">分区&lt;/h2>
+&lt;p>在我理解: macos上的宗卷和windows上的分区不太一样, windows上的分区分好后调整非常麻烦, 而macos的宗卷更类似linux上的文件夹, 并不是固定大小, 而是动态的挂载点&lt;/p>
+&lt;p>所以分出一个apfs宗卷装系统, 确定硬盘上有个150-200G应该就够了&lt;/p>
+&lt;p>分区方法参考: ===BV1sW4y1W7Fa===, 后面部分参考自该教程&lt;/p>
+&lt;p>使用系统自带磁盘工具, 在&lt;code>容器disk xx&lt;/code> 右键新建一个apfs宗卷, 格式选择apfs
+为了做区分, 可以命名为&lt;code>Macos 12&lt;/code> 方便区分, 还可以把原来的宗卷顺带命名为&lt;code>Macos 13&lt;/code>&lt;/p>
+&lt;h2 id="下载monterey完整系统">下载monterey完整系统&lt;/h2>
+&lt;p>不同于大部分教程使用商店下载, 我更推荐使用命令或者找 github 上的shell 工具&lt;/p>
+&lt;ol>
+&lt;li>使用命令下载&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 获取列表&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">softwareupdate --list-full-installers
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 下载monterey最新, 假设当前最新是12.6.5&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">softwareupdate --fetch-full-installer --full-installer-version 12.6.5
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 上面系统下载完成后,启动台里会多出一个 Install macOS Monterey.app&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="2">
+&lt;li>使用github上的工具 &lt;a class="link" href="https://github.com/corpnewt/gibMacOS" target="_blank" rel="noopener"
+>https://github.com/corpnewt/gibMacOS&lt;/a> 类似的工具还有很多&lt;/li>
+&lt;/ol>
+&lt;h2 id="制作安装u盘">制作安装u盘&lt;/h2>
+&lt;p>参考苹果官方文档&lt;/p>
+&lt;p>Create a bootable installer for macOS &lt;a class="link" href="https://support.apple.com/en-us/HT201372" target="_blank" rel="noopener"
+>https://support.apple.com/en-us/HT201372&lt;/a>&lt;/p>
+&lt;ol>
+&lt;li>格式化u盘(至少15G), 同样使用自带的磁盘工具, 格式选择 macos扩展(日志式), 假设命名为&lt;code>MyVolume&lt;/code>&lt;/li>
+&lt;li>写入u盘&lt;/li>
+&lt;/ol>
+&lt;p>注意: 最好用自带终端, 如果用item2, 要授权完整磁盘权限, 否则写入失败&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">sudo /Applications/Install&lt;span class="se">\ &lt;/span>macOS&lt;span class="se">\ &lt;/span>Monterey.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="安装系统">安装系统&lt;/h2>
+&lt;p>写入成功后, 插着u盘重启电脑, 进入选择界面的方法自己搜下, 我是黑苹果 opencore 直接空格就行, 选择安装&lt;/p>
+&lt;p>安装的时候选择刚才新分的宗卷, 千万别选错了&lt;/p>
+&lt;p>安装完成后安装新系统进行设置, 用户名记得和原来的用户名选择一样&lt;/p>
+&lt;h2 id="迁移数据">迁移数据&lt;/h2>
+&lt;h3 id="应用迁移">应用迁移&lt;/h3>
+&lt;p>打开磁盘工具, 选择原来的旧宗卷, 打开所在文件夹, 找到 Application , 直接把原来的应用 &lt;code>移动&lt;/code> 到新的应用目录, 选择移动是因为更节省空间&lt;/p>
+&lt;p>至于不同宗卷的移动会不会比复制更快, 我不太清楚, 但感觉是更快&lt;/p>
+&lt;p>这样大部分应用就迁移完成了&lt;/p>
+&lt;h3 id="用户数据迁移">用户数据迁移&lt;/h3>
+&lt;p>打开用户目录, 把原来的文档, 音乐, 下载 等目录下的文件 &lt;code>移动&lt;/code> 到新的目录, 记得使用快捷键&lt;code>cmd+sift+.&lt;/code> 显示所有隐藏文件和文件夹, 像&lt;code>.ssh&lt;/code> , &lt;code>.cinfig&lt;/code>, &lt;code>.vimrc&lt;/code>, &lt;code>.profile&lt;/code> 之类的也移动过去&lt;/p>
+&lt;p>homebrew可能需要重新安装下, homebrew安装的应用应该还在, 如果你有迁移的话&lt;/p>
+&lt;h3 id="库文件迁移">库文件迁移&lt;/h3>
+&lt;p>库文件有两个, 一个是用户权限的, 一个是管理员权限的, 路径分别是&lt;code>~/Library&lt;/code>和&lt;code>/Library&lt;/code>, 你可以对比下新旧的文件差异&lt;/p>
+&lt;h3 id="少数应用配置迁移">少数应用配置迁移&lt;/h3>
+&lt;p>上面的应用迁移后, 大部分直接打开就能用了, 但有的软件想找回原来的设置, 最简单的方法是谷歌搜下该软件在macos下的数据保存路径, 然后移动覆盖就行.&lt;/p>
+&lt;p>例如chrome浏览器&lt;code>~/Library/Application Support/Google/Chrome/Default&lt;/code>, 刚好是上面的库文件&lt;/p>
+&lt;p>如果有的软件没保存在用户目录下呢? 用 &lt;code>AppCleaner&lt;/code>
+先把软件打开正常用下, 然后打开&lt;code>AppCleaner&lt;/code>, 截图, 保留软件本体, 把数据删了, 到旧宗卷里把数据移动回来&lt;/p>
+&lt;h3 id="少数应用需要重装">少数应用需要重装&lt;/h3>
+&lt;ol>
+&lt;li>pd虚拟机&lt;/li>
+&lt;li>java8&lt;/li>
+&lt;li>按键映射软件 Karabiner&lt;/li>
+&lt;li>homebrew&lt;/li>
+&lt;/ol>
+&lt;h2 id="删除旧宗卷">删除旧宗卷&lt;/h2>
+&lt;p>先用一段时间没问题后再删, 反正原来的大部分数据都被移动到新宗卷了, 占用的空间也不是很大.&lt;/p></description></item><item><title>vite全局变量</title><link>/p/vite_global_variable/</link><pubDate>Tue, 09 May 2023 23:20:19 +0800</pubDate><guid>/p/vite_global_variable/</guid><description>&lt;h2 id="环境变量挂载到全局">环境变量挂载到全局&lt;/h2>
 &lt;p>使用场景: api前缀添加到全局, 所有组件都可以直接使用&lt;/p>
 &lt;ol>
 &lt;li>环境文件:&lt;/li>
