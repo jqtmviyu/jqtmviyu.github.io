@@ -220,7 +220,7 @@
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">|&lt;/span> -A3 or -A &lt;span class="o">(&lt;/span>deprecated&lt;span class="o">)&lt;/span> &lt;span class="o">=&lt;/span> AES-CBC, -A5 &lt;span class="o">=&lt;/span> Speck-CTR.
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-H &lt;span class="p">|&lt;/span> Enable full header encryption. Requires supernode with fixed community.
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-z1 ... -z2 or -z &lt;span class="p">|&lt;/span> Enable compression &lt;span class="k">for&lt;/span> outgoing data packets: -z1 or -z &lt;span class="o">=&lt;/span> lzo1x &lt;span class="o">(&lt;/span>&lt;span class="nv">default&lt;/span>&lt;span class="o">=&lt;/span>disabled&lt;span class="o">)&lt;/span>.
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-E &lt;span class="p">|&lt;/span> 接受多播MAC地址&lt;span class="o">(&lt;/span>默认&lt;span class="o">=&lt;/span>drop&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-E &lt;span class="p">|&lt;/span> 接受多播MAC地址&lt;span class="o">(&lt;/span>&lt;span class="nv">默认&lt;/span>&lt;span class="o">=&lt;/span>drop&lt;span class="o">)&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-S &lt;span class="p">|&lt;/span> 不要连接P2P ，总是使用超级节点转发数据
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-n &amp;lt;cidr:gateway&amp;gt; &lt;span class="p">|&lt;/span> 通过gw路由IPv4网络。使用0.0.0.0/0作为默认gw。可多次设置。
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-v &lt;span class="p">|&lt;/span> 详细日志

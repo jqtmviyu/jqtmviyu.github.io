@@ -213,8 +213,8 @@ d --> e[(互联网)]
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl"> &lt;span class="ge">**&lt;/span>粗体的文字**
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="ge">__&lt;/span>粗体的文字__
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl"> &lt;span class="gs">**粗体的文字**&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="gs">__粗体的文字__&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>&lt;strong>粗体的文字&lt;/strong>&lt;/p>
@@ -825,7 +825,7 @@ return a
 &lt;/span>&lt;span class="lnt">15
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">在代码区块里面，&lt;span class="err">&amp;amp;&lt;/span>、&lt;span class="err">&amp;lt;&lt;/span>和&amp;gt;会自动转成HTML实体
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">在代码区块里面，&lt;span class="err">&amp;amp;&lt;/span>、&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">和&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>会自动转成HTML实体
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">HTML原始码，只需要复制贴上，剩下的Markdown都会帮你处理
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">table&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>

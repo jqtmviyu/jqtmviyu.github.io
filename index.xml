@@ -1,4 +1,69 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jqtmviyu's Blog</title><link>/</link><description>Recent content on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 10 May 2023 23:02:26 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>Macos降级</title><link>/p/macos_system_downgrade/</link><pubDate>Wed, 10 May 2023 23:02:26 +0800</pubDate><guid>/p/macos_system_downgrade/</guid><description>&lt;h1 id="macos-保存资料从ventura降级到monterey兼容其他版本升级后降级">macos 保存资料从ventura降级到monterey(兼容其他版本升级后降级)&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jqtmviyu's Blog</title><link>/</link><description>Recent content on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 06 Sep 2023 10:01:24 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>macos finder右键菜单定制</title><link>/p/finder_right_menu/</link><pubDate>Wed, 06 Sep 2023 10:01:24 +0800</pubDate><guid>/p/finder_right_menu/</guid><description>&lt;p>&lt;strong>以下均为开源免费软件&lt;/strong>&lt;/p>
+&lt;p>效果图:&lt;/p>
+&lt;p>&lt;img src="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20230906100555.png"
+loading="lazy"
+alt="效果图"
+>&lt;/p>
+&lt;ol>
+&lt;li>安装 &amp;lsquo;OpenInTerminal&amp;rsquo;&lt;/li>
+&lt;/ol>
+&lt;p>&lt;a class="link" href="https://github.com/Ji4n1ng/OpenInTerminal" target="_blank" rel="noopener"
+>OpenInTerminal&lt;/a>&lt;/p>
+&lt;ol start="2">
+&lt;li>软件没有&lt;code>新建txt&lt;/code> 和用 &lt;code>neovim打开&lt;/code> 功能, 需要自己写脚本用 &lt;code>Automator&lt;/code> 转成 app.&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#!/bin/bash
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">config_file&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$HOME&lt;/span>&lt;span class="s2">/.config/alacritty/alacritty_nvim.yml&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">nvim_command&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;/usr/local/bin/nvim&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="o">[&lt;/span> -n &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$1&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">target&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$1&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="o">[&lt;/span> -d &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$1&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">working_directory&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$1&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">else&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">working_directory&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="k">$(&lt;/span>dirname &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$1&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">fi&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">else&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">target&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">fi&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">open -na &lt;span class="s2">&amp;#34;Alacritty&amp;#34;&lt;/span> --args --config-file&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$config_file&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> --working-directory&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$working_directory&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> -e &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$nvim_command&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$target&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>替换图标 &lt;code>ontents/Resources/ApplicationStub.icns&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;ol start="2">
+&lt;li>新建 txt 文件&lt;/li>
+&lt;/ol>
+&lt;p>&lt;a class="link" href="https://github.com/RomanSmolka/finder-new-file" target="_blank" rel="noopener"
+>finder-new-file&lt;/a>&lt;/p></description></item><item><title>Macos降级</title><link>/p/macos_system_downgrade/</link><pubDate>Wed, 10 May 2023 23:02:26 +0800</pubDate><guid>/p/macos_system_downgrade/</guid><description>&lt;h1 id="macos-保存资料从ventura降级到monterey兼容其他版本升级后降级">macos 保存资料从ventura降级到monterey(兼容其他版本升级后降级)&lt;/h1>
 &lt;blockquote>
 &lt;p>原理: 在同一块硬盘上同时装两个系统, 然后手动迁移数据, 用一段时间没问题后把原来的系统删除&lt;/p>
 &lt;/blockquote>
@@ -6763,7 +6828,7 @@ alt="image-20221223205141527"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">|&lt;/span> -A3 or -A &lt;span class="o">(&lt;/span>deprecated&lt;span class="o">)&lt;/span> &lt;span class="o">=&lt;/span> AES-CBC, -A5 &lt;span class="o">=&lt;/span> Speck-CTR.
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-H &lt;span class="p">|&lt;/span> Enable full header encryption. Requires supernode with fixed community.
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-z1 ... -z2 or -z &lt;span class="p">|&lt;/span> Enable compression &lt;span class="k">for&lt;/span> outgoing data packets: -z1 or -z &lt;span class="o">=&lt;/span> lzo1x &lt;span class="o">(&lt;/span>&lt;span class="nv">default&lt;/span>&lt;span class="o">=&lt;/span>disabled&lt;span class="o">)&lt;/span>.
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-E &lt;span class="p">|&lt;/span> 接受多播MAC地址&lt;span class="o">(&lt;/span>默认&lt;span class="o">=&lt;/span>drop&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-E &lt;span class="p">|&lt;/span> 接受多播MAC地址&lt;span class="o">(&lt;/span>&lt;span class="nv">默认&lt;/span>&lt;span class="o">=&lt;/span>drop&lt;span class="o">)&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-S &lt;span class="p">|&lt;/span> 不要连接P2P ，总是使用超级节点转发数据
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-n &amp;lt;cidr:gateway&amp;gt; &lt;span class="p">|&lt;/span> 通过gw路由IPv4网络。使用0.0.0.0/0作为默认gw。可多次设置。
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-v &lt;span class="p">|&lt;/span> 详细日志
@@ -7757,8 +7822,8 @@ sudo ifconfig&lt;/p>
 &lt;/span>&lt;span class="lnt">2
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl"> &lt;span class="ge">**&lt;/span>粗体的文字**
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="ge">__&lt;/span>粗体的文字__
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl"> &lt;span class="gs">**粗体的文字**&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="gs">__粗体的文字__&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>&lt;strong>粗体的文字&lt;/strong>&lt;/p>
@@ -8369,7 +8434,7 @@ return a
 &lt;/span>&lt;span class="lnt">15
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">在代码区块里面，&lt;span class="err">&amp;amp;&lt;/span>、&lt;span class="err">&amp;lt;&lt;/span>和&amp;gt;会自动转成HTML实体
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">在代码区块里面，&lt;span class="err">&amp;amp;&lt;/span>、&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">和&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>会自动转成HTML实体
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">HTML原始码，只需要复制贴上，剩下的Markdown都会帮你处理
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">table&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
