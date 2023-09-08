@@ -1,4 +1,65 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>draft on Jqtmviyu's Blog</title><link>/tags/draft/</link><description>Recent content in draft on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 07 Sep 2023 11:06:39 +0800</lastBuildDate><atom:link href="/tags/draft/index.xml" rel="self" type="application/rss+xml"/><item><title>Macos部署webdav和静态网站</title><link>/p/macos_local_website_and_webdav/</link><pubDate>Thu, 07 Sep 2023 11:06:39 +0800</pubDate><guid>/p/macos_local_website_and_webdav/</guid><description>&lt;p>参考:&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>draft on Jqtmviyu's Blog</title><link>/tags/draft/</link><description>Recent content in draft on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 08 Sep 2023 18:24:31 +0800</lastBuildDate><atom:link href="/tags/draft/index.xml" rel="self" type="application/rss+xml"/><item><title>给tmux添加右键菜单</title><link>/p/add_context_menu_for_tmux/</link><pubDate>Fri, 08 Sep 2023 18:24:31 +0800</pubDate><guid>/p/add_context_menu_for_tmux/</guid><description>&lt;p>使用场景:&lt;br>
+macos下使用&lt;code>alacritty&lt;/code>终端, 偶尔需要分屏或者多tab, 需要&lt;code>tmux&lt;/code>,但不经常用记不住快捷键, 看&lt;code>help&lt;/code>又太慢
+所以直接把常用的功能添加到右键菜单里.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-conf" data-lang="conf">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Right-click context menu
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span>&lt;span class="nv">bind-key&lt;/span> &lt;span class="nv">-Troot&lt;/span> &lt;span class="nv">MouseDown3Pane&lt;/span> &lt;span class="nv">display-menu&lt;/span> &lt;span class="nv">-xM&lt;/span> &lt;span class="nv">-yM&lt;/span> &lt;span class="err">\&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;New Session&amp;#34;&lt;/span> &lt;span class="nv">S&lt;/span> &lt;span class="s">&amp;#34;command-prompt -p &lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s">New Session:&lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s"> &lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s">new-session -A -s &amp;#39;%%&amp;#39;&lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s">&amp;#34;&lt;/span> &lt;span class="err">\&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Kill Session&amp;#34;&lt;/span> &lt;span class="nv">x&lt;/span> &lt;span class="s">&amp;#34;kill-session&amp;#34;&lt;/span> &lt;span class="err">\&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Kill Other Session(s)&amp;#34;&lt;/span> &lt;span class="nv">X&lt;/span> &lt;span class="s">&amp;#34;kill-session -a&amp;#34;&lt;/span> &lt;span class="err">\&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;&amp;#34;&lt;/span> &lt;span class="err">\&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;New Window&amp;#34;&lt;/span> &lt;span class="err">␍&lt;/span> &lt;span class="nv">new-window&lt;/span> &lt;span class="err">\&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Kill Window&amp;#34;&lt;/span> &lt;span class="nv">k&lt;/span> &lt;span class="s">&amp;#34;killw&amp;#34;&lt;/span> &lt;span class="err">\&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Choose Window&amp;#34;&lt;/span> &lt;span class="nv">w&lt;/span> &lt;span class="nv">choose-window&lt;/span> &lt;span class="err">\&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Previous Window&amp;#34;&lt;/span> &lt;span class="err">🡠&lt;/span> &lt;span class="nv">previous-window&lt;/span> &lt;span class="err">\&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Next Window&amp;#34;&lt;/span> &lt;span class="err">🡢&lt;/span> &lt;span class="nv">next-window&lt;/span> &lt;span class="err">\&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Swap Window Right&amp;#34;&lt;/span> &lt;span class="err">↑&lt;/span> &lt;span class="s">&amp;#34;swap-window -t -1&amp;#34;&lt;/span> &lt;span class="err">\&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Swap Window Left&amp;#34;&lt;/span> &lt;span class="err">↓&lt;/span> &lt;span class="s">&amp;#34;swap-window -t +1&amp;#34;&lt;/span> &lt;span class="err">\&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Horizontal Split&amp;#34;&lt;/span> &lt;span class="nv">v&lt;/span> &lt;span class="s">&amp;#34;split-window -h&amp;#34;&lt;/span> &lt;span class="err">\&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Vertical Split&amp;#34;&lt;/span> &lt;span class="nv">s&lt;/span> &lt;span class="s">&amp;#34;split-window -v&amp;#34;&lt;/span> &lt;span class="err">\&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;&amp;#34;&lt;/span> &lt;span class="err">\&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Layout Horizontal&amp;#34;&lt;/span> &lt;span class="nv">h&lt;/span> &lt;span class="s">&amp;#34;select-layout even-horizontal&amp;#34;&lt;/span> &lt;span class="err">\&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Layout Vertical&amp;#34;&lt;/span> &lt;span class="nv">k&lt;/span> &lt;span class="s">&amp;#34;select-layout even-horizontal&amp;#34;&lt;/span> &lt;span class="err">\&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;&amp;#34;&lt;/span> &lt;span class="err">\&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Swap Pane Up&amp;#34;&lt;/span> &lt;span class="err">&amp;lt;&lt;/span> &lt;span class="s">&amp;#34;swap-pane -U&amp;#34;&lt;/span> &lt;span class="err">\&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Swap Pane Down&amp;#34;&lt;/span> &lt;span class="err">&amp;gt;&lt;/span> &lt;span class="s">&amp;#34;swap-pane -D&amp;#34;&lt;/span> &lt;span class="err">\&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Break Pane&amp;#34;&lt;/span> &lt;span class="nv">t&lt;/span> &lt;span class="nv">break-pane&lt;/span> &lt;span class="err">\&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Join Pane&amp;#34;&lt;/span> &lt;span class="nv">j&lt;/span> &lt;span class="s">&amp;#34;choose-window &amp;#39;join-pane -h -s &lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s">%%&lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s">&amp;#39;&amp;#34;&lt;/span> &lt;span class="err">\&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;#{?window_zoomed_flag,Unzoom,Zoom}&amp;#34;&lt;/span> &lt;span class="nv">z&lt;/span> &lt;span class="s">&amp;#34;resize-pane -Z&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>效果图如下:
+&lt;img src="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20230908183051.png"
+loading="lazy"
+>&lt;/p>
+&lt;p>更多配置在&lt;code>https://github.com/jqtmviyu/macosDotfiles&lt;/code>, 因为是抄来抄去的配置, 具体还得去官方文档.&lt;/p></description></item><item><title>Macos部署webdav和静态网站</title><link>/p/macos_local_website_and_webdav/</link><pubDate>Thu, 07 Sep 2023 11:06:39 +0800</pubDate><guid>/p/macos_local_website_and_webdav/</guid><description>&lt;p>参考:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a class="link" href="https://zhuanlan.zhihu.com/p/651442490" target="_blank" rel="noopener"
 >https://zhuanlan.zhihu.com/p/651442490&lt;/a>&lt;/li>
