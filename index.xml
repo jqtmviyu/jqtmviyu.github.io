@@ -304,7 +304,7 @@ loading="lazy"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo htdigest -c &lt;span class="s2">&amp;#34;/Users/用户名/Documents/webSite/webdav/user.passwd&amp;#34;&lt;/span> webdav 用户名
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 自己实际的 用户名:用户组&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo chown -R 用户名:staff /Users/用户名/Documents/webSite
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo chmod -R &lt;span class="m">747&lt;/span> /Users/用户名/Documents/webSite
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo chmod -R &lt;span class="m">755&lt;/span> /Users/用户名/Documents/webSite
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h2 id="添加磁盘权限">添加磁盘权限&lt;/h2>
@@ -410,12 +410,59 @@ loading="lazy"
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">sudo apachectl restart
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 检查配置&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apachectl configtest
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 重新加载配置&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apachectl graceful
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>浏览器输入地址&lt;code>http://macmini.local&lt;/code>&lt;/p></description></item><item><title>macos finder右键菜单定制</title><link>/p/finder_right_menu/</link><pubDate>Wed, 06 Sep 2023 10:01:24 +0800</pubDate><guid>/p/finder_right_menu/</guid><description>&lt;p>&lt;strong>以下均为开源免费软件&lt;/strong>&lt;/p>
+&lt;/div>&lt;p>浏览器输入地址&lt;code>http://macmini.local&lt;/code>&lt;/p>
+&lt;h2 id="webdav改成basic验证">webdav改成basic验证&lt;/h2>
+&lt;p>安卓上的一些同步软件不支持&lt;code>Digest&lt;/code>验证, 只好换成&lt;code>Basic&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># AuthType Digest&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> AuthType Basic
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># AuthUserFile &amp;#34;/Users/用户名/Documents/webSite/webdav/user.passwd&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> AuthUserFile &lt;span class="s2">&amp;#34;/Users/用户名/Documents/webSite/webdav/user-basic.passwd&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 生成新的授权文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> sudo htpasswd -c &lt;span class="s2">&amp;#34;/Users/用户名/Documents/webSite/webdav/user-basic.passwd&amp;#34;&lt;/span> 用户名
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> sudo chmod -R &lt;span class="m">755&lt;/span> /Users/用户名/Documents/webSite/webdav/user-basic.passwd
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> sudo chown -R 用户名:staff /Users/用户名/Documents/webSite/webdav/user-basic.passwd
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 检查配置&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> sudo apachectl configtest
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 重新加载配置&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> sudo apachectl graceful
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>macos finder右键菜单定制</title><link>/p/finder_right_menu/</link><pubDate>Wed, 06 Sep 2023 10:01:24 +0800</pubDate><guid>/p/finder_right_menu/</guid><description>&lt;p>&lt;strong>以下均为开源免费软件&lt;/strong>&lt;/p>
 &lt;p>效果图:&lt;/p>
 &lt;p>&lt;img src="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20230906100555.png"
 loading="lazy"
