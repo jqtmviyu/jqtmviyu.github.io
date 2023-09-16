@@ -56,7 +56,7 @@ macos下使用&lt;code>alacritty&lt;/code>终端, 偶尔需要分屏或者多tab
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>效果图如下:
-&lt;img src="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20230908183051.png"
+&lt;img src="https://raw.githubusercontent.com/jqtmviyu/blogimagebed/images/images/20230908183051.png"
 loading="lazy"
 >&lt;/p>
 &lt;p>更多配置在&lt;code>https://github.com/jqtmviyu/macosDotfiles&lt;/code>, 因为是抄来抄去的配置, 具体还得去官方文档.&lt;/p></description></item><item><title>Macos部署webdav和静态网站</title><link>/p/macos_local_website_and_webdav/</link><pubDate>Thu, 07 Sep 2023 11:06:39 +0800</pubDate><guid>/p/macos_local_website_and_webdav/</guid><description>&lt;p>参考:&lt;/p>
@@ -310,7 +310,7 @@ loading="lazy"
 &lt;/div>&lt;h2 id="添加磁盘权限">添加磁盘权限&lt;/h2>
 &lt;p>macOS 设置，隐私与安全性，完全磁盘访问权限，依次添加 httpd 与 htdigest&lt;/p>
 &lt;p>路径为&lt;code>/usr/sbin/httpd&lt;/code>, &lt;code>/usr/sbin/htdigest&lt;/code>&lt;/p>
-&lt;p>&lt;img src="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20230907113131.png"
+&lt;p>&lt;img src="https://raw.githubusercontent.com/jqtmviyu/blogimagebed/images/images/20230907113131.png"
 loading="lazy"
 >&lt;/p>
 &lt;h2 id="设置host">设置host&lt;/h2>
@@ -464,7 +464,7 @@ loading="lazy"
 &lt;/div>
 &lt;/div></description></item><item><title>macos finder右键菜单定制</title><link>/p/finder_right_menu/</link><pubDate>Wed, 06 Sep 2023 10:01:24 +0800</pubDate><guid>/p/finder_right_menu/</guid><description>&lt;p>&lt;strong>以下均为开源免费软件&lt;/strong>&lt;/p>
 &lt;p>效果图:&lt;/p>
-&lt;p>&lt;img src="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20230906100555.png"
+&lt;p>&lt;img src="https://raw.githubusercontent.com/jqtmviyu/blogimagebed/images/images/20230906100555.png"
 loading="lazy"
 alt="效果图"
 >&lt;/p>
@@ -2414,7 +2414,7 @@ CloudMounter:176m&lt;/p>
 &lt;li>给官方的大纲功能添加序号&lt;/li>
 &lt;/ol>
 &lt;p>效果如下:&lt;/p>
-&lt;p>&lt;img src="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20230324122824.png"
+&lt;p>&lt;img src="https://raw.githubusercontent.com/jqtmviyu/blogimagebed/images/images/20230324122824.png"
 loading="lazy"
 >&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -2467,7 +2467,7 @@ loading="lazy"
 &lt;li>让&lt;code>typora-vue&lt;/code>的h标签提示常驻, 其实就是把原主题的&lt;code>:hover&lt;/code>选择器去掉&lt;/li>
 &lt;/ol>
 &lt;p>效果如下:&lt;/p>
-&lt;p>&lt;img src="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20230324122956.png"
+&lt;p>&lt;img src="https://raw.githubusercontent.com/jqtmviyu/blogimagebed/images/images/20230324122956.png"
 loading="lazy"
 >&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -2668,7 +2668,7 @@ loading="lazy"
 &lt;li>更改字体加粗效果, 原主题的加粗看不清. 把无序列表的小圆点改了下外观, 二级三级的和一级的不一样(没四级了). 激活文件的图标高亮颜色.&lt;/li>
 &lt;/ol>
 &lt;p>效果如下:&lt;/p>
-&lt;p>&lt;img src="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20230324123407.png"
+&lt;p>&lt;img src="https://raw.githubusercontent.com/jqtmviyu/blogimagebed/images/images/20230324123407.png"
 loading="lazy"
 >&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -2903,7 +2903,7 @@ loading="lazy"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>&lt;img src="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20230301195019.png"
+&lt;/div>&lt;p>&lt;img src="https://raw.githubusercontent.com/jqtmviyu/blogimagebed/images/images/20230301195019.png"
 loading="lazy"
 alt="长这个样子"
 >&lt;/p></description></item><item><title>Vim取消鼠标移动光标模式</title><link>/p/vim_mouse_mode/</link><pubDate>Fri, 27 Jan 2023 23:44:44 +0800</pubDate><guid>/p/vim_mouse_mode/</guid><description>&lt;h1 id="vim取消鼠标移动光标模式">vim取消鼠标移动光标模式&lt;/h1>
@@ -6938,12 +6938,12 @@ d --> e[(互联网)]
 &lt;h2 id="效果">效果&lt;/h2>
 &lt;p>&lt;code> --&amp;gt; About this Mac --&amp;gt; Storage --&amp;gt; System Data&lt;/code>&lt;/p>
 &lt;p>下图是清理后的，大概清理掉8G左右的残留文件&lt;/p>
-&lt;p>&lt;img src="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20221223210805.png"
+&lt;p>&lt;img src="https://raw.githubusercontent.com/jqtmviyu/blogimagebed/images/images/20221223210805.png"
 loading="lazy"
 alt="image-20221223204229818"
 >&lt;/p>
 &lt;h2 id="存储空间中文件的类别与分析">存储空间中文件的类别与分析&lt;/h2>
-&lt;p>​ &lt;img src="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20221223210750.png"
+&lt;p>​ &lt;img src="https://raw.githubusercontent.com/jqtmviyu/blogimagebed/images/images/20221223210750.png"
 loading="lazy"
 alt="image-20221223204806546"
 >&lt;/p>
@@ -6959,7 +6959,7 @@ alt="image-20221223204806546"
 &lt;li>&lt;strong>临时文件和数据库&lt;/strong> 是程序运行时生成或下载的数据，例如Adobe Photoshop中项目的索引、导入的各种素材包和滤镜；微信的登录信息、聊天记录和附件等等。&lt;/li>
 &lt;/ul>
 &lt;h2 id="finder-文件体系">Finder 文件体系&lt;/h2>
-&lt;p>&lt;img src="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20221223210759.png"
+&lt;p>&lt;img src="https://raw.githubusercontent.com/jqtmviyu/blogimagebed/images/images/20221223210759.png"
 loading="lazy"
 alt="image-20221223205141527"
 >&lt;/p>
@@ -8626,7 +8626,7 @@ target="_blank" rel="noopener"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ps: 为了让图片左对齐, 在前面加一个空格即可
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>&lt;img src="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20210609151206.jpg"
+&lt;/div>&lt;p>&lt;img src="https://raw.githubusercontent.com/jqtmviyu/blogimagebed/images/images/20210609151206.jpg"
 loading="lazy"
 alt="图片alt"
 >&lt;/p>
@@ -8643,7 +8643,7 @@ alt="图片alt"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[标记]: 图片地址 &amp;#34;Title&amp;#34;
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>&lt;img src="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20210609151206.jpg"
+&lt;/div>&lt;p>&lt;img src="https://raw.githubusercontent.com/jqtmviyu/blogimagebed/images/images/20210609151206.jpg"
 loading="lazy"
 alt="猫"
 >&lt;/p>
@@ -10272,7 +10272,7 @@ loading="lazy"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;background.enabled&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;background.useDefault&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;background.customImages&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20210319174159.png&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;https://raw.githubusercontent.com/jqtmviyu/blogimagebed/images/images/20210319174159.png&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">],&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;background.styles&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">{&lt;/span>

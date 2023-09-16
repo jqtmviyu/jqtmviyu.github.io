@@ -56,7 +56,7 @@ macos下使用&lt;code>alacritty&lt;/code>终端, 偶尔需要分屏或者多tab
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>效果图如下:
-&lt;img src="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20230908183051.png"
+&lt;img src="https://raw.githubusercontent.com/jqtmviyu/blogimagebed/images/images/20230908183051.png"
 loading="lazy"
 >&lt;/p>
 &lt;p>更多配置在&lt;code>https://github.com/jqtmviyu/macosDotfiles&lt;/code>, 因为是抄来抄去的配置, 具体还得去官方文档.&lt;/p></description></item><item><title>Macos部署webdav和静态网站</title><link>/p/macos_local_website_and_webdav/</link><pubDate>Thu, 07 Sep 2023 11:06:39 +0800</pubDate><guid>/p/macos_local_website_and_webdav/</guid><description>&lt;p>参考:&lt;/p>
@@ -310,7 +310,7 @@ loading="lazy"
 &lt;/div>&lt;h2 id="添加磁盘权限">添加磁盘权限&lt;/h2>
 &lt;p>macOS 设置，隐私与安全性，完全磁盘访问权限，依次添加 httpd 与 htdigest&lt;/p>
 &lt;p>路径为&lt;code>/usr/sbin/httpd&lt;/code>, &lt;code>/usr/sbin/htdigest&lt;/code>&lt;/p>
-&lt;p>&lt;img src="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20230907113131.png"
+&lt;p>&lt;img src="https://raw.githubusercontent.com/jqtmviyu/blogimagebed/images/images/20230907113131.png"
 loading="lazy"
 >&lt;/p>
 &lt;h2 id="设置host">设置host&lt;/h2>
@@ -1017,7 +1017,7 @@ target="_blank" rel="noopener"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ps: 为了让图片左对齐, 在前面加一个空格即可
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>&lt;img src="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20210609151206.jpg"
+&lt;/div>&lt;p>&lt;img src="https://raw.githubusercontent.com/jqtmviyu/blogimagebed/images/images/20210609151206.jpg"
 loading="lazy"
 alt="图片alt"
 >&lt;/p>
@@ -1034,7 +1034,7 @@ alt="图片alt"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[标记]: 图片地址 &amp;#34;Title&amp;#34;
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>&lt;img src="https://cdn.staticaly.com/gh/jqtmviyu/blogimagebed/images/images/20210609151206.jpg"
+&lt;/div>&lt;p>&lt;img src="https://raw.githubusercontent.com/jqtmviyu/blogimagebed/images/images/20210609151206.jpg"
 loading="lazy"
 alt="猫"
 >&lt;/p>
