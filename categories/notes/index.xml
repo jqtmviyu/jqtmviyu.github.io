@@ -29,34 +29,34 @@ macos下使用&lt;code>alacritty&lt;/code>终端, 偶尔需要分屏或者多tab
 &lt;/span>&lt;span class="lnt">24
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-conf" data-lang="conf">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># Right-click context menu
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span>&lt;span class="nv">bind-key&lt;/span> &lt;span class="nv">-Troot&lt;/span> &lt;span class="nv">MouseDown3Pane&lt;/span> &lt;span class="nv">display-menu&lt;/span> &lt;span class="nv">-xM&lt;/span> &lt;span class="nv">-yM&lt;/span> &lt;span class="err">\&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;New Session&amp;#34;&lt;/span> &lt;span class="nv">S&lt;/span> &lt;span class="s">&amp;#34;command-prompt -p &lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s">New Session:&lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s"> &lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s">new-session -A -s &amp;#39;%%&amp;#39;&lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s">&amp;#34;&lt;/span> &lt;span class="err">\&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Kill Session&amp;#34;&lt;/span> &lt;span class="nv">x&lt;/span> &lt;span class="s">&amp;#34;kill-session&amp;#34;&lt;/span> &lt;span class="err">\&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Kill Other Session(s)&amp;#34;&lt;/span> &lt;span class="nv">X&lt;/span> &lt;span class="s">&amp;#34;kill-session -a&amp;#34;&lt;/span> &lt;span class="err">\&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;&amp;#34;&lt;/span> &lt;span class="err">\&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;New Window&amp;#34;&lt;/span> &lt;span class="err">␍&lt;/span> &lt;span class="nv">new-window&lt;/span> &lt;span class="err">\&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Kill Window&amp;#34;&lt;/span> &lt;span class="nv">k&lt;/span> &lt;span class="s">&amp;#34;killw&amp;#34;&lt;/span> &lt;span class="err">\&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Choose Window&amp;#34;&lt;/span> &lt;span class="nv">w&lt;/span> &lt;span class="nv">choose-window&lt;/span> &lt;span class="err">\&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Previous Window&amp;#34;&lt;/span> &lt;span class="err">🡠&lt;/span> &lt;span class="nv">previous-window&lt;/span> &lt;span class="err">\&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Next Window&amp;#34;&lt;/span> &lt;span class="err">🡢&lt;/span> &lt;span class="nv">next-window&lt;/span> &lt;span class="err">\&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Swap Window Right&amp;#34;&lt;/span> &lt;span class="err">↑&lt;/span> &lt;span class="s">&amp;#34;swap-window -t -1&amp;#34;&lt;/span> &lt;span class="err">\&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Swap Window Left&amp;#34;&lt;/span> &lt;span class="err">↓&lt;/span> &lt;span class="s">&amp;#34;swap-window -t +1&amp;#34;&lt;/span> &lt;span class="err">\&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Horizontal Split&amp;#34;&lt;/span> &lt;span class="nv">v&lt;/span> &lt;span class="s">&amp;#34;split-window -h&amp;#34;&lt;/span> &lt;span class="err">\&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Vertical Split&amp;#34;&lt;/span> &lt;span class="nv">s&lt;/span> &lt;span class="s">&amp;#34;split-window -v&amp;#34;&lt;/span> &lt;span class="err">\&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;&amp;#34;&lt;/span> &lt;span class="err">\&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Layout Horizontal&amp;#34;&lt;/span> &lt;span class="nv">h&lt;/span> &lt;span class="s">&amp;#34;select-layout even-horizontal&amp;#34;&lt;/span> &lt;span class="err">\&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Layout Vertical&amp;#34;&lt;/span> &lt;span class="nv">k&lt;/span> &lt;span class="s">&amp;#34;select-layout even-horizontal&amp;#34;&lt;/span> &lt;span class="err">\&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;&amp;#34;&lt;/span> &lt;span class="err">\&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Swap Pane Up&amp;#34;&lt;/span> &lt;span class="err">&amp;lt;&lt;/span> &lt;span class="s">&amp;#34;swap-pane -U&amp;#34;&lt;/span> &lt;span class="err">\&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Swap Pane Down&amp;#34;&lt;/span> &lt;span class="err">&amp;gt;&lt;/span> &lt;span class="s">&amp;#34;swap-pane -D&amp;#34;&lt;/span> &lt;span class="err">\&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Break Pane&amp;#34;&lt;/span> &lt;span class="nv">t&lt;/span> &lt;span class="nv">break-pane&lt;/span> &lt;span class="err">\&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;Join Pane&amp;#34;&lt;/span> &lt;span class="nv">j&lt;/span> &lt;span class="s">&amp;#34;choose-window &amp;#39;join-pane -h -s &lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s">%%&lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s">&amp;#39;&amp;#34;&lt;/span> &lt;span class="err">\&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;#{?window_zoomed_flag,Unzoom,Zoom}&amp;#34;&lt;/span> &lt;span class="nv">z&lt;/span> &lt;span class="s">&amp;#34;resize-pane -Z&amp;#34;&lt;/span>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># Right-click context menu
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">bind-key -Troot MouseDown3Pane display-menu -xM -yM \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;New Session&amp;#34; S &amp;#34;command-prompt -p \&amp;#34;New Session:\&amp;#34; \&amp;#34;new-session -A -s &amp;#39;%%&amp;#39;\&amp;#34;&amp;#34; \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;Kill Session&amp;#34; x &amp;#34;kill-session&amp;#34; \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;Kill Other Session(s)&amp;#34; X &amp;#34;kill-session -a&amp;#34; \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;&amp;#34; \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;New Window&amp;#34; ␍ new-window \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;Kill Window&amp;#34; k &amp;#34;killw&amp;#34; \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;Choose Window&amp;#34; w choose-window \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;Previous Window&amp;#34; 🡠 previous-window \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;Next Window&amp;#34; 🡢 next-window \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;Swap Window Right&amp;#34; ↑ &amp;#34;swap-window -t -1&amp;#34; \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;Swap Window Left&amp;#34; ↓ &amp;#34;swap-window -t +1&amp;#34; \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;Horizontal Split&amp;#34; v &amp;#34;split-window -h&amp;#34; \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;Vertical Split&amp;#34; s &amp;#34;split-window -v&amp;#34; \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;&amp;#34; \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;Layout Horizontal&amp;#34; h &amp;#34;select-layout even-horizontal&amp;#34; \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;Layout Vertical&amp;#34; k &amp;#34;select-layout even-horizontal&amp;#34; \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;&amp;#34; \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;Swap Pane Up&amp;#34; &amp;lt; &amp;#34;swap-pane -U&amp;#34; \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;Swap Pane Down&amp;#34; &amp;gt; &amp;#34;swap-pane -D&amp;#34; \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;Break Pane&amp;#34; t break-pane \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;Join Pane&amp;#34; j &amp;#34;choose-window &amp;#39;join-pane -h -s \&amp;#34;%%\&amp;#34;&amp;#39;&amp;#34; \
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;#{?window_zoomed_flag,Unzoom,Zoom}&amp;#34; z &amp;#34;resize-pane -Z&amp;#34;
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>效果图如下:
-&lt;img src="https://raw.githubusercontent.com/jqtmviyu/blogimagebed/images/images/20230908183051.png"
+&lt;img src="https://img.hellohxx.top/20230908183051.png"
 loading="lazy"
 >&lt;/p>
 &lt;p>更多配置在&lt;code>https://github.com/jqtmviyu/macosDotfiles&lt;/code>, 因为是抄来抄去的配置, 具体还得去官方文档.&lt;/p></description></item><item><title>Macos部署webdav和静态网站</title><link>/p/macos_local_website_and_webdav/</link><pubDate>Thu, 07 Sep 2023 11:06:39 +0800</pubDate><guid>/p/macos_local_website_and_webdav/</guid><description>&lt;p>参考:&lt;/p>
@@ -139,18 +139,18 @@ loading="lazy"
 &lt;/span>&lt;span class="lnt">12
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-conf" data-lang="conf">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># 修改主机名
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span>&lt;span class="nv">ServerName&lt;/span> &lt;span class="nv">macmini.local&lt;/span>&lt;span class="err">:&lt;/span>&lt;span class="nv">80&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># 和webdav相关的行取消注释
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span>&lt;span class="nv">LoadModule&lt;/span> &lt;span class="nv">dav_module&lt;/span> &lt;span class="nv">libexec&lt;/span>&lt;span class="err">/&lt;/span>&lt;span class="nv">apache2&lt;/span>&lt;span class="err">/&lt;/span>&lt;span class="nv">mod_dav.so&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">LoadModule&lt;/span> &lt;span class="nv">dav_fs_module&lt;/span> &lt;span class="nv">libexec&lt;/span>&lt;span class="err">/&lt;/span>&lt;span class="nv">apache2&lt;/span>&lt;span class="err">/&lt;/span>&lt;span class="nv">mod_dav_fs.so&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">LoadModule&lt;/span> &lt;span class="nv">dav_lock_module&lt;/span> &lt;span class="nv">libexec&lt;/span>&lt;span class="err">/&lt;/span>&lt;span class="nv">apache2&lt;/span>&lt;span class="err">/&lt;/span>&lt;span class="nv">mod_dav_lock.so&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">LoadModule&lt;/span> &lt;span class="nv">auth_digest_module&lt;/span> &lt;span class="nv">libexec&lt;/span>&lt;span class="err">/&lt;/span>&lt;span class="nv">apache2&lt;/span>&lt;span class="err">/&lt;/span>&lt;span class="nv">mod_auth_digest.so&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">Include&lt;/span> &lt;span class="err">/&lt;/span>&lt;span class="nv">private&lt;/span>&lt;span class="err">/&lt;/span>&lt;span class="nv">etc&lt;/span>&lt;span class="err">/&lt;/span>&lt;span class="nv">apache2&lt;/span>&lt;span class="err">/&lt;/span>&lt;span class="nv">extra&lt;/span>&lt;span class="err">/&lt;/span>&lt;span class="nv">httpd-dav.conf&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># 修改用户和用户组
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># 在终端中输入 id 获取
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c">&lt;/span>&lt;span class="nv">User&lt;/span> &lt;span class="nv">用户名&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">Group&lt;/span> &lt;span class="nv">staff&lt;/span>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># 修改主机名
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ServerName macmini.local:80
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># 和webdav相关的行取消注释
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">LoadModule dav_module libexec/apache2/mod_dav.so
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">LoadModule dav_fs_module libexec/apache2/mod_dav_fs.so
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">LoadModule dav_lock_module libexec/apache2/mod_dav_lock.so
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">LoadModule auth_digest_module libexec/apache2/mod_auth_digest.so
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Include /private/etc/apache2/extra/httpd-dav.conf
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># 修改用户和用户组
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># 在终端中输入 id 获取
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">User 用户名
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Group staff
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h2 id="编辑webdav配置文件">编辑webdav配置文件&lt;/h2>
@@ -310,7 +310,7 @@ loading="lazy"
 &lt;/div>&lt;h2 id="添加磁盘权限">添加磁盘权限&lt;/h2>
 &lt;p>macOS 设置，隐私与安全性，完全磁盘访问权限，依次添加 httpd 与 htdigest&lt;/p>
 &lt;p>路径为&lt;code>/usr/sbin/httpd&lt;/code>, &lt;code>/usr/sbin/htdigest&lt;/code>&lt;/p>
-&lt;p>&lt;img src="https://raw.githubusercontent.com/jqtmviyu/blogimagebed/images/images/20230907113131.png"
+&lt;p>&lt;img src="https://img.hellohxx.top/20230907113131.png"
 loading="lazy"
 >&lt;/p>
 &lt;h2 id="设置host">设置host&lt;/h2>
@@ -1017,7 +1017,7 @@ target="_blank" rel="noopener"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ps: 为了让图片左对齐, 在前面加一个空格即可
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>&lt;img src="https://raw.githubusercontent.com/jqtmviyu/blogimagebed/images/images/20210609151206.jpg"
+&lt;/div>&lt;p>&lt;img src="https://img.hellohxx.top/20210609151206.jpg"
 loading="lazy"
 alt="图片alt"
 >&lt;/p>
@@ -1034,7 +1034,7 @@ alt="图片alt"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">[标记]: 图片地址 &amp;#34;Title&amp;#34;
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>&lt;img src="https://raw.githubusercontent.com/jqtmviyu/blogimagebed/images/images/20210609151206.jpg"
+&lt;/div>&lt;p>&lt;img src="https://img.hellohxx.top/20210609151206.jpg"
 loading="lazy"
 alt="猫"
 >&lt;/p>

@@ -9,7 +9,7 @@
 &lt;li>给官方的大纲功能添加序号&lt;/li>
 &lt;/ol>
 &lt;p>效果如下:&lt;/p>
-&lt;p>&lt;img src="https://raw.githubusercontent.com/jqtmviyu/blogimagebed/images/images/20230324122824.png"
+&lt;p>&lt;img src="https://img.hellohxx.top/20230324122824.png"
 loading="lazy"
 >&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -62,7 +62,7 @@ loading="lazy"
 &lt;li>让&lt;code>typora-vue&lt;/code>的h标签提示常驻, 其实就是把原主题的&lt;code>:hover&lt;/code>选择器去掉&lt;/li>
 &lt;/ol>
 &lt;p>效果如下:&lt;/p>
-&lt;p>&lt;img src="https://raw.githubusercontent.com/jqtmviyu/blogimagebed/images/images/20230324122956.png"
+&lt;p>&lt;img src="https://img.hellohxx.top/20230324122956.png"
 loading="lazy"
 >&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -263,7 +263,7 @@ loading="lazy"
 &lt;li>更改字体加粗效果, 原主题的加粗看不清. 把无序列表的小圆点改了下外观, 二级三级的和一级的不一样(没四级了). 激活文件的图标高亮颜色.&lt;/li>
 &lt;/ol>
 &lt;p>效果如下:&lt;/p>
-&lt;p>&lt;img src="https://raw.githubusercontent.com/jqtmviyu/blogimagebed/images/images/20230324123407.png"
+&lt;p>&lt;img src="https://img.hellohxx.top/20230324123407.png"
 loading="lazy"
 >&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">

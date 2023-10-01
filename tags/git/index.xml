@@ -1151,10 +1151,10 @@
 &lt;/div>
 &lt;/div>&lt;p>（ps：git base 按两下tab会有命令提示）&lt;/p>
 &lt;h3 id="22工作区暂存区和master分支">2.2.工作区、暂存区和master分支&lt;/h3>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229044704.jpg"
+&lt;p>&lt;img src="https://img.hellohxx.top/20200229044704.jpg"
 loading="lazy"
 >&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229045709.jpg"
+&lt;p>&lt;img src="https://img.hellohxx.top/20200229045709.jpg"
 loading="lazy"
 >&lt;/p>
 &lt;p>一旦提交后，如果你又没有对工作区做任何修改，那么工作区就是“干净”的：&lt;/p>
@@ -1315,7 +1315,7 @@ loading="lazy"
 &lt;/div>&lt;h2 id="四分支管理">四.分支管理&lt;/h2>
 &lt;h3 id="41创建与合并分支">4.1.创建与合并分支&lt;/h3>
 &lt;p>通过指针的变化&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229050738.png"
+&lt;p>&lt;img src="https://img.hellohxx.top/20200229050738.png"
 loading="lazy"
 >&lt;/p>
 &lt;ul>
@@ -1324,7 +1324,7 @@ loading="lazy"
 &lt;p>git checkout -b dev&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229050034.png"
+&lt;p>&lt;img src="https://img.hellohxx.top/20200229050034.png"
 loading="lazy"
 >&lt;/p>
 &lt;p>git checkout命令加上-b参数表示创建并切换，相当于以下两条命令：&lt;/p>
@@ -1351,7 +1351,7 @@ master&lt;/p>
 &lt;p>分支的提交&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229051056.png"
+&lt;p>&lt;img src="https://img.hellohxx.top/20200229051056.png"
 loading="lazy"
 >&lt;/p>
 &lt;ul>
@@ -1360,7 +1360,7 @@ loading="lazy"
 &lt;p>git checkout master&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229051225.png"
+&lt;p>&lt;img src="https://img.hellohxx.top/20200229051225.png"
 loading="lazy"
 >&lt;/p>
 &lt;ul>
@@ -1370,7 +1370,7 @@ loading="lazy"
 &lt;/li>
 &lt;/ul>
 &lt;p>git merge命令是合并指定分支到&lt;strong>当前&lt;/strong>分支。&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229051818.png"
+&lt;p>&lt;img src="https://img.hellohxx.top/20200229051818.png"
 loading="lazy"
 >&lt;/p>
 &lt;ul>
@@ -1386,7 +1386,7 @@ loading="lazy"
 &lt;h3 id="42解决冲突">4.2.解决冲突&lt;/h3>
 &lt;p>当两条分支对同一个文件的同一个文本块进行了不同的修改，并试图合并时，Git不能自动合并的，称之为冲突(conflict)。解决冲突需要人工处理。&lt;/p>
 &lt;p>dev分支和master分支有不同提交&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229051904.png"
+&lt;p>&lt;img src="https://img.hellohxx.top/20200229051904.png"
 loading="lazy"
 >&lt;/p>
 &lt;p>这种情况下，Git无法执行“快速合并”，只能试图把各自的修改合并起来，但这种合并就可能会有冲突。&lt;/p>
@@ -1394,7 +1394,7 @@ loading="lazy"
 &lt;li>git status也可以告诉我们冲突的文件,&amp;laquo;&amp;laquo;&amp;laquo;&amp;lt;，=======，&amp;raquo;&amp;raquo;&amp;raquo;&amp;gt;标记出不同分支的内容。&lt;/li>
 &lt;/ul>
 &lt;p>对于简单的合并，手工编辑，然后去掉这些标记，最后像往常的提交一样先add再commit即可。&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229051944.png"
+&lt;p>&lt;img src="https://img.hellohxx.top/20200229051944.png"
 loading="lazy"
 >&lt;/p>
 &lt;ul>
@@ -1426,17 +1426,17 @@ loading="lazy"
 &lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git log --graph --pretty&lt;span class="o">=&lt;/span>oneline --abbrev-commit
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229052028.png"
+&lt;/div>&lt;p>&lt;img src="https://img.hellohxx.top/20200229052028.png"
 loading="lazy"
 >&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229052106.png"
+&lt;p>&lt;img src="https://img.hellohxx.top/20200229052106.png"
 loading="lazy"
 >&lt;/p>
 &lt;p>在实际开发中，应该按照几个基本原则进行分支管理：&lt;/p>
 &lt;p>&lt;code>master&lt;/code>分支应该是非常稳定的，仅用来发布新版本，平时不在上面干活；&lt;/p>
 &lt;p>&lt;code>dev&lt;/code>分支是不稳定的，发布版本时，把&lt;code>dev&lt;/code>分支合并到&lt;code>master&lt;/code>上，发布1.0版本。&lt;/p>
 &lt;p>每个人都有自己的分支，时不时地往&lt;code>dev&lt;/code>上合并。&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/jqtmviyu/blogimagebed@images/images/20200229052221.png"
+&lt;p>&lt;img src="https://img.hellohxx.top/20200229052221.png"
 loading="lazy"
 >&lt;/p>
 &lt;h3 id="44bug分支">4.4.Bug分支&lt;/h3>
