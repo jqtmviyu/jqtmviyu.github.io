@@ -1,4 +1,53 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>tools on Jqtmviyu's Blog</title><link>/categories/tools/</link><description>Recent content in tools on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 26 Oct 2023 10:38:57 +0800</lastBuildDate><atom:link href="/categories/tools/index.xml" rel="self" type="application/rss+xml"/><item><title>Rss自带追番</title><link>/p/autobangumi/</link><pubDate>Thu, 26 Oct 2023 10:38:57 +0800</pubDate><guid>/p/autobangumi/</guid><description>&lt;h1 id="rss-自动追番工具的搭建">Rss 自动追番工具的搭建&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>tools on Jqtmviyu's Blog</title><link>/categories/tools/</link><description>Recent content in tools on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 23 Nov 2023 04:24:34 +0800</lastBuildDate><atom:link href="/categories/tools/index.xml" rel="self" type="application/rss+xml"/><item><title>屏蔽postman更新检测</title><link>/p/disable_postman_checkupate/</link><pubDate>Thu, 23 Nov 2023 04:24:34 +0800</pubDate><guid>/p/disable_postman_checkupate/</guid><description>&lt;p>postman经常检测更新, 提示非常烦人
+作为工具经常大改, 适应新界面麻烦
+不联网使用&lt;/p>
+&lt;h2 id="host屏蔽">host屏蔽&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># postman
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">127.0.0.1 dl.pstmn.io
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">127.0.0.1 sync-v3.getpostman.com
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">127.0.0.1 getpostman.com
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">127.0.0.1 go.pstmn.io
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">127.0.0.1 sentry-app.postmanlabs.com
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">127.0.0.1 bifrost-public-v4.gw.postman.com
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">127.0.0.1 getpostman.com
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">127.0.0.1 go.pstmn.io
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>还是会弹更新检测&lt;/p>
+&lt;h2 id="修改检测更新的代码">修改检测更新的代码&lt;/h2>
+&lt;p>&lt;a class="link" href="https://github.com/postmanlabs/postman-app-support/issues/6999" target="_blank" rel="noopener"
+>https://github.com/postmanlabs/postman-app-support/issues/6999&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">On file &amp;#34;AutoUpdaterService.js&amp;#34;; path: &amp;#34;Postman/app/resources/app/services/AutoUpdaterService.js&amp;#34;, in line 35 only add &amp;#34;return false&amp;#34;,
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>重新打包&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">npx asar p ./app ./app.asar
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Rss自带追番</title><link>/p/autobangumi/</link><pubDate>Thu, 26 Oct 2023 10:38:57 +0800</pubDate><guid>/p/autobangumi/</guid><description>&lt;h1 id="rss-自动追番工具的搭建">Rss 自动追番工具的搭建&lt;/h1>
 &lt;blockquote>
 &lt;p>为什么要自己搭建:&lt;/p>
 &lt;ul>
