@@ -45,7 +45,44 @@
 &lt;li>
 &lt;p>&lt;code>设置-播放-家庭网络质量&lt;/code>: 选局域网里最快的速度&lt;/p>
 &lt;/li>
-&lt;/ol></description></item><item><title>Flexget</title><link>/p/flexget/</link><pubDate>Fri, 08 Mar 2024 23:54:16 +0800</pubDate><guid>/p/flexget/</guid><description>&lt;h1 id="部署flexget">部署flexget&lt;/h1>
+&lt;/ol>
+&lt;h2 id="刮削">刮削&lt;/h2>
+&lt;p>参考教程: &lt;a class="link" href="https://post.smzdm.com/p/aenzm444/" target="_blank" rel="noopener"
+>https://post.smzdm.com/p/aenzm444/&lt;/a>&lt;/p>
+&lt;p>命名搜索:&lt;/p>
+&lt;ol>
+&lt;li>&lt;a class="link" href="https://www.themoviedb.org/" target="_blank" rel="noopener"
+>https://www.themoviedb.org/&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://thetvdb.com/" target="_blank" rel="noopener"
+>https://thetvdb.com/&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">tv: 放季度更新的番剧
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 番剧的名称
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> S0: 特殊, 例如SP
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> S1: 第一季
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> S01E01.mp4
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> S01E02.mp4
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> S2: 第二季
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">movie: 放电影
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 电影名
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 电影名.mp4
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Flexget</title><link>/p/flexget/</link><pubDate>Fri, 08 Mar 2024 23:54:16 +0800</pubDate><guid>/p/flexget/</guid><description>&lt;h1 id="部署flexget">部署flexget&lt;/h1>
 &lt;blockquote>
 &lt;p>配合 qb/tr/aria2 等工具实现 rss 自动下载&lt;/p>
 &lt;/blockquote>
