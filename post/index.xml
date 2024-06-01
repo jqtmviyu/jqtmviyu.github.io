@@ -1,4 +1,157 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Jqtmviyu's Blog</title><link>/post/</link><description>Recent content in Posts on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 09 Mar 2024 00:02:39 +0800</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Emby</title><link>/p/emby/</link><pubDate>Sat, 09 Mar 2024 00:02:39 +0800</pubDate><guid>/p/emby/</guid><description>&lt;h1 id="部署emby">部署emby&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Jqtmviyu's Blog</title><link>/post/</link><description>Recent content in Posts on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 02 Jun 2024 03:21:24 +0800</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Dbeaver</title><link>/p/dbeaver/</link><pubDate>Sun, 02 Jun 2024 03:21:24 +0800</pubDate><guid>/p/dbeaver/</guid><description>&lt;h1 id="dbeaver">DBeaver&lt;/h1>
+&lt;blockquote>
+&lt;p>macos上, 用来代替Navicat的开源免费工具&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="下载">下载&lt;/h2>
+&lt;p>直接google搜索下载社区版就行&lt;/p>
+&lt;h2 id="语言设置">语言设置&lt;/h2>
+&lt;p>如果需要设置中文, &lt;code>Preferences --&amp;gt; 搜索language&lt;/code>&lt;/p>
+&lt;p>虽然可以, 但不推荐, 因为出了问题, 搜答案还是搜英文来得快&lt;/p>
+&lt;h2 id="驱动镜像">驱动镜像&lt;/h2>
+&lt;p>&lt;code>Preferences 搜索 Maven&lt;/code>, 添加 &lt;code>http://maven.aliyun.com/nexus/content/groups/public/&lt;/code>并置顶, 不然驱动下载很慢&lt;/p>
+&lt;h2 id="连接mysql">连接mysql&lt;/h2>
+&lt;ol>
+&lt;li>点右上角的加号, 输入主机, 端口, 数据库名(似乎不填也可以), 用户名, 密码&lt;/li>
+&lt;li>mysql 8 需要在 Drive 里打开一项设置, &lt;code>allowPublicKeyRetrieval TRUE&lt;/code>, 不然会报错`Public Key Retrieval is not allowed&lt;/li>
+&lt;li>第一次连接需要下两个jar驱动, 速度实在够慢的&lt;/li>
+&lt;/ol>
+&lt;h2 id="建表">建表&lt;/h2>
+&lt;ol>
+&lt;li>建数据库: databases &amp;ndash;&amp;gt; 右键:Create New Database&lt;/li>
+&lt;li>建表: 展开数据库 &amp;ndash;&amp;gt; Tables右键:Create New Table&lt;/li>
+&lt;li>建列: 双击表 &amp;ndash;&amp;gt; columns &amp;ndash;&amp;gt; 右键:Create New Column&lt;/li>
+&lt;li>自增键: 选约束 constraints &amp;ndash;&amp;gt; 右键:Create New Constraint &amp;ndash;&amp;gt; type选择 PRIMARY KEY &amp;ndash;&amp;gt;勾中id&lt;/li>
+&lt;li>外键: 先创建列, 点击 Foreign Keys &amp;ndash;&amp;gt; Create New Foreign Key &amp;ndash;&amp;gt; 选择 Reference table &amp;ndash;&amp;gt; Column 选要约束的列&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://img.hellohxx.top/20230324134112.png"
+loading="lazy"
+>&lt;/p>
+&lt;ul>
+&lt;li>点击 DDL 可以看到完整的建表语句&lt;/li>
+&lt;li>外键约束&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://img.hellohxx.top/202406020316210.jpg"
+loading="lazy"
+alt="7-免费的DBeaver-20240602031626797"
+>&lt;/p>
+&lt;h2 id="sql查询">sql查询&lt;/h2>
+&lt;p>注意点: 在2的位置,需要先选中要查的数据库&lt;/p>
+&lt;p>&lt;img src="https://img.hellohxx.top/20230324134120.png"
+loading="lazy"
+>&lt;/p>
+&lt;h2 id="设置">设置&lt;/h2>
+&lt;h3 id="外观">外观&lt;/h3>
+&lt;ul>
+&lt;li>sql字体大小&lt;code>Preferences -&amp;gt; User Interface -&amp;gt; Appearance -&amp;gt; Colors and Fonts -&amp;gt; DBeaver Fonts -&amp;gt; Monospace font&lt;/code> , 适同于23.0.0版本, 有时不生效, 重启下软件&lt;/li>
+&lt;li>格式化: 搜索format, 选择Default formatter, 快捷键是 ctrl+shift+f&lt;/li>
+&lt;/ul>
+&lt;h2 id="技巧">技巧&lt;/h2>
+&lt;h3 id="复制为sql脚本">复制为sql脚本&lt;/h3>
+&lt;p>&lt;img src="https://img.hellohxx.top/20230324184644.png"
+loading="lazy"
+>&lt;/p>
+&lt;h3 id="回滚功能">回滚功能&lt;/h3>
+&lt;p>会记录每一步sql脚本变化&lt;/p>
+&lt;p>==truncate操作无法回滚==&lt;/p>
+&lt;p>&lt;img src="https://img.hellohxx.top/20230324184659.png"
+loading="lazy"
+>&lt;/p>
+&lt;h3 id="字符集">字符集&lt;/h3>
+&lt;p>utf8mb4 是 utf8的超集, 兼容4个字符的表情&lt;/p>
+&lt;p>使用数据库管理工具只修改库的字符集，修改前的表不会变，修改后新增表会变，字段同理&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-mysql" data-lang="mysql">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">-- 特殊emoji表情 ✊🙏😃😅🥹😀😇👴🤣
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="c1">-- 查看库的字符集 [show varuables是查看mysql的系统参数]
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">show&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">variables&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">where&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Variable_name&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">like&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;collation%&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="c1">-- 查看表的字符集
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">SHOW&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">table&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">status&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">from&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="err">库名&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">like&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;表名&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="c1">-- 表中所有字段的字符集
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">show&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">full&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">columns&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">from&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="err">表名&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="c1">-- 修改库的字符集
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">ALTER&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">DATABASE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="err">库名&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">CHARACTER&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kt">SET&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">utf8mb4&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">COLLATE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">utf8mb4_general_ci&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="c1">-- 修改表和表中所有字段的字符集
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">ALTER&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">TABLE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="err">表名&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">CONVERT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">TO&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">CHARACTER&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kt">SET&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">utf8mb4&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">COLLATE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">utf8mb4_general_ci&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="c1">-- 只修改表的字符集
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">ALTER&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">TABLE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="err">表名&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">DEFAULT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kp">CHARSET&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="n">utf8mb4&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">DEFAULT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">COLLATE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">utf8mb4_general_ci&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="c1">-- 修改某个字段字符集：
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">ALTER&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">TABLE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="err">表名&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">MODIFY&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">nick_name&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kt">VARCHAR&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">255&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">CHARACTER&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kt">SET&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">utf8mb4&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">COLLATE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">utf8mb4_general_ci&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="c1">-- 修改库中所有表的字符集
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">SELECT&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nf">CONCAT&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;ALTER TABLE `&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">TABLE_NAME&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="s2">&amp;#34;` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">AS&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">target_tables&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">FROM&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">INFORMATION_SCHEMA&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="kp">TABLES&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">WHERE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">TABLE_SCHEMA&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;库名&amp;#34;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c1"># 修改为需要更改的数据库名称
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">AND&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">TABLE_TYPE&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;BASE TABLE&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="模板">模板&lt;/h2>
+&lt;p>在设置里可以添加模板&lt;code>Templates&lt;/code>, 类似关键字自动补全&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-mysql" data-lang="mysql">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">-- sf
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">select&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">from&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="err">${&lt;/span>&lt;span class="k">table&lt;/span>&lt;span class="err">}&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="复制表">复制表&lt;/h2>
+&lt;ol>
+&lt;li>用shift+左键选中多个要复制的表&lt;/li>
+&lt;li>右键, Generate SQL &amp;ndash; DDL, 生成多条创建表的sql脚本&lt;/li>
+&lt;li>在需要导入的数据库, 执行这些sql脚本&lt;/li>
+&lt;li>ctrl+enter只能执行一条, 右键&amp;mdash;&amp;gt;execute&amp;ndash;&amp;gt;execute sql script&lt;/li>
+&lt;li>在导入的表上, 右键&amp;ndash;&amp;gt;import data &amp;ndash;&amp;gt; table &amp;ndash;&amp;gt; 一一对应&lt;/li>
+&lt;/ol>
+&lt;p>方法2:&lt;/p>
+&lt;ol>
+&lt;li>在数据库/表上右键选择转存数据库: tools&amp;ndash;&amp;gt; Dump databasel&lt;/li>
+&lt;li>在导入的数据库, tools &amp;ndash;&amp;gt; Restore database&lt;/li>
+&lt;/ol></description></item><item><title>Emby</title><link>/p/emby/</link><pubDate>Sat, 09 Mar 2024 00:02:39 +0800</pubDate><guid>/p/emby/</guid><description>&lt;h1 id="部署emby">部署emby&lt;/h1>
 &lt;h2 id="docker-compose">docker compose&lt;/h2>
 &lt;p>网上也有开心版,不需要硬件解码的没必要&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -18,23 +171,47 @@
 &lt;/span>&lt;span class="lnt">13
 &lt;/span>&lt;span class="lnt">14
 &lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">services:
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> emby:
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> image: linuxserver/emby:latest
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> image: emby
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> container_name: emby
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> volumes:
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - ./config:/config
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - /mnt/h1:/data
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">#devices:&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">#- /dev/dri:/dev/dri&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - /mnt/h1/Bangumi:/data/tv
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - /mnt/h1/电影:/data/movie
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - ./index.html:/system/dashboard-ui/index.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> devices:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - /dev/dri:/dev/dri
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ports:
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - 8096:8096
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - 8920:8920
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> network_mode: &lt;span class="s1">&amp;#39;host&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> restart: always
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> restart: on-failure
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> dns:
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - 208.67.222.222
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> environment:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - &lt;span class="nv">http_proxy&lt;/span>&lt;span class="o">=&lt;/span>http://127.0.0.1:7890
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - &lt;span class="nv">https_proxy&lt;/span>&lt;span class="o">=&lt;/span>http://127.0.0.1:7890
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - &lt;span class="nv">no_proxy&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;localhost,127.0.0.0/8,192.168.0.0/16&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - &lt;span class="nv">HTTP_PROXY&lt;/span>&lt;span class="o">=&lt;/span>http://127.0.0.1:7890
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - &lt;span class="nv">HTTPS_PROXY&lt;/span>&lt;span class="o">=&lt;/span>http://127.0.0.1:7890
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - &lt;span class="nv">NO_PROXY&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;localhost,127.0.0.0/8,192.168.0.0/16&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - &lt;span class="nv">UID&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - &lt;span class="nv">GID&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">0&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>在宿主机添加hosts(或者设置extra_hosts)&lt;/p>
@@ -51,22 +228,18 @@
 &lt;/span>&lt;span class="lnt"> 9
 &lt;/span>&lt;span class="lnt">10
 &lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;span class="lnt">12
-&lt;/span>&lt;span class="lnt">13
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">vim /etc/hosts
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 最佳ip https://tools.ipip.net/ping.php&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">===&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2600:9000:2135:c00:c:174a:c400:93a1 api.themoviedb.org
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2600:9000:2135:2800:c:174a:c400:93a1 api.themoviedb.org
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">13.224.163.120 api.themoviedb.org
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">13.224.163.98 api.themoviedb.org
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">13.226.125.88 api.thetvdb.com
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">13.35.157.141 api.thetvdb.com
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">84.17.37.217 image.tmdb.org
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">169.150.207.212 image.tmdb.org
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">172.67.223.55 mikanani.me
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">104.21.17.69 mikanani.me
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">172.67.209.126 mikanime.tv
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">18.165.76.102 api.thetvdb.com
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">18.164.124.55 api.themoviedb.org
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">169.150.236.98 image.tmdb.org
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">===&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
@@ -75,8 +248,7 @@
 &lt;ol>
 &lt;li>
 &lt;p>&lt;code>设置-媒体库-编辑&lt;/code>:&lt;/p>
-&lt;p>元数据获取器要设置当地网络能连接上的,建议只选&lt;code>themoviedb&lt;/code>
-语言选中文简体, 地区选中国,首选图像下载语言：Javanese&lt;/p>
+&lt;p>元数据获取器要设置当地网络能连接上的,建议只选&lt;code>themoviedb&lt;/code>&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>&lt;code>设置-播放-家庭网络质量&lt;/code>: 选局域网里最快的速度&lt;/p>
@@ -116,11 +288,11 @@
 &lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">tv: 放季度更新的番剧
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 番剧的名称
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> S0: 特殊, 例如SP
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> S1: 第一季
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> Season 0: 特殊, 例如SP
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> Season 1: 第一季
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> S01E01.mp4
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> S01E02.mp4
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> S2: 第二季
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> Season 2: 第二季
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">movie: 放电影
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 电影名
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 电影名.mp4
