@@ -1,4 +1,62 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Jqtmviyu's Blog</title><link>/post/</link><description>Recent content in Posts on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 02 Jun 2024 03:21:24 +0800</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Dbeaver</title><link>/p/dbeaver/</link><pubDate>Sun, 02 Jun 2024 03:21:24 +0800</pubDate><guid>/p/dbeaver/</guid><description>&lt;h1 id="dbeaver">DBeaver
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Jqtmviyu's Blog</title><link>/post/</link><description>Recent content in Posts on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 05 Jul 2024 19:01:23 +0800</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml"/><item><title>通过Transmisson订阅rss追番</title><link>/p/subscribeanimebytransmisson/</link><pubDate>Fri, 05 Jul 2024 19:01:23 +0800</pubDate><guid>/p/subscribeanimebytransmisson/</guid><description>&lt;p>网上的大部分教程都是qb的, 本篇教程是基于transmission的.&lt;/p>
+&lt;p>前面尝试过基于flexget的订阅, 自动下载没问题, 但是为了方便刮削需要重命名, 破坏了tr的种子分享, 而且手动维护flexget的config配置文件也很麻烦&lt;/p>
+&lt;p>接触 &lt;code>autobangumi&lt;/code> 这个项目挺早的了, 作者最开始在nga宣传就看到了. 但是因为没有nas, 路由器跑不起来qbweb, 所以就放弃了&lt;/p>
+&lt;p>后面正好想学python, 看到pr里有tr的提交, 但没合并到main分支, 就拿有tr的分支开始动手修改.&lt;/p>
+&lt;p>目前自己用起来大体没什么问题.&lt;/p>
+&lt;p>==后面的步骤全程需要科学上网==&lt;/p>
+&lt;h2 id="transmission-的安装与设置">transmission 的安装与设置
+&lt;/h2>&lt;p>以openwrt为例:&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>到软件里安装 luci-transmission 带zh-cn版本&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>进行相关设置:&lt;/p>
+&lt;ol>
+&lt;li>配置文件目录改为非临时目录, 否则重启丢失下载进度&lt;/li>
+&lt;li>用户权限和组权限改为root&lt;/li>
+&lt;li>设置下载目录为实际目录&lt;/li>
+&lt;li>开启rpc功能, 勾选rpc授权验证, 设置用户名和密码&lt;/li>
+&lt;li>设置分享率限制, 例如为1&lt;/li>
+&lt;li>重启&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>
+&lt;p>自定义web功能:&lt;/p>
+&lt;ol>
+&lt;li>github 搜索 TrguiNG , 下载后上传并设置&lt;/li>
+&lt;li>需要重启才生效&lt;/li>
+&lt;li>可以很方便的重命名文件并且添加标签&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>
+&lt;p>添加trackerlist&lt;/p>
+&lt;ol>
+&lt;li>github搜索 &lt;a class="link" href="https://github.com/DeSireFire/animeTrackerList" target="_blank" rel="noopener"
+>animeTrackerList&lt;/a>&lt;/li>
+&lt;li>在webui界面的&lt;code>设置-interface-Default tracker list &lt;/code>添加, 格式为raw&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="autobangumi_tr">autobangumi_tr
+&lt;/h2>&lt;ol>
+&lt;li>dockerhub 搜索 : &lt;code>jqtmviyu/auto_bangumi_tr&lt;/code>&lt;/li>
+&lt;li>安装上面的教程进行安装&lt;/li>
+&lt;li>打开 autobangumi 的web界面看是否连接成功&lt;/li>
+&lt;li>添加mikan的rss订阅链接&lt;/li>
+&lt;/ol>
+&lt;h2 id="embyjellyfin">emby/jellyfin
+&lt;/h2>&lt;ul>
+&lt;li>如果对硬件解码有需求就选jellyfin&lt;/li>
+&lt;li>没有的话选emby就可以了, ui功能比较新&lt;/li>
+&lt;/ul>
+&lt;p>具体参考: &lt;a class="link" href="/p/emby/" >Emby&lt;/a>&lt;/p>
+&lt;h2 id="避免被吸血">避免被吸血
+&lt;/h2>&lt;blockquote>
+&lt;p>除了迅雷 影音先锋之类的, 还有很多跑pcdn的垃圾人在吸血&lt;/p>
+&lt;p>所以就算是 qbee, 安装反吸血还是有必要的&lt;/p>
+&lt;/blockquote>
+&lt;p>github 搜索 &lt;code>PBH-BTN/PeerBanHelper&lt;/code>项目, 按照文档设置就可以了.&lt;/p></description></item><item><title>Dbeaver</title><link>/p/dbeaver/</link><pubDate>Sun, 02 Jun 2024 03:21:24 +0800</pubDate><guid>/p/dbeaver/</guid><description>&lt;h1 id="dbeaver">DBeaver
 &lt;/h1>&lt;blockquote>
 &lt;p>macos上, 用来代替Navicat的开源免费工具&lt;/p>
 &lt;/blockquote>
@@ -188,19 +246,19 @@ loading="lazy"
 &lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">services:
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> emby:
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> image: emby
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> container_name: emby
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> container_name: emby/embyserver_arm64v8:latest &lt;span class="c1"># 按照自己实际的架构选&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> volumes:
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - ./config:/config
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - /mnt/h1/Bangumi:/data/tv
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - /mnt/h1/电影:/data/movie
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - ./index.html:/system/dashboard-ui/index.html
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> devices:
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - /dev/dri:/dev/dri
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">#devices: # gpu相关,这两行没必要&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">#- /dev/dri:/dev/dri&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ports:
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - 8096:8096
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - 8920:8920
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> network_mode: &lt;span class="s1">&amp;#39;host&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> restart: on-failure
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> restart: unless-stopped
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> dns:
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - 208.67.222.222
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> environment:
@@ -308,7 +366,107 @@ loading="lazy"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 电影名.mp4
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item><item><title>Flexget</title><link>/p/flexget/</link><pubDate>Fri, 08 Mar 2024 23:54:16 +0800</pubDate><guid>/p/flexget/</guid><description>&lt;h1 id="部署flexget">部署flexget
+&lt;/div>&lt;h2 id="jellyfin-部署参考">jellyfin 部署参考
+&lt;/h2>&lt;blockquote>
+&lt;p>个人体验jellyfin的优点是支持硬件解码, 并且刮削插件更加开放, 支持按照不同的年份, 例如 凉宫春日的忧郁 能区分 06 和 09 版&lt;/p>
+&lt;p>但ui界面比较卡, 图片异步加载也不太好, 不支持单独删除元数据&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="compose">compose
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">services&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">jellyfin&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">linuxserver/jellyfin:arm64v8-latest&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">container_name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">jellyfin&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">volumes&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">./config:/config&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">/mnt/h1/Bangumi:/data/tvshows&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">/mnt/h1/电影:/data/movies&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">./fonts:/usr/share/fonts/truetype/dejavu&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">devices&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">/dev/dri:/dev/dri&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># 解码器驱动路径&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="m">8097&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="m">8096&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="m">8921&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="m">8920&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#optional&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="m">7360&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="m">7359&lt;/span>&lt;span class="l">/udp&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#optional&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="m">1901&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="m">1900&lt;/span>&lt;span class="l">/udp&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#optional&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">unless-stopped&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">network_mode&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;host&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">dns&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="m">208.67.222.222&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">environment&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">PUID=0&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">PGID=0&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">TZ=Asia/Shanghai&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">JELLYFIN_PublishedServerUrl=192.168.2.5&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#optional&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">http_proxy=127.0.0.1:7890&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">https_proxy=127.0.0.1:7890&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">no_proxy=&amp;#34;localhost,127.0.0.0/8,192.168.0.0/16&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">HTTP_PROXY=127.0.0.1:7890&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">HTTPS_PROXY=127.0.0.1:7890&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">NO_PROXY=&amp;#34;localhost,127.0.0.0/8,192.168.0.0/16&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>常见问题:&lt;/p>
+&lt;ul>
+&lt;li>封面出现方框&lt;/li>
+&lt;/ul>
+&lt;p>原因: 字体异常&lt;/p>
+&lt;p>解决方法: 替换字体, 例如用支持中文的思源黑体替换, 就是上面配置&lt;code>- ./fonts:/usr/share/fonts/truetype/dejavu&lt;/code>的原因,&lt;/p>
+&lt;p>提前重命名好并上传覆盖替换&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-txt" data-lang="txt">&lt;span class="line">&lt;span class="cl">DejaVuSans-Bold.ttf DejaVuSansMono.ttf DejaVuSerif-Bold.ttf
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">DejaVuSansMono-Bold.ttf DejaVuSans.ttf DejaVuSerif.ttf
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>字幕出现方框&lt;/li>
+&lt;/ul>
+&lt;p>原因: 字体不支持中文&lt;/p>
+&lt;p>解决方法: 把字体放到&lt;code>config/fonts&lt;/code>, 然后进&lt;code>控制台-播放-转码-启用备用字体-备用字体路径 /config/fonts&lt;/code>&lt;/p>
+&lt;p>上面的两种字体都可以直接在&lt;code>jqtmviyu/webfont-noto&lt;/code>下载&lt;/p>
+&lt;p>==如果要同时安装emby和jellyfin, 需要修改端口, 并且不能同时使用host模式==&lt;/p>
+&lt;h2 id="调用iinapotplay播放">调用iina/potplay播放
+&lt;/h2>&lt;p>因为免费的emby不支持硬件解码, 所以可以使用iina来播放&lt;/p>
+&lt;p>greakfork.org 搜索脚本&lt;code>embyLaunchIINA&lt;/code>&lt;/p></description></item><item><title>Flexget</title><link>/p/flexget/</link><pubDate>Fri, 08 Mar 2024 23:54:16 +0800</pubDate><guid>/p/flexget/</guid><description>&lt;h1 id="部署flexget">部署flexget
 &lt;/h1>&lt;blockquote>
 &lt;p>配合 qb/tr/aria2 等工具实现 rss 自动下载&lt;/p>
 &lt;/blockquote>
@@ -1310,69 +1468,4 @@ loading="lazy"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> sudo apachectl graceful
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item><item><title>macos finder右键菜单定制</title><link>/p/finder_right_menu/</link><pubDate>Wed, 06 Sep 2023 10:01:24 +0800</pubDate><guid>/p/finder_right_menu/</guid><description>&lt;p>&lt;strong>以下均为开源免费软件&lt;/strong>&lt;/p>
-&lt;p>效果图:&lt;/p>
-&lt;p>&lt;img src="https://img.hellohxx.top/20230906100555.png"
-loading="lazy"
-alt="效果图"
->&lt;/p>
-&lt;ol>
-&lt;li>安装 &amp;lsquo;OpenInTerminal&amp;rsquo;&lt;/li>
-&lt;/ol>
-&lt;p>&lt;a class="link" href="https://github.com/Ji4n1ng/OpenInTerminal" target="_blank" rel="noopener"
->OpenInTerminal&lt;/a>&lt;/p>
-&lt;ol start="2">
-&lt;li>软件没有&lt;code>新建txt&lt;/code> 和用 &lt;code>neovim打开&lt;/code> 功能, 需要自己写脚本用 &lt;code>Automator&lt;/code> 转成 app.&lt;/li>
-&lt;/ol>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;span class="lnt">12
-&lt;/span>&lt;span class="lnt">13
-&lt;/span>&lt;span class="lnt">14
-&lt;/span>&lt;span class="lnt">15
-&lt;/span>&lt;span class="lnt">16
-&lt;/span>&lt;span class="lnt">17
-&lt;/span>&lt;span class="lnt">18
-&lt;/span>&lt;span class="lnt">19
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#!/bin/bash
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">config_file&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$HOME&lt;/span>&lt;span class="s2">/.config/alacritty/alacritty_nvim.yml&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">nvim_command&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;/usr/local/bin/nvim&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="o">[&lt;/span> -n &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$1&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">target&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$1&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="o">[&lt;/span> -d &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$1&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">working_directory&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$1&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">else&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">working_directory&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="k">$(&lt;/span>dirname &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$1&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">)&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">fi&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">else&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">target&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">fi&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">open -na &lt;span class="s2">&amp;#34;Alacritty&amp;#34;&lt;/span> --args --config-file&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$config_file&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> --working-directory&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$working_directory&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> -e &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$nvim_command&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$target&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;ul>
-&lt;li>替换图标 &lt;code>ontents/Resources/ApplicationStub.icns&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;ol start="2">
-&lt;li>新建 txt 文件&lt;/li>
-&lt;/ol>
-&lt;p>&lt;a class="link" href="https://github.com/RomanSmolka/finder-new-file" target="_blank" rel="noopener"
->finder-new-file&lt;/a>&lt;/p></description></item></channel></rss>
+&lt;/div></description></item></channel></rss>
