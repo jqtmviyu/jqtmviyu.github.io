@@ -466,7 +466,7 @@ loading="lazy"
 &lt;p>==如果要同时安装emby和jellyfin, 需要修改端口, 并且不能同时使用host模式==&lt;/p>
 &lt;h2 id="调用iinapotplay播放">调用iina/potplay播放
 &lt;/h2>&lt;p>因为免费的emby不支持硬件解码, 所以可以使用iina来播放&lt;/p>
-&lt;p>greakfork.org 搜索脚本&lt;code>embyLaunchIINA&lt;/code>&lt;/p></description></item><item><title>Flexget</title><link>/p/flexget/</link><pubDate>Fri, 08 Mar 2024 23:54:16 +0800</pubDate><guid>/p/flexget/</guid><description>&lt;h1 id="部署flexget">部署flexget
+&lt;p>greasyfork.org 搜索脚本&lt;code>embyLaunchIINA&lt;/code>&lt;/p></description></item><item><title>Flexget</title><link>/p/flexget/</link><pubDate>Fri, 08 Mar 2024 23:54:16 +0800</pubDate><guid>/p/flexget/</guid><description>&lt;h1 id="部署flexget">部署flexget
 &lt;/h1>&lt;blockquote>
 &lt;p>配合 qb/tr/aria2 等工具实现 rss 自动下载&lt;/p>
 &lt;/blockquote>
