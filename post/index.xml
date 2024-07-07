@@ -45,6 +45,9 @@
 &lt;li>打开 autobangumi 的web界面看是否连接成功&lt;/li>
 &lt;li>添加mikan的rss订阅链接&lt;/li>
 &lt;/ol>
+&lt;p>mikan国内ip访问的地址是: &lt;code>mikanime.tv&lt;/code>, 国外访问的是: &lt;code>mikanani.me&lt;/code>&lt;/p>
+&lt;p>但就算是国内访问&lt;code>mikanime.tv&lt;/code>也会经常访问不了, 可以用cloudflare worker加速,或者访问别人提供的代理站&lt;/p>
+&lt;p>例如: &lt;code>https://mikanani.hacgn.fun&lt;/code>&lt;/p>
 &lt;h2 id="embyjellyfin">emby/jellyfin
 &lt;/h2>&lt;ul>
 &lt;li>如果对硬件解码有需求就选jellyfin&lt;/li>
