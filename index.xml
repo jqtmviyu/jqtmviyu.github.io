@@ -427,17 +427,20 @@ loading="lazy"
 &lt;/li>
 &lt;/ol>
 &lt;h2 id="刮削">刮削
-&lt;/h2>&lt;p>参考教程: &lt;a class="link" href="https://post.smzdm.com/p/aenzm444/" target="_blank" rel="noopener"
->https://post.smzdm.com/p/aenzm444/&lt;/a>&lt;/p>
+&lt;/h2>&lt;p>参考教程:&lt;/p>
 &lt;ul>
-&lt;li>命名:&lt;/li>
+&lt;li>&lt;a class="link" href="https://post.smzdm.com/p/aenzm444/" target="_blank" rel="noopener"
+>https://post.smzdm.com/p/aenzm444/&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://blog.hsdi.cc/index.php/archives/285/" target="_blank" rel="noopener"
+>https://blog.hsdi.cc/index.php/archives/285/&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;ol>
+&lt;p>刮削源:&lt;/p>
+&lt;ul>
 &lt;li>&lt;a class="link" href="https://www.themoviedb.org/" target="_blank" rel="noopener"
 >https://www.themoviedb.org/&lt;/a>&lt;/li>
 &lt;li>&lt;a class="link" href="https://thetvdb.com/" target="_blank" rel="noopener"
 >https://thetvdb.com/&lt;/a>&lt;/li>
-&lt;/ol>
+&lt;/ul>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
@@ -463,7 +466,7 @@ loading="lazy"
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> Season 1: 第一季
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> S01E01.mp4
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> S01E02.mp4
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> S01E03-E05.mp4
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> S01E01E02E03.mp4
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> Season 2: 第二季
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> S02E01.mp4
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 番剧指定年份 (2006)
