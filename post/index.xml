@@ -1,4 +1,434 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Jqtmviyu's Blog</title><link>/post/</link><description>Recent content in Posts on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 19 Jul 2024 17:16:27 +0800</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml"/><item><title>使用git来管理dotfiles</title><link>/p/use-git-to-manage-dotfiles/</link><pubDate>Fri, 19 Jul 2024 17:16:27 +0800</pubDate><guid>/p/use-git-to-manage-dotfiles/</guid><description>&lt;p>文章参考: &lt;a class="link" href="https://www.atlassian.com/zh/git/tutorials/dotfiles" target="_blank" rel="noopener"
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Jqtmviyu's Blog</title><link>/post/</link><description>Recent content in Posts on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 23 Jul 2024 20:18:30 +0800</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Docker Compose 部署 Gitea + Drone + Drone Runner</title><link>/p/deploy-gitea-drone-drone-runner/</link><pubDate>Tue, 23 Jul 2024 20:18:30 +0800</pubDate><guid>/p/deploy-gitea-drone-drone-runner/</guid><description>&lt;h1 id="docker-compose部署giteadronedrone-runner">docker compose部署gitea+drone+drone-runner
+&lt;/h1>&lt;p>参考:&lt;/p>
+&lt;ol>
+&lt;li>中文: &lt;a class="link" href="https://juejin.cn/post/7153173983335022605" target="_blank" rel="noopener"
+>https://juejin.cn/post/7153173983335022605&lt;/a>&lt;/li>
+&lt;li>官方: &lt;a class="link" href="https://docs.gitea.io/en-us/install-with-docker/#sshing-shim-with-authorized_keys" target="_blank" rel="noopener"
+>https://docs.gitea.io/en-us/install-with-docker/#sshing-shim-with-authorized_keys&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://github.com/go-gitea/gitea/issues/22151" target="_blank" rel="noopener"
+>https://github.com/go-gitea/gitea/issues/22151&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;p>注意事项:&lt;/p>
+&lt;ol>
+&lt;li>linux上新建一个git用户&lt;/li>
+&lt;li>生成ssh密钥时要选择 &lt;code>ed25519&lt;/code> 算法&lt;/li>
+&lt;li>编辑文件时注意权限, 特别是gitea数据和ssh文件的权限, 必须保证是 git 用户可读/写/执行的, 不要改成root/其他用户组的&lt;/li>
+&lt;/ol>
+&lt;p>环境:&lt;/p>
+&lt;p>默认linux环境, 已安装好docker和docker compose, 具备root权限, docker设置加速源&lt;/p>
+&lt;h2 id="新建git用户">新建git用户
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 添加用户&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo useradd -m git
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 设置密码&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo passwd git 新密码
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 安全相关, 禁止ssh登录&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo usermod -L git &lt;span class="c1"># lock&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># usermod -U git # unlock&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 不设置密码/删除密码, 也可以禁止ssh登录&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo passwd -d git
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="git用户添加到docker用户组">git用户添加到docker用户组
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">sudo usermod -aG docker git &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> newgrp docker
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 如果没有docker用户组&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo groupadd docker
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="gitea">gitea
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> 你的目录
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mkdir data
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 获取git用户的uid和gid&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">id git
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">vim docker-compose.yml
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 把USER_UID, USER_GID改成实际获取的&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 127.0.0.1:2222:22 也是为了ssh直通&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">===&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">version: &lt;span class="s2">&amp;#34;3&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">networks:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> gitea:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> external: &lt;span class="nb">false&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">services:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> server:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> image: gitea/gitea:latest
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> container_name: gitea
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> environment:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - &lt;span class="nv">USER_UID&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">1001&lt;/span> &lt;span class="c1"># git用户的uid&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - &lt;span class="nv">USER_GID&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">1001&lt;/span> &lt;span class="c1"># git用户的gid&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> restart: unless-stopped
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> networks:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - gitea
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> volumes:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - ./data:/data
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - /home/git/.ssh/:/data/git/.ssh
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - /etc/timezone:/etc/timezone:ro
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - /etc/localtime:/etc/localtime:ro
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ports:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - &lt;span class="s2">&amp;#34;3000:3000&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - &lt;span class="s2">&amp;#34;127.0.0.1:2222:22&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">===&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">docker compose up -d
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>初始化:&lt;/p>
+&lt;ol>
+&lt;li>数据库可以选 SQLite&lt;/li>
+&lt;li>初始化后如果需要修改&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 注意文件权限, 数据都是git用户和git用户组的&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo -u git vim ./data/gitea/conf/app.ini
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 然后重启容器&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 也可以通过环境变量的方法来写入ini&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="3">
+&lt;li>web端的端口是3000, 有需要设置nginx转发&lt;/li>
+&lt;li>导入仓库, &lt;code>app.ini&lt;/code>需要添加配置&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-toml" data-lang="toml">&lt;span class="line">&lt;span class="cl">&lt;span class="p">[&lt;/span>&lt;span class="nx">migrations&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">ALLOW_LOCALNETWORKS&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="kc">true&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="5">
+&lt;li>webhook需要添加配置&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-toml" data-lang="toml">&lt;span class="line">&lt;span class="cl">&lt;span class="p">[&lt;/span>&lt;span class="nx">webhook&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">ALLOWED_HOST_LIST&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="err">*&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="ssh直通下载">ssh直通下载
+&lt;/h3>&lt;p>&lt;a class="link" href="https://docs.gitea.com/installation/install-with-docker#sshing-shim-with-authorized_keys" target="_blank" rel="noopener"
+>sshing-shim-with-authorized_keys&lt;/a>&lt;/p>
+&lt;ol>
+&lt;li>配置ssh文件&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>是为了ssh直通下载
+因为一般22端口被服务器登录用了, 假设gitea容器使用了2222端口, 那么用户使用 ssh clone时没有指定端口, 需要把22端口转到容器的2222端口, 并且需要把参数也传进去&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># openssh新版移除了rsa加密&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo -u git ssh-keygen -t ed25519 -C &lt;span class="s2">&amp;#34;Gitea Host Key&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 复制公钥信息, 是用来登录容器里的git用户的,后面会把整个.ssh映射到容器里&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo -u git cat /home/git/.ssh/id_ed25519.pub &lt;span class="p">|&lt;/span> sudo -u git tee -a /home/git/.ssh/authorized_keys
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">chmod &lt;span class="m">600&lt;/span> /home/git/.ssh/authorized_keys
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="2">
+&lt;li>在你的pc上, 生成公钥和私钥&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">ssh-keygen -t ed25519 -C &lt;span class="s1">&amp;#39;test@gmail.com&amp;#39;&lt;/span> -f ~/.ssh/gitea_ed25519
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="3">
+&lt;li>登录 gitea, 打开设置界面, 添加SSH 密钥, 把pc上生成的公钥添加进去, 然后进行验证(==注意, 不是服务器上的公钥和私钥==)&lt;/li>
+&lt;li>查看服务器上的&lt;code>/home/git/.ssh/authorized_keys&lt;/code>, 它的结构类似这样&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># SSH pubkey from git user&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ssh-ed25519 xxxxxxxxxx Gitea Host Key
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># gitea public key&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">command&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;/usr/local/bin/gitea --config=/data/gitea/conf/app.ini serv key-10&amp;#34;&lt;/span>,no-port-forwarding,no-X11-forwarding,no-agent-forwarding,no-pty,no-user-rc,restrict ssh-ed25519 xxxxxxxxxx xxxxxxxxxx
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="5">
+&lt;li>添加脚本&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 脚本的路径可能每个版本的gitea都不相同,最好看下官方的最新文档&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 对应上一步的command后面的路径&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cat &amp;lt;&amp;lt;&lt;span class="s2">&amp;#34;EOF&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> sudo tee /usr/local/bin/gitea
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#!/bin/sh &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ssh -p &lt;span class="m">2222&lt;/span> -o &lt;span class="nv">StrictHostKeyChecking&lt;/span>&lt;span class="o">=&lt;/span>no git@127.0.0.1 &lt;span class="s2">&amp;#34;SSH_ORIGINAL_COMMAND=\&amp;#34;&lt;/span>&lt;span class="nv">$SSH_ORIGINAL_COMMAND&lt;/span>&lt;span class="s2">\&amp;#34; &lt;/span>&lt;span class="nv">$0&lt;/span>&lt;span class="s2"> &lt;/span>&lt;span class="nv">$@&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">EOF
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo chmod +x /usr/local/bin/gitea
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="6">
+&lt;li>个人pc上编辑config文件&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">vim ~/.ssh/config
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">===&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># gitea&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Host 你的gitea host
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> HostName 你的gitea hostname
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> User git
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> PreferredAuthentications publickey
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> IdentityFile ~/.ssh/gitea_ed25519
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">===&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="7">
+&lt;li>测试 ssh&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">ssh -T git@你的gitea域名
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="dronedrone-runner">drone+drone-runner
+&lt;/h2>&lt;ol>
+&lt;li>新建comopse文件, 先别启动&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;span class="lnt">42
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">mkdir drone
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mkdir data
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">vim docker-compose.yml
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">===&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">version: &lt;span class="s1">&amp;#39;3&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">services:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> drone-server:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> restart: always
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> image: drone/drone:2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ports:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - &lt;span class="s2">&amp;#34;9999:80&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> volumes:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - ./drone:/var/lib/drone/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - ./data:/data/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> environment:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - &lt;span class="nv">DRONE_GITEA_SERVER&lt;/span>&lt;span class="o">=&lt;/span> &lt;span class="c1"># Gitea访问地址&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - &lt;span class="nv">DRONE_GITEA_CLIENT_ID&lt;/span>&lt;span class="o">=&lt;/span> &lt;span class="c1"># gitea oauth2 客户端id&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - &lt;span class="nv">DRONE_GITEA_CLIENT_SECRET&lt;/span>&lt;span class="o">=&lt;/span> &lt;span class="c1"># gitea oauth2 客户端密钥&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - &lt;span class="nv">DRONE_SERVER_HOST&lt;/span>&lt;span class="o">=&lt;/span> &lt;span class="c1"># drone 访问的域名&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - &lt;span class="nv">DRONE_SERVER_PROTO&lt;/span>&lt;span class="o">=&lt;/span>https &lt;span class="c1"># 支持http, https&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - &lt;span class="nv">DRONE_RPC_SECRET&lt;/span>&lt;span class="o">=&lt;/span> &lt;span class="c1"># Drone Server共享的密钥&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - &lt;span class="nv">DRONE_GIT_ALWAYS_AUTH&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="nb">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - &lt;span class="nv">DRONE_GIT_USERNAME&lt;/span>&lt;span class="o">=&lt;/span> &lt;span class="c1"># git用户名&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - &lt;span class="nv">DRONE_GIT_PASSWORD&lt;/span>&lt;span class="o">=&lt;/span> &lt;span class="c1"># git密码&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - &lt;span class="nv">DRONE_USER_CREATE&lt;/span>&lt;span class="o">=&lt;/span>username:ci,admin:true &lt;span class="c1"># 该用户名,开启管理员账户&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> drone-runner-docker:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> restart: always
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> depends_on:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - drone-server
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> image: drone/drone-runner-docker:1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ports:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - &lt;span class="s2">&amp;#34;10000:3000&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> volumes:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - /var/run/docker.sock:/var/run/docker.sock
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> environment:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - &lt;span class="nv">DRONE_RPC_PROTO&lt;/span>&lt;span class="o">=&lt;/span>http &lt;span class="c1"># 支持http, https, 这里是部署在同一台服务器, 没有开放端口, 只能是http&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - &lt;span class="nv">DRONE_RPC_HOST&lt;/span>&lt;span class="o">=&lt;/span>drone-server
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - &lt;span class="nv">DRONE_RPC_SECRET&lt;/span>&lt;span class="o">=&lt;/span> &lt;span class="c1"># Drone Server共享的密钥&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - &lt;span class="nv">DRONE_RUNNER_NAME&lt;/span>&lt;span class="o">=&lt;/span>drone-runner-docker
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - &lt;span class="nv">DRONE_RUNNER_CAPACITY&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">2&lt;/span> &lt;span class="c1"># 并发执行的流水线数量&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">===&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="2">
+&lt;li>在 gitea 新建一个ci账号, 需要ci的仓库, 就把该账号添加到仓库管理员&lt;/li>
+&lt;li>&lt;strong>DRONE_USER_CREATE&lt;/strong> 不一定是Git仓库的管理员，只要是Git仓库的用户即可&lt;/li>
+&lt;li>登录ci账号, 设置-&amp;gt;应用，管理 OAuth2 应用程序&lt;/li>
+&lt;/ol>
+&lt;p>应用名称: 例如: drone-oauth2&lt;/p>
+&lt;p>重定向URL: 例如: &lt;code>https://域名/login&lt;/code> , &lt;code>http://{{ip}}:{{port}}/login&lt;/code>&lt;/p>
+&lt;p>&lt;img src="https://img.hellohxx.top/20230419232533.png"
+loading="lazy"
+>&lt;/p>
+&lt;p>把&lt;code>客户端id&lt;/code>, &lt;code>客户端密钥&lt;/code>填到上面的&lt;code>docker-compose.yml&lt;/code>里&lt;/p>
+&lt;ol start="5">
+&lt;li>&lt;strong>DRONE_RPC_SECRET&lt;/strong> : Drone Server共享的密钥, 用 &lt;code>openssl rand -hex 16&lt;/code> 生成&lt;/li>
+&lt;li>启动 &lt;code>docker compose up -d&lt;/code>&lt;/li>
+&lt;li>打开drone页面, 完成授权&lt;/li>
+&lt;/ol>
+&lt;p>注意: drone是没有自己的登录页面的, 会使用相同浏览器的Gitea登录信息,如果gitea切换用户, drone并不会自动切换, 需要先退出&lt;/p>
+&lt;ol start="8">
+&lt;li>在仓库根目录新建&lt;code>.drone.yml&lt;/code>文件, 文件提交后就会自动触发构建&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">pipeline&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">type&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">docker&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">build&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="gitea-显示流水线状态">gitea 显示流水线状态
+&lt;/h3>&lt;p>在Drone的项目配置页面，我们会看到&lt;code>Badges&lt;/code>选项, 把里面的内容复制出来，添加到项目的README.md文件头部&lt;/p></description></item><item><title>使用git来管理dotfiles</title><link>/p/use-git-to-manage-dotfiles/</link><pubDate>Fri, 19 Jul 2024 17:16:27 +0800</pubDate><guid>/p/use-git-to-manage-dotfiles/</guid><description>&lt;p>文章参考: &lt;a class="link" href="https://www.atlassian.com/zh/git/tutorials/dotfiles" target="_blank" rel="noopener"
 >https://www.atlassian.com/zh/git/tutorials/dotfiles&lt;/a>&lt;/p>
 &lt;ol>
 &lt;li>创建一个新的git仓库&lt;/li>
@@ -1115,65 +1545,4 @@ picgo安装s3插件&lt;/p>
 >https://github.com/BGmi/BGmi&lt;/a>&lt;/li>
 &lt;li>&lt;a class="link" href="https://github.com/dev-techmoe/megumi" target="_blank" rel="noopener"
 >https://github.com/dev-techmoe/megumi&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>给tmux添加右键菜单</title><link>/p/add_context_menu_for_tmux/</link><pubDate>Fri, 08 Sep 2023 18:24:31 +0800</pubDate><guid>/p/add_context_menu_for_tmux/</guid><description>&lt;p>使用场景:&lt;br>
-macos下使用&lt;code>alacritty&lt;/code>终端, 偶尔需要分屏或者多tab, 需要&lt;code>tmux&lt;/code>,但不经常用记不住快捷键, 看&lt;code>help&lt;/code>又太慢
-所以直接把常用的功能添加到右键菜单里.&lt;/p>
-&lt;div class="highlight">&lt;div class="chroma">
-&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
-&lt;/span>&lt;span class="lnt"> 2
-&lt;/span>&lt;span class="lnt"> 3
-&lt;/span>&lt;span class="lnt"> 4
-&lt;/span>&lt;span class="lnt"> 5
-&lt;/span>&lt;span class="lnt"> 6
-&lt;/span>&lt;span class="lnt"> 7
-&lt;/span>&lt;span class="lnt"> 8
-&lt;/span>&lt;span class="lnt"> 9
-&lt;/span>&lt;span class="lnt">10
-&lt;/span>&lt;span class="lnt">11
-&lt;/span>&lt;span class="lnt">12
-&lt;/span>&lt;span class="lnt">13
-&lt;/span>&lt;span class="lnt">14
-&lt;/span>&lt;span class="lnt">15
-&lt;/span>&lt;span class="lnt">16
-&lt;/span>&lt;span class="lnt">17
-&lt;/span>&lt;span class="lnt">18
-&lt;/span>&lt;span class="lnt">19
-&lt;/span>&lt;span class="lnt">20
-&lt;/span>&lt;span class="lnt">21
-&lt;/span>&lt;span class="lnt">22
-&lt;/span>&lt;span class="lnt">23
-&lt;/span>&lt;span class="lnt">24
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># Right-click context menu
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">bind-key -Troot MouseDown3Pane display-menu -xM -yM \
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;New Session&amp;#34; S &amp;#34;command-prompt -p \&amp;#34;New Session:\&amp;#34; \&amp;#34;new-session -A -s &amp;#39;%%&amp;#39;\&amp;#34;&amp;#34; \
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;Kill Session&amp;#34; x &amp;#34;kill-session&amp;#34; \
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;Kill Other Session(s)&amp;#34; X &amp;#34;kill-session -a&amp;#34; \
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;&amp;#34; \
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;New Window&amp;#34; ␍ new-window \
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;Kill Window&amp;#34; k &amp;#34;killw&amp;#34; \
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;Choose Window&amp;#34; w choose-window \
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;Previous Window&amp;#34; 🡠 previous-window \
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;Next Window&amp;#34; 🡢 next-window \
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;Swap Window Right&amp;#34; ↑ &amp;#34;swap-window -t -1&amp;#34; \
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;Swap Window Left&amp;#34; ↓ &amp;#34;swap-window -t +1&amp;#34; \
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;Horizontal Split&amp;#34; v &amp;#34;split-window -h&amp;#34; \
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;Vertical Split&amp;#34; s &amp;#34;split-window -v&amp;#34; \
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;&amp;#34; \
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;Layout Horizontal&amp;#34; h &amp;#34;select-layout even-horizontal&amp;#34; \
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;Layout Vertical&amp;#34; k &amp;#34;select-layout even-horizontal&amp;#34; \
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;&amp;#34; \
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;Swap Pane Up&amp;#34; &amp;lt; &amp;#34;swap-pane -U&amp;#34; \
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;Swap Pane Down&amp;#34; &amp;gt; &amp;#34;swap-pane -D&amp;#34; \
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;Break Pane&amp;#34; t break-pane \
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;Join Pane&amp;#34; j &amp;#34;choose-window &amp;#39;join-pane -h -s \&amp;#34;%%\&amp;#34;&amp;#39;&amp;#34; \
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#34;#{?window_zoomed_flag,Unzoom,Zoom}&amp;#34; z &amp;#34;resize-pane -Z&amp;#34;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>效果图如下:
-&lt;img src="https://img.hellohxx.top/20230908183051.png"
-loading="lazy"
->&lt;/p>
-&lt;p>更多配置在&lt;code>https://github.com/jqtmviyu/macosDotfiles&lt;/code>, 因为是抄来抄去的配置, 具体还得去官方文档.&lt;/p></description></item></channel></rss>
+&lt;/ul></description></item></channel></rss>
