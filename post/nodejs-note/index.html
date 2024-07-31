@@ -1,0 +1,955 @@
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="NodeJS Node 是一个构建于 Chrome V8引擎之上的一个 Javascript 运行环境, 作用是让 js 拥有开发服务端的功能 使用事件驱动、非阻塞 IO 模型（异步读写）使得它非常的轻量级和高效"><title>Nodejs笔记</title>
+<link rel=canonical href=/post/nodejs-note/><link rel=stylesheet href=/scss/style.min.0304c6baf04e01a8fe70693791cb744d56a3578a3120a8796cefc66825aa39c7.css><meta property='og:title' content="Nodejs笔记"><meta property='og:description' content="NodeJS Node 是一个构建于 Chrome V8引擎之上的一个 Javascript 运行环境, 作用是让 js 拥有开发服务端的功能 使用事件驱动、非阻塞 IO 模型（异步读写）使得它非常的轻量级和高效"><meta property='og:url' content='/post/nodejs-note/'><meta property='og:site_name' content="Jqtmviyu's Blog"><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='nodejs'><meta property='article:published_time' content='2023-03-26T18:50:50+08:00'><meta property='article:modified_time' content='2023-03-26T18:50:50+08:00'><meta name=twitter:title content="Nodejs笔记"><meta name=twitter:description content="NodeJS Node 是一个构建于 Chrome V8引擎之上的一个 Javascript 运行环境, 作用是让 js 拥有开发服务端的功能 使用事件驱动、非阻塞 IO 模型（异步读写）使得它非常的轻量级和高效"><link rel="shortcut icon" href=/favicon.png></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/avatar.png width=300 height=300 class=site-logo loading=lazy alt=Avatar></a></figure><div class=site-meta><h1 class=site-name><a href=/>Jqtmviyu's Blog</a></h1><h2 class=site-description>It's never too late to learn.</h2></div></header><ol class=menu-social><li><a href=https://github.com/jqtmviyu target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li><li><a href=https://git.hellohxx.top/hxx target=_blank title=Gitea rel=me><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b6b6b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-gitlab"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M21 14l-9 7-9-7L6 3l3 7h6l3-7z"/></svg></a></li><li><a href=mailto:jqtmviyu@gmail.com target=_blank title=Mail rel=me><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b6b6b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-mail"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7z"/><path d="M3 7l9 6 9-6"/></svg></a></li><li><a href=/index.xml target=_blank title=Rss rel=me><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b6b6b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-rss"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 19m-1 0a1 1 0 102 0 1 1 0 10-2 0"/><path d="M4 4a16 16 0 0116 16"/><path d="M4 11a9 9 0 019 9"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b6b6b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-home"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12H3l9-9 9 9h-2"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Home</span></a></li><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Archives</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Search</span></a></li><li><a href=/links/><svg class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M10 14a3.5 3.5.0 005 0l4-4a3.5 3.5.0 00-5-5l-.5.5"/><path d="M14 10a3.5 3.5.0 00-5 0l-4 4a3.5 3.5.0 005 5l.5-.5"/></svg>
+<span>Links</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>Dark Mode</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#安装>安装</a></li><li><a href=#客户端-js-和服务端-js>客户端 js 和服务端 js</a></li><li><a href=#运行-node-js-程序>运行 node. js 程序</a></li><li><a href=#模块化>模块化</a><ol><li><a href=#commonjs-规范>CommonJS 规范</a></li><li><a href=#es-模块>ES 模块</a></li></ol></li><li><a href=#node-js-核心模块>node. js 核心模块</a><ol><li><a href=#fs文件模块读写文件>fs文件模块(读写文件)</a><ol><li><a href=#readfile异步读取>readFile异步读取</a></li><li><a href=#writefile异步写入>writeFile异步写入</a></li><li><a href=#异步追加>异步追加</a></li><li><a href=#promise版本的fs方法>Promise版本的fs方法</a></li></ol></li><li><a href=#path路径模块>path路径模块</a><ol><li><a href=#nodejs中的绝对路径和相对路径>nodejs中的绝对路径和相对路径</a></li><li><a href=#join方法-路径拼接>join()方法 路径拼接</a></li><li><a href=#resolve方法-路径处理>resolve()方法 路径处理</a></li></ol></li><li><a href=#process>process</a></li><li><a href=#属性和方法>属性和方法</a></li></ol></li><li><a href=#服务器基础>服务器基础</a><ol><li><a href=#基本的访问流程>基本的访问流程</a></li><li><a href=#http协议>http协议</a></li><li><a href=#端口>端口</a></li><li><a href=#常见的状态码>常见的状态码</a></li><li><a href=#返回数据的格式>返回数据的格式</a></li></ol></li><li><a href=#hellow-appjs>hellow app.js</a></li><li><a href=#响应页面>响应页面</a></li><li><a href=#允许跨域>允许跨域</a></li><li><a href=#响应不同的请求>响应不同的请求</a><ol><li><a href=#get请求>get请求</a></li><li><a href=#post请求>post请求</a></li></ol></li><li><a href=#模块化-1>模块化</a><ol><li><a href=#程序入口>程序入口</a></li><li><a href=#路由模块>路由模块</a></li><li><a href=#响应处理>响应处理</a></li><li><a href=#页面>页面</a></li></ol></li><li><a href=#查看应用内存占用>查看应用内存占用</a></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/code/>Code</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/post/nodejs-note/>Nodejs笔记</a></h2></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>2023/Mar/26</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>12 minute read</time></div></footer></div></header><section class=article-content><h1 id=nodejs>NodeJS</h1><blockquote><p>Node 是一个构建于 Chrome V8引擎之上的一个 Javascript 运行环境, 作用是让 js 拥有开发服务端的功能</p></blockquote><ul><li><p>使用事件驱动、非阻塞 IO 模型（异步读写）使得它非常的轻量级和高效</p></li><li><p>Node 中绝大多数 API 都是异步（类似于 ajax），目的是提高性能</p></li><li><p>node. js 官网: <a class=link href=https://nodejs.org/en/ target=_blank rel=noopener>https://nodejs.org/en/</a></p></li><li><p>中文文档: <a class=link href=http://nodejs.cn/api/ target=_blank rel=noopener>http://nodejs.cn/api/</a></p></li><li><p>英文文档: <a class=link href=https://nodejs.dev/en/api/v19/documentation/ target=_blank rel=noopener>https://nodejs.dev/en/api/v19/documentation/</a></p></li><li><p>npm 官网 <a class=link href=https://www.npmjs.com target=_blank rel=noopener>https://www.npmjs.com</a></p></li></ul><h2 id=安装>安装</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl><span class=c1># 查看版本</span>
+</span></span><span class=line><span class=cl>node -v
+</span></span></code></pre></td></tr></table></div></div><p>node 版本管理: 安装 <code>n</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>npm install -g n
+</span></span><span class=line><span class=cl><span class=c1># n --help</span>
+</span></span></code></pre></td></tr></table></div></div><p>监控 js 变化并重启服务: <code>node-dev</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>npm i -g node-dev
+</span></span><span class=line><span class=cl>node-dev app.js
+</span></span></code></pre></td></tr></table></div></div><h2 id=客户端-js-和服务端-js>客户端 js 和服务端 js</h2><p>客户端 JavaScript 由三部分组成</p><ul><li>ECMAScript：确定 js 的语法规范</li><li>DOM：js 操作网页内容</li><li>BOM：js 操作浏览器窗口</li></ul><p>node 中的 JavaScript 组成</p><ul><li>ECMAScript</li><li>核心模块</li><li>第三方模块</li></ul><p>基本的语法和写法和之前的 js 没有本质的区别</p><ul><li><strong>在 nodejs 中使用 dom 与 bom 的 api 程序会报错</strong></li><li>服务器端没有界面</li><li>不需要操作浏览器和页面元素</li></ul><h2 id=运行-node-js-程序>运行 node. js 程序</h2><p><code>node [js文件路径]</code></p><p>生产环境: <code>pm2</code></p><h2 id=模块化>模块化</h2><h3 id=commonjs-规范>CommonJS 规范</h3><blockquote><p>模块必须通过 <code>module.exports</code> 导出对外的变量或接口，通过<code>require() </code>来导入其他模块的输出到当前模块作用域中。</p></blockquote><p>CommonJS模块的特点:</p><ul><li>所有代码运行在当前模块作用域中，不会污染全局作用域</li><li>模块同步加载，根据代码中出现的顺序依次加载</li><li>模块可以多次加载，但是只会在第一次加载时运行一次，然后运行结果就被缓存了，以后再加载，就直接读取缓存结果。要想让模块再次运行，必须清除缓存。</li></ul><p>==模块使用前要先导入==</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm> * 模块化规范
+</span></span></span><span class=line><span class=cl><span class=cm> * CommonJS: 2015年前社区开发, nodejs官方默认
+</span></span></span><span class=line><span class=cl><span class=cm> *    - 自定义模块
+</span></span></span><span class=line><span class=cl><span class=cm> *        - 一个js文件就是一个模块
+</span></span></span><span class=line><span class=cl><span class=cm> *        - 使用 exports 或者 module.exports 暴露:  exports.xxx = xxx
+</span></span></span><span class=line><span class=cl><span class=cm> *          module.exports = {xxx:xxx}
+</span></span></span><span class=line><span class=cl><span class=cm> *          不能使用 exports = {xxx:xxx}  这是在给变量赋值, 上面的是修改对象的属性
+</span></span></span><span class=line><span class=cl><span class=cm> *        - 使用 require(&#34;模块的路径&#34;) 引入, 用变量来接收: const {xxx} = require()
+</span></span></span><span class=line><span class=cl><span class=cm> *        - 后缀自动补全: 先找js, 再找json
+</span></span></span><span class=line><span class=cl><span class=cm> *    - 核心模块
+</span></span></span><span class=line><span class=cl><span class=cm> *        - require(&#34;模块名&#34;)
+</span></span></span><span class=line><span class=cl><span class=cm> *        - require(&#34;node:模块名&#34;)
+</span></span></span><span class=line><span class=cl><span class=cm> *    nodejs将以下内容视为CommonJS
+</span></span></span><span class=line><span class=cl><span class=cm> *      1. 使用.cjs扩展名
+</span></span></span><span class=line><span class=cl><span class=cm> *      2. package.json的type属性为CommonJS,且扩展名为js
+</span></span></span><span class=line><span class=cl><span class=cm> *      3. package.json不包含type属性,且扩展名为js
+</span></span></span><span class=line><span class=cl><span class=cm> *      4. 扩展名是mjs, cjs, json, node, js以外的值, package.json的type属性不是module
+</span></span></span><span class=line><span class=cl><span class=cm> */</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>(</span><span class=kd>function</span><span class=p>(</span><span class=nx>exports</span><span class=p>,</span> <span class=nx>require</span><span class=p>,</span> <span class=nx>module</span><span class=p>,</span> <span class=nx>__filename</span><span class=p>,</span> <span class=nx>__dirname</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>  <span class=c1>// 所有的CommonJS模块都会被包装到一个函数里
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=c1>// exports, require是作为参数传进来的
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>arguments</span><span class=p>)</span> <span class=c1>//  证明
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>})</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=es-模块>ES 模块</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=cm>/* ES模块: 原生, 2015年es6标准发布
+</span></span></span><span class=line><span class=cl><span class=cm> *    - mjs 扩展名
+</span></span></span><span class=line><span class=cl><span class=cm> *    - package.json的type属性设置为module
+</span></span></span><span class=line><span class=cl><span class=cm> *
+</span></span></span><span class=line><span class=cl><span class=cm> *    - 导出: export let a = xxx
+</span></span></span><span class=line><span class=cl><span class=cm> *            export const b = xxx
+</span></span></span><span class=line><span class=cl><span class=cm> *    - 导入: import {} from &#39;路径.mjs&#39;
+</span></span></span><span class=line><span class=cl><span class=cm> *            改别名  import {a as b} from &#39;./test.mjs&#39;
+</span></span></span><span class=line><span class=cl><span class=cm> *            开发时要尽量避免 import * as c from &#39;./test.mjs&#39; , 按需引用
+</span></span></span><span class=line><span class=cl><span class=cm> *    - 设置默认导出: export default function sum(){}
+</span></span></span><span class=line><span class=cl><span class=cm> *          default 后面跟值, export default let a = 0 这种不行, 后面是语句
+</span></span></span><span class=line><span class=cl><span class=cm> *          一个模块只有一个默认导出
+</span></span></span><span class=line><span class=cl><span class=cm> *    - 默认导入: import sum {a} from &#39;./test.mjs&#39;
+</span></span></span><span class=line><span class=cl><span class=cm> *               import {default as sum, a} from &#39;./test.mjs&#39;
+</span></span></span><span class=line><span class=cl><span class=cm> *            默认导入可以随便起名
+</span></span></span><span class=line><span class=cl><span class=cm> *            默认导入可以和按需导入一起用
+</span></span></span><span class=line><span class=cl><span class=cm> *    - 通过es模块化导入的, 都是常量
+</span></span></span><span class=line><span class=cl><span class=cm> *    - es模块都是运行在严格模式下
+</span></span></span><span class=line><span class=cl><span class=cm> */</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=node-js-核心模块>node. js 核心模块</h2><p>Node 应用是由模块组成的，Node 遵循了 <code>CommonJS</code>的模块规范，来隔离每个模块的作用域，使每个模块在它自身的命名空间中执行。</p><h3 id=fs文件模块读写文件>fs文件模块(读写文件)</h3><p>先导入文件模块</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>const</span> <span class=nx>fs</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s1>&#39;fs&#39;</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><h4 id=readfile异步读取>readFile异步读取</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>fs</span><span class=p>.</span><span class=nx>readFile</span><span class=p>(</span><span class=nx>path</span><span class=p>[,</span> <span class=nx>options</span><span class=p>],</span> <span class=nx>callback</span><span class=p>(</span><span class=nx>err</span><span class=p>,</span><span class=nx>data</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm>* 第一个参数：文件路径
+</span></span></span><span class=line><span class=cl><span class=cm>* 第二个参数：编码格式 （可选参数，默认为buffer二进制,buffer:数据缓冲区）
+</span></span></span><span class=line><span class=cl><span class=cm>* 第三个参数：读取回调操作（异步操作）
+</span></span></span><span class=line><span class=cl><span class=cm>*     err:如果读取成功, err为null,否则读取失败（一般文件路径错误或者找不到文件）
+</span></span></span><span class=line><span class=cl><span class=cm>*     data:读取到的数据(字符串|二进制)
+</span></span></span><span class=line><span class=cl><span class=cm>*/</span>
+</span></span></code></pre></td></tr></table></div></div><p>示例:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>fs</span><span class=p>.</span><span class=nx>readFile</span><span class=p>(</span><span class=s1>&#39;./data/aaa.txt&#39;</span><span class=p>,</span><span class=s1>&#39;utf-8&#39;</span><span class=p>,(</span><span class=nx>err</span><span class=p>,</span><span class=nx>data</span><span class=p>)=&gt;{</span>
+</span></span><span class=line><span class=cl>    <span class=c1>//按utf-8编码读取, 解决中文乱码
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=k>if</span><span class=p>(</span><span class=nx>err</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>        <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>err</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=c1>//抛出异常，throw的作用就是让node程序终止运行，方便调试
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=k>throw</span> <span class=nx>err</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span><span class=k>else</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>data</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=p>};</span>
+</span></span><span class=line><span class=cl><span class=p>});</span>
+</span></span></code></pre></td></tr></table></div></div><p>同步读取(几乎不用,会阻塞,一般在异步的api后面加上Sync就是同步):</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kd>let</span> <span class=nx>data</span> <span class=o>=</span> <span class=nx>fs</span><span class=p>.</span><span class=nx>readFileSync</span><span class=p>(</span><span class=s1>&#39;./data/aaa.txt&#39;</span><span class=p>,</span><span class=s1>&#39;utf-8&#39;</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><h4 id=writefile异步写入>writeFile异步写入</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>fs</span><span class=p>.</span><span class=nx>writeFile</span><span class=p>(</span><span class=nx>file</span><span class=p>,</span> <span class=nx>data</span><span class=p>[,</span> <span class=nx>options</span><span class=p>],</span> <span class=nx>callback</span><span class=p>(</span><span class=nx>err</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm> * 第一个参数：文件路径
+</span></span></span><span class=line><span class=cl><span class=cm> * 第二个参数：要写入的数据
+</span></span></span><span class=line><span class=cl><span class=cm> * 第三个参数：文件编码 默认utf-8
+</span></span></span><span class=line><span class=cl><span class=cm> * 第四个参数： 异步回调函数
+</span></span></span><span class=line><span class=cl><span class=cm> *     err:  如果成功，err为null.否则读取失败
+</span></span></span><span class=line><span class=cl><span class=cm> */</span>
+</span></span></code></pre></td></tr></table></div></div><ol><li>默认写入会覆盖</li><li>如果文件名不存在，新创建再写入</li><li>如果文件夹不存在，报错</li></ol><p>示例:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>fs</span><span class=p>.</span><span class=nx>writeFile</span><span class=p>(</span><span class=s1>&#39;./data/bbb.txt&#39;</span><span class=p>,</span><span class=s1>&#39;测试&#39;</span><span class=p>,</span><span class=s1>&#39;utf-8&#39;</span><span class=p>,(</span><span class=nx>err</span><span class=p>)=&gt;{</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span><span class=p>(</span><span class=nx>err</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>        <span class=k>throw</span> <span class=nx>err</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span><span class=k>else</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;写入成功&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=p>};</span>
+</span></span><span class=line><span class=cl><span class=p>});</span>
+</span></span></code></pre></td></tr></table></div></div><h4 id=异步追加>异步追加</h4><p>异步地追加数据到文件，如果文件尚不存在则创建文件</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>fs</span><span class=p>.</span><span class=nx>appendFile</span><span class=p>(</span><span class=nx>path</span><span class=p>,</span> <span class=nx>data</span><span class=p>[,</span> <span class=nx>options</span><span class=p>],</span> <span class=nx>callback</span><span class=p>(</span><span class=nx>err</span><span class=p>))</span>
+</span></span></code></pre></td></tr></table></div></div><h4 id=promise版本的fs方法>Promise版本的fs方法</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>const</span> <span class=nx>fs</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s2>&#34;node:fs/promises&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>fs</span><span class=p>.</span><span class=nx>readFile</span><span class=p>(</span><span class=nx>path</span><span class=p>.</span><span class=nx>resolve</span><span class=p>(</span><span class=nx>__dirname</span><span class=p>,</span> <span class=s1>&#39;./hello.js&#39;</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nx>then</span><span class=p>(</span><span class=nx>buffer</span><span class=p>=&gt;{</span>
+</span></span><span class=line><span class=cl>	<span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>buffer</span><span class=p>.</span><span class=nx>toString</span><span class=p>())</span> <span class=c1>// 也可以直接用toSting()方法转成字符串
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>})</span>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=k>catch</span><span class=p>(</span><span class=nx>err</span><span class=p>=&gt;{</span>
+</span></span><span class=line><span class=cl>	<span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>err</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>})</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// 或者
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>;(</span><span class=kr>async</span><span class=p>()=&gt;{</span>
+</span></span><span class=line><span class=cl>	<span class=k>try</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=kr>const</span> <span class=nx>buffer</span> <span class=o>=</span> <span class=kr>await</span> <span class=nx>fs</span><span class=p>.</span><span class=nx>readFile</span><span class=p>(</span><span class=nx>path</span><span class=p>.</span><span class=nx>resolve</span><span class=p>(</span><span class=nx>__dirname</span><span class=p>,</span> <span class=s1>&#39;./hello.js&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>		<span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>buffer</span><span class=p>.</span><span class=nx>toString</span><span class=p>())</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span><span class=k>catch</span><span class=p>((</span><span class=nx>err</span><span class=p>)=&gt;{</span>
+</span></span><span class=line><span class=cl>		<span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>err</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>})</span>
+</span></span><span class=line><span class=cl><span class=p>})()</span>
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// 常见方法
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>fs</span><span class=p>.</span><span class=nx>mkdir</span><span class=p>()</span> <span class=c1>// 创建目录
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>fs</span><span class=p>.</span><span class=nx>rmkdir</span><span class=p>()</span> <span class=c1>// 删除目录
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>fs</span><span class=p>.</span><span class=nx>rm</span><span class=p>()</span> <span class=c1>// 删除文件
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>fs</span><span class=p>.</span><span class=nx>rename</span><span class=p>()</span> <span class=c1>// 重命名
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>fs</span><span class=p>.</span><span class=nx>copyFile</span><span class=p>()</span> <span class=c1>// 复制
+</span></span></span></code></pre></td></tr></table></div></div><h3 id=path路径模块>path路径模块</h3><p>==在服务端开发中，一般不要使用相对路径，而使用绝对路径==</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>const</span> <span class=nx>path</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s1>&#39;path&#39;</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><h4 id=nodejs中的绝对路径和相对路径>nodejs中的绝对路径和相对路径</h4><ul><li><p>node中的相对路径： <code>./</code> 不是相对于当前文件所在路径，而是相对于执行node命令的文件夹路径(当前被执行的文件所在的文件夹路径).</p></li><li><p>解决方案：在nodejs中，每一个js文件都有两个全局属性，它可以帮助我们获取到文件的绝对路径</p><ul><li>__filename:当前js文件绝对路径</li><li>==__dirmame:当前js文件所在目录的绝对路径==</li></ul></li><li><p>windown中路径 用双反斜杠 <code>\\</code> 而不是 <code>\</code></p></li></ul><p>示例:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>const</span> <span class=nx>fs</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s1>&#39;fs&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=kd>let</span> <span class=nx>path</span> <span class=o>=</span> <span class=nx>__dirname</span> <span class=o>+</span> <span class=s1>&#39;/aaa.txt&#39;</span>
+</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>path</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nx>fs</span><span class=p>.</span><span class=nx>readFile</span><span class=p>(</span><span class=nx>path</span><span class=p>,</span><span class=s1>&#39;utf-8&#39;</span><span class=p>,(</span><span class=nx>err</span><span class=p>,</span><span class=nx>data</span><span class=p>)=&gt;{</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span><span class=p>(</span><span class=nx>err</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>        <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>err</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=k>throw</span> <span class=nx>err</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span><span class=k>else</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>data</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=p>};</span>
+</span></span><span class=line><span class=cl><span class=p>});</span>
+</span></span></code></pre></td></tr></table></div></div><h4 id=join方法-路径拼接>join()方法 路径拼接</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>path</span><span class=p>.</span><span class=nx>join</span><span class=p>([...</span><span class=nx>paths</span><span class=p>])</span>
+</span></span><span class=line><span class=cl><span class=cm>/*使用path模块拼接文件路径与使用&#39;+&#39;连接符拼接的好处
+</span></span></span><span class=line><span class=cl><span class=cm>    1.会自动帮我们正确添加路径分隔符  &#39;/&#39;,我们无需手动添加
+</span></span></span><span class=line><span class=cl><span class=cm>    2.当我们路径格式拼接错误的时候，能自动帮我们转换正确的格式
+</span></span></span><span class=line><span class=cl><span class=cm>*/</span>
+</span></span></code></pre></td></tr></table></div></div><p>示例:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kd>let</span> <span class=nx>filePath</span> <span class=o>=</span> <span class=nx>path</span><span class=p>.</span><span class=nx>join</span><span class=p>(</span><span class=nx>__dirname</span><span class=p>,</span> <span class=s1>&#39;./page/login.html&#39;</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><h4 id=resolve方法-路径处理>resolve()方法 路径处理</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// 把一个路径或路径片段的序列解析为一个绝对路径
+</span></span></span><span class=line><span class=cl><span class=c1>// 传入路径从右至左解析，遇到第一个绝对路径解析停止
+</span></span></span><span class=line><span class=cl><span class=c1>// 如果没有传入参数，将只返回当前根目录
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>path</span><span class=p>.</span><span class=nx>resolve</span><span class=p>([...</span><span class=nx>paths</span><span class=p>])</span>
+</span></span></code></pre></td></tr></table></div></div><p>示例:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// &#34;/b&#34; 就是遇到的第一个绝对路径
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>path</span><span class=p>.</span><span class=nx>resolve</span><span class=p>(</span><span class=s1>&#39;/a&#39;</span><span class=p>,</span> <span class=s1>&#39;/b&#39;</span><span class=p>,</span> <span class=s1>&#39;c&#39;</span><span class=p>)</span>  <span class=c1>// /b/c
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>path</span><span class=p>.</span><span class=nx>resolve</span><span class=p>(</span><span class=s1>&#39;/a&#39;</span><span class=p>,</span> <span class=s1>&#39;./b&#39;</span><span class=p>,</span> <span class=s1>&#39;c&#39;</span><span class=p>)</span> <span class=c1>// /a/b/c
+</span></span></span><span class=line><span class=cl><span class=c1>//因为没有遇到第一个绝对路径，所以会一直向上解析(根目录路径/a/b/c)
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>path</span><span class=p>.</span><span class=nx>resolve</span><span class=p>(</span><span class=s1>&#39;a&#39;</span><span class=p>,</span> <span class=s1>&#39;b&#39;</span><span class=p>,</span> <span class=s1>&#39;c&#39;</span><span class=p>)</span> <span class=c1>// /Users/siyuan/Desktop/example/node测试/a/b/c
+</span></span></span></code></pre></td></tr></table></div></div><h3 id=process>process</h3><blockquote><p>获取进程信息, 或者对进程进行操作</p></blockquote><p>使用: 全局变量, 直接使用</p><h3 id=属性和方法>属性和方法</h3><ul><li>process.exit(code): 结束当前进程, code默认0</li><li>process.nextTick(()=>{}): 将函数插入tick队列, 调用栈=>tick=>微任务队列=>宏任务队列</li></ul><h2 id=服务器基础>服务器基础</h2><h3 id=基本的访问流程>基本的访问流程</h3><ol><li>输入主机地址</li><li>指定端口(如果没有指定, 默认是80)</li><li>指定需要访问的资源路径</li><li>发起请求</li><li>获取服务器返回的结果并处理</li></ol><h3 id=http协议>http协议</h3><p>超文本传输协议(<strong>H</strong>yper<strong>T</strong>ext <strong>T</strong>ransfer <strong>P</strong>rotocol), 是基于TCP/IP协议之上的应用层协议</p><blockquote><p>HTTP是一个客户端终端（用户）和服务器端（网站）请求和应答的标准
+客户端和服务器的通信必须遵守某种协议，http协议就是最常见的一种</p></blockquote><h3 id=端口>端口</h3><p>端口是通过端口号来标记的，端口号只有整数，范围是从0 到65535（2^16-1）</p><p>常见的端口号:</p><ul><li>80：web服务器端口</li><li>3306：mysql数据服务器端口</li></ul><p>查询端口状态<code>netstat</code>
+以数字格式显示地址和端口信息<code>netstat -n</code></p><h3 id=常见的状态码>常见的状态码</h3><ul><li>200请求已成功，请求所希望的响应头或数据体将随此响应返回。出现此状态码是表示正常状态</li><li>404:请求失败，请求所希望得到的资源未被在服务器上发现</li><li>500:服务器遇到了一个未曾预料的状况，导致了它无法完成对请求的处理。一般来说，这个问题都会在服务器端的源代码出现错误时出现</li></ul><h3 id=返回数据的格式>返回数据的格式</h3><ul><li>text/html格式：html代码，浏览器会以html语法解析</li><li>text/css:样式，浏览器会以css语法解析</li><li>application/javascript:js代码，浏览器会以js语法解析</li><li>application/json:json格式字符串，描述从服务器返回的数据</li></ul><h2 id=hellow-appjs>hellow app.js</h2><p>流程:</p><ol><li>导入模块 <code>const * = require(*)</code></li><li>创建服务器<code>const server = http.creatServer()</code></li><li>监听端口<code>server.listen(端口, ()=>{})</code></li><li>响应请求, 进行事件处理<code>server.on('request', (req,res)=>{})</code></li></ol><p>注意点:</p><ul><li><code>req.url</code>可以获取当前用户请求的url</li><li>中文乱码</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>res</span><span class=p>.</span><span class=nx>setHeader</span><span class=p>(</span><span class=s1>&#39;Content-type&#39;</span><span class=p>,</span><span class=s1>&#39;text/html;charset=UTF-8&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// html页面不需要, 头部已有
+</span></span></span></code></pre></td></tr></table></div></div><ul><li>客户端没有指定url,默认为<code>/</code></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>//1.导入http模块
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=c1>//2.创建服务器
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=c1>//3.监听端口
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=cm>/*
+</span></span></span><span class=line><span class=cl><span class=cm>  第一个参数：端口号
+</span></span></span><span class=line><span class=cl><span class=cm>  第二个参数：ip地址   默认不写，就是本机ip（127.0.0.1）
+</span></span></span><span class=line><span class=cl><span class=cm>  第三个参数：一个回调函数，启动时会调用
+</span></span></span><span class=line><span class=cl><span class=cm>   */</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//4.处理请求
+</span></span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>const</span> <span class=nx>http</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s1>&#39;http&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>server</span> <span class=o>=</span> <span class=nx>http</span><span class=p>.</span><span class=nx>createServer</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>server</span><span class=p>.</span><span class=nx>listen</span><span class=p>(</span><span class=mi>3000</span><span class=p>,</span><span class=s1>&#39;127.0.0.1&#39;</span><span class=p>,(</span><span class=nx>err</span><span class=p>)=&gt;{</span>
+</span></span><span class=line><span class=cl>     <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;服务器开启成功: http://127.0.0.1:3000&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>})</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>server</span><span class=p>.</span><span class=nx>on</span><span class=p>(</span><span class=s1>&#39;request&#39;</span><span class=p>,(</span><span class=nx>req</span><span class=p>,</span><span class=nx>res</span><span class=p>)=&gt;{</span>
+</span></span><span class=line><span class=cl>  <span class=c1>// 所有请求都响应 &#39;hello word&#39;
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=nx>res</span><span class=p>.</span><span class=nx>end</span><span class=p>(</span><span class=s1>&#39;hello word&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>})</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=响应页面>响应页面</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>const</span> <span class=nx>http</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s1>&#39;http&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>fs</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s1>&#39;fs&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>path</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s1>&#39;path&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>server</span> <span class=o>=</span> <span class=nx>http</span><span class=p>.</span><span class=nx>createServer</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=nx>server</span><span class=p>.</span><span class=nx>listen</span><span class=p>(</span><span class=mi>3000</span><span class=p>,</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;已开始监听 http://127.0.0.1:3000&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>})</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>server</span><span class=p>.</span><span class=nx>on</span><span class=p>(</span><span class=s1>&#39;request&#39;</span><span class=p>,</span> <span class=p>(</span><span class=nx>req</span><span class=p>,</span> <span class=nx>res</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=c1>// 每个请求,都执行这里的代码
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=kr>const</span> <span class=nx>url</span> <span class=o>=</span> <span class=nx>req</span><span class=p>.</span><span class=nx>url</span>
+</span></span><span class=line><span class=cl>  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>url</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>  <span class=k>switch</span> <span class=p>(</span><span class=nx>url</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>case</span> <span class=s1>&#39;/&#39;</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>    <span class=k>case</span> <span class=s1>&#39;/index&#39;</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>      <span class=nx>res</span><span class=p>.</span><span class=nx>end</span><span class=p>(</span><span class=s1>&#39;hello word&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>      <span class=k>break</span>
+</span></span><span class=line><span class=cl>    <span class=k>case</span> <span class=s1>&#39;/login&#39;</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>      <span class=c1>// 页面head已经有编码格式
+</span></span></span><span class=line><span class=cl><span class=c1></span>      <span class=nx>fs</span><span class=p>.</span><span class=nx>readFile</span><span class=p>(</span><span class=nx>path</span><span class=p>.</span><span class=nx>join</span><span class=p>(</span><span class=nx>__dirname</span><span class=p>,</span> <span class=s1>&#39;./page/login.html&#39;</span><span class=p>),</span> <span class=p>(</span><span class=nx>err</span><span class=p>,</span> <span class=nx>data</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=p>(</span><span class=nx>err</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>          <span class=nx>res</span><span class=p>.</span><span class=nx>end</span><span class=p>(</span><span class=s1>&#39;404 not found&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>          <span class=nx>res</span><span class=p>.</span><span class=nx>end</span><span class=p>(</span><span class=nx>data</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>      <span class=p>})</span>
+</span></span><span class=line><span class=cl>      <span class=k>break</span>
+</span></span><span class=line><span class=cl>    <span class=k>default</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>      <span class=nx>res</span><span class=p>.</span><span class=nx>end</span><span class=p>(</span><span class=s1>&#39;404 not found&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>      <span class=k>break</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>})</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=允许跨域>允许跨域</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>res</span><span class=p>.</span><span class=nx>setHeader</span><span class=p>(</span><span class=s1>&#39;Access-Control-Allow-Origin&#39;</span><span class=p>,</span> <span class=s1>&#39;*&#39;</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=响应不同的请求>响应不同的请求</h2><p><code>req.method</code>获取请求的类型</p><h3 id=get请求>get请求</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>const</span> <span class=nx>http</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s1>&#39;http&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>fs</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s1>&#39;fs&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>path</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s1>&#39;path&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>server</span> <span class=o>=</span> <span class=nx>http</span><span class=p>.</span><span class=nx>createServer</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=nx>server</span><span class=p>.</span><span class=nx>listen</span><span class=p>(</span><span class=mi>3000</span><span class=p>,</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;127.0.0.1:3000&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>})</span>
+</span></span><span class=line><span class=cl><span class=nx>server</span><span class=p>.</span><span class=nx>on</span><span class=p>(</span><span class=s1>&#39;request&#39;</span><span class=p>,</span> <span class=p>(</span><span class=nx>req</span><span class=p>,</span> <span class=nx>res</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>url</span> <span class=o>=</span> <span class=nx>req</span><span class=p>.</span><span class=nx>url</span>
+</span></span><span class=line><span class=cl>  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;url:&#39;</span><span class=p>,</span> <span class=nx>url</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>method</span> <span class=o>=</span> <span class=nx>req</span><span class=p>.</span><span class=nx>method</span>
+</span></span><span class=line><span class=cl>  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;method&#39;</span><span class=p>,</span> <span class=nx>method</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=k>if</span> <span class=p>(</span><span class=nx>url</span> <span class=o>===</span> <span class=s1>&#39;/getUserList&#39;</span> <span class=o>&amp;&amp;</span> <span class=nx>method</span> <span class=o>===</span> <span class=s1>&#39;GET&#39;</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>fs</span><span class=p>.</span><span class=nx>readFile</span><span class=p>(</span><span class=nx>path</span><span class=p>.</span><span class=nx>join</span><span class=p>(</span><span class=nx>__dirname</span><span class=p>,</span> <span class=s1>&#39;./4-user.json&#39;</span><span class=p>),</span> <span class=s1>&#39;utf-8&#39;</span><span class=p>,</span> <span class=p>(</span><span class=nx>err</span><span class=p>,</span> <span class=nx>data</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=k>if</span> <span class=p>(</span><span class=nx>err</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>err</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=nx>res</span><span class=p>.</span><span class=nx>end</span><span class=p>(</span><span class=s1>&#39;404&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>res</span><span class=p>.</span><span class=nx>setHeader</span><span class=p>(</span><span class=s1>&#39;Content-type&#39;</span><span class=p>,</span> <span class=s1>&#39;text/html;charset=UTF-8&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=nx>res</span><span class=p>.</span><span class=nx>end</span><span class=p>(</span><span class=nx>data</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>})</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=nx>res</span><span class=p>.</span><span class=nx>end</span><span class=p>(</span><span class=s1>&#39;hello word&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>})</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=post请求>post请求</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm>* node支持大容量的参数传递, 它会分批接收参数, 接收参数会触发两个事件
+</span></span></span><span class=line><span class=cl><span class=cm>* 1.给req注册一个data事件
+</span></span></span><span class=line><span class=cl><span class=cm>* req.on(&#39;data&#39;, (chunk)=&gt;{})
+</span></span></span><span class=line><span class=cl><span class=cm>*   每接收一次参数就触发一次, 接收到的chunk是字符串格式
+</span></span></span><span class=line><span class=cl><span class=cm>*   如果参数较多，它支持分批进行参数的接收，当客户端每发送一次数据流，都会触发里面的回调函数，我们需要主动将这些数据拼接起来
+</span></span></span><span class=line><span class=cl><span class=cm>*
+</span></span></span><span class=line><span class=cl><span class=cm>* 2.给req注册一个end事件
+</span></span></span><span class=line><span class=cl><span class=cm>* req.on(&#39;end&#39;, ()=&gt;{})
+</span></span></span><span class=line><span class=cl><span class=cm>*   当客户端post数据全部发送完毕之后，就会触发这个事件
+</span></span></span><span class=line><span class=cl><span class=cm>*
+</span></span></span><span class=line><span class=cl><span class=cm>* 3.使用querystring模块解析接收完成的post参数数据
+</span></span></span><span class=line><span class=cl><span class=cm>*/</span>
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// 服务器
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kr>const</span> <span class=nx>http</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s1>&#39;http&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>fs</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s1>&#39;fs&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>path</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s1>&#39;path&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=c1>// 解析参数的querystring模块
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kr>const</span> <span class=nx>querystring</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s1>&#39;querystring&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>server</span> <span class=o>=</span> <span class=nx>http</span><span class=p>.</span><span class=nx>createServer</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=nx>server</span><span class=p>.</span><span class=nx>listen</span><span class=p>(</span><span class=mi>3000</span><span class=p>,</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;127.0.0.1:3000&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>})</span>
+</span></span><span class=line><span class=cl><span class=nx>server</span><span class=p>.</span><span class=nx>on</span><span class=p>(</span><span class=s1>&#39;request&#39;</span><span class=p>,</span> <span class=p>(</span><span class=nx>req</span><span class=p>,</span> <span class=nx>res</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=c1>// 允许跨域
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=nx>res</span><span class=p>.</span><span class=nx>setHeader</span><span class=p>(</span><span class=s1>&#39;Access-Control-Allow-Origin&#39;</span><span class=p>,</span> <span class=s1>&#39;*&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>url</span> <span class=o>=</span> <span class=nx>req</span><span class=p>.</span><span class=nx>url</span>
+</span></span><span class=line><span class=cl>  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;url:&#39;</span><span class=p>,</span> <span class=nx>url</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>method</span> <span class=o>=</span> <span class=nx>req</span><span class=p>.</span><span class=nx>method</span>
+</span></span><span class=line><span class=cl>  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;method&#39;</span><span class=p>,</span> <span class=nx>method</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=k>if</span> <span class=p>(</span><span class=nx>url</span> <span class=o>===</span> <span class=s1>&#39;/login&#39;</span> <span class=o>&amp;&amp;</span> <span class=nx>method</span> <span class=o>===</span> <span class=s1>&#39;POST&#39;</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kd>let</span> <span class=nx>postData</span> <span class=o>=</span> <span class=s1>&#39;&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// 1.注册一个data事件
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=nx>req</span><span class=p>.</span><span class=nx>on</span><span class=p>(</span><span class=s1>&#39;data&#39;</span><span class=p>,</span> <span class=nx>chunk</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=c1>//具体多少次，取决于客户端带宽
+</span></span></span><span class=line><span class=cl><span class=c1></span>      <span class=nx>postData</span> <span class=o>+=</span> <span class=nx>chunk</span>
+</span></span><span class=line><span class=cl>    <span class=p>})</span>
+</span></span><span class=line><span class=cl>    <span class=nx>req</span><span class=p>.</span><span class=nx>on</span><span class=p>(</span><span class=s1>&#39;end&#39;</span><span class=p>,</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=c1>// 2.给req注册一个end事件
+</span></span></span><span class=line><span class=cl><span class=c1></span>      <span class=c1>// 3.使用querystring模块解析接收完成的post参数数据
+</span></span></span><span class=line><span class=cl><span class=c1></span>      <span class=kd>let</span> <span class=nx>postObj</span> <span class=o>=</span> <span class=nx>querystring</span><span class=p>.</span><span class=nx>parse</span><span class=p>(</span><span class=nx>postData</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>      <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;postObj&#39;</span><span class=p>,</span><span class=nx>postObj</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>      <span class=k>if</span> <span class=p>(</span><span class=nx>postObj</span><span class=p>.</span><span class=nx>username</span> <span class=o>==</span> <span class=s1>&#39;admin&#39;</span> <span class=o>&amp;&amp;</span> <span class=nx>postObj</span><span class=p>.</span><span class=nx>password</span> <span class=o>==</span> <span class=s1>&#39;123456&#39;</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>res</span><span class=p>.</span><span class=nx>end</span><span class=p>(</span><span class=s1>&#39;yes&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>res</span><span class=p>.</span><span class=nx>end</span><span class=p>(</span><span class=s1>&#39;no&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>})</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>res</span><span class=p>.</span><span class=nx>end</span><span class=p>(</span><span class=s1>&#39;hello word&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>})</span>
+</span></span></code></pre></td></tr></table></div></div><p>登录页</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=cp>&lt;!DOCTYPE html&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>html</span> <span class=na>lang</span><span class=o>=</span><span class=s>&#34;en&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>head</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;</span><span class=nt>meta</span> <span class=na>charset</span><span class=o>=</span><span class=s>&#34;UTF-8&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;</span><span class=nt>meta</span> <span class=na>name</span><span class=o>=</span><span class=s>&#34;viewport&#34;</span> <span class=na>content</span><span class=o>=</span><span class=s>&#34;width=device-width, initial-scale=1.0&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;</span><span class=nt>title</span><span class=p>&gt;</span>Document<span class=p>&lt;/</span><span class=nt>title</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>head</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>body</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;</span><span class=nt>form</span> <span class=na>method</span><span class=o>=</span><span class=s>&#34;post&#34;</span> <span class=na>action</span><span class=o>=</span><span class=s>&#39;http://127.0.0.1:3000/login&#39;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>        用户名:<span class=p>&lt;</span><span class=nt>input</span> <span class=na>type</span><span class=o>=</span><span class=s>&#34;text&#34;</span> <span class=na>name</span><span class=o>=</span><span class=s>&#39;username&#39;</span> <span class=na>placeholder</span><span class=o>=</span><span class=s>&#34;请输入用户名&#34;</span><span class=p>&gt;&lt;</span><span class=nt>br</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>        密码: <span class=p>&lt;</span><span class=nt>input</span> <span class=na>type</span><span class=o>=</span><span class=s>&#34;password&#34;</span> <span class=na>name</span><span class=o>=</span><span class=s>&#39;passwrod&#39;</span> <span class=na>placeholder</span><span class=o>=</span><span class=s>&#34;请输入密码&#34;</span><span class=p>&gt;</span> <span class=p>&lt;</span><span class=nt>br</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=p>&lt;</span><span class=nt>input</span> <span class=na>type</span><span class=o>=</span><span class=s>&#34;submit&#34;</span> <span class=na>value</span><span class=o>=</span><span class=s>&#34;提交&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;/</span><span class=nt>form</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>body</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>html</span><span class=p>&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=模块化-1>模块化</h2><p>可以先把路由和响应拆分出来</p><p>以一个登录页面为例:</p><h3 id=程序入口>程序入口</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// app.js
+</span></span></span><span class=line><span class=cl><span class=c1>// 路由被拆分到路由模块
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kr>const</span> <span class=nx>http</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s1>&#39;http&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>router</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s1>&#39;./js/router&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>server</span> <span class=o>=</span> <span class=nx>http</span><span class=p>.</span><span class=nx>createServer</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>server</span><span class=p>.</span><span class=nx>listen</span><span class=p>(</span><span class=s1>&#39;3000&#39;</span><span class=p>,</span> <span class=kd>function</span> <span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;http://127.0.0.1:3000&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>})</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>server</span><span class=p>.</span><span class=nx>on</span><span class=p>(</span><span class=s1>&#39;request&#39;</span><span class=p>,</span> <span class=kd>function</span> <span class=p>(</span><span class=nx>req</span><span class=p>,</span> <span class=nx>res</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>router</span><span class=p>(</span><span class=nx>req</span><span class=p>,</span> <span class=nx>res</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>})</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=路由模块>路由模块</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// js/router.js
+</span></span></span><span class=line><span class=cl><span class=c1>// 响应被拆分到响应模块
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kr>const</span> <span class=nx>handler</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s1>&#39;./handler&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>module</span><span class=p>.</span><span class=nx>exports</span> <span class=o>=</span> <span class=kd>function</span> <span class=p>(</span><span class=nx>req</span><span class=p>,</span> <span class=nx>res</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=c1>//获取请求方式
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=kd>let</span> <span class=nx>method</span> <span class=o>=</span> <span class=nx>req</span><span class=p>.</span><span class=nx>method</span><span class=p>.</span><span class=nx>toLowerCase</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=c1>//获取请求url
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=kd>let</span> <span class=nx>url</span> <span class=o>=</span> <span class=nx>req</span><span class=p>.</span><span class=nx>url</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1>//判断请求方式和url
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl>    <span class=c1>//读取注册页面并返回
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=k>if</span> <span class=p>(</span><span class=nx>method</span> <span class=o>==</span> <span class=s1>&#39;get&#39;</span> <span class=o>&amp;&amp;</span> <span class=nx>url</span> <span class=o>==</span> <span class=s1>&#39;/register&#39;</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>handler</span><span class=p>.</span><span class=nx>getRegisterPage</span><span class=p>(</span><span class=nx>req</span><span class=p>,</span> <span class=nx>res</span><span class=p>,</span> <span class=nx>url</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=c1>//静态资源处理
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=k>else</span> <span class=k>if</span> <span class=p>(</span><span class=nx>method</span> <span class=o>==</span> <span class=s1>&#39;get&#39;</span> <span class=o>&amp;&amp;</span> <span class=nx>url</span><span class=p>.</span><span class=nx>indexOf</span><span class=p>(</span><span class=s1>&#39;/css/&#39;</span><span class=p>)</span> <span class=o>!=</span> <span class=o>-</span><span class=mi>1</span> <span class=o>||</span> <span class=nx>url</span><span class=p>.</span><span class=nx>indexOf</span><span class=p>(</span><span class=s1>&#39;/js/&#39;</span><span class=p>)</span> <span class=o>!=</span> <span class=o>-</span><span class=mi>1</span> <span class=o>||</span> <span class=nx>url</span><span class=p>.</span><span class=nx>indexOf</span><span class=p>(</span><span class=s1>&#39;/images/&#39;</span><span class=p>)</span> <span class=o>!=</span> <span class=o>-</span><span class=mi>1</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>handler</span><span class=p>.</span><span class=nx>getStaticSource</span><span class=p>(</span><span class=nx>req</span><span class=p>,</span> <span class=nx>res</span><span class=p>,</span> <span class=nx>url</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=c1>//实现用户注册
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=k>else</span> <span class=k>if</span> <span class=p>(</span><span class=nx>method</span> <span class=o>==</span> <span class=s1>&#39;post&#39;</span> <span class=o>&amp;&amp;</span> <span class=nx>url</span> <span class=o>==</span> <span class=s1>&#39;/register&#39;</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>handler</span><span class=p>.</span><span class=nx>userRegister</span><span class=p>(</span><span class=nx>req</span><span class=p>,</span> <span class=nx>res</span><span class=p>,</span> <span class=nx>url</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=响应处理>响应处理</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span><span class=lnt>67
+</span><span class=lnt>68
+</span><span class=lnt>69
+</span><span class=lnt>70
+</span><span class=lnt>71
+</span><span class=lnt>72
+</span><span class=lnt>73
+</span><span class=lnt>74
+</span><span class=lnt>75
+</span><span class=lnt>76
+</span><span class=lnt>77
+</span><span class=lnt>78
+</span><span class=lnt>79
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>const</span> <span class=nx>fs</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s1>&#39;fs&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>path</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s1>&#39;path&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>mime</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s1>&#39;mime&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>module</span><span class=p>.</span><span class=nx>exports</span> <span class=o>=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=c1>//响应页面注册
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=nx>getRegisterPage</span><span class=o>:</span> <span class=kd>function</span> <span class=p>(</span><span class=nx>req</span><span class=p>,</span> <span class=nx>res</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>fs</span><span class=p>.</span><span class=nx>readFile</span><span class=p>(</span><span class=nx>path</span><span class=p>.</span><span class=nx>join</span><span class=p>(</span><span class=nx>__dirname</span><span class=p>,</span> <span class=s1>&#39;../views/register.html&#39;</span><span class=p>),</span> <span class=kd>function</span> <span class=p>(</span><span class=nx>err</span><span class=p>,</span> <span class=nx>data</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=p>(</span><span class=nx>err</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=nx>res</span><span class=p>.</span><span class=nx>end</span><span class=p>(</span><span class=s1>&#39;404&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>throw</span> <span class=nx>err</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=nx>res</span><span class=p>.</span><span class=nx>end</span><span class=p>(</span><span class=nx>data</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>})</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=c1>//响应静态资源
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=nx>getStaticSource</span><span class=o>:</span> <span class=kd>function</span> <span class=p>(</span><span class=nx>req</span><span class=p>,</span> <span class=nx>res</span><span class=p>,</span> <span class=nx>url</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>fs</span><span class=p>.</span><span class=nx>readFile</span><span class=p>(</span><span class=nx>path</span><span class=p>.</span><span class=nx>join</span><span class=p>(</span><span class=nx>__dirname</span><span class=p>,</span> <span class=s1>&#39;../&#39;</span> <span class=o>+</span> <span class=nx>url</span><span class=p>),</span> <span class=kd>function</span> <span class=p>(</span><span class=nx>err</span><span class=p>,</span> <span class=nx>data</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=p>(</span><span class=nx>err</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=nx>res</span><span class=p>.</span><span class=nx>end</span><span class=p>(</span><span class=s1>&#39;404&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>throw</span> <span class=nx>err</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=c1>//根据文件类型不同设置响应头
+</span></span></span><span class=line><span class=cl><span class=c1></span>                <span class=nx>res</span><span class=p>.</span><span class=nx>setHeader</span><span class=p>(</span><span class=s1>&#39;Content-Type&#39;</span><span class=p>,</span> <span class=nx>mime</span><span class=p>.</span><span class=nx>getType</span><span class=p>(</span><span class=nx>url</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>                <span class=nx>res</span><span class=p>.</span><span class=nx>end</span><span class=p>(</span><span class=nx>data</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>})</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=c1>//实现用户注册
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=nx>userRegister</span><span class=o>:</span> <span class=kd>function</span> <span class=p>(</span><span class=nx>req</span><span class=p>,</span> <span class=nx>res</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=c1>//分批接收数据
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=kd>let</span> <span class=nx>str</span> <span class=o>=</span> <span class=s1>&#39;&#39;</span>
+</span></span><span class=line><span class=cl>        <span class=nx>req</span><span class=p>.</span><span class=nx>on</span><span class=p>(</span><span class=s1>&#39;data&#39;</span><span class=p>,</span> <span class=p>(</span><span class=nx>chunk</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nx>str</span> <span class=o>+=</span> <span class=nx>chunk</span>
+</span></span><span class=line><span class=cl>        <span class=p>})</span>
+</span></span><span class=line><span class=cl>        <span class=nx>req</span><span class=p>.</span><span class=nx>on</span><span class=p>(</span><span class=s1>&#39;end&#39;</span><span class=p>,</span> <span class=p>()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;str&#39;</span><span class=p>,</span><span class=nx>str</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=c1>//调用自定义模块把接收的数据转成对象
+</span></span></span><span class=line><span class=cl><span class=c1></span>            <span class=kd>let</span> <span class=nx>obj</span> <span class=o>=</span> <span class=nx>JSON</span><span class=p>.</span><span class=nx>parse</span><span class=p>(</span><span class=nx>str</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>obj</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=c1>//读取旧的数据
+</span></span></span><span class=line><span class=cl><span class=c1></span>            <span class=nx>fs</span><span class=p>.</span><span class=nx>readFile</span><span class=p>(</span><span class=nx>path</span><span class=p>.</span><span class=nx>join</span><span class=p>(</span><span class=nx>__dirname</span><span class=p>,</span> <span class=s1>&#39;../data/users.json&#39;</span><span class=p>),</span> <span class=s1>&#39;utf-8&#39;</span><span class=p>,</span> <span class=kd>function</span> <span class=p>(</span><span class=nx>err</span><span class=p>,</span> <span class=nx>data</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=c1>//设置响应头
+</span></span></span><span class=line><span class=cl><span class=c1></span>                <span class=nx>res</span><span class=p>.</span><span class=nx>setHeader</span><span class=p>(</span><span class=s1>&#39;Content-type&#39;</span><span class=p>,</span> <span class=s1>&#39;text/html;charset=UTF-8&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>if</span> <span class=p>(</span><span class=nx>err</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                    <span class=kd>let</span> <span class=nx>ret</span> <span class=o>=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                        <span class=nx>code</span><span class=o>:</span> <span class=mi>404</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                        <span class=nx>msg</span><span class=o>:</span> <span class=s1>&#39;注册失败&#39;</span>
+</span></span><span class=line><span class=cl>                    <span class=p>}</span>
+</span></span><span class=line><span class=cl>                    <span class=nx>res</span><span class=p>.</span><span class=nx>end</span><span class=p>(</span><span class=nx>JSON</span><span class=p>.</span><span class=nx>stringify</span><span class=p>(</span><span class=nx>ret</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>                    <span class=k>throw</span> <span class=nx>err</span>
+</span></span><span class=line><span class=cl>                <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                    <span class=kd>let</span> <span class=nx>arr</span> <span class=o>=</span> <span class=nx>JSON</span><span class=p>.</span><span class=nx>parse</span><span class=p>(</span><span class=nx>data</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                    <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;arr&#39;</span><span class=p>,</span><span class=nx>arr</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                    <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;obj&#39;</span><span class=p>,</span><span class=nx>obj</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                    <span class=c1>//把数据加到旧数据
+</span></span></span><span class=line><span class=cl><span class=c1></span>                    <span class=nx>arr</span><span class=p>.</span><span class=nx>push</span><span class=p>(</span><span class=nx>obj</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                    <span class=nx>fs</span><span class=p>.</span><span class=nx>writeFile</span><span class=p>(</span><span class=nx>path</span><span class=p>.</span><span class=nx>join</span><span class=p>(</span><span class=nx>__dirname</span><span class=p>,</span> <span class=s1>&#39;../data/users.json&#39;</span><span class=p>),</span> <span class=nx>JSON</span><span class=p>.</span><span class=nx>stringify</span><span class=p>(</span><span class=nx>arr</span><span class=p>,</span> <span class=kc>null</span><span class=p>,</span> <span class=s1>&#39; &#39;</span><span class=p>),</span> <span class=kd>function</span> <span class=p>(</span><span class=nx>err</span><span class=p>,</span> <span class=nx>data</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                        <span class=k>if</span> <span class=p>(</span><span class=nx>err</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                            <span class=kd>let</span> <span class=nx>ret</span> <span class=o>=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                                <span class=nx>code</span><span class=o>:</span> <span class=mi>404</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                                <span class=nx>msg</span><span class=o>:</span> <span class=s1>&#39;注册失败&#39;</span>
+</span></span><span class=line><span class=cl>                            <span class=p>}</span>
+</span></span><span class=line><span class=cl>                            <span class=nx>res</span><span class=p>.</span><span class=nx>end</span><span class=p>(</span><span class=nx>JSON</span><span class=p>.</span><span class=nx>stringify</span><span class=p>(</span><span class=nx>ret</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>                        <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                            <span class=kd>let</span> <span class=nx>ret</span> <span class=o>=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>                                <span class=nx>code</span><span class=o>:</span> <span class=mi>200</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                                <span class=nx>msg</span><span class=o>:</span> <span class=s1>&#39;注册成功&#39;</span>
+</span></span><span class=line><span class=cl>                            <span class=p>}</span>
+</span></span><span class=line><span class=cl>                            <span class=nx>res</span><span class=p>.</span><span class=nx>end</span><span class=p>(</span><span class=nx>JSON</span><span class=p>.</span><span class=nx>stringify</span><span class=p>(</span><span class=nx>ret</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>                        <span class=p>}</span>
+</span></span><span class=line><span class=cl>                    <span class=p>})</span>
+</span></span><span class=line><span class=cl>                <span class=p>}</span>
+</span></span><span class=line><span class=cl>            <span class=p>})</span>
+</span></span><span class=line><span class=cl>        <span class=p>})</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=页面>页面</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=cp>&lt;!DOCTYPE html&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>html</span> <span class=na>lang</span><span class=o>=</span><span class=s>&#34;en&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>&lt;</span><span class=nt>head</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;</span><span class=nt>meta</span> <span class=na>charset</span><span class=o>=</span><span class=s>&#34;UTF-8&#34;</span> <span class=p>/&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;</span><span class=nt>title</span><span class=p>&gt;</span>用户注册<span class=p>&lt;/</span><span class=nt>title</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;</span><span class=nt>link</span> <span class=na>rel</span><span class=o>=</span><span class=s>&#34;stylesheet&#34;</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;../css/index.css&#34;</span> <span class=p>/&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>&lt;/</span><span class=nt>head</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=p>&lt;</span><span class=nt>body</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;register&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>      <span class=p>&lt;</span><span class=nt>form</span> <span class=na>id</span><span class=o>=</span><span class=s>&#34;myForm&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=p>&lt;</span><span class=nt>ul</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>          <span class=p>&lt;</span><span class=nt>li</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>&lt;</span><span class=nt>label</span> <span class=na>for</span><span class=o>=</span><span class=s>&#34;&#34;</span><span class=p>&gt;</span>用户名<span class=p>&lt;/</span><span class=nt>label</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>&lt;</span><span class=nt>input</span> <span class=na>type</span><span class=o>=</span><span class=s>&#34;text&#34;</span> <span class=na>name</span><span class=o>=</span><span class=s>&#34;username&#34;</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;name&#34;</span> <span class=p>/&gt;</span>
+</span></span><span class=line><span class=cl>          <span class=p>&lt;/</span><span class=nt>li</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>          <span class=p>&lt;</span><span class=nt>li</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>&lt;</span><span class=nt>label</span> <span class=na>for</span><span class=o>=</span><span class=s>&#34;&#34;</span><span class=p>&gt;</span>密码<span class=p>&lt;/</span><span class=nt>label</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>&lt;</span><span class=nt>input</span> <span class=na>type</span><span class=o>=</span><span class=s>&#34;password&#34;</span> <span class=na>name</span><span class=o>=</span><span class=s>&#34;password&#34;</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;pass&#34;</span> <span class=p>/&gt;</span>
+</span></span><span class=line><span class=cl>          <span class=p>&lt;/</span><span class=nt>li</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>          <span class=p>&lt;</span><span class=nt>li</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>&lt;</span><span class=nt>label</span> <span class=na>for</span><span class=o>=</span><span class=s>&#34;&#34;</span><span class=p>&gt;</span>手机号<span class=p>&lt;/</span><span class=nt>label</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>&lt;</span><span class=nt>input</span> <span class=na>type</span><span class=o>=</span><span class=s>&#34;text&#34;</span> <span class=na>name</span><span class=o>=</span><span class=s>&#34;phone&#34;</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;mobile&#34;</span> <span class=p>/&gt;</span>
+</span></span><span class=line><span class=cl>          <span class=p>&lt;/</span><span class=nt>li</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>          <span class=p>&lt;</span><span class=nt>li</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>&lt;</span><span class=nt>label</span> <span class=na>for</span><span class=o>=</span><span class=s>&#34;&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>label</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>&lt;</span><span class=nt>button</span> <span class=na>type</span><span class=o>=</span><span class=s>&#34;submit&#34;</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;submit&#34;</span><span class=p>&gt;</span>立即注册<span class=p>&lt;/</span><span class=nt>button</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>          <span class=p>&lt;/</span><span class=nt>li</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=p>&lt;/</span><span class=nt>ul</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>      <span class=p>&lt;/</span><span class=nt>form</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;</span><span class=nt>script</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>      <span class=kr>const</span> <span class=nx>form</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>querySelector</span><span class=p>(</span><span class=s1>&#39;#myForm&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>      <span class=nx>form</span><span class=p>.</span><span class=nx>addEventListener</span><span class=p>(</span><span class=s1>&#39;submit&#39;</span><span class=p>,</span> <span class=nx>e</span><span class=p>=&gt;{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>event</span><span class=p>.</span><span class=nx>preventDefault</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>        <span class=kr>const</span> <span class=nx>formData</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>FormData</span><span class=p>(</span><span class=nx>event</span><span class=p>.</span><span class=nx>target</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=kr>const</span> <span class=nx>data</span> <span class=o>=</span> <span class=nb>Object</span><span class=p>.</span><span class=nx>fromEntries</span><span class=p>(</span><span class=nx>formData</span><span class=p>.</span><span class=nx>entries</span><span class=p>())</span>
+</span></span><span class=line><span class=cl>        <span class=nx>fetch</span><span class=p>(</span><span class=s1>&#39;http://127.0.0.1:3000/register&#39;</span><span class=p>,</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>          <span class=nx>method</span><span class=o>:</span> <span class=s1>&#39;post&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>          <span class=nx>headers</span><span class=o>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=s1>&#39;Content-Type&#39;</span><span class=o>:</span> <span class=s1>&#39;application/json&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>          <span class=p>},</span>
+</span></span><span class=line><span class=cl>          <span class=nx>body</span><span class=o>:</span> <span class=nx>JSON</span><span class=p>.</span><span class=nx>stringify</span><span class=p>(</span><span class=nx>data</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>        <span class=p>}).</span><span class=nx>then</span><span class=p>(</span><span class=nx>res</span><span class=p>=&gt;{</span>
+</span></span><span class=line><span class=cl>          <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;res&#39;</span><span class=p>,</span> <span class=nx>res</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=p>})</span>
+</span></span><span class=line><span class=cl>      <span class=p>})</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>&lt;/</span><span class=nt>body</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>html</span><span class=p>&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=查看应用内存占用>查看应用内存占用</h2><p>Node.js提供了内置的<code>v8</code>模块，可以用来查看程序的内存占用情况。具体步骤如下：</p><ol><li>在程序中引入<code>v8</code>模块</li></ol><p><code>const v8 = require('v8');</code></p><ol start=2><li>手动触发垃圾回收</li></ol><p><code>v8.setFlagsFromString('--expose-gc'); global.gc();</code></p><ol start=3><li>获取内存占用信息</li></ol><p><code>const heap = v8.getHeapStatistics(); console.log(heap);</code></p><p><code>getHeapStatistics()</code>方法返回一个包含有关V8堆内存使用情况的对象，包括总内存使用量，已分配内存量，垃圾回收次数等信息。通过这些信息，可以分析出程序的内存占用情况并进行优化。</p><p>注意：使用<code>v8</code>模块需要在启动Node.js时使用<code>--expose-gc</code>选项启用垃圾回收器的暴露功能。<code>node --expose-gc app.js</code></p></section><footer class=article-footer><section class=article-tags><a href=/tags/nodejs/>Nodejs</a></section><section class=article-copyright><svg class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span><a rel=license href=http://creativecommons.org/licenses/by-nc-sa/4.0/>LICENSED UNDER CC BY-NC-SA 4.0<br></a></span></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>Related content</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/post/pm2-quick-start/><div class=article-details><h2 class=article-title>Pm2快速使用</h2></div></a></article><article><a href=/post/vite-global-variable/><div class=article-details><h2 class=article-title>vite设置全局变量</h2></div></a></article><article><a href=/post/open-vite-project-on-remote/><div class=article-details><h2 class=article-title>远程开发如何启动vite服务</h2></div></a></article><article><a href=/post/git-submodules/><div class=article-details><h2 class=article-title>Git Submodule 子模块</h2></div></a></article><article><a href=/post/delete-all-git-commit/><div class=article-details><h2 class=article-title>git删除所有历史提交记录</h2></div></a></article></div></div></aside><footer class=site-footer><section class=copyright>&copy;
+2017 -
+2024 Jqtmviyu's Blog</section><section class=powerby>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.26.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>
