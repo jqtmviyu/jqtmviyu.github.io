@@ -1,0 +1,539 @@
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="使用waline实现评论功能,浏览统计,评论统计 参考下面的博客和官方文档: https://blog.reincarnatey.net/2024/0719-better-waline https://www.liuhouliang.com/post/pageview/ https://waline.js.org/zh-CN/ 我的博客主题是 Stack, 其他主题应该也大同小异. 后端和管理后台安装 参"><title>为Hugo博客添加评论和统计功能</title>
+<link rel=canonical href=/post/add-comment-and-analytics-for-hugo/><link rel=stylesheet href=/scss/style.min.0304c6baf04e01a8fe70693791cb744d56a3578a3120a8796cefc66825aa39c7.css><meta property='og:title' content="为Hugo博客添加评论和统计功能"><meta property='og:description' content="使用waline实现评论功能,浏览统计,评论统计 参考下面的博客和官方文档: https://blog.reincarnatey.net/2024/0719-better-waline https://www.liuhouliang.com/post/pageview/ https://waline.js.org/zh-CN/ 我的博客主题是 Stack, 其他主题应该也大同小异. 后端和管理后台安装 参"><meta property='og:url' content='/post/add-comment-and-analytics-for-hugo/'><meta property='og:site_name' content="Jqtmviyu's Blog"><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='hugo'><meta property='article:tag' content='blog'><meta property='article:tag' content='comments'><meta property='article:tag' content='analytics'><meta property='article:published_time' content='2024-08-06T18:03:05+08:00'><meta property='article:modified_time' content='2024-08-06T18:03:05+08:00'><meta name=twitter:title content="为Hugo博客添加评论和统计功能"><meta name=twitter:description content="使用waline实现评论功能,浏览统计,评论统计 参考下面的博客和官方文档: https://blog.reincarnatey.net/2024/0719-better-waline https://www.liuhouliang.com/post/pageview/ https://waline.js.org/zh-CN/ 我的博客主题是 Stack, 其他主题应该也大同小异. 后端和管理后台安装 参"><link rel="shortcut icon" href=/favicon.png></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/avatar.png width=300 height=300 class=site-logo loading=lazy alt=Avatar></a></figure><div class=site-meta><h1 class=site-name><a href=/>Jqtmviyu's Blog</a></h1><h2 class=site-description>It's never too late to learn.</h2></div></header><ol class=menu-social><li><a href=https://github.com/jqtmviyu target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li><li><a href=https://git.hellohxx.top/hxx target=_blank title=Gitea rel=me><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b6b6b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-gitlab"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M21 14l-9 7-9-7L6 3l3 7h6l3-7z"/></svg></a></li><li><a href=mailto:jqtmviyu@gmail.com target=_blank title=Mail rel=me><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b6b6b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-mail"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7z"/><path d="M3 7l9 6 9-6"/></svg></a></li><li><a href=/index.xml target=_blank title=Rss rel=me><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b6b6b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-rss"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 19m-1 0a1 1 0 102 0 1 1 0 10-2 0"/><path d="M4 4a16 16 0 0116 16"/><path d="M4 11a9 9 0 019 9"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b6b6b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-home"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12H3l9-9 9 9h-2"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Home</span></a></li><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Archives</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Search</span></a></li><li><a href=/about/><svg class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+<span>About</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>Dark Mode</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#后端和管理后台安装>后端和管理后台安装</a></li><li><a href=#hugo-config-配置>hugo config 配置</a></li><li><a href=#更新waline模板到v3>更新waline模板到v3</a></li><li><a href=#配置邮件通知>配置邮件通知</a><ol><li><a href=#自定义邮件模板>自定义邮件模板</a></li></ol></li><li><a href=#添加评论统计和访问统计>添加评论统计和访问统计</a><ol><li><a href=#修改文章页模板>修改文章页模板</a></li><li><a href=#修改网站底部模板>修改网站底部模板</a></li></ol></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/notes/ style=background-color:#6b69d6;color:#fff>Notes</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/post/add-comment-and-analytics-for-hugo/>为Hugo博客添加评论和统计功能</a></h2></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>2024/Aug/06</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>16 minute read, words 3549</time></div><div><svg t="1720522640439" class="icon" viewBox="0 0 1024 1024" p-id="5342" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M997 435.6c-28.2-36.7-65.4-81.4-107.4-122.2-54.6-53.2-110.5-95.6-166.1-126.3-71.2-39.2-142-59.1-210.7-59.1s-139.6 19.9-210.7 59.1c-55.5 30.7-111.4 73.1-166.1 126.3-42 40.8-79.3 85.5-107.5 122.1-34.8 45.3-34.8 107.8.0 153.1 28.2 36.7 65.4 81.4 107.4 122.2C190.5 764 246.5 806.4 302 837.1c71.2 39.2 142.1 59.1 210.7 59.1 68.7.0 139.6-19.9 210.8-59 55.5-30.7 111.4-73.1 166.1-126.3 42-40.8 79.3-85.6 107.4-122.2 34.8-45.3 34.8-107.8.0-153.1zm-37.3 99c-66.2 89-243.8 299-446.8 299-57.5.0-117.7-17.1-179-50.8-50.5-27.7-101.7-66.6-152.2-115.6-51.1-49.5-91-99.5-115.7-132.6-10-13.5-10-31.6.0-44.9 66.1-89 243.7-299 446.8-299 57.5.0 117.6 17.1 179 50.8 50.5 27.7 101.7 66.6 152.2 115.6 51.1 49.5 91 99.5 115.7 132.6 9.9 13.4 9.9 31.6.0 44.9z" p-id="5343" fill="#8a8a8a"/><path d="M512 321.7c-105.7.0-191.6 86-191.6 191.6.0 105.7 86 191.6 191.6 191.6s191.6-86 191.6-191.6c0-105.7-86-191.6-191.6-191.6zm0 319.2c-70.3.0-127.6-57.2-127.6-127.6S441.7 385.7 512 385.7s127.6 57.2 127.6 127.6S582.3 640.9 512 640.9z" p-id="5344" fill="#8a8a8a"/></svg>
+<time class=article-pageview><span class=waline-pageview-count data-path=/post/add-comment-and-analytics-for-hugo/>0</span> visits</time></div><div><svg t="1721405452473" class="icon" viewBox="0 0 1024 1024" p-id="2287" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24"><path d="M853.333333 138.666667H170.666667C130.133334 138.666667 96 172.8 96 213.333333v512C96 765.866666 130.133333 8e2 170.666667 8e2h151.466666V917.333333c0 12.8 8.533333 25.6 19.2 29.866667 4.266667 2.133333 8.533333 2.133333 12.8 2.133333 8.533333.0 17.066667-4.266667 23.466667-10.666666L514.133333 8e2h339.2C893.866666 8e2 928 765.866667 928 725.333333v-512c0-40.533333-34.133333-74.666667-74.666667-74.666666zM864 725.333333c0 6.4-4.266667 10.666667-10.666667 10.666667h-352c-8.533333.0-17.066667 4.266667-23.466666 10.666667l-89.6 93.866666V768c0-17.066667-14.933333-32-32-32h-185.6C164.266667 736 160 731.733333 160 725.333333v-512c0-6.4 4.266667-10.666667 10.666667-10.666666h682.666666c6.4.0 10.666667 4.266667 10.666667 10.666666v512z" fill="#8a8a8a" p-id="2288"/><path d="M512 490.666667H298.666667c-17.066667.0-32 14.933333-32 32s14.933333 32 32 32H512c17.066667.0 32-14.933333 32-32S529.066667 490.666667 512 490.666667zM672 341.333333H298.666667c-17.066667.0-32 14.933333-32 32s14.933333 32 32 32H672c17.066667.0 32-14.933333 32-32s-14.933333-32-32-32z" fill="#8a8a8a" p-id="2289"/></svg>
+<time class=article-comment><span class=waline-comment-count data-path=/post/add-comment-and-analytics-for-hugo/>0</span> comments</time></div></footer></div></header><section class=article-content><p>使用waline实现评论功能,浏览统计,评论统计</p><p>参考下面的博客和官方文档:</p><ol><li><a class=link href=https://blog.reincarnatey.net/2024/0719-better-waline target=_blank rel=noopener>https://blog.reincarnatey.net/2024/0719-better-waline</a></li><li><a class=link href=https://www.liuhouliang.com/post/pageview/ target=_blank rel=noopener>https://www.liuhouliang.com/post/pageview/</a></li><li><a class=link href=https://waline.js.org/zh-CN/ target=_blank rel=noopener>https://waline.js.org/zh-CN/</a></li></ol><p>我的博客主题是 <code>Stack</code>, 其他主题应该也大同小异.</p><h2 id=后端和管理后台安装>后端和管理后台安装</h2><p>参考 官方的vercel安装教程即可, 需要自定义域名国内才可以访问.</p><h2 id=hugo-config-配置>hugo config 配置</h2><p>我的是toml格式:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-toml data-lang=toml><span class=line><span class=cl><span class=p>[</span><span class=nx>params</span><span class=p>.</span><span class=nx>comments</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=nx>enabled</span> <span class=p>=</span> <span class=kc>true</span> <span class=c># 评论系统</span>
+</span></span><span class=line><span class=cl><span class=nx>provider</span> <span class=p>=</span> <span class=s2>&#34;waline&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c># https://waline.js.org/guide/get-started/</span>
+</span></span><span class=line><span class=cl><span class=p>[</span><span class=nx>params</span><span class=p>.</span><span class=nx>comments</span><span class=p>.</span><span class=nx>waline</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=nx>serverURL</span> <span class=p>=</span> <span class=s2>&#34;填你实际的URL&#34;</span>
+</span></span><span class=line><span class=cl><span class=nx>emoji</span> <span class=p>=</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;https://unpkg.com/@waline/emojis@1.2.0/tieba&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;https://unpkg.com/@waline/emojis@1.2.0/bilibili&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;https://unpkg.com/@waline/emojis@1.2.0/bmoji&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;https://unpkg.com/@waline/emojis@1.2.0/weibo&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=nx>imageUploader</span> <span class=p>=</span> <span class=kc>false</span>
+</span></span><span class=line><span class=cl><span class=nx>lang</span> <span class=p>=</span> <span class=s2>&#34;en&#34;</span>
+</span></span><span class=line><span class=cl><span class=nx>meta</span> <span class=p>=</span> <span class=p>[</span><span class=s2>&#34;nick&#34;</span><span class=p>,</span> <span class=s2>&#34;mail&#34;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=nx>pageview</span> <span class=p>=</span> <span class=kc>false</span> <span class=c># 浏览量统计,使用api而不是内置</span>
+</span></span><span class=line><span class=cl><span class=nx>comment</span> <span class=p>=</span> <span class=kc>false</span> <span class=c># 评论数统计,使用api而不是内置</span>
+</span></span><span class=line><span class=cl><span class=nx>reaction</span> <span class=p>=</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;https://npm.elemecdn.com/@waline/emojis@1.1.0/bilibili/bb_heart_eyes.png&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;https://npm.elemecdn.com/@waline/emojis@1.1.0/bilibili/bb_thumbsup.png&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;https://npm.elemecdn.com/@waline/emojis@1.1.0/bilibili/bb_zhoumei.png&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;https://npm.elemecdn.com/@waline/emojis@1.1.0/bilibili/bb_grievance.png&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;https://npm.elemecdn.com/@waline/emojis@1.1.0/bilibili/bb_dizzy_face.png&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=s2>&#34;https://npm.elemecdn.com/@waline/emojis@1.1.0/bilibili/bb_slap.png&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=nx>requiredMetaNames</span> <span class=p>=</span> <span class=p>[</span><span class=s2>&#34;nick&#34;</span><span class=p>,</span> <span class=s2>&#34;mail&#34;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=nx>highlighter</span> <span class=p>=</span> <span class=kc>true</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>[</span><span class=nx>params</span><span class=p>.</span><span class=nx>comments</span><span class=p>.</span><span class=nx>waline</span><span class=p>.</span><span class=nx>locale</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=nx>admin</span> <span class=p>=</span> <span class=s2>&#34;Admin&#34;</span>
+</span></span><span class=line><span class=cl><span class=nx>placeholder</span> <span class=p>=</span> <span class=s2>&#34;Welcome to leave your valuable comments!\nPlease provide a correct email address so that we can send you an email notification when there is a reply.\nDo not post any content unrelated to this article.&#34;</span>
+</span></span><span class=line><span class=cl><span class=nx>reactionTitle</span> <span class=p>=</span> <span class=s2>&#34;Was this article helpful to you?&#34;</span>
+</span></span><span class=line><span class=cl><span class=nx>reaction0</span> <span class=p>=</span> <span class=s2>&#34;Very helpful&#34;</span>
+</span></span><span class=line><span class=cl><span class=nx>reaction1</span> <span class=p>=</span> <span class=s2>&#34;Helpful&#34;</span>
+</span></span><span class=line><span class=cl><span class=nx>reaction2</span> <span class=p>=</span> <span class=s2>&#34;Average&#34;</span>
+</span></span><span class=line><span class=cl><span class=nx>reaction3</span> <span class=p>=</span> <span class=s2>&#34;Not helpful&#34;</span>
+</span></span><span class=line><span class=cl><span class=nx>reaction4</span> <span class=p>=</span> <span class=s2>&#34;Confused&#34;</span>
+</span></span><span class=line><span class=cl><span class=nx>reaction5</span> <span class=p>=</span> <span class=s2>&#34;Incorrect&#34;</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=更新waline模板到v3>更新waline模板到v3</h2><p><code>Stack</code> 默认的是v2</p><p><code>layouts\partials\comments\provider\waline.html</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>link</span> <span class=na>rel</span><span class=o>=</span><span class=s>&#34;stylesheet&#34;</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;https://unpkg.com/@waline/client@v3/dist/waline.css&#34;</span><span class=p>/&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>div</span> <span class=na>id</span><span class=o>=</span><span class=s>&#34;waline&#34;</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;waline-container&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>style</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>.</span><span class=nc>waline-container</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>background-color</span><span class=p>:</span> <span class=nf>var</span><span class=p>(</span><span class=o>--</span><span class=n>card</span><span class=o>-</span><span class=n>background</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=k>border-radius</span><span class=p>:</span> <span class=nf>var</span><span class=p>(</span><span class=o>--</span><span class=n>card</span><span class=o>-</span><span class=n>border</span><span class=o>-</span><span class=n>radius</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=k>box-shadow</span><span class=p>:</span> <span class=nf>var</span><span class=p>(</span><span class=o>--</span><span class=n>shadow</span><span class=o>-</span><span class=n>l1</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=k>padding</span><span class=p>:</span> <span class=nf>var</span><span class=p>(</span><span class=o>--</span><span class=n>card</span><span class=o>-</span><span class=n>padding</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=nv>--waline-font-size</span><span class=p>:</span> <span class=nf>var</span><span class=p>(</span><span class=o>--</span><span class=n>article</span><span class=o>-</span><span class=n>font</span><span class=o>-</span><span class=n>size</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>.</span><span class=nc>waline-container</span> <span class=p>.</span><span class=nc>wl-count</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>color</span><span class=p>:</span> <span class=nf>var</span><span class=p>(</span><span class=o>--</span><span class=n>card</span><span class=o>-</span><span class=kc>text</span><span class=o>-</span><span class=kc>color</span><span class=o>-</span><span class=n>main</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>style</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>{{- $showReaction := (default true .Params.reaction) -}}
+</span></span><span class=line><span class=cl>{{- with .Site.Params.comments.waline -}}
+</span></span><span class=line><span class=cl>{{- $config := dict &#34;el&#34; &#34;#waline&#34; &#34;dark&#34; `html[data-scheme=&#34;dark&#34;]` -}}
+</span></span><span class=line><span class=cl>{{- $replaceKeys := dict &#34;serverurl&#34; &#34;serverURL&#34; &#34;requiredmeta&#34; &#34;requiredMeta&#34; &#34;wordlimit&#34; &#34;wordLimit&#34; &#34;pagesize&#34; &#34;pageSize&#34; &#34;imageuploader&#34; &#34;imageUploader&#34; &#34;texrenderer&#34; &#34;texRenderer&#34; &#34;commentsorting&#34; &#34;commentSorting&#34; &#34;recaptchav3key&#34; &#34;recaptchaV3Key&#34; &#34;turnstilekey&#34; &#34;turnstileKey&#34; -}}
+</span></span><span class=line><span class=cl>{{- $replaceLocaleKeys := dict &#34;reactiontitle&#34; &#34;reactionTitle&#34; &#34;gifsearchplaceholder&#34; &#34;gifSearchPlaceholder&#34; &#34;nickerror&#34; &#34;nickError&#34; &#34;mailerror&#34; &#34;mailError&#34; &#34;wordhint&#34; &#34;wordHint&#34; &#34;cancellike&#34; &#34;cancelLike&#34; &#34;cancelreply&#34; &#34;cancelReply&#34; &#34;uploadimage&#34; &#34;uploadImage&#34; -}}
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>{{- range $key, $val := . -}}
+</span></span><span class=line><span class=cl>    {{- if ne $val nil -}}  
+</span></span><span class=line><span class=cl>        {{- $replaceKey := index $replaceKeys $key -}}
+</span></span><span class=line><span class=cl>        {{- $k := default $key $replaceKey -}}
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        {{- if eq $k &#34;locale&#34; -}}
+</span></span><span class=line><span class=cl>            {{- $locale := dict -}}
+</span></span><span class=line><span class=cl>            {{- range $lkey, $lval := $val -}}
+</span></span><span class=line><span class=cl>                {{- if ne $lval nil -}}  
+</span></span><span class=line><span class=cl>                    {{- $replaceLKey := index $replaceLocaleKeys $lkey -}}
+</span></span><span class=line><span class=cl>                    {{- $lk := default $lkey $replaceLKey -}}
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                    {{- $locale = merge $locale (dict $lk $lval) -}}
+</span></span><span class=line><span class=cl>                {{- end -}}
+</span></span><span class=line><span class=cl>            {{- end -}}
+</span></span><span class=line><span class=cl>            {{- $config = merge $config (dict $k $locale) -}}
+</span></span><span class=line><span class=cl>        {{- else if eq $k &#34;reaction&#34; -}}
+</span></span><span class=line><span class=cl>            {{- $config = merge $config (dict $k (cond $showReaction $val false)) -}}
+</span></span><span class=line><span class=cl>        {{- else -}}
+</span></span><span class=line><span class=cl>            {{- $config = merge $config (dict $k $val) -}}
+</span></span><span class=line><span class=cl>        {{- end -}}
+</span></span><span class=line><span class=cl>    {{- end -}}
+</span></span><span class=line><span class=cl>{{- end -}}
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>script</span> <span class=na>type</span><span class=o>=</span><span class=s>&#34;module&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=kr>import</span> <span class=p>{</span> <span class=nx>init</span> <span class=p>}</span> <span class=nx>from</span> <span class=s1>&#39;https://unpkg.com/@waline/client@v3/dist/waline.js&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>init</span><span class=p>({{</span> <span class=nx>$config</span> <span class=o>|</span> <span class=nx>jsonify</span> <span class=o>|</span> <span class=nx>safeJS</span> <span class=p>}});</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>{{- end -}}
+</span></span></code></pre></td></tr></table></div></div><p>当 markdown 文件包含 <code>reaction: false</code> 时, 不会评论中的<code>reaction</code>.</p><h2 id=配置邮件通知>配置邮件通知</h2><p>以谷歌邮箱为例:</p><ol><li>需要在 Google 邮箱设置中开启 IMAP 功能</li><li>然后在 <a class=link href=https://security.google.com/settings/security/apppasswords target=_blank rel=noopener>https://security.google.com/settings/security/apppasswords</a> 中生成应用专用密码</li><li>在 vercel 中添加以下变量</li></ol><ul><li>SMTP_SERVICE：填 Gmail</li><li>SMTP_USER：填谷歌邮箱</li><li>SMTP_PASS：填刚刚获取的应用专用密码，有 16 位，记得删除空格</li><li>SITE_NAME：填博客的名字</li><li>SITE_URL：要带 https://，不带最后一个斜杠，例如 <a class=link href=https://blog.reincarnatey.net target=_blank rel=noopener>https://blog.reincarnatey.net</a></li><li>AUTHOR_EMAIL：填waline注册管理员的邮箱</li></ul><h3 id=自定义邮件模板>自定义邮件模板</h3><p>参考: <a class=link href=https://www.sarakale.top/blog/posts/537344b2 target=_blank rel=noopener>https://www.sarakale.top/blog/posts/537344b2</a></p><p>在vercel中添加以下变量(重新部署即可生效):</p><ul><li>MAIL_TEMPLATE_ADMIN</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>div</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;background-image: url(https://npm.elemecdn.com/sarakale-assets@v1/Article/email/bg.jpg);;padding:20px 0px 20px;margin:0px;background-color:#ded8ca;width:100%;&#34;</span><span class=p>&gt;&lt;</span><span class=nt>div</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;background: url(https://npm.elemecdn.com/sarakale-assets@v1/Article/email/leisi-714x62.png) repeat-y scroll top;&#34;</span><span class=p>&gt;&lt;</span><span class=nt>div</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;border-radius: 10px 10px 10px 10px;font-size:14px;color: #555555;width: 666px;font-family:&#39;Century Gothic&#39;,&#39;Trebuchet MS&#39;,&#39;Hiragino Sans GB&#39;,微软雅黑,&#39;Microsoft Yahei&#39;,Tahoma,Helvetica,Arial,&#39;SimSun&#39;,sans-serif;margin:50px auto;border:1px solid #eee;max-width:100%;background: #ffe8dd61;box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);margin:auto&#34;</span><span class=p>&gt;&lt;</span><span class=nt>div</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;width:100%;color:#9d2850;border-radius: 10px 10px 0 0;background-image: -moz-linear-gradient(0deg, rgb(67, 198, 184), rgb(255, 209, 244));height: 66px;background: url(https://npm.elemecdn.com/sarakale-assets@v1/Article/email/line034_666x66.png) left top no-repeat;&#34;</span><span class=p>&gt;&lt;</span><span class=nt>p</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;font-size:16px;font-weight: bold;text-align:center;word-break:break-all;padding: 23px 32px;margin:0;border-radius: 10px 10px 0 0;&#34;</span><span class=p>&gt;</span>您在<span class=p>&lt;</span><span class=nt>a</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;text-decoration:none;color: #9d2850;&#34;</span><span class=na>href</span><span class=o>=</span><span class=s>&#34;{{site.url}}&#34;</span><span class=na>target</span><span class=o>=</span><span class=s>&#34;_blank&#34;</span><span class=p>&gt;</span>{{site.name}}<span class=p>&lt;/</span><span class=nt>a</span><span class=p>&gt;</span>上的文章有了新的评论<span class=p>&lt;/</span><span class=nt>p</span><span class=p>&gt;&lt;/</span><span class=nt>div</span><span class=p>&gt;&lt;</span><span class=nt>div</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;margin:40px auto;width:90%;&#34;</span><span class=p>&gt;&lt;</span><span class=nt>p</span><span class=p>&gt;&lt;</span><span class=nt>strong</span><span class=p>&gt;</span>{{self.nick}}<span class=p>&lt;/</span><span class=nt>strong</span><span class=p>&gt;</span>回复说：<span class=p>&lt;/</span><span class=nt>p</span><span class=p>&gt;&lt;</span><span class=nt>div</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;background: #fafafa repeating-linear-gradient(-45deg,#fff,#fff 1.125rem,transparent 1.125rem,transparent 2.25rem);box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);margin:20px 0px;padding:15px;border-radius:5px;font-size:15px;color:#555555;&#34;</span><span class=p>&gt;</span>{{self.comment|safe}}<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;&lt;</span><span class=nt>p</span><span class=p>&gt;</span>您可以点击<span class=p>&lt;</span><span class=nt>a</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;text-decoration:none; color:#cf5c83&#34;</span><span class=na>href</span><span class=o>=</span><span class=s>&#34;{{site.postUrl}}&#34;</span><span class=na>target</span><span class=o>=</span><span class=s>&#34;_blank&#34;</span><span class=p>&gt;</span>查看回复的完整内容<span class=p>&lt;/</span><span class=nt>a</span><span class=p>&gt;&lt;/</span><span class=nt>p</span><span class=p>&gt;&lt;/</span><span class=nt>div</span><span class=p>&gt;&lt;/</span><span class=nt>div</span><span class=p>&gt;&lt;/</span><span class=nt>div</span><span class=p>&gt;&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>MAIL_SUBJECT_ADMIN</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl>{{site.name | safe}} 上有新评论了
+</span></span></code></pre></td></tr></table></div></div><ul><li>MAIL_TEMPLATE</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>div</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;background-image:url(https://npm.elemecdn.com/sarakale-assets@v1/Article/email/bg.jpg);;padding:20px 0px 20px;margin:0px;background-color:#ded8ca;width:100%;&#34;</span><span class=p>&gt;&lt;</span><span class=nt>div</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;background:url(https://npm.elemecdn.com/sarakale-assets@v1/Article/email/leisi-714x62.png) repeat-y scroll top;&#34;</span><span class=p>&gt;&lt;</span><span class=nt>div</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;border-radius:10px 10px 10px 10px;font-size:14px;color:#555555;width:666px;font-family:&#39;Century Gothic&#39;,&#39;Trebuchet MS&#39;,&#39;Hiragino Sans GB&#39;,微软雅黑,&#39;Microsoft Yahei&#39;,Tahoma,Helvetica,Arial,&#39;SimSun&#39;,sans-serif;margin:50px auto;border:1px solid #eee;max-width:100%;background:#ffe8dd61;box-shadow:0 1px 5px rgba(0,0,0,0.15);margin:auto&#34;</span><span class=p>&gt;&lt;</span><span class=nt>div</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;width:100%;border-radius:10px 10px 0 0;background-image:-moz-linear-gradient(0deg,rgb(67,198,184),rgb(255,209,244));height:66px;background:url(https://npm.elemecdn.com/sarakale-assets@v1/Article/email/line034_666x66.png) left top no-repeat;color:#9d2850;&#34;</span><span class=p>&gt;&lt;</span><span class=nt>p</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;font-size:16px;font-weight: bold;text-align:center;word-break:break-all;padding:23px 32px;margin:0;border-radius:10px 10px 0 0;&#34;</span><span class=p>&gt;</span>您在<span class=p>&lt;</span><span class=nt>a</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;text-decoration:none;color:#9d2850;&#34;</span><span class=na>href</span><span class=o>=</span><span class=s>&#34;{{site.url}}&#34;</span><span class=p>&gt;</span>『{{site.name|safe}}』<span class=p>&lt;/</span><span class=nt>a</span><span class=p>&gt;</span>上的留言有新回复啦！<span class=p>&lt;/</span><span class=nt>p</span><span class=p>&gt;&lt;/</span><span class=nt>div</span><span class=p>&gt;&lt;</span><span class=nt>div</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;margin:40px auto;width:90%;&#34;</span><span class=p>&gt;&lt;</span><span class=nt>p</span><span class=p>&gt;</span>Hi，{{parent.nick}}，您曾在文章上发表评论：<span class=p>&lt;/</span><span class=nt>p</span><span class=p>&gt;&lt;</span><span class=nt>div</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;background:#fafafa repeating-linear-gradient(-45deg,#fff,#fff 1.125rem,transparent 1.125rem,transparent 2.25rem);box-shadow:0 2px 5px rgba(0,0,0,0.15);margin:20px 0px;padding:15px;border-radius:5px;font-size:15px;color:#555555;&#34;</span><span class=p>&gt;</span>{{parent.comment|safe}}<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;&lt;</span><span class=nt>p</span><span class=p>&gt;&lt;</span><span class=nt>strong</span><span class=p>&gt;</span>{{self.nick}}<span class=p>&lt;/</span><span class=nt>strong</span><span class=p>&gt;</span>给您的回复如下：<span class=p>&lt;/</span><span class=nt>p</span><span class=p>&gt;&lt;</span><span class=nt>div</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;background:#fafafa repeating-linear-gradient(-45deg,#fff,#fff 1.125rem,transparent 1.125rem,transparent 2.25rem);box-shadow:0 2px 5px rgba(0,0,0,0.15);margin:20px 0px;padding:15px;border-radius:5px;font-size:15px;color:#555555;&#34;</span><span class=p>&gt;</span>{{self.comment|safe}}<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;&lt;</span><span class=nt>p</span><span class=p>&gt;</span>您可以点击<span class=p>&lt;</span><span class=nt>a</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;text-decoration:none;color:#cf5c83&#34;</span><span class=na>href</span><span class=o>=</span><span class=s>&#34;{{site.postUrl}}&#34;</span><span class=na>target</span><span class=o>=</span><span class=s>&#34;_blank&#34;</span><span class=p>&gt;</span>查看回复的完整內容<span class=p>&lt;/</span><span class=nt>a</span><span class=p>&gt;</span>，欢迎再次光临<span class=p>&lt;</span><span class=nt>a</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;text-decoration:none;color:#cf5c83&#34;</span><span class=na>href</span><span class=o>=</span><span class=s>&#34;{{site.url}}&#34;</span><span class=na>target</span><span class=o>=</span><span class=s>&#34;_blank&#34;</span><span class=p>&gt;</span>{{site.name}}<span class=p>&lt;/</span><span class=nt>a</span><span class=p>&gt;</span>。<span class=p>&lt;</span><span class=nt>hr</span><span class=p>/&gt;&lt;</span><span class=nt>p</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;font-size:14px;color:#b7adad&#34;</span><span class=p>&gt;</span>本邮件为系统自动发送，请勿直接回复邮件哦，可到博文内容回复。<span class=p>&lt;</span><span class=nt>br</span><span class=p>/&gt;</span>https://{{site.url}}<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;&lt;/</span><span class=nt>div</span><span class=p>&gt;&lt;/</span><span class=nt>div</span><span class=p>&gt;&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>MAIL_SUBJECT</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl>{{parent.nick | safe}}，『{{site.name | safe}}』上的评论收到了回复
+</span></span></code></pre></td></tr></table></div></div><p>效果大概如下:</p><p><img src=https://img.hellohxx.top/202408061838723.png loading=lazy></p><p><img src=https://img.hellohxx.top/202408061832176.png loading=lazy></p><h2 id=添加评论统计和访问统计>添加评论统计和访问统计</h2><h3 id=修改文章页模板>修改文章页模板</h3><p><code>layouts/partials/article/components/details.html</code></p><p>在 footer 中添加:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>    {{ partial &#34;helper/icon&#34; &#34;view&#34; }}
+</span></span><span class=line><span class=cl>    <span class=p>&lt;</span><span class=nt>time</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;article-pageview&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>      <span class=p>&lt;</span><span class=nt>span</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;waline-pageview-count&#34;</span> <span class=na>data-path</span><span class=o>=</span><span class=s>&#34;{{ .RelPermalink }}&#34;</span><span class=p>&gt;</span>0<span class=p>&lt;/</span><span class=nt>span</span><span class=p>&gt;</span> visits
+</span></span><span class=line><span class=cl>    <span class=p>&lt;/</span><span class=nt>time</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>    {{ partial &#34;helper/icon&#34; &#34;comment&#34; }}
+</span></span><span class=line><span class=cl>    <span class=p>&lt;</span><span class=nt>time</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;article-comment&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=p>&lt;</span><span class=nt>span</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;waline-comment-count&#34;</span> <span class=na>data-path</span><span class=o>=</span><span class=s>&#34;{{.RelPermalink}}&#34;</span><span class=p>&gt;</span>0<span class=p>&lt;/</span><span class=nt>span</span><span class=p>&gt;</span> comments
+</span></span><span class=line><span class=cl>    <span class=p>&lt;/</span><span class=nt>time</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><p>参考上面的第一篇博客, 顺便把阅读时间更符合中文模式,添加字数统计</p><p>替换</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl>{{ T &#34;article.readingTime&#34; .ReadingTime }}
+</span></span></code></pre></td></tr></table></div></div><p>为:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl>{{ $fixedWordCount := add .WordCount 224}}
+</span></span><span class=line><span class=cl>{{ $ReadingTime := div $fixedWordCount 225 }}
+</span></span><span class=line><span class=cl>{{ T &#34;article.readingTime&#34; $ReadingTime }}, words {{ .WordCount }}
+</span></span></code></pre></td></tr></table></div></div><h3 id=修改网站底部模板>修改网站底部模板</h3><p><code>layouts/partials/footer/footer.html</code></p><p>找个合适的位置添加</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl>visits <span class=p>&lt;</span><span class=nt>span</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;waline-index-count breathe&#34;</span> <span class=na>waline-url</span><span class=o>=</span><span class=s>&#34;{{ .Site.Params.comments.waline.serverURL }}&#34;</span> <span class=na>data-path</span><span class=o>=</span><span class=s>&#34;{{ .RelPermalink }}&#34;</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;font-weight: bold;&#34;</span><span class=p>&gt;</span>0<span class=p>&lt;/</span><span class=nt>span</span><span class=p>&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><p>因为没有使用 waline 自带的统计和计数功能, 所以需要用js实现api调用</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span><span class=lnt>104
+</span><span class=lnt>105
+</span><span class=lnt>106
+</span><span class=lnt>107
+</span><span class=lnt>108
+</span><span class=lnt>109
+</span><span class=lnt>110
+</span><span class=lnt>111
+</span><span class=lnt>112
+</span><span class=lnt>113
+</span><span class=lnt>114
+</span><span class=lnt>115
+</span><span class=lnt>116
+</span><span class=lnt>117
+</span><span class=lnt>118
+</span><span class=lnt>119
+</span><span class=lnt>120
+</span><span class=lnt>121
+</span><span class=lnt>122
+</span><span class=lnt>123
+</span><span class=lnt>124
+</span><span class=lnt>125
+</span><span class=lnt>126
+</span><span class=lnt>127
+</span><span class=lnt>128
+</span><span class=lnt>129
+</span><span class=lnt>130
+</span><span class=lnt>131
+</span><span class=lnt>132
+</span><span class=lnt>133
+</span><span class=lnt>134
+</span><span class=lnt>135
+</span><span class=lnt>136
+</span><span class=lnt>137
+</span><span class=lnt>138
+</span><span class=lnt>139
+</span><span class=lnt>140
+</span><span class=lnt>141
+</span><span class=lnt>142
+</span><span class=lnt>143
+</span><span class=lnt>144
+</span><span class=lnt>145
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=o>&lt;</span><span class=nx>script</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>(</span><span class=kr>async</span> <span class=p>()=&gt;{</span>
+</span></span><span class=line><span class=cl>      <span class=kd>let</span> <span class=nx>indexCountEle</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>querySelector</span><span class=p>(</span><span class=s1>&#39;.waline-index-count&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>      <span class=kd>let</span> <span class=nx>walineUrl</span> <span class=o>=</span> <span class=nx>indexCountEle</span><span class=p>.</span><span class=nx>getAttribute</span><span class=p>(</span><span class=s1>&#39;waline-url&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>      <span class=kd>let</span> <span class=nx>pageCountEles</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>querySelectorAll</span><span class=p>(</span><span class=s1>&#39;.waline-pageview-count&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>      <span class=kd>let</span> <span class=nx>pagePathNames</span> <span class=o>=</span> <span class=nb>Array</span><span class=p>.</span><span class=nx>from</span><span class=p>(</span><span class=nx>pageCountEles</span><span class=p>).</span><span class=nx>map</span><span class=p>(</span><span class=nx>item</span> <span class=p>=&gt;</span> <span class=nx>item</span><span class=p>.</span><span class=nx>getAttribute</span><span class=p>(</span><span class=s1>&#39;data-path&#39;</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>      <span class=kd>let</span> <span class=nx>commentCountEles</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>querySelectorAll</span><span class=p>(</span><span class=s1>&#39;.waline-comment-count&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>      <span class=kd>let</span> <span class=nx>commentPathNames</span> <span class=o>=</span> <span class=nb>Array</span><span class=p>.</span><span class=nx>from</span><span class=p>(</span><span class=nx>commentCountEles</span><span class=p>).</span><span class=nx>map</span><span class=p>(</span><span class=nx>item</span> <span class=p>=&gt;</span> <span class=nx>item</span><span class=p>.</span><span class=nx>getAttribute</span><span class=p>(</span><span class=s1>&#39;data-path&#39;</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>      <span class=c1>// 获取访问统计函数
+</span></span></span><span class=line><span class=cl><span class=c1></span>      <span class=kd>function</span> <span class=nx>getViewCount</span> <span class=p>(</span><span class=nx>urlList</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=kd>let</span> <span class=nx>url</span> <span class=o>=</span> <span class=nx>walineUrl</span> <span class=o>+</span> <span class=s1>&#39;/api/article/?path=&#39;</span>
+</span></span><span class=line><span class=cl>        <span class=nx>urlList</span><span class=p>.</span><span class=nx>forEach</span><span class=p>((</span><span class=nx>item</span><span class=p>,</span><span class=nx>index</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>          <span class=nx>url</span> <span class=o>+=</span> <span class=nx>index</span> <span class=o>===</span> <span class=mi>0</span> <span class=o>?</span> <span class=nx>item</span> <span class=o>:</span>  <span class=p>(</span><span class=s1>&#39;,&#39;</span> <span class=o>+</span> <span class=nx>item</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=p>})</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=nx>fetch</span><span class=p>(</span><span class=nx>url</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=p>.</span><span class=nx>then</span><span class=p>(</span><span class=nx>res</span> <span class=p>=&gt;</span> <span class=nx>res</span><span class=p>.</span><span class=nx>json</span><span class=p>())</span>
+</span></span><span class=line><span class=cl>        <span class=p>.</span><span class=nx>then</span><span class=p>(</span><span class=nx>res</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>          <span class=k>if</span><span class=p>(</span><span class=nx>res</span><span class=p>.</span><span class=nx>errno</span> <span class=o>==</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=nx>res</span><span class=p>.</span><span class=nx>data</span><span class=p>.</span><span class=nx>map</span><span class=p>(</span><span class=nx>item</span> <span class=p>=&gt;</span> <span class=nx>item</span><span class=p>.</span><span class=nx>time</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>          <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=k>throw</span> <span class=k>new</span> <span class=nb>Error</span><span class=p>(</span><span class=s1>&#39;获取失败&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>          <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>})</span>
+</span></span><span class=line><span class=cl>        <span class=p>.</span><span class=k>catch</span><span class=p>(</span><span class=nx>err</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>          <span class=k>return</span> <span class=k>new</span> <span class=nb>Promise</span><span class=p>((</span><span class=nx>resolve</span><span class=p>,</span><span class=nx>reject</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nx>reject</span><span class=p>(</span><span class=nx>err</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>          <span class=p>})</span>
+</span></span><span class=line><span class=cl>        <span class=p>})</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>      <span class=c1>// 添加访问统计函数
+</span></span></span><span class=line><span class=cl><span class=c1></span>      <span class=kd>function</span> <span class=nx>addViewCount</span> <span class=p>(</span><span class=nx>pathname</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=kd>let</span> <span class=nx>data</span> <span class=o>=</span> <span class=p>{</span> <span class=nx>path</span><span class=o>:</span> <span class=nx>pathname</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=nx>fetch</span><span class=p>(</span><span class=sb>`</span><span class=si>${</span><span class=nx>walineUrl</span><span class=si>}</span><span class=sb>/api/article`</span><span class=p>,{</span>
+</span></span><span class=line><span class=cl>            <span class=nx>method</span><span class=o>:</span><span class=s1>&#39;POST&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nx>headers</span><span class=o>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>              <span class=s1>&#39;Content-Type&#39;</span><span class=o>:</span> <span class=s1>&#39;application/json&#39;</span>
+</span></span><span class=line><span class=cl>            <span class=p>},</span>
+</span></span><span class=line><span class=cl>            <span class=nx>body</span><span class=o>:</span><span class=nx>JSON</span><span class=p>.</span><span class=nx>stringify</span><span class=p>(</span><span class=nx>data</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=p>})</span>
+</span></span><span class=line><span class=cl>        <span class=p>.</span><span class=nx>then</span><span class=p>(</span><span class=nx>res</span> <span class=p>=&gt;</span> <span class=nx>res</span><span class=p>.</span><span class=nx>json</span><span class=p>())</span>
+</span></span><span class=line><span class=cl>        <span class=p>.</span><span class=nx>then</span><span class=p>(</span><span class=nx>res</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>          <span class=k>if</span><span class=p>(</span><span class=nx>res</span><span class=p>.</span><span class=nx>errno</span> <span class=o>==</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=nx>res</span><span class=p>.</span><span class=nx>data</span><span class=p>[</span><span class=mi>0</span><span class=p>].</span><span class=nx>time</span>
+</span></span><span class=line><span class=cl>          <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=k>throw</span> <span class=k>new</span> <span class=nb>Error</span><span class=p>(</span><span class=s1>&#39;获取失败&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>          <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>})</span>
+</span></span><span class=line><span class=cl>        <span class=p>.</span><span class=k>catch</span><span class=p>(</span><span class=nx>err</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>          <span class=k>return</span> <span class=k>new</span> <span class=nb>Promise</span><span class=p>((</span><span class=nx>resolve</span><span class=p>,</span><span class=nx>reject</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nx>reject</span><span class=p>(</span><span class=nx>err</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>          <span class=p>})</span>
+</span></span><span class=line><span class=cl>        <span class=p>})</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>      <span class=c1>// 获取评论统计函数
+</span></span></span><span class=line><span class=cl><span class=c1></span>      <span class=kd>function</span> <span class=nx>getCommentCount</span> <span class=p>(</span><span class=nx>urlList</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=kd>let</span> <span class=nx>url</span> <span class=o>=</span> <span class=nx>walineUrl</span> <span class=o>+</span> <span class=s1>&#39;/api/comment?type=count&amp;lang=en&amp;url=&#39;</span>
+</span></span><span class=line><span class=cl>        <span class=nx>urlList</span><span class=p>.</span><span class=nx>forEach</span><span class=p>((</span><span class=nx>item</span><span class=p>,</span><span class=nx>index</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>          <span class=nx>url</span> <span class=o>+=</span> <span class=nx>index</span> <span class=o>===</span> <span class=mi>0</span> <span class=o>?</span> <span class=nx>item</span> <span class=o>:</span>  <span class=p>(</span><span class=s1>&#39;,&#39;</span> <span class=o>+</span> <span class=nx>item</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=p>})</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=nx>fetch</span><span class=p>(</span><span class=nx>url</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=p>.</span><span class=nx>then</span><span class=p>(</span><span class=nx>res</span> <span class=p>=&gt;</span> <span class=nx>res</span><span class=p>.</span><span class=nx>json</span><span class=p>())</span>
+</span></span><span class=line><span class=cl>        <span class=p>.</span><span class=nx>then</span><span class=p>(</span><span class=nx>res</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>          <span class=k>if</span><span class=p>(</span><span class=nx>res</span><span class=p>.</span><span class=nx>errno</span> <span class=o>==</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=nx>res</span><span class=p>.</span><span class=nx>data</span>
+</span></span><span class=line><span class=cl>          <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=k>throw</span> <span class=k>new</span> <span class=nb>Error</span><span class=p>(</span><span class=s1>&#39;获取失败&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>          <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>})</span>
+</span></span><span class=line><span class=cl>        <span class=p>.</span><span class=k>catch</span><span class=p>(</span><span class=nx>err</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>          <span class=k>return</span> <span class=k>new</span> <span class=nb>Promise</span><span class=p>((</span><span class=nx>resolve</span><span class=p>,</span><span class=nx>reject</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nx>reject</span><span class=p>(</span><span class=nx>err</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>          <span class=p>})</span>
+</span></span><span class=line><span class=cl>        <span class=p>})</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>      <span class=c1>// 获取列表页的访问统计和评论统计
+</span></span></span><span class=line><span class=cl><span class=c1></span>      <span class=k>if</span><span class=p>(</span><span class=nb>window</span><span class=p>.</span><span class=nx>location</span><span class=p>.</span><span class=nx>pathname</span> <span class=o>==</span> <span class=s1>&#39;/&#39;</span> <span class=o>||</span> <span class=nb>window</span><span class=p>.</span><span class=nx>location</span><span class=p>.</span><span class=nx>pathname</span><span class=p>.</span><span class=nx>includes</span><span class=p>(</span><span class=s1>&#39;/page/&#39;</span><span class=p>)){</span>
+</span></span><span class=line><span class=cl>        <span class=nx>getViewCount</span><span class=p>(</span><span class=nx>pagePathNames</span><span class=p>).</span><span class=nx>then</span><span class=p>(</span><span class=nx>pageCounts</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>          <span class=nx>pageCounts</span><span class=p>.</span><span class=nx>forEach</span><span class=p>((</span><span class=nx>item</span><span class=p>,</span><span class=nx>index</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nx>pageCountEles</span><span class=p>[</span><span class=nx>index</span><span class=p>].</span><span class=nx>innerText</span> <span class=o>=</span> <span class=nx>item</span>
+</span></span><span class=line><span class=cl>          <span class=p>})</span>
+</span></span><span class=line><span class=cl>        <span class=p>})</span>
+</span></span><span class=line><span class=cl>        <span class=nx>getCommentCount</span><span class=p>(</span><span class=nx>commentPathNames</span><span class=p>).</span><span class=nx>then</span><span class=p>(</span><span class=nx>commentCounts</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>          <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;commentCounts&#39;</span><span class=p>,</span><span class=nx>commentCounts</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>          <span class=nx>commentCounts</span><span class=p>.</span><span class=nx>forEach</span><span class=p>((</span><span class=nx>item</span><span class=p>,</span><span class=nx>index</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nx>commentCountEles</span><span class=p>[</span><span class=nx>index</span><span class=p>].</span><span class=nx>innerText</span> <span class=o>=</span> <span class=nx>item</span>
+</span></span><span class=line><span class=cl>          <span class=p>})</span>
+</span></span><span class=line><span class=cl>        <span class=p>})</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>      <span class=c1>// 更新文章页访问统计,获取评论统计
+</span></span></span><span class=line><span class=cl><span class=c1></span>      <span class=k>if</span><span class=p>(</span><span class=nb>window</span><span class=p>.</span><span class=nx>location</span><span class=p>.</span><span class=nx>pathname</span><span class=p>.</span><span class=nx>includes</span><span class=p>(</span><span class=s1>&#39;/post/&#39;</span><span class=p>)){</span>
+</span></span><span class=line><span class=cl>        <span class=nx>addViewCount</span><span class=p>(</span><span class=nx>pagePathNames</span><span class=p>[</span><span class=mi>0</span><span class=p>]).</span><span class=nx>then</span><span class=p>(</span><span class=nx>pageCount</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>          <span class=nx>pageCountEles</span><span class=p>[</span><span class=mi>0</span><span class=p>].</span><span class=nx>innerText</span> <span class=o>=</span> <span class=nx>pageCount</span>
+</span></span><span class=line><span class=cl>        <span class=p>})</span>
+</span></span><span class=line><span class=cl>        <span class=nx>getCommentCount</span><span class=p>(</span><span class=nx>commentPathNames</span><span class=p>).</span><span class=nx>then</span><span class=p>(</span><span class=nx>commentCounts</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>          <span class=nx>commentCounts</span><span class=p>.</span><span class=nx>forEach</span><span class=p>((</span><span class=nx>item</span><span class=p>,</span><span class=nx>index</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nx>commentCountEles</span><span class=p>[</span><span class=nx>index</span><span class=p>].</span><span class=nx>innerText</span> <span class=o>=</span> <span class=nx>item</span>
+</span></span><span class=line><span class=cl>          <span class=p>})</span>
+</span></span><span class=line><span class=cl>        <span class=p>})</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>      <span class=c1>// 更新页面底部访问统计,localStorage记录访问时间和访问统计
+</span></span></span><span class=line><span class=cl><span class=c1></span>      <span class=c1>// 没有访问过,往api添加访问记录并更新访问统计
+</span></span></span><span class=line><span class=cl><span class=c1></span>      <span class=c1>// 在1小时内访问过,从本地存储拿
+</span></span></span><span class=line><span class=cl><span class=c1></span>      <span class=c1>// 超过1小时,重新获取
+</span></span></span><span class=line><span class=cl><span class=c1></span>      <span class=kd>let</span> <span class=nx>indexCount</span> <span class=o>=</span> <span class=nx>localStorage</span><span class=p>.</span><span class=nx>getItem</span><span class=p>(</span><span class=s1>&#39;indexCount&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>      <span class=kd>let</span> <span class=nx>lastVisitTime</span> <span class=o>=</span> <span class=nx>localStorage</span><span class=p>.</span><span class=nx>getItem</span><span class=p>(</span><span class=s1>&#39;lastVisitTime&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>      <span class=k>if</span> <span class=p>(</span><span class=o>!!</span><span class=nx>lastVisitTime</span> <span class=o>==</span> <span class=kc>false</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>addViewCount</span><span class=p>(</span><span class=s1>&#39;/&#39;</span><span class=p>).</span><span class=nx>then</span><span class=p>(</span><span class=nx>indexCount</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>          <span class=nx>localStorage</span><span class=p>.</span><span class=nx>setItem</span><span class=p>(</span><span class=s1>&#39;indexCount&#39;</span><span class=p>,</span><span class=nx>indexCount</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>          <span class=nx>localStorage</span><span class=p>.</span><span class=nx>setItem</span><span class=p>(</span><span class=s1>&#39;lastVisitTime&#39;</span><span class=p>,</span> <span class=nb>Date</span><span class=p>.</span><span class=nx>now</span><span class=p>())</span>
+</span></span><span class=line><span class=cl>          <span class=nx>indexCountEle</span><span class=p>.</span><span class=nx>innerHTML</span> <span class=o>=</span> <span class=nx>indexCount</span>
+</span></span><span class=line><span class=cl>        <span class=p>})</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>      <span class=k>if</span><span class=p>(</span><span class=o>!!</span><span class=nx>lastVisitTime</span> <span class=o>&amp;&amp;</span> <span class=o>!!</span><span class=nx>indexCount</span> <span class=o>&amp;&amp;</span> <span class=nb>Date</span><span class=p>.</span><span class=nx>now</span><span class=p>()</span> <span class=o>-</span> <span class=nx>lastVisitTime</span> <span class=o>&lt;</span> <span class=mi>3600000</span> <span class=p>){</span>
+</span></span><span class=line><span class=cl>        <span class=nx>indexCount</span> <span class=o>=</span> <span class=nx>localStorage</span><span class=p>.</span><span class=nx>getItem</span><span class=p>(</span><span class=s1>&#39;indexCount&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=nx>indexCountEle</span><span class=p>.</span><span class=nx>innerHTML</span> <span class=o>=</span> <span class=nx>indexCount</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>      <span class=k>if</span><span class=p>(</span><span class=o>!!</span><span class=nx>lastVisitTime</span> <span class=o>&amp;&amp;</span> <span class=nb>Date</span><span class=p>.</span><span class=nx>now</span><span class=p>()</span> <span class=o>-</span> <span class=nx>lastVisitTime</span> <span class=o>&gt;=</span> <span class=mi>3600000</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>        <span class=nx>getViewCount</span><span class=p>([</span><span class=s2>&#34;/&#34;</span><span class=p>]).</span><span class=nx>then</span><span class=p>(</span><span class=nx>res</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>          <span class=nx>indexCount</span> <span class=o>=</span> <span class=nx>res</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>          <span class=nx>localStorage</span><span class=p>.</span><span class=nx>setItem</span><span class=p>(</span><span class=s1>&#39;indexCount&#39;</span><span class=p>,</span><span class=nx>indexCount</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>          <span class=nx>localStorage</span><span class=p>.</span><span class=nx>setItem</span><span class=p>(</span><span class=s1>&#39;lastVisitTime&#39;</span><span class=p>,</span> <span class=nb>Date</span><span class=p>.</span><span class=nx>now</span><span class=p>())</span>
+</span></span><span class=line><span class=cl>          <span class=nx>indexCountEle</span><span class=p>.</span><span class=nx>innerHTML</span> <span class=o>=</span> <span class=nx>indexCount</span>
+</span></span><span class=line><span class=cl>        <span class=p>})</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>      <span class=c1>// 样式
+</span></span></span><span class=line><span class=cl><span class=c1></span>      <span class=nx>setInterval</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>new</span> <span class=nb>Date</span><span class=p>().</span><span class=nx>getSeconds</span><span class=p>()</span> <span class=o>%</span> <span class=mi>2</span> <span class=o>===</span> <span class=mi>0</span> <span class=o>?</span> <span class=nx>indexCountEle</span><span class=p>.</span><span class=nx>style</span><span class=p>.</span><span class=nx>color</span> <span class=o>=</span> <span class=s1>&#39;red&#39;</span> <span class=o>:</span> <span class=nx>indexCountEle</span><span class=p>.</span><span class=nx>style</span><span class=p>.</span><span class=nx>color</span> <span class=o>=</span> <span class=s1>&#39;&#39;</span>
+</span></span><span class=line><span class=cl>      <span class=p>},</span> <span class=mi>1000</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>})()</span>
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=err>/script&gt;</span>
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=nx>style</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>.</span><span class=nx>wl</span><span class=o>-</span><span class=nx>action</span><span class=p>[</span><span class=nx>title</span><span class=o>=</span><span class=s2>&#34;GIF&#34;</span><span class=p>]</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>display</span><span class=o>:</span> <span class=nx>none</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=nx>footer</span><span class=p>.</span><span class=nx>site</span><span class=o>-</span><span class=nx>footer</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>padding</span><span class=o>-</span><span class=nx>bottom</span><span class=o>:</span> <span class=mi>20</span><span class=nx>px</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=err>/style&gt;</span>
+</span></span></code></pre></td></tr></table></div></div></section><footer class=article-footer><section class=article-tags><a href=/tags/hugo/>Hugo</a>
+<a href=/tags/blog/>Blog</a>
+<a href=/tags/comments/>Comments</a>
+<a href=/tags/analytics/>Analytics</a></section><section class=article-copyright><svg class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span><a rel=license href=http://creativecommons.org/licenses/by-nc-sa/4.0/>LICENSED UNDER CC BY-NC-SA 4.0<br></a></span></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>Related content</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/post/proxy-forward-reverse-transparent/><div class=article-details><h2 class=article-title>正向|反向|透明代理</h2></div></a></article><article><a href=/post/markdown-quick-start/><div class=article-details><h2 class=article-title>Markdown笔记</h2></div></a></article><article><a href=/post/deploy-github-page-blog/><div class=article-details><h2 class=article-title>用Github Page 搭免费博客</h2></div></a></article></div></div></aside><link rel=stylesheet href=https://unpkg.com/@waline/client@v3/dist/waline.css><div id=waline class=waline-container></div><style>.waline-container{background-color:var(--card-background);border-radius:var(--card-border-radius);box-shadow:var(--shadow-l1);padding:var(--card-padding);--waline-font-size:var(--article-font-size)}.waline-container .wl-count{color:var(--card-text-color-main)}</style><script type=module>
+    import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+    init({"comment":false,"dark":"html[data-scheme=\"dark\"]","el":"#waline","emoji":["https://unpkg.com/@waline/emojis@1.2.0/tieba","https://unpkg.com/@waline/emojis@1.2.0/bilibili","https://unpkg.com/@waline/emojis@1.2.0/bmoji","https://unpkg.com/@waline/emojis@1.2.0/weibo"],"highlighter":true,"imageUploader":false,"lang":"en","locale":{"admin":"Admin","placeholder":"Welcome to leave your valuable comments!\nPlease provide a correct email address so that we can send you an email notification when there is a reply.\nDo not post any content unrelated to this article.","reaction0":"Very helpful","reaction1":"Helpful","reaction2":"Average","reaction3":"Not helpful","reaction4":"Confused","reaction5":"Incorrect","reactionTitle":"Was this article helpful to you?"},"meta":["nick","mail"],"pageview":false,"reaction":["https://npm.elemecdn.com/@waline/emojis@1.1.0/bilibili/bb_heart_eyes.png","https://npm.elemecdn.com/@waline/emojis@1.1.0/bilibili/bb_thumbsup.png","https://npm.elemecdn.com/@waline/emojis@1.1.0/bilibili/bb_zhoumei.png","https://npm.elemecdn.com/@waline/emojis@1.1.0/bilibili/bb_grievance.png","https://npm.elemecdn.com/@waline/emojis@1.1.0/bilibili/bb_dizzy_face.png","https://npm.elemecdn.com/@waline/emojis@1.1.0/bilibili/bb_slap.png"],"requiredMeta":["nick","mail"],"requiredmetanames":["nick","mail"],"serverURL":"https://waline.hellohxx.top"});
+</script><footer class=site-footer><section class=copyright>&copy;
+2017 -
+2024 Jqtmviyu's Blog</section><section class=powerby>build with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a>, theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.26.0>Stack</a></b>, visits <span class="waline-index-count breathe" waline-url=https://waline.hellohxx.top data-path=/404.html style=font-weight:700>0</span></section><script>(async()=>{let e=document.querySelector(".waline-index-count"),s=e.getAttribute("waline-url"),o=document.querySelectorAll(".waline-pageview-count"),a=Array.from(o).map(e=>e.getAttribute("data-path")),i=document.querySelectorAll(".waline-comment-count"),r=Array.from(i).map(e=>e.getAttribute("data-path"));function c(e){let t=s+"/api/article/?path=";return e.forEach((e,n)=>{t+=n===0?e:","+e}),fetch(t).then(e=>e.json()).then(e=>{if(e.errno==0)return e.data.map(e=>e.time);throw new Error("获取失败")}).catch(e=>new Promise((t,n)=>{n(e)}))}function l(e){let t={path:e};return fetch(`${s}/api/article`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(t)}).then(e=>e.json()).then(e=>{if(e.errno==0)return e.data[0].time;throw new Error("获取失败")}).catch(e=>new Promise((t,n)=>{n(e)}))}function d(e){let t=s+"/api/comment?type=count&lang=en&url=";return e.forEach((e,n)=>{t+=n===0?e:","+e}),fetch(t).then(e=>e.json()).then(e=>{if(e.errno==0)return e.data;throw new Error("获取失败")}).catch(e=>new Promise((t,n)=>{n(e)}))}(window.location.pathname=="/"||window.location.pathname.includes("/page/"))&&(c(a).then(e=>{e.forEach((e,t)=>{o[t].innerText=e})}),d(r).then(e=>{console.log("commentCounts",e),e.forEach((e,t)=>{i[t].innerText=e})})),window.location.pathname.includes("/post/")&&(l(a[0]).then(e=>{o[0].innerText=e}),d(r).then(e=>{e.forEach((e,t)=>{i[t].innerText=e})}));let t=localStorage.getItem("indexCount"),n=localStorage.getItem("lastVisitTime");!!n==!1&&l("/").then(t=>{localStorage.setItem("indexCount",t),localStorage.setItem("lastVisitTime",Date.now()),e.innerHTML=t}),!!n&&!!t&&Date.now()-n<36e5&&(t=localStorage.getItem("indexCount"),e.innerHTML=t),!!n&&Date.now()-n>=36e5&&c(["/"]).then(n=>{t=n[0],localStorage.setItem("indexCount",t),localStorage.setItem("lastVisitTime",Date.now()),e.innerHTML=t}),setInterval(()=>{(new Date).getSeconds()%2===0?e.style.color="red":e.style.color=""},1e3)})()</script><style>.wl-action[title=GIF]{display:none}footer.site-footer{padding-bottom:20px}</style></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>
