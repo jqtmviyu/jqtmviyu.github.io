@@ -253,7 +253,6 @@
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=o>[</span> <span class=s2>&#34;</span><span class=nv>$response</span><span class=s2>&#34;</span> <span class=o>==</span> <span class=s2>&#34;200&#34;</span> <span class=o>]</span><span class=p>;</span> <span class=k>then</span>
 </span></span><span class=line><span class=cl>      <span class=nb>echo</span> <span class=s2>&#34;</span><span class=si>${</span><span class=nv>Fullname</span><span class=si>}</span><span class=s2> DNS记录更新成功&#34;</span>
-</span></span><span class=line><span class=cl>      <span class=nb>echo</span> <span class=s2>&#34;</span><span class=nv>$current_ipv6</span><span class=s2>&#34;</span> &gt; /tmp/previous_ipv6
 </span></span><span class=line><span class=cl>    <span class=k>else</span>
 </span></span><span class=line><span class=cl>      <span class=nb>echo</span> <span class=s2>&#34;</span><span class=si>${</span><span class=nv>Fullname</span><span class=si>}</span><span class=s2> DNS记录更新失败，HTTP状态码: </span><span class=nv>$response</span><span class=s2>&#34;</span>
 </span></span><span class=line><span class=cl>    <span class=k>fi</span>
@@ -273,6 +272,7 @@
 </span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=o>[</span> <span class=s2>&#34;</span><span class=nv>$current_ipv6</span><span class=s2>&#34;</span> !<span class=o>=</span> <span class=s2>&#34;</span><span class=nv>$previous_ipv6</span><span class=s2>&#34;</span> <span class=o>]</span><span class=p>;</span> <span class=k>then</span>
 </span></span><span class=line><span class=cl>        <span class=nb>echo</span> <span class=s2>&#34;开始更新&#34;</span>
 </span></span><span class=line><span class=cl>        updatedns
+</span></span><span class=line><span class=cl>        <span class=nb>echo</span> <span class=s2>&#34;</span><span class=nv>$current_ipv6</span><span class=s2>&#34;</span> &gt; /tmp/previous_ipv6
 </span></span><span class=line><span class=cl>    <span class=k>else</span>
 </span></span><span class=line><span class=cl>        <span class=nb>echo</span> <span class=s2>&#34;ipv6地址未发生变化,不需要更新&#34;</span>
 </span></span><span class=line><span class=cl>    <span class=k>fi</span>
