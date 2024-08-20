@@ -48,19 +48,19 @@
 </span></span><span class=line><span class=cl>      - ./index.html:/system/dashboard-ui/index.html
 </span></span><span class=line><span class=cl>    <span class=c1>#devices: # gpu相关,这两行没必要</span>
 </span></span><span class=line><span class=cl>      <span class=c1>#- /dev/dri:/dev/dri</span>
-</span></span><span class=line><span class=cl>    ports:
-</span></span><span class=line><span class=cl>      - 8096:8096
-</span></span><span class=line><span class=cl>      - 8920:8920
+</span></span><span class=line><span class=cl>    <span class=c1># ports:</span>
+</span></span><span class=line><span class=cl>    <span class=c1>#   - 8096:8096</span>
+</span></span><span class=line><span class=cl>    <span class=c1>#   - 8920:8920</span>
 </span></span><span class=line><span class=cl>    network_mode: <span class=s1>&#39;host&#39;</span>
 </span></span><span class=line><span class=cl>    restart: unless-stopped
 </span></span><span class=line><span class=cl>    dns:
 </span></span><span class=line><span class=cl>      - 208.67.222.222
 </span></span><span class=line><span class=cl>    environment:
-</span></span><span class=line><span class=cl>      - <span class=nv>http_proxy</span><span class=o>=</span>http://127.0.0.1:7890
-</span></span><span class=line><span class=cl>      - <span class=nv>https_proxy</span><span class=o>=</span>http://127.0.0.1:7890
+</span></span><span class=line><span class=cl>      - <span class=nv>http_proxy</span><span class=o>=</span>http://172.17.0.1:7890
+</span></span><span class=line><span class=cl>      - <span class=nv>https_proxy</span><span class=o>=</span>http://172.17.0.1:7890
 </span></span><span class=line><span class=cl>      - <span class=nv>no_proxy</span><span class=o>=</span><span class=s2>&#34;localhost,127.0.0.0/8,192.168.0.0/16&#34;</span>
-</span></span><span class=line><span class=cl>      - <span class=nv>HTTP_PROXY</span><span class=o>=</span>http://127.0.0.1:7890
-</span></span><span class=line><span class=cl>      - <span class=nv>HTTPS_PROXY</span><span class=o>=</span>http://127.0.0.1:7890
+</span></span><span class=line><span class=cl>      - <span class=nv>HTTP_PROXY</span><span class=o>=</span>http://172.17.0.1:7890
+</span></span><span class=line><span class=cl>      - <span class=nv>HTTPS_PROXY</span><span class=o>=</span>http://172.17.0.1:7890
 </span></span><span class=line><span class=cl>      - <span class=nv>NO_PROXY</span><span class=o>=</span><span class=s2>&#34;localhost,127.0.0.0/8,192.168.0.0/16&#34;</span>
 </span></span><span class=line><span class=cl>      - <span class=nv>UID</span><span class=o>=</span><span class=m>0</span>
 </span></span><span class=line><span class=cl>      - <span class=nv>GID</span><span class=o>=</span><span class=m>0</span>
@@ -172,11 +172,11 @@
 </span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>PGID=0</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>TZ=Asia/Shanghai</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>JELLYFIN_PublishedServerUrl=192.168.2.5</span><span class=w> </span><span class=c>#optional</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>http_proxy=127.0.0.1:7890</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>https_proxy=127.0.0.1:7890</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>http_proxy=172.17.0.1:7890</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>https_proxy=172.17.0.1:7890</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>no_proxy=&#34;localhost,127.0.0.0/8,192.168.0.0/16&#34;</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>HTTP_PROXY=127.0.0.1:7890</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>HTTPS_PROXY=127.0.0.1:7890</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>HTTP_PROXY=172.17.0.1:7890</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>HTTPS_PROXY=172.17.0.1:7890</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>NO_PROXY=&#34;localhost,127.0.0.0/8,192.168.0.0/16&#34;</span><span class=w>
 </span></span></span></code></pre></td></tr></table></div></div><p>常见问题:</p><ul><li>封面出现方框</li></ul><p>原因: 字体异常</p><p>解决方法: 替换字体, 例如用支持中文的思源黑体替换, 就是上面配置<code>- ./fonts:/usr/share/fonts/truetype/dejavu</code>的原因,</p><p>提前重命名好并上传覆盖替换</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
