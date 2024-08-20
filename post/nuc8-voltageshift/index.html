@@ -68,10 +68,10 @@
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=c1># 第四步:多轮测试稳定后,永久生效</span>
 </span></span><span class=line><span class=cl><span class=c1># sudo ./voltageshift buildlaunchd &lt;CPU&gt; &lt;GPU&gt; &lt;CPUCache&gt; &lt;SA&gt; &lt;AI/O&gt; &lt;DI/O&gt; &lt;turbo&gt; &lt;pl1&gt; &lt;pl2&gt; &lt;remain&gt; &lt;UpdateMins (0 only apply at bootup)&gt;</span>
-</span></span><span class=line><span class=cl>sudo ./voltageshift buildlaunchd -100 -100 <span class=m>0</span> <span class=m>0</span> <span class=m>0</span> <span class=m>0</span> <span class=m>1</span>
+</span></span><span class=line><span class=cl>sudo ./voltageshift buildlaunchd -100 -100 <span class=m>0</span> <span class=m>0</span> <span class=m>0</span> <span class=m>0</span> <span class=m>0</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=c1># 注意中间的空格是一个,不能多打</span>
-</span></span><span class=line><span class=cl><span class=c1># turbo 1 关闭</span>
+</span></span><span class=line><span class=cl><span class=c1># turbo 0 关闭</span>
 </span></span><span class=line><span class=cl><span class=c1># UpdateMins 默认值为 160 分钟，Hibernate（挂起到磁盘）会重置电压设置，因为睡眠（挂起到内存）不会更改睡眠值，它会定期检查设置在周期内，并根据需要进行修改。 0 仅用于在启动时应用设置。</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=c1># 删除配置文件</span>
