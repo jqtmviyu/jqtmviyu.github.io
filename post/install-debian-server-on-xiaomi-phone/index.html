@@ -1,0 +1,1896 @@
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="红米note4x刷成debian服务器 参考链接:\nPmbootstrap 相关:\nhttps://wiki.postmarketos.org/wiki/Xiaomi_Redmi_Note_4_(xiaomi-mido)\nhttps://wiki.postmarketos.org/wiki/Installation\nhttps://wiki.postmarketos.org/wiki/Pmbootstrap\n参考博客:\nhttps://blog.csdn.net/github_38345754/article/details/114291930\nhttps://forum.renegade-project.tech/t/835-845-855-uefi-archlinux/2497\nhttps://forum.renegade-project.tech/t/835-845-855-uefi-ubuntu-rootfs/2891\nhttps://www.knightli.com/2023/08/09/随身wif-idebian-固件编译/\n"><title>Install Debian Server on Xiaomi Phone</title>
+<link rel=canonical href=/post/install-debian-server-on-xiaomi-phone/><link rel=stylesheet href=/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css><meta property='og:title' content="Install Debian Server on Xiaomi Phone"><meta property='og:description' content="红米note4x刷成debian服务器 参考链接:\nPmbootstrap 相关:\nhttps://wiki.postmarketos.org/wiki/Xiaomi_Redmi_Note_4_(xiaomi-mido)\nhttps://wiki.postmarketos.org/wiki/Installation\nhttps://wiki.postmarketos.org/wiki/Pmbootstrap\n参考博客:\nhttps://blog.csdn.net/github_38345754/article/details/114291930\nhttps://forum.renegade-project.tech/t/835-845-855-uefi-archlinux/2497\nhttps://forum.renegade-project.tech/t/835-845-855-uefi-ubuntu-rootfs/2891\nhttps://www.knightli.com/2023/08/09/随身wif-idebian-固件编译/\n"><meta property='og:url' content='/post/install-debian-server-on-xiaomi-phone/'><meta property='og:site_name' content="Jqtmviyu's Blog"><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='debian'><meta property='article:tag' content='note4x'><meta property='article:tag' content='server'><meta property='article:published_time' content='2024-12-26T20:06:51+08:00'><meta property='article:modified_time' content='2024-12-26T20:06:51+08:00'><meta name=twitter:title content="Install Debian Server on Xiaomi Phone"><meta name=twitter:description content="红米note4x刷成debian服务器 参考链接:\nPmbootstrap 相关:\nhttps://wiki.postmarketos.org/wiki/Xiaomi_Redmi_Note_4_(xiaomi-mido)\nhttps://wiki.postmarketos.org/wiki/Installation\nhttps://wiki.postmarketos.org/wiki/Pmbootstrap\n参考博客:\nhttps://blog.csdn.net/github_38345754/article/details/114291930\nhttps://forum.renegade-project.tech/t/835-845-855-uefi-archlinux/2497\nhttps://forum.renegade-project.tech/t/835-845-855-uefi-ubuntu-rootfs/2891\nhttps://www.knightli.com/2023/08/09/随身wif-idebian-固件编译/\n"><link rel="shortcut icon" href=/favicon.png></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/avatar.png width=300 height=300 class=site-logo loading=lazy alt=Avatar></a></figure><div class=site-meta><h1 class=site-name><a href=/>Jqtmviyu's Blog</a></h1><h2 class=site-description>It's never too late to learn.</h2></div></header><ol class=menu-social><li><a href=https://github.com/jqtmviyu target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li><li><a href=https://git.081024.xyz/hxx target=_blank title=Gitea rel=me><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b6b6b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-gitlab"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M21 14l-9 7-9-7L6 3l3 7h6l3-7z"/></svg></a></li><li><a href=mailto:jqtmviyu#gmail.com target=_blank title=Mail rel=me><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b6b6b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-mail"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7z"/><path d="M3 7l9 6 9-6"/></svg></a></li><li><a href=/index.xml target=_blank title=Rss rel=me><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b6b6b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-rss"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 19m-1 0a1 1 0 102 0 1 1 0 10-2 0"/><path d="M4 4a16 16 0 0116 16"/><path d="M4 11a9 9 0 019 9"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b6b6b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-home"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12H3l9-9 9 9h-2"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Home</span></a></li><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Archives</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Search</span></a></li><li><a href=/about/><svg class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+<span>About</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>Dark Mode</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#源码下载>源码下载</a></li><li><a href=#依赖安装>依赖安装</a></li><li><a href=#编译内核>编译内核</a><ol><li><a href=#内核编译配置>内核编译配置</a></li></ol></li><li><a href=#开始编译>开始编译</a></li><li><a href=#制作rootfs>制作rootfs</a><ol><li><a href=#debian>debian</a><ol><li><a href=#生成zip>生成zip</a></li><li><a href=#生成rootfs>生成rootfs</a></li><li><a href=#btrfs设置压缩比>btrfs设置压缩比</a></li><li><a href=#安装内核并设置环境>安装内核并设置环境</a></li><li><a href=#开机扩容>开机扩容</a></li><li><a href=#rclocal开机脚本>rc.local开机脚本</a></li><li><a href=#开启串口登录>开启串口登录</a></li><li><a href=#添加默认wifi连接>添加默认wifi连接</a></li></ol></li><li><a href=#ubuntubtrfs>ubuntu(btrfs)</a><ol><li><a href=#docker启动不了>docker启动不了</a></li></ol></li><li><a href=#arch>arch</a></li><li><a href=#移植其它设备的rootfs>移植其它设备的rootfs</a></li></ol></li><li><a href=#制作boot>制作boot</a><ol><li><a href=#复制boot所需的文件>复制boot所需的文件</a></li><li><a href=#生成boot和rootf安卓刷机包>生成boot和rootf安卓刷机包</a></li></ol></li><li><a href=#刷机>刷机</a></li><li><a href=#关闭屏幕灯光>关闭屏幕灯光</a></li><li><a href=#查看电流>查看电流</a></li><li><a href=#查看电量>查看电量</a></li><li><a href=#查看频率>查看频率</a></li><li><a href=#骁龙625超频>骁龙625超频</a></li><li><a href=#扩大分区>扩大分区</a></li><li><a href=#定量充电脚本>定量充电脚本</a></li><li><a href=#获取mkbootimg-参数>获取mkbootimg 参数</a></li><li><a href=#切换otg主从模式>切换OTG主从模式</a></li><li><a href=#测试稳定性>测试稳定性</a></li><li><a href=#btrfs-查看压缩信息>btrfs 查看压缩信息</a></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/notes/ style=background-color:#6b69d6;color:#fff>Notes</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/post/install-debian-server-on-xiaomi-phone/>Install Debian Server on Xiaomi Phone</a></h2></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>2024/Dec/26</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>21 minute read</time></div><div><svg t="1720522640439" class="icon" viewBox="0 0 1024 1024" p-id="5342" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M997 435.6c-28.2-36.7-65.4-81.4-107.4-122.2-54.6-53.2-110.5-95.6-166.1-126.3-71.2-39.2-142-59.1-210.7-59.1s-139.6 19.9-210.7 59.1c-55.5 30.7-111.4 73.1-166.1 126.3-42 40.8-79.3 85.5-107.5 122.1-34.8 45.3-34.8 107.8.0 153.1 28.2 36.7 65.4 81.4 107.4 122.2C190.5 764 246.5 806.4 302 837.1c71.2 39.2 142.1 59.1 210.7 59.1 68.7.0 139.6-19.9 210.8-59 55.5-30.7 111.4-73.1 166.1-126.3 42-40.8 79.3-85.6 107.4-122.2 34.8-45.3 34.8-107.8.0-153.1zm-37.3 99c-66.2 89-243.8 299-446.8 299-57.5.0-117.7-17.1-179-50.8-50.5-27.7-101.7-66.6-152.2-115.6-51.1-49.5-91-99.5-115.7-132.6-10-13.5-10-31.6.0-44.9 66.1-89 243.7-299 446.8-299 57.5.0 117.6 17.1 179 50.8 50.5 27.7 101.7 66.6 152.2 115.6 51.1 49.5 91 99.5 115.7 132.6 9.9 13.4 9.9 31.6.0 44.9z" p-id="5343" fill="#8a8a8a"/><path d="M512 321.7c-105.7.0-191.6 86-191.6 191.6.0 105.7 86 191.6 191.6 191.6s191.6-86 191.6-191.6c0-105.7-86-191.6-191.6-191.6zm0 319.2c-70.3.0-127.6-57.2-127.6-127.6S441.7 385.7 512 385.7s127.6 57.2 127.6 127.6S582.3 640.9 512 640.9z" p-id="5344" fill="#8a8a8a"/></svg>
+<time class=article-pageview><span class=waline-pageview-count data-path=/post/install-debian-server-on-xiaomi-phone/>0</span> visits</time></div><div><svg t="1721405452473" class="icon" viewBox="0 0 1024 1024" p-id="2287" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24"><path d="M853.333333 138.666667H170.666667C130.133334 138.666667 96 172.8 96 213.333333v512C96 765.866666 130.133333 8e2 170.666667 8e2h151.466666V917.333333c0 12.8 8.533333 25.6 19.2 29.866667 4.266667 2.133333 8.533333 2.133333 12.8 2.133333 8.533333.0 17.066667-4.266667 23.466667-10.666666L514.133333 8e2h339.2C893.866666 8e2 928 765.866667 928 725.333333v-512c0-40.533333-34.133333-74.666667-74.666667-74.666666zM864 725.333333c0 6.4-4.266667 10.666667-10.666667 10.666667h-352c-8.533333.0-17.066667 4.266667-23.466666 10.666667l-89.6 93.866666V768c0-17.066667-14.933333-32-32-32h-185.6C164.266667 736 160 731.733333 160 725.333333v-512c0-6.4 4.266667-10.666667 10.666667-10.666666h682.666666c6.4.0 10.666667 4.266667 10.666667 10.666666v512z" fill="#8a8a8a" p-id="2288"/><path d="M512 490.666667H298.666667c-17.066667.0-32 14.933333-32 32s14.933333 32 32 32H512c17.066667.0 32-14.933333 32-32S529.066667 490.666667 512 490.666667zM672 341.333333H298.666667c-17.066667.0-32 14.933333-32 32s14.933333 32 32 32H672c17.066667.0 32-14.933333 32-32s-14.933333-32-32-32z" fill="#8a8a8a" p-id="2289"/></svg>
+<time class=article-comment><span class=waline-comment-count data-path=/post/install-debian-server-on-xiaomi-phone/>0</span> comments</time></div></footer></div></header><section class=article-content><h1 id=红米note4x刷成debian服务器>红米note4x刷成debian服务器</h1><p>参考链接:</p><p>Pmbootstrap 相关:<br><a class=link href=https://wiki.postmarketos.org/wiki/Xiaomi_Redmi_Note_4_%28xiaomi-mido%29 target=_blank rel=noopener>https://wiki.postmarketos.org/wiki/Xiaomi_Redmi_Note_4_(xiaomi-mido)</a><br><a class=link href=https://wiki.postmarketos.org/wiki/Installation target=_blank rel=noopener>https://wiki.postmarketos.org/wiki/Installation</a><br><a class=link href=https://wiki.postmarketos.org/wiki/Pmbootstrap target=_blank rel=noopener>https://wiki.postmarketos.org/wiki/Pmbootstrap</a></p><p>参考博客:<br><a class=link href=https://blog.csdn.net/github_38345754/article/details/114291930 target=_blank rel=noopener>https://blog.csdn.net/github_38345754/article/details/114291930</a><br><a class=link href=https://forum.renegade-project.tech/t/835-845-855-uefi-archlinux/2497 target=_blank rel=noopener>https://forum.renegade-project.tech/t/835-845-855-uefi-archlinux/2497</a><br><a class=link href=https://forum.renegade-project.tech/t/835-845-855-uefi-ubuntu-rootfs/2891 target=_blank rel=noopener>https://forum.renegade-project.tech/t/835-845-855-uefi-ubuntu-rootfs/2891</a><br><a class=link href=https://www.knightli.com/2023/08/09/ target=_blank rel=noopener>https://www.knightli.com/2023/08/09/</a>随身wif-idebian-固件编译/</p><p>参考项目:<br><a class=link href=https://github.com/umeiko/KlipperPhonesLinux target=_blank rel=noopener>https://github.com/umeiko/KlipperPhonesLinux</a><br><a class=link href=https://gitee.com/meiziyang2023/hm2-ubuntu-ports target=_blank rel=noopener>https://gitee.com/meiziyang2023/hm2-ubuntu-ports</a></p><p>参考视频:<br><a class=link href=https://www.bilibili.com/video/BV15N4y127mN/ target=_blank rel=noopener>https://www.bilibili.com/video/BV15N4y127mN/</a><br><a class=link href=https://www.bilibili.com/video/BV13G411Y7u4/ target=_blank rel=noopener>https://www.bilibili.com/video/BV13G411Y7u4/</a></p><p>名词解释:<br><a class=link href=https://wiki.postmarketos.org/wiki/Glossary target=_blank rel=noopener>https://wiki.postmarketos.org/wiki/Glossary</a></p><h2 id=源码下载>源码下载</h2><ol><li>mainline</li></ol><p><a class=link href=https://github.com/msm8953-mainline/linux target=_blank rel=noopener>https://github.com/msm8953-mainline/linux</a></p><p>注意下载打包后的, 而不是main仓库, 版本选择 6.7.5-r0</p><ol start=2><li>内核编译配置文件</li></ol><p><a class=link href="https://gitlab.com/postmarketOS/pmaports/-/blob/master/device/community/linux-postmarketos-qcom-msm8953/config-postmarketos-qcom-msm8953.aarch64?ref_type=heads" target=_blank rel=noopener>https://gitlab.com/postmarketOS/pmaports/-/blob/master/device/community/linux-postmarketos-qcom-msm8953/config-postmarketos-qcom-msm8953.aarch64?ref_type=heads</a></p><p>或者 <a class=link href=https://github.com/umeiko/KlipperPhonesLinux/tree/main/LinuxKernels/msm8953 target=_blank rel=noopener>https://github.com/umeiko/KlipperPhonesLinux/tree/main/LinuxKernels/msm8953</a></p><ol start=3><li>开源驱动</li></ol><p><a class=link href="https://gitlab.com/postmarketOS/pmaports/-/blob/master/device/community/firmware-xiaomi-mido/APKBUILD?ref_type=heads" target=_blank rel=noopener>https://gitlab.com/postmarketOS/pmaports/-/blob/master/device/community/firmware-xiaomi-mido/APKBUILD?ref_type=heads</a></p><p>找到这个下载地址</p><p><a class=link href=https://github.com/Kiciuk/proprietary_firmware_mido target=_blank rel=noopener>https://github.com/Kiciuk/proprietary_firmware_mido</a></p><p>或者从pom中提取</p><p>或者 <a class=link href=https://github.com/umeiko/KlipperPhonesLinux/tree/main/LinuxKernels/msm8953 target=_blank rel=noopener>https://github.com/umeiko/KlipperPhonesLinux/tree/main/LinuxKernels/msm8953</a></p><h2 id=依赖安装>依赖安装</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>sudo apt-get install cpio
+</span></span><span class=line><span class=cl>sudo apt install avrdude gcc-avr binutils-avr avr-libc stm32flash libnewlib-arm-none-eabi gcc-arm-none-eabi binutils-arm-none-eabi pkg-config
+</span></span><span class=line><span class=cl>sudo apt install binfmt-support qemu-user-static gcc-10-aarch64-linux-gnu kernel-package fakeroot simg2img img2simg mkbootimg bison
+</span></span></code></pre></td></tr></table></div></div><h2 id=编译内核>编译内核</h2><h3 id=内核编译配置>内核编译配置</h3><p>下载 <code>config-postmarketos-qcom-msm8953.aarch64</code>, 用<code>check-kernel-config.sh</code>脚本进行处理</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>mv config-postmarketos-qcom-msm8953.aarch64 config
+</span></span><span class=line><span class=cl>./check-kernel-config.sh config -w
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 复制到linux文件夹中</span>
+</span></span><span class=line><span class=cl>cp config linux/.config
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 设置环境变量</span>
+</span></span><span class=line><span class=cl><span class=nb>source</span> ./env.sh
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=nv>$ARCH</span>
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span><span class=lnt>104
+</span><span class=lnt>105
+</span><span class=lnt>106
+</span><span class=lnt>107
+</span><span class=lnt>108
+</span><span class=lnt>109
+</span><span class=lnt>110
+</span><span class=lnt>111
+</span><span class=lnt>112
+</span><span class=lnt>113
+</span><span class=lnt>114
+</span><span class=lnt>115
+</span><span class=lnt>116
+</span><span class=lnt>117
+</span><span class=lnt>118
+</span><span class=lnt>119
+</span><span class=lnt>120
+</span><span class=lnt>121
+</span><span class=lnt>122
+</span><span class=lnt>123
+</span><span class=lnt>124
+</span><span class=lnt>125
+</span><span class=lnt>126
+</span><span class=lnt>127
+</span><span class=lnt>128
+</span><span class=lnt>129
+</span><span class=lnt>130
+</span><span class=lnt>131
+</span><span class=lnt>132
+</span><span class=lnt>133
+</span><span class=lnt>134
+</span><span class=lnt>135
+</span><span class=lnt>136
+</span><span class=lnt>137
+</span><span class=lnt>138
+</span><span class=lnt>139
+</span><span class=lnt>140
+</span><span class=lnt>141
+</span><span class=lnt>142
+</span><span class=lnt>143
+</span><span class=lnt>144
+</span><span class=lnt>145
+</span><span class=lnt>146
+</span><span class=lnt>147
+</span><span class=lnt>148
+</span><span class=lnt>149
+</span><span class=lnt>150
+</span><span class=lnt>151
+</span><span class=lnt>152
+</span><span class=lnt>153
+</span><span class=lnt>154
+</span><span class=lnt>155
+</span><span class=lnt>156
+</span><span class=lnt>157
+</span><span class=lnt>158
+</span><span class=lnt>159
+</span><span class=lnt>160
+</span><span class=lnt>161
+</span><span class=lnt>162
+</span><span class=lnt>163
+</span><span class=lnt>164
+</span><span class=lnt>165
+</span><span class=lnt>166
+</span><span class=lnt>167
+</span><span class=lnt>168
+</span><span class=lnt>169
+</span><span class=lnt>170
+</span><span class=lnt>171
+</span><span class=lnt>172
+</span><span class=lnt>173
+</span><span class=lnt>174
+</span><span class=lnt>175
+</span><span class=lnt>176
+</span><span class=lnt>177
+</span><span class=lnt>178
+</span><span class=lnt>179
+</span><span class=lnt>180
+</span><span class=lnt>181
+</span><span class=lnt>182
+</span><span class=lnt>183
+</span><span class=lnt>184
+</span><span class=lnt>185
+</span><span class=lnt>186
+</span><span class=lnt>187
+</span><span class=lnt>188
+</span><span class=lnt>189
+</span><span class=lnt>190
+</span><span class=lnt>191
+</span><span class=lnt>192
+</span><span class=lnt>193
+</span><span class=lnt>194
+</span><span class=lnt>195
+</span><span class=lnt>196
+</span><span class=lnt>197
+</span><span class=lnt>198
+</span><span class=lnt>199
+</span><span class=lnt>200
+</span><span class=lnt>201
+</span><span class=lnt>202
+</span><span class=lnt>203
+</span><span class=lnt>204
+</span><span class=lnt>205
+</span><span class=lnt>206
+</span><span class=lnt>207
+</span><span class=lnt>208
+</span><span class=lnt>209
+</span><span class=lnt>210
+</span><span class=lnt>211
+</span><span class=lnt>212
+</span><span class=lnt>213
+</span><span class=lnt>214
+</span><span class=lnt>215
+</span><span class=lnt>216
+</span><span class=lnt>217
+</span><span class=lnt>218
+</span><span class=lnt>219
+</span><span class=lnt>220
+</span><span class=lnt>221
+</span><span class=lnt>222
+</span><span class=lnt>223
+</span><span class=lnt>224
+</span><span class=lnt>225
+</span><span class=lnt>226
+</span><span class=lnt>227
+</span><span class=lnt>228
+</span><span class=lnt>229
+</span><span class=lnt>230
+</span><span class=lnt>231
+</span><span class=lnt>232
+</span><span class=lnt>233
+</span><span class=lnt>234
+</span><span class=lnt>235
+</span><span class=lnt>236
+</span><span class=lnt>237
+</span><span class=lnt>238
+</span><span class=lnt>239
+</span><span class=lnt>240
+</span><span class=lnt>241
+</span><span class=lnt>242
+</span><span class=lnt>243
+</span><span class=lnt>244
+</span><span class=lnt>245
+</span><span class=lnt>246
+</span><span class=lnt>247
+</span><span class=lnt>248
+</span><span class=lnt>249
+</span><span class=lnt>250
+</span><span class=lnt>251
+</span><span class=lnt>252
+</span><span class=lnt>253
+</span><span class=lnt>254
+</span><span class=lnt>255
+</span><span class=lnt>256
+</span><span class=lnt>257
+</span><span class=lnt>258
+</span><span class=lnt>259
+</span><span class=lnt>260
+</span><span class=lnt>261
+</span><span class=lnt>262
+</span><span class=lnt>263
+</span><span class=lnt>264
+</span><span class=lnt>265
+</span><span class=lnt>266
+</span><span class=lnt>267
+</span><span class=lnt>268
+</span><span class=lnt>269
+</span><span class=lnt>270
+</span><span class=lnt>271
+</span><span class=lnt>272
+</span><span class=lnt>273
+</span><span class=lnt>274
+</span><span class=lnt>275
+</span><span class=lnt>276
+</span><span class=lnt>277
+</span><span class=lnt>278
+</span><span class=lnt>279
+</span><span class=lnt>280
+</span><span class=lnt>281
+</span><span class=lnt>282
+</span><span class=lnt>283
+</span><span class=lnt>284
+</span><span class=lnt>285
+</span><span class=lnt>286
+</span><span class=lnt>287
+</span><span class=lnt>288
+</span><span class=lnt>289
+</span><span class=lnt>290
+</span><span class=lnt>291
+</span><span class=lnt>292
+</span><span class=lnt>293
+</span><span class=lnt>294
+</span><span class=lnt>295
+</span><span class=lnt>296
+</span><span class=lnt>297
+</span><span class=lnt>298
+</span><span class=lnt>299
+</span><span class=lnt>300
+</span><span class=lnt>301
+</span><span class=lnt>302
+</span><span class=lnt>303
+</span><span class=lnt>304
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl><span class=c1># check-kernel-config.sh</span>
+</span></span><span class=line><span class=cl><span class=c1>#!/bin/bash</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>FILE</span><span class=o>=</span><span class=nv>$1</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>[</span> -f <span class=s2>&#34;</span><span class=nv>$FILE</span><span class=s2>&#34;</span> <span class=o>]</span> <span class=o>||</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>	<span class=nb>echo</span> <span class=s2>&#34;Provide a config file as argument&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=nb>exit</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>write</span><span class=o>=</span><span class=nb>false</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=o>[</span> <span class=s2>&#34;</span><span class=nv>$2</span><span class=s2>&#34;</span> <span class=o>=</span> <span class=s2>&#34;-w&#34;</span> <span class=o>]</span><span class=p>;</span> <span class=k>then</span>
+</span></span><span class=line><span class=cl>	<span class=nv>write</span><span class=o>=</span><span class=nb>true</span>
+</span></span><span class=line><span class=cl><span class=k>fi</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>CONFIGS_ON</span><span class=o>=</span><span class=s2>&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_IKCONFIG
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_CPUSETS
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_AUTOFS4_FS
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_TMPFS_XATTR
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_TMPFS_POSIX_ACL
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_CGROUP_DEVICE
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_CGROUP_MEM_RES_CTLR
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_CGROUP_MEM_RES_CTLR_SWAP
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_CGROUP_MEM_RES_CTLR_KMEM
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_RTC_DRV_CMOS
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_BLK_CGROUP
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_CGROUP_PERF
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_IKCONFIG_PROC
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_SYSVIPC
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_CGROUPS
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_CGROUP_FREEZER
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NAMESPACES
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_UTS_NS
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_IPC_NS
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_USER_NS
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_PID_NS
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NET_NS
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_AUDIT
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_AUDITSYSCALL
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_AUDIT_TREE
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_AUDIT_WATCH
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_CC_STACKPROTECTOR
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_DEBUG_RODATA
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_DEVTMPFS
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_DEVTMPFS_MOUNT
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_DEVPTS_MULTIPLE_INSTANCES
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_ECRYPT_FS
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_ECRYPT_FS_MESSAGING
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_ENCRYPTED_KEYS
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_EXT4_FS_POSIX_ACL
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_EXT4_FS_SECURITY
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_FSNOTIFY
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_DNOTIFY
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_INOTIFY_USER
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_FANOTIFY
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_FANOTIFY_ACCESS_PERMISSIONS
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_KEYS
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_SWAP
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_VT
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_VT_CONSOLE
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_SECCOMP
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_STRICT_DEVMEM
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_SYN_COOKIES
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_BT
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_BT_RFCOMM
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_BT_RFCOMM_TTY
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_BT_BNEP
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_BT_BNEP_MC_FILTER
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_BT_BNEP_PROTO_FILTER
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_BT_HIDP
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_XFRM_USER
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NET_KEY
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_INET
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_IP_ADVANCED_ROUTER
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_IP_MULTIPLE_TABLES
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_INET_AH
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_INET_ESP
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_INET_IPCOMP
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_INET_XFRM_MODE_TRANSPORT
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_INET_XFRM_MODE_TUNNEL
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_INET_XFRM_MODE_BEET
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_IPV6
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_INET6_AH
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_INET6_ESP
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_INET6_IPCOMP
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_INET6_XFRM_MODE_TRANSPORT
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_INET6_XFRM_MODE_TUNNEL
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_INET6_XFRM_MODE_BEET
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_IPV6_MULTIPLE_TABLES
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_ADVANCED
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_NETLINK
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_NETLINK_ACCT
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_NETLINK_LOG
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_NETLINK_QUEUE
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_TPROXY
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XTABLES
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_CONNMARK
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_MARK
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_MATCH_ADDRTYPE
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_MATCH_CLUSTER
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_MATCH_COMMENT
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_MATCH_CONNBYTES
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_MATCH_CONNLIMIT
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_MATCH_CONNMARK
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_MATCH_CONNTRACK
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_MATCH_CPU
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_MATCH_DCCP
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_MATCH_DEVGROUP
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_MATCH_DSCP
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_MATCH_ECN
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_MATCH_ESP
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_MATCH_HASHLIMIT
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_MATCH_HELPER
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_MATCH_HL
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_MATCH_IPRANGE
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_MATCH_LENGTH
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_MATCH_LIMIT
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_MATCH_MAC
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_MATCH_MARK
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_MATCH_MULTIPORT
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_MATCH_NFACCT
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_MATCH_OSF
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_MATCH_OWNER
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_MATCH_PKTTYPE
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_MATCH_POLICY
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_MATCH_QUOTA
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_MATCH_QUOTA2
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_MATCH_RATEEST
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_MATCH_REALM
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_MATCH_RECENT
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_MATCH_SCTP
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_MATCH_SOCKET
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_MATCH_STATE
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_MATCH_STATISTIC
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_MATCH_STRING
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_MATCH_TCPMSS
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_MATCH_TIME
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_MATCH_U32
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_TARGET_AUDIT
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_TARGET_CHECKSUM
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_TARGET_CLASSIFY
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_TARGET_CONNMARK
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_TARGET_CONNSECMARK
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_TARGET_CT
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_TARGET_DSCP
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_TARGET_HL
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_TARGET_IDLETIMER
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_TARGET_LED
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_TARGET_LOG
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_TARGET_MARK
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_TARGET_NFLOG
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_TARGET_NFQUEUE
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_TARGET_NOTRACK
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_TARGET_RATEEST
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_TARGET_SECMARK
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_TARGET_TCPMSS
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_TARGET_TCPOPTSTRIP
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_TARGET_TEE
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_TARGET_TPROXY
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NETFILTER_XT_TARGET_TRACE
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_NF_CONNTRACK_ZONES
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_IP6_NF_FILTER
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_IP6_NF_IPTABLES
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_IP6_NF_MANGLE
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_IP6_NF_MATCH_AH
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_IP6_NF_MATCH_EUI64
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_IP6_NF_MATCH_FRAG
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_IP6_NF_MATCH_HL
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_IP6_NF_MATCH_IPV6HEADER
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_IP6_NF_MATCH_MH
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_IP6_NF_MATCH_OPTS
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_IP6_NF_MATCH_RPFILTER
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_IP6_NF_MATCH_RT
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_IP6_NF_QUEUE
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_IP6_NF_RAW
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_IP6_NF_SECURITY
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_IP6_NF_TARGET_HL
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_IP6_NF_TARGET_REJECT
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_IP6_NF_TARGET_REJECT_SKERR
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_DNS_RESOLVER
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_IOSCHED_DEADLINE
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_SUSPEND_TIME
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_CORE_DUMP_DEFAULT_ELF_HEADERS
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_CONSOLE_TRANSLATIONS
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_EVM
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_INTEGRITY_SIGNATURE
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_FHANDLE
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_EPOLL
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_SIGNALFD
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_TIMERFD
+</span></span></span><span class=line><span class=cl><span class=s2>CONFIG_TMPFS_POSIX_ACL
+</span></span></span><span class=line><span class=cl><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>CONFIGS_OFF</span><span class=o>=</span><span class=s2>&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl><span class=nv>CONFIGS_EQ</span><span class=o>=</span><span class=s2>&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>ered<span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>	<span class=nb>echo</span> -e <span class=s2>&#34;\033[31m&#34;</span> <span class=nv>$@</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>egreen<span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>	<span class=nb>echo</span> -e <span class=s2>&#34;\033[32m&#34;</span> <span class=nv>$@</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>ewhite<span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>	<span class=nb>echo</span> -e <span class=s2>&#34;\033[37m&#34;</span> <span class=nv>$@</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> -e <span class=s2>&#34;\n\nChecking config file for Halium specific config options.\n\n&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>errors</span><span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl><span class=nv>fixes</span><span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>for</span> c in <span class=nv>$CONFIGS_ON</span> <span class=nv>$CONFIGS_OFF</span><span class=p>;</span><span class=k>do</span>
+</span></span><span class=line><span class=cl>	<span class=nv>cnt</span><span class=o>=</span><span class=sb>`</span>grep -w -c <span class=nv>$c</span> <span class=nv>$FILE</span><span class=sb>`</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=o>[</span> <span class=nv>$cnt</span> -gt <span class=m>1</span> <span class=o>]</span><span class=p>;</span><span class=k>then</span>
+</span></span><span class=line><span class=cl>		ered <span class=s2>&#34;</span><span class=nv>$c</span><span class=s2> appears more than once in the config file, fix this&#34;</span>
+</span></span><span class=line><span class=cl>		<span class=nv>errors</span><span class=o>=</span><span class=k>$((</span>errors+1<span class=k>))</span>
+</span></span><span class=line><span class=cl>	<span class=k>fi</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=o>[</span> <span class=nv>$cnt</span> -eq <span class=m>0</span> <span class=o>]</span><span class=p>;</span><span class=k>then</span>
+</span></span><span class=line><span class=cl>		<span class=k>if</span> <span class=nv>$write</span> <span class=p>;</span> <span class=k>then</span>
+</span></span><span class=line><span class=cl>			ewhite <span class=s2>&#34;Creating </span><span class=nv>$c</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>			<span class=nb>echo</span> <span class=s2>&#34;# </span><span class=nv>$c</span><span class=s2> is not set&#34;</span> &gt;&gt; <span class=s2>&#34;</span><span class=nv>$FILE</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>			<span class=nv>fixes</span><span class=o>=</span><span class=k>$((</span>fixes+1<span class=k>))</span>
+</span></span><span class=line><span class=cl>		<span class=k>else</span>
+</span></span><span class=line><span class=cl>			ered <span class=s2>&#34;</span><span class=nv>$c</span><span class=s2> is neither enabled nor disabled in the config file&#34;</span>
+</span></span><span class=line><span class=cl>			<span class=nv>errors</span><span class=o>=</span><span class=k>$((</span>errors+1<span class=k>))</span>
+</span></span><span class=line><span class=cl>		<span class=k>fi</span>
+</span></span><span class=line><span class=cl>	<span class=k>fi</span>
+</span></span><span class=line><span class=cl><span class=k>done</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>for</span> c in <span class=nv>$CONFIGS_ON</span><span class=p>;</span><span class=k>do</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> grep <span class=s2>&#34;</span><span class=nv>$c</span><span class=s2>=y\|</span><span class=nv>$c</span><span class=s2>=m&#34;</span> <span class=s2>&#34;</span><span class=nv>$FILE</span><span class=s2>&#34;</span> &gt;/dev/null<span class=p>;</span><span class=k>then</span>
+</span></span><span class=line><span class=cl>		egreen <span class=s2>&#34;</span><span class=nv>$c</span><span class=s2> is already set&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=k>else</span>
+</span></span><span class=line><span class=cl>		<span class=k>if</span> <span class=nv>$write</span> <span class=p>;</span> <span class=k>then</span>
+</span></span><span class=line><span class=cl>			ewhite <span class=s2>&#34;Setting </span><span class=nv>$c</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>			sed  -i <span class=s2>&#34;s,# </span><span class=nv>$c</span><span class=s2> is not set,</span><span class=nv>$c</span><span class=s2>=y,&#34;</span> <span class=s2>&#34;</span><span class=nv>$FILE</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>			<span class=nv>fixes</span><span class=o>=</span><span class=k>$((</span>fixes+1<span class=k>))</span>
+</span></span><span class=line><span class=cl>		<span class=k>else</span>
+</span></span><span class=line><span class=cl>			ered <span class=s2>&#34;</span><span class=nv>$c</span><span class=s2> is not set, set it&#34;</span>
+</span></span><span class=line><span class=cl>			<span class=nv>errors</span><span class=o>=</span><span class=k>$((</span>errors+1<span class=k>))</span>
+</span></span><span class=line><span class=cl>		<span class=k>fi</span>
+</span></span><span class=line><span class=cl>	<span class=k>fi</span>
+</span></span><span class=line><span class=cl><span class=k>done</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>for</span> c in <span class=nv>$CONFIGS_EQ</span><span class=p>;</span><span class=k>do</span>
+</span></span><span class=line><span class=cl>	<span class=nv>lhs</span><span class=o>=</span><span class=k>$(</span>awk -F<span class=o>=</span> <span class=s1>&#39;{ print $1 }&#39;</span> &lt;<span class=o>(</span><span class=nb>echo</span> <span class=nv>$c</span><span class=k>)</span><span class=o>)</span>
+</span></span><span class=line><span class=cl>	<span class=nv>rhs</span><span class=o>=</span><span class=k>$(</span>awk -F<span class=o>=</span> <span class=s1>&#39;{ print $2 }&#39;</span> &lt;<span class=o>(</span><span class=nb>echo</span> <span class=nv>$c</span><span class=k>)</span><span class=o>)</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> grep <span class=s2>&#34;^</span><span class=nv>$c</span><span class=s2>&#34;</span> <span class=s2>&#34;</span><span class=nv>$FILE</span><span class=s2>&#34;</span> &gt;/dev/null<span class=p>;</span><span class=k>then</span>
+</span></span><span class=line><span class=cl>		egreen <span class=s2>&#34;</span><span class=nv>$c</span><span class=s2> is already set correctly.&#34;</span>
+</span></span><span class=line><span class=cl>		<span class=k>continue</span>
+</span></span><span class=line><span class=cl>	<span class=k>elif</span> grep <span class=s2>&#34;^</span><span class=nv>$lhs</span><span class=s2>&#34;</span> <span class=s2>&#34;</span><span class=nv>$FILE</span><span class=s2>&#34;</span> &gt;/dev/null<span class=p>;</span><span class=k>then</span>
+</span></span><span class=line><span class=cl>		<span class=nv>cur</span><span class=o>=</span><span class=k>$(</span>awk -F<span class=o>=</span> <span class=s1>&#39;{ print $2 }&#39;</span> &lt;<span class=o>(</span>grep <span class=s2>&#34;</span><span class=nv>$lhs</span><span class=s2>&#34;</span> <span class=s2>&#34;</span><span class=nv>$FILE</span><span class=s2>&#34;</span><span class=k>)</span><span class=o>)</span>
+</span></span><span class=line><span class=cl>		ered <span class=s2>&#34;</span><span class=nv>$lhs</span><span class=s2> is set, but to </span><span class=nv>$cur</span><span class=s2> not </span><span class=nv>$rhs</span><span class=s2>.&#34;</span>
+</span></span><span class=line><span class=cl>		<span class=k>if</span> <span class=nv>$write</span> <span class=p>;</span> <span class=k>then</span>
+</span></span><span class=line><span class=cl>			egreen <span class=s2>&#34;Setting </span><span class=nv>$c</span><span class=s2> correctly&#34;</span>
+</span></span><span class=line><span class=cl>			sed -i <span class=s1>&#39;s,^&#39;</span><span class=s2>&#34;</span><span class=nv>$lhs</span><span class=s2>&#34;</span><span class=s1>&#39;.*,# &#39;</span><span class=s2>&#34;</span><span class=nv>$lhs</span><span class=s2>&#34;</span><span class=s1>&#39; was &#39;</span><span class=s2>&#34;</span><span class=nv>$cur</span><span class=s2>&#34;</span><span class=s1>&#39;\n&#39;</span><span class=s2>&#34;</span><span class=nv>$c</span><span class=s2>&#34;</span><span class=s1>&#39;,&#39;</span> <span class=s2>&#34;</span><span class=nv>$FILE</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>			<span class=nv>fixes</span><span class=o>=</span><span class=k>$((</span>fixes+1<span class=k>))</span>
+</span></span><span class=line><span class=cl>		<span class=k>fi</span>
+</span></span><span class=line><span class=cl>	<span class=k>else</span>
+</span></span><span class=line><span class=cl>		<span class=k>if</span> <span class=nv>$write</span> <span class=p>;</span> <span class=k>then</span>
+</span></span><span class=line><span class=cl>			ewhite <span class=s2>&#34;Setting </span><span class=nv>$c</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>			<span class=nb>echo</span>  <span class=s2>&#34;</span><span class=nv>$c</span><span class=s2>&#34;</span> &gt;&gt; <span class=s2>&#34;</span><span class=nv>$FILE</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>			<span class=nv>fixes</span><span class=o>=</span><span class=k>$((</span>fixes+1<span class=k>))</span>
+</span></span><span class=line><span class=cl>		<span class=k>else</span>
+</span></span><span class=line><span class=cl>			ered <span class=s2>&#34;</span><span class=nv>$c</span><span class=s2> is not set&#34;</span>
+</span></span><span class=line><span class=cl>			<span class=nv>errors</span><span class=o>=</span><span class=k>$((</span>errors+1<span class=k>))</span>
+</span></span><span class=line><span class=cl>		<span class=k>fi</span>
+</span></span><span class=line><span class=cl>	<span class=k>fi</span>
+</span></span><span class=line><span class=cl><span class=k>done</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>for</span> c in <span class=nv>$CONFIGS_OFF</span><span class=p>;</span><span class=k>do</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> grep <span class=s2>&#34;</span><span class=nv>$c</span><span class=s2>=y\|</span><span class=nv>$c</span><span class=s2>=m&#34;</span> <span class=s2>&#34;</span><span class=nv>$FILE</span><span class=s2>&#34;</span> &gt;/dev/null<span class=p>;</span><span class=k>then</span>
+</span></span><span class=line><span class=cl>		<span class=k>if</span> <span class=nv>$write</span> <span class=p>;</span> <span class=k>then</span>
+</span></span><span class=line><span class=cl>			ewhite <span class=s2>&#34;Unsetting </span><span class=nv>$c</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>			sed  -i <span class=s2>&#34;s,</span><span class=nv>$c</span><span class=s2>=.*,# </span><span class=nv>$c</span><span class=s2> is not set,&#34;</span> <span class=nv>$FILE</span>
+</span></span><span class=line><span class=cl>			<span class=nv>fixes</span><span class=o>=</span><span class=k>$((</span>fixes+1<span class=k>))</span>
+</span></span><span class=line><span class=cl>		<span class=k>else</span>
+</span></span><span class=line><span class=cl>			ered <span class=s2>&#34;</span><span class=nv>$c</span><span class=s2> is set, unset it&#34;</span>
+</span></span><span class=line><span class=cl>			<span class=nv>errors</span><span class=o>=</span><span class=k>$((</span>errors+1<span class=k>))</span>
+</span></span><span class=line><span class=cl>		<span class=k>fi</span>
+</span></span><span class=line><span class=cl>	<span class=k>else</span>
+</span></span><span class=line><span class=cl>		egreen <span class=s2>&#34;</span><span class=nv>$c</span><span class=s2> is already unset&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=k>fi</span>
+</span></span><span class=line><span class=cl><span class=k>done</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=o>[</span> <span class=nv>$errors</span> -eq <span class=m>0</span> <span class=o>]</span><span class=p>;</span><span class=k>then</span>
+</span></span><span class=line><span class=cl>	egreen <span class=s2>&#34;\n\nConfig file checked, found no errors.\n\n&#34;</span>
+</span></span><span class=line><span class=cl><span class=k>else</span>
+</span></span><span class=line><span class=cl>	ered <span class=s2>&#34;\n\nConfig file checked, found </span><span class=nv>$errors</span><span class=s2> errors that I did not fix.\n\n&#34;</span>
+</span></span><span class=line><span class=cl><span class=k>fi</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=o>[</span> <span class=nv>$fixes</span> -gt <span class=m>0</span> <span class=o>]</span><span class=p>;</span><span class=k>then</span>
+</span></span><span class=line><span class=cl>	egreen <span class=s2>&#34;Made </span><span class=nv>$fixes</span><span class=s2> fixes.\n\n&#34;</span>
+</span></span><span class=line><span class=cl><span class=k>fi</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>ewhite <span class=s2>&#34; &#34;</span>
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl><span class=c1># env.sh</span>
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>CROSS_COMPILE</span><span class=o>=</span>aarch64-linux-gnu-
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>ARCH</span><span class=o>=</span>arm64
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>CC</span><span class=o>=</span>aarch64-linux-gnu-gcc
+</span></span></code></pre></td></tr></table></div></div><h2 id=开始编译>开始编译</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl><span class=nb>cd</span> linux
+</span></span><span class=line><span class=cl><span class=c1># 添加内核组件, 如smb支持的cifs</span>
+</span></span><span class=line><span class=cl>make menuconfig
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># debian 不支持内核模块压缩</span>
+</span></span><span class=line><span class=cl>Enable loadable module support --&gt; Module compression mode <span class=o>(</span>None<span class=o>)</span> --〉
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 修改名称 LOCALVERSION</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 如果需要smb挂载, 同样需要在内核中开启,搜索 cifs utf8 并开启</span>
+</span></span><span class=line><span class=cl><span class=c1># 如果要开启串口登录: CONFIG_USB_GADGET CONFIG_USB_G_SERIAL CONFIG_SERIAL_8250  CONFIG_SERIAL_8250_CONSOLE</span>
+</span></span><span class=line><span class=cl><span class=c1># usb 接键盘 CONFIG_USB CONFIG_USB_HID CONFIG_HID CONFIG_HID_GENERIC CONFIG_INPUT_KEYBOARD</span>
+</span></span><span class=line><span class=cl><span class=c1># usb otg功能  CONFIG_USB CONFIG_USB_XHCI_HCD CONFIG_USB_EHCI_HCD CONFIG_USB_OHCI_HCD CONFIG_USB_OTG</span>
+</span></span><span class=line><span class=cl><span class=c1># btrfs 文件系统 CONFIG_BTRFS_FS CONFIG_BTRFS_FS_COMPRESSION</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 开始编译</span>
+</span></span><span class=line><span class=cl><span class=c1># make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- -j$(nproc)</span>
+</span></span><span class=line><span class=cl>make -j<span class=k>$(</span>nproc<span class=k>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 生成deb安装包</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># ubuntu 20 可以使用的命令</span>
+</span></span><span class=line><span class=cl><span class=c1># fakeroot make-kpkg  --initrd --cross-compile aarch64-linux-gnu- --arch arm64  kernel_image kernel_headers </span>
+</span></span><span class=line><span class=cl><span class=c1># make -j$(nproc) ARCH=arm64 KBUILD_DEBARCH=arm64 KDEB_CHANGELOG_DIST=mobile CROSS_COMPILE=aarch64-linux-gnu- deb-pkg</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Ubuntu 23 命令</span>
+</span></span><span class=line><span class=cl>make -j<span class=k>$(</span>nproc<span class=k>)</span> bindeb-pkg
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 在上级目录生成 heades image 的deb包</span>
+</span></span><span class=line><span class=cl><span class=nb>cd</span> ../ <span class=o>&amp;&amp;</span> ls
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 如果要修改编译后的deb文件名, 请修改.config里的</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Image.gz msm8953-xiaomi-mido.dtb 复制待用</span>
+</span></span><span class=line><span class=cl><span class=c1># cp linux/arch/arm64/boot/Image.gz tmp_mkboot/</span>
+</span></span><span class=line><span class=cl><span class=c1># cp linux/arch/arm64/boot/dts/qcom/msm8953-xiaomi-mido.dtb tmp_mkboot/</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=制作rootfs>制作rootfs</h2><h3 id=debian>debian</h3><h4 id=生成zip>生成zip</h4><p><a class=link href=https://github.com/SdtElectronics/debian-rootfs target=_blank rel=noopener>https://github.com/SdtElectronics/debian-rootfs</a></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl><span class=c1># 修改 multistrap.conf</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># ssh 改为 openssh-client</span>
+</span></span><span class=line><span class=cl><span class=c1># packages=vim 这行只保留vim</span>
+</span></span><span class=line><span class=cl><span class=nv>suite</span><span class=o>=</span>stable
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>sudo ./make-rootfs.sh --help
+</span></span><span class=line><span class=cl>sudo ./make-rootfs.sh arm64 
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 生成的文件在 build/arm64 里, 带时间戳, 例如 arm64-rootfs-20240308T162556Z</span>
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl><span class=c1># 报错</span>
+</span></span><span class=line><span class=cl><span class=c1># The following signatures couldn&#39;t be verified because the public key is not available</span>
+</span></span><span class=line><span class=cl>sudo vim /usr/sbin/multistrap
+</span></span><span class=line><span class=cl><span class=c1># 323行, 行末添加分号</span>
+</span></span><span class=line><span class=cl><span class=nv>$config_str</span> .<span class=o>=</span> <span class=s2>&#34; -o Apt::Install-Recommends=false&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=c1># 在下方插入</span>
+</span></span><span class=line><span class=cl><span class=nv>$config_str</span> .<span class=o>=</span> <span class=s2>&#34; -o Acquire::AllowInsecureRepositories=yes&#34;</span>
+</span></span></code></pre></td></tr></table></div></div><h4 id=生成rootfs>生成rootfs</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>dd <span class=k>if</span><span class=o>=</span>/dev/zero <span class=nv>of</span><span class=o>=</span>root.img <span class=nv>bs</span><span class=o>=</span>1M <span class=nv>count</span><span class=o>=</span><span class=m>2048</span>
+</span></span><span class=line><span class=cl>mkfs.btrfs root.img
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>sudo mount -t btrfs -o compress-force<span class=o>=</span>zstd root.img rootfs
+</span></span><span class=line><span class=cl>sudo cp -a rootfsrootfs-20240308T162556Z/* rootfs/
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>sudo cp /etc/resolv.conf rootfs/etc/
+</span></span><span class=line><span class=cl>sudo cp /etc/hosts rootfs/etc/
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 复制开源驱动</span>
+</span></span><span class=line><span class=cl>sudo chmod -R +x firmware
+</span></span><span class=line><span class=cl>sudo chown -R root:root firmware
+</span></span><span class=line><span class=cl>sudo mkdir -p rootfs/lib/firmware/
+</span></span><span class=line><span class=cl>sudo cp -a firmware/* rootfs/lib/firmware/
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 复制内核文件</span>
+</span></span><span class=line><span class=cl>sudo cp *.deb rootfs/tmp
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>sudo chroot rootfs /usr/bin/sh
+</span></span></code></pre></td></tr></table></div></div><h4 id=btrfs设置压缩比>btrfs设置压缩比</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>blkid
+</span></span><span class=line><span class=cl><span class=c1># 输出可能类似于：</span>
+</span></span><span class=line><span class=cl>/dev/loop0: <span class=nv>UUID</span><span class=o>=</span><span class=s2>&#34;4982f187-6831-40c4-9cc2-9a9258aefe91&#34;</span> <span class=nv>UUID_SUB</span><span class=o>=</span><span class=s2>&#34;7b2911ad-be44-4537-866c-efe2ba2ea1b0&#34;</span> <span class=nv>BLOCK_SIZE</span><span class=o>=</span><span class=s2>&#34;4096&#34;</span> <span class=nv>TYPE</span><span class=o>=</span><span class=s2>&#34;btrfs&#34;</span>
+</span></span><span class=line><span class=cl>/dev/zram0: <span class=nv>UUID</span><span class=o>=</span><span class=s2>&#34;0b775f09-4d6b-42bc-a1ee-7cb3da12877c&#34;</span> <span class=nv>TYPE</span><span class=o>=</span><span class=s2>&#34;swap&#34;</span>
+</span></span><span class=line><span class=cl>/dev/vdc: <span class=nv>UUID</span><span class=o>=</span><span class=s2>&#34;c2971f04-c415-4b34-8334-cb8b7e32146b&#34;</span> <span class=nv>TYPE</span><span class=o>=</span><span class=s2>&#34;swap&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>cat &gt; /etc/fstab <span class=s>&lt;&lt; EOF
+</span></span></span><span class=line><span class=cl><span class=s># /etc/fstab: static file system information
+</span></span></span><span class=line><span class=cl><span class=s># &lt;file system&gt; &lt;mount point&gt;   &lt;type&gt;  &lt;options&gt;       &lt;dump&gt;  &lt;pass&gt;
+</span></span></span><span class=line><span class=cl><span class=s>UUID=4982f187-6831-40c4-9cc2-9a9258aefe91 /               btrfs   rw,relatime,compress-force=zstd:3        0       1
+</span></span></span><span class=line><span class=cl><span class=s>EOF</span>
+</span></span></code></pre></td></tr></table></div></div><h4 id=安装内核并设置环境>安装内核并设置环境</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl><span class=c1># debian换源</span>
+</span></span><span class=line><span class=cl>apt install apt-transport-https ca-certificates
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>vim /etc/apt/sources.list
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># https://mirrors.tuna.tsinghua.edu.cn/help/debian/</span>
+</span></span><span class=line><span class=cl><span class=o>===</span>
+</span></span><span class=line><span class=cl><span class=c1># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释</span>
+</span></span><span class=line><span class=cl>deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware
+</span></span><span class=line><span class=cl>deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmware
+</span></span><span class=line><span class=cl>deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmware
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmware
+</span></span><span class=line><span class=cl>deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmware
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 以下安全更新软件源包含了官方源与镜像站配置，如有需要可自行修改注释切换</span>
+</span></span><span class=line><span class=cl>deb https://security.debian.org/debian-security bookworm-security main contrib non-free non-free-firmware
+</span></span><span class=line><span class=cl>deb-src https://security.debian.org/debian-security bookworm-security main contrib non-free non-free-firmware
+</span></span><span class=line><span class=cl><span class=o>===</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>apt update
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 删除自带内核</span>
+</span></span><span class=line><span class=cl><span class=nb>cd</span> /tmp
+</span></span><span class=line><span class=cl>dpkg --get-selections <span class=p>|</span> grep linux
+</span></span><span class=line><span class=cl>dpkg -l <span class=p>|</span> grep -E <span class=s2>&#34;linux-headers|linux-image&#34;</span> <span class=p>|</span>awk <span class=s1>&#39;{print $2}&#39;</span><span class=p>|</span>xargs dpkg -P
+</span></span><span class=line><span class=cl><span class=c1># 手动删除</span>
+</span></span><span class=line><span class=cl><span class=c1># dpkg -P 包名</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 自动生成initram</span>
+</span></span><span class=line><span class=cl>apt install initramfs-tools zstd
+</span></span><span class=line><span class=cl><span class=c1># btrfs</span>
+</span></span><span class=line><span class=cl>apt install btrfs-progs
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 安装内核</span>
+</span></span><span class=line><span class=cl>dpkg -i *.deb
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 修改主机名</span>
+</span></span><span class=line><span class=cl>vim /etc/hostname
+</span></span><span class=line><span class=cl>vim /etc/hosts
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 设置locales</span>
+</span></span><span class=line><span class=cl>apt install locales
+</span></span><span class=line><span class=cl>dpkg-reconfigure locales
+</span></span><span class=line><span class=cl>update-locale <span class=nv>LANG</span><span class=o>=</span>en_US.UTF-8
+</span></span><span class=line><span class=cl><span class=c1># cat /etc/default/locale</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 更改密码</span>
+</span></span><span class=line><span class=cl>passwd
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 中文字体</span>
+</span></span><span class=line><span class=cl>apt install fonts-wqy-microhei
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># ssh</span>
+</span></span><span class=line><span class=cl>apt install openssh-server
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;PermitRootLogin yes&#34;</span> &gt;&gt; /etc/ssh/sshd_config
+</span></span><span class=line><span class=cl>systemctl <span class=nb>enable</span> ssh
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 时区</span>
+</span></span><span class=line><span class=cl>ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+</span></span><span class=line><span class=cl><span class=c1># 时间同步</span>
+</span></span><span class=line><span class=cl>apt install systemd-timesyncd
+</span></span><span class=line><span class=cl>systemctl <span class=nb>enable</span> systemd-timesyncd
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 常用软件</span>
+</span></span><span class=line><span class=cl>apt install sudo net-tools network-manager iputils-ping kmod linux-base vim -y
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>systemctl <span class=nb>enable</span> NetworkManager
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 自动创建内存一半的zram</span>
+</span></span><span class=line><span class=cl>apt install zram-tools
+</span></span><span class=line><span class=cl>systemctl <span class=nb>enable</span> zramswap.service
+</span></span><span class=line><span class=cl>vim /etc/default/zramswap
+</span></span><span class=line><span class=cl><span class=c1># 取消注释</span>
+</span></span><span class=line><span class=cl><span class=c1># ALGO=lz4</span>
+</span></span><span class=line><span class=cl><span class=c1># PERCENT=50</span>
+</span></span><span class=line><span class=cl><span class=c1># PRIORITY=100</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 可选</span>
+</span></span><span class=line><span class=cl><span class=c1># btrfs压缩率分析, compsize /path</span>
+</span></span><span class=line><span class=cl>apt install btrfs-compsize
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 添加默认WiFi连接,参考后面的内容</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 添加串口登录,参考后面的内容</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 添加rc.local开机脚本,参考后面的内容</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 查看可更新的包</span>
+</span></span><span class=line><span class=cl>apt list --upgradable
+</span></span><span class=line><span class=cl><span class=c1># 更新</span>
+</span></span><span class=line><span class=cl>apt upgrade
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 清理</span>
+</span></span><span class=line><span class=cl>rm /tmp/*
+</span></span><span class=line><span class=cl>apt autoremove
+</span></span><span class=line><span class=cl>apt clean
+</span></span><span class=line><span class=cl><span class=nb>history</span> -c
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 退出</span>
+</span></span><span class=line><span class=cl><span class=nb>exit</span>
+</span></span></code></pre></td></tr></table></div></div><h4 id=开机扩容>开机扩容</h4><p>方法一: 开机后手动执行命令</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>btrfs filesystem resize max /
+</span></span></code></pre></td></tr></table></div></div><p>方法二: 添加自启服务</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>cat &gt; /etc/systemd/system/resizefs.service <span class=s>&lt;&lt; &#39;EOF&#39;
+</span></span></span><span class=line><span class=cl><span class=s>[Unit]
+</span></span></span><span class=line><span class=cl><span class=s>Description=Expand root filesystem to fill partition
+</span></span></span><span class=line><span class=cl><span class=s>After=local-fs.target
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>[Service]
+</span></span></span><span class=line><span class=cl><span class=s>Type=oneshot
+</span></span></span><span class=line><span class=cl><span class=s>ExecStart=/usr/bin/bash -c &#39;btrfs filesystem resize max /&#39;
+</span></span></span><span class=line><span class=cl><span class=s>ExecStartPost=/usr/bin/systemctl disable resizefs.service
+</span></span></span><span class=line><span class=cl><span class=s>RemainAfterExit=true
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>[Install]
+</span></span></span><span class=line><span class=cl><span class=s>WantedBy=default.target
+</span></span></span><span class=line><span class=cl><span class=s>EOF</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>systemctl daemon-reload <span class=o>&amp;&amp;</span> systemctl <span class=nb>enable</span> resizefs.service
+</span></span></code></pre></td></tr></table></div></div><h4 id=rclocal开机脚本>rc.local开机脚本</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>cat &gt; /etc/systemd/system/rc-local.service <span class=s>&lt;&lt;EOF
+</span></span></span><span class=line><span class=cl><span class=s>[Unit]
+</span></span></span><span class=line><span class=cl><span class=s>Description=/etc/rc.local
+</span></span></span><span class=line><span class=cl><span class=s>ConditionPathExists=/etc/rc.local
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>[Service]
+</span></span></span><span class=line><span class=cl><span class=s>Type=forking
+</span></span></span><span class=line><span class=cl><span class=s>ExecStart=/etc/rc.local
+</span></span></span><span class=line><span class=cl><span class=s>TimeoutSec=0
+</span></span></span><span class=line><span class=cl><span class=s>StandardOutput=tty
+</span></span></span><span class=line><span class=cl><span class=s>RemainAfterExit=yes
+</span></span></span><span class=line><span class=cl><span class=s>SysVStartPriority=99
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>[Install]
+</span></span></span><span class=line><span class=cl><span class=s>WantedBy=multi-user.target
+</span></span></span><span class=line><span class=cl><span class=s>EOF</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>cat &gt; /etc/rc.local <span class=s>&lt;&lt;EOF 
+</span></span></span><span class=line><span class=cl><span class=s>#!/bin/sh -e
+</span></span></span><span class=line><span class=cl><span class=s>#
+</span></span></span><span class=line><span class=cl><span class=s># rc.local
+</span></span></span><span class=line><span class=cl><span class=s>#
+</span></span></span><span class=line><span class=cl><span class=s># This script is executed at the end of each multiuser runlevel.
+</span></span></span><span class=line><span class=cl><span class=s># Make sure that the script will &#34;exit 0&#34; on success or any other
+</span></span></span><span class=line><span class=cl><span class=s># value on error.
+</span></span></span><span class=line><span class=cl><span class=s>#
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>exit 0
+</span></span></span><span class=line><span class=cl><span class=s>EOF</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>chmod +x /etc/rc.local
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>systemctl <span class=nb>enable</span> rc-local.service
+</span></span><span class=line><span class=cl>systemctl is-enabled rc-local.service
+</span></span></code></pre></td></tr></table></div></div><h4 id=开启串口登录>开启串口登录</h4><p>内核需要开启</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>CONFIG_USB_GADGET
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>CONFIG_USB_G_SERIAL
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>CONFIG_SERIAL_8250
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>CONFIG_SERIAL_8250_CONSOLE
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>cat &gt; /etc/systemd/system/serial-getty@ttyGS0.service <span class=s>&lt;&lt; EOF
+</span></span></span><span class=line><span class=cl><span class=s>[Unit]
+</span></span></span><span class=line><span class=cl><span class=s>Description=Serial Console Service on ttyGS0
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>[Service]
+</span></span></span><span class=line><span class=cl><span class=s>ExecStart=-/usr/sbin/agetty -L 115200 ttyGS0 xterm+256color
+</span></span></span><span class=line><span class=cl><span class=s>Type=idle
+</span></span></span><span class=line><span class=cl><span class=s>Restart=always
+</span></span></span><span class=line><span class=cl><span class=s>RestartSec=0
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>[Install]
+</span></span></span><span class=line><span class=cl><span class=s>WantedBy=multi-user.target
+</span></span></span><span class=line><span class=cl><span class=s>EOF</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>systemctl <span class=nb>enable</span> serial-getty@ttyGS0.service
+</span></span><span class=line><span class=cl><span class=c1>#如果串口登录失效，可能是g_serial模块没有加载</span>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> g_serial &gt;&gt; /etc/modules
+</span></span></code></pre></td></tr></table></div></div><h4 id=添加默认wifi连接>添加默认wifi连接</h4><p>以note4x为例:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl><span class=nb>cd</span> /etc/NetworkManager/system-connections/
+</span></span><span class=line><span class=cl>touch wifi.nmconnection
+</span></span><span class=line><span class=cl>chmod <span class=m>600</span> wifi.nmconnection
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>cat  &gt; wifi.nmconnection <span class=s>&lt;&lt; EOF
+</span></span></span><span class=line><span class=cl><span class=s>[connection]
+</span></span></span><span class=line><span class=cl><span class=s>id=wifi
+</span></span></span><span class=line><span class=cl><span class=s>uuid=0d100c6b-4149-402d-8ec7-f09166e3624b
+</span></span></span><span class=line><span class=cl><span class=s>type=wifi
+</span></span></span><span class=line><span class=cl><span class=s>interface-name=wlan0
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>[wifi]
+</span></span></span><span class=line><span class=cl><span class=s>mode=infrastructure
+</span></span></span><span class=line><span class=cl><span class=s>ssid=wifi
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>[ipv4]
+</span></span></span><span class=line><span class=cl><span class=s>method=auto
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>[ipv6]
+</span></span></span><span class=line><span class=cl><span class=s>addr-gen-mode=stable-privacy
+</span></span></span><span class=line><span class=cl><span class=s>method=auto
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>[proxy]
+</span></span></span><span class=line><span class=cl><span class=s>EOF</span>
+</span></span></code></pre></td></tr></table></div></div><p>note2</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl><span class=nb>cd</span> /etc/NetworkManager/system-connections/
+</span></span><span class=line><span class=cl>touch wifi.nmconnection
+</span></span><span class=line><span class=cl>chmod <span class=m>600</span> wifi.nmconnection
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>cat  &gt; wifi.nmconnection <span class=s>&lt;&lt; EOF
+</span></span></span><span class=line><span class=cl><span class=s>[connection]
+</span></span></span><span class=line><span class=cl><span class=s>id=wifi
+</span></span></span><span class=line><span class=cl><span class=s>uuid=5936f33a-b85c-4ccb-a651-56d5aa464a90
+</span></span></span><span class=line><span class=cl><span class=s>type=wifi
+</span></span></span><span class=line><span class=cl><span class=s>interface-name=wlp1s0
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>[wifi]
+</span></span></span><span class=line><span class=cl><span class=s>mode=infrastructure
+</span></span></span><span class=line><span class=cl><span class=s>ssid=wifi
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>[ipv4]
+</span></span></span><span class=line><span class=cl><span class=s>method=auto
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>[ipv6]
+</span></span></span><span class=line><span class=cl><span class=s>addr-gen-mode=stable-privacy
+</span></span></span><span class=line><span class=cl><span class=s>method=auto
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>[proxy]
+</span></span></span><span class=line><span class=cl><span class=s>EOF</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>手机开热点查看ip <code>ip neigh</code></li></ul><h3 id=ubuntubtrfs>ubuntu(btrfs)</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl><span class=c1># https://cdimage.ubuntu.com/ubuntu-base/</span>
+</span></span><span class=line><span class=cl>wget https://cdimage.ubuntu.com/ubuntu-base/releases/22.04.4/release/ubuntu-base-22.04.4-base-arm64.tar.gz
+</span></span></code></pre></td></tr></table></div></div><h4 id=docker启动不了>docker启动不了</h4><p>ubuntu的问题, 降级iptable解决</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>update-alternatives --set iptables /usr/sbin/iptables-legacy
+</span></span><span class=line><span class=cl>update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
+</span></span></code></pre></td></tr></table></div></div><h3 id=arch>arch</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>http://os.archlinuxarm.org/os/ArchLinuxARM-aarch64-latest.tar.gz
+</span></span></code></pre></td></tr></table></div></div><h3 id=移植其它设备的rootfs>移植其它设备的rootfs</h3><p>例如 高通410随身wifi的</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl><span class=c1># 把rootfs.img模板转ext4</span>
+</span></span><span class=line><span class=cl>simg2img root_temp.img root_temp.ext4
+</span></span><span class=line><span class=cl>mkdir root_temp
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 挂载模板</span>
+</span></span><span class=line><span class=cl>sudo mount root_temp.ext4 root_temp
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 新建</span>
+</span></span><span class=line><span class=cl>mkdir rootfs
+</span></span><span class=line><span class=cl>dd <span class=k>if</span><span class=o>=</span>/dev/zero <span class=nv>of</span><span class=o>=</span>root.img <span class=nv>bs</span><span class=o>=</span>1M <span class=nv>count</span><span class=o>=</span><span class=m>2048</span>
+</span></span><span class=line><span class=cl>mkfs.ext4 root.img
+</span></span><span class=line><span class=cl>sudo mount root.img rootfs
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 复制</span>
+</span></span><span class=line><span class=cl>sudo cp -a root_temp/* rootfs/
+</span></span><span class=line><span class=cl>sudo umount root_temp
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 复制开源驱动</span>
+</span></span><span class=line><span class=cl>sudo chmod -R +x firmware
+</span></span><span class=line><span class=cl>sudo chown -R root:root firmware
+</span></span><span class=line><span class=cl>sudo cp -a firmware/* rootfs/lib/firmware/
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># chroot</span>
+</span></span><span class=line><span class=cl>./mount_rootfs.sh
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl><span class=c1># mount_rootfs.sh</span>
+</span></span><span class=line><span class=cl>sudo mount root.img rootfs
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>sudo mount --bind /proc rootfs/proc
+</span></span><span class=line><span class=cl>sudo mount --bind /dev rootfs/dev
+</span></span><span class=line><span class=cl>sudo mount --bind /dev/pts rootfs/dev/pts
+</span></span><span class=line><span class=cl>sudo mount --bind /sys rootfs/sys
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>sudo cp /etc/resolv.conf rootfs/etc/
+</span></span><span class=line><span class=cl>sudo cp /etc/hosts rootfs/etc/
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>sudo rm rootfs/tmp/linux-*.deb 
+</span></span><span class=line><span class=cl>sudo cp *.deb rootfs/tmp
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>sudo chroot rootfs /usr/bin/bash
+</span></span></code></pre></td></tr></table></div></div><h2 id=制作boot>制作boot</h2><h3 id=复制boot所需的文件>复制boot所需的文件</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl><span class=c1># 需要rootfs里的 initrd.img 和 内核编译时生成的 Image.gz dtb</span>
+</span></span><span class=line><span class=cl>./get_kernel_files.sh
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 复制完就可以卸载rootfs了</span>
+</span></span><span class=line><span class=cl>./umount_rootfs.sh
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl><span class=c1># get_kernel_files.sh</span>
+</span></span><span class=line><span class=cl>mkdir ./tmp_mkboot
+</span></span><span class=line><span class=cl>cp ./linux/arch/arm64/boot/dts/qcom/*mido*.dtb ./tmp_mkboot/dtb
+</span></span><span class=line><span class=cl>cp ./linux/arch/arm64/boot/Image.gz ./tmp_mkboot/
+</span></span><span class=line><span class=cl>cp rootfs/boot/initrd* ./tmp_mkboot/initrd.img
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl><span class=c1># umount_rootfs.sh</span>
+</span></span><span class=line><span class=cl>sudo umount rootfs/proc
+</span></span><span class=line><span class=cl>sudo umount rootfs/dev/pts
+</span></span><span class=line><span class=cl>sudo umount rootfs/dev
+</span></span><span class=line><span class=cl>sudo umount rootfs/sys
+</span></span><span class=line><span class=cl>sudo umount rootfs
+</span></span></code></pre></td></tr></table></div></div><h3 id=生成boot和rootf安卓刷机包>生成boot和rootf安卓刷机包</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl><span class=c1># 需要 initrd.img Image.gz dtb</span>
+</span></span><span class=line><span class=cl>file root.img
+</span></span><span class=line><span class=cl><span class=c1># 修改 mkboot.sh 里的 UUID</span>
+</span></span><span class=line><span class=cl>./mkboot.sh
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl><span class=c1># mkboot.sh</span>
+</span></span><span class=line><span class=cl>rm ./tmp_mkboot/kernel-dtb
+</span></span><span class=line><span class=cl>cat ./tmp_mkboot/Image.gz ./tmp_mkboot/dtb &gt; ./tmp_mkboot/kernel-dtb
+</span></span><span class=line><span class=cl>mkbootimg --base 0x80000000 <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>        --kernel_offset 0x00008000 <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>        --ramdisk_offset 0x01000000 <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>        --tags_offset 0x00000100 <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>        --pagesize <span class=m>2048</span> <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>        --second_offset 0x00f00000 <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>        --ramdisk ./tmp_mkboot/initrd.img <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>        --cmdline <span class=s2>&#34;console=tty0 root=UUID=239798af-b82a-4547-b4d4-448ab8335552 rw loglevel=3&#34;</span><span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>        --kernel ./tmp_mkboot/kernel-dtb -o ./tmp_mkboot/boot.img
+</span></span><span class=line><span class=cl>img2simg ./root.img ./tmp_mkboot/rootfs.img
+</span></span></code></pre></td></tr></table></div></div><h2 id=刷机>刷机</h2><ol><li>首先是小米官方解bl</li><li>刷入 pmos 的 lk2nd</li><li>重启, 手机震动后长按音量减, 进入 lk2nd 引导的 rec</li><li>用fastboot 刷入 boot rootfs</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>fastboot erase userdata
+</span></span><span class=line><span class=cl>fastboot erase boot
+</span></span><span class=line><span class=cl>fastboot flash boot lk2nd.img
+</span></span><span class=line><span class=cl>fastboot reboot
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>fastboot flash boot boot.img
+</span></span><span class=line><span class=cl>fastboot flash userdata rootfs.img
+</span></span><span class=line><span class=cl>fastboot reboot
+</span></span></code></pre></td></tr></table></div></div><h2 id=关闭屏幕灯光>关闭屏幕灯光</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl><span class=nb>echo</span> <span class=m>1</span> &gt; /sys/class/backlight/backlight/bl_power
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 小米note2</span>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=m>1</span> &gt; /sys/class/backlight/994000.dsi.0/bl_power
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl><span class=cp>#!/bin/bash
+</span></span></span><span class=line><span class=cl><span class=cp></span><span class=nv>file_path</span><span class=o>=</span><span class=s2>&#34;/sys/class/backlight/backlight/bl_power&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>current_value</span><span class=o>=</span><span class=k>$(</span>cat <span class=s2>&#34;</span><span class=nv>$file_path</span><span class=s2>&#34;</span><span class=k>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=o>[</span> <span class=s2>&#34;</span><span class=nv>$current_value</span><span class=s2>&#34;</span> -eq <span class=m>0</span> <span class=o>]</span><span class=p>;</span> <span class=k>then</span>
+</span></span><span class=line><span class=cl>    <span class=nv>new_value</span><span class=o>=</span><span class=m>1</span>
+</span></span><span class=line><span class=cl><span class=k>else</span>
+</span></span><span class=line><span class=cl>    <span class=nv>new_value</span><span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl><span class=k>fi</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=nv>$new_value</span> &gt; <span class=nv>$file_path</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=查看电流>查看电流</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>/sys/class/power_supply/qcom-battery/current_now
+</span></span></code></pre></td></tr></table></div></div><h2 id=查看电量>查看电量</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>apt install upower
+</span></span><span class=line><span class=cl>upower -i /org/freedesktop/UPower/devices/battery_qcom_battery
+</span></span></code></pre></td></tr></table></div></div><h2 id=查看频率>查看频率</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>cat /sys/devices/system/cpu/cpufreq/policy0/cpuinfo_cur_freq
+</span></span></code></pre></td></tr></table></div></div><h2 id=骁龙625超频>骁龙625超频</h2><p>查看当前支持的cpu频率</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl><span class=nb>cd</span> /sys/devices/system/cpu/cpufreq/policy0/
+</span></span><span class=line><span class=cl><span class=c1># 频率范围</span>
+</span></span><span class=line><span class=cl>cat scaling_available_frequencies
+</span></span><span class=line><span class=cl><span class=c1># 最大频率</span>
+</span></span><span class=line><span class=cl>cat scaling_max_freq 
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>drivers/clk/qcom/a53-pll.c
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 默认</span>
+</span></span><span class=line><span class=cl><span class=o>===</span>
+</span></span><span class=line><span class=cl>static const struct pll_freq_tbl a53pll_freq<span class=o>[]</span> <span class=o>=</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>	<span class=o>{</span>  998400000, 52, 0x0, 0x1, <span class=m>0</span> <span class=o>}</span>,
+</span></span><span class=line><span class=cl>	<span class=o>{</span> 1094400000, 57, 0x0, 0x1, <span class=m>0</span> <span class=o>}</span>,
+</span></span><span class=line><span class=cl>	<span class=o>{</span> 1152000000, 62, 0x0, 0x1, <span class=m>0</span> <span class=o>}</span>,
+</span></span><span class=line><span class=cl>	<span class=o>{</span> 1209600000, 63, 0x0, 0x1, <span class=m>0</span> <span class=o>}</span>,
+</span></span><span class=line><span class=cl>	<span class=o>{</span> 1248000000, 65, 0x0, 0x1, <span class=m>0</span> <span class=o>}</span>,
+</span></span><span class=line><span class=cl>	<span class=o>{</span> 1363200000, 71, 0x0, 0x1, <span class=m>0</span> <span class=o>}</span>,
+</span></span><span class=line><span class=cl>	<span class=o>{</span> 1401600000, 73, 0x0, 0x1, <span class=m>0</span> <span class=o>}</span>,
+</span></span><span class=line><span class=cl>	<span class=o>{</span> <span class=o>}</span>
+</span></span><span class=line><span class=cl><span class=o>}</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=o>===</span>
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl><span class=c1># 频率补充</span>
+</span></span><span class=line><span class=cl>drivers/soc/qcom/cpr3pd.c
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span><span class=lnt>67
+</span><span class=lnt>68
+</span><span class=lnt>69
+</span><span class=lnt>70
+</span><span class=lnt>71
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl><span class=c1># 设备树</span>
+</span></span><span class=line><span class=cl><span class=c1># 把0x81改为0x85</span>
+</span></span><span class=line><span class=cl>arch/arm64/boot/dts/qcom/msm8953.dtsi
+</span></span><span class=line><span class=cl><span class=o>===</span>
+</span></span><span class=line><span class=cl>	cpu0_opp: cpu0-opp-table <span class=o>{</span>
+</span></span><span class=line><span class=cl>		<span class=nv>compatible</span> <span class=o>=</span> <span class=s2>&#34;operating-points-v2-qcom-cpu&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>		nvmem-cells <span class=o>=</span> &lt;<span class=p>&amp;</span>cpu_speed_bin&gt;<span class=p>;</span>
+</span></span><span class=line><span class=cl>		opp-shared<span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>		opp-652800000 <span class=o>{</span>
+</span></span><span class=line><span class=cl>			opp-hz <span class=o>=</span> /bits/ <span class=m>64</span> &lt;652800000&gt;<span class=p>;</span>
+</span></span><span class=line><span class=cl>			opp-supported-hw <span class=o>=</span> &lt;0xC5&gt;<span class=p>;</span>
+</span></span><span class=line><span class=cl>			required-opps <span class=o>=</span> &lt;<span class=p>&amp;</span>cpr_opp1&gt;<span class=p>;</span>
+</span></span><span class=line><span class=cl>			opp-suspend<span class=p>;</span>
+</span></span><span class=line><span class=cl>		<span class=o>}</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>		opp-1036800000 <span class=o>{</span>
+</span></span><span class=line><span class=cl>			opp-hz <span class=o>=</span> /bits/ <span class=m>64</span> &lt;1036800000&gt;<span class=p>;</span>
+</span></span><span class=line><span class=cl>			opp-supported-hw <span class=o>=</span> &lt;0xC5&gt;<span class=p>;</span>
+</span></span><span class=line><span class=cl>			required-opps <span class=o>=</span> &lt;<span class=p>&amp;</span>cpr_opp2&gt;<span class=p>;</span>
+</span></span><span class=line><span class=cl>		<span class=o>}</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>		opp-1248000000 <span class=o>{</span>
+</span></span><span class=line><span class=cl>			opp-hz <span class=o>=</span> /bits/ <span class=m>64</span> &lt;1248000000&gt;<span class=p>;</span>
+</span></span><span class=line><span class=cl>			opp-supported-hw <span class=o>=</span> &lt;0xC5&gt;<span class=p>;</span>
+</span></span><span class=line><span class=cl>			required-opps <span class=o>=</span> &lt;<span class=p>&amp;</span>cpr_opp3&gt;<span class=p>;</span>
+</span></span><span class=line><span class=cl>		<span class=o>}</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>		opp-1401600000 <span class=o>{</span>
+</span></span><span class=line><span class=cl>			opp-hz <span class=o>=</span> /bits/ <span class=m>64</span> &lt;1401600000&gt;<span class=p>;</span>
+</span></span><span class=line><span class=cl>			opp-supported-hw <span class=o>=</span> &lt;0xC5&gt;<span class=p>;</span>
+</span></span><span class=line><span class=cl>			required-opps <span class=o>=</span> &lt;<span class=p>&amp;</span>cpr_opp4&gt;<span class=p>;</span>
+</span></span><span class=line><span class=cl>		<span class=o>}</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>		opp-1689600000 <span class=o>{</span>
+</span></span><span class=line><span class=cl>			opp-hz <span class=o>=</span> /bits/ <span class=m>64</span> &lt;1689600000&gt;<span class=p>;</span>
+</span></span><span class=line><span class=cl>			opp-supported-hw <span class=o>=</span> &lt;0xC5&gt;<span class=p>;</span>
+</span></span><span class=line><span class=cl>			required-opps <span class=o>=</span> &lt;<span class=p>&amp;</span>cpr_opp5&gt;<span class=p>;</span>
+</span></span><span class=line><span class=cl>		<span class=o>}</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>		opp-1804800000 <span class=o>{</span>
+</span></span><span class=line><span class=cl>			opp-hz <span class=o>=</span> /bits/ <span class=m>64</span> &lt;1804800000&gt;<span class=p>;</span>
+</span></span><span class=line><span class=cl>			opp-supported-hw <span class=o>=</span> &lt;0xC5&gt;<span class=p>;</span>
+</span></span><span class=line><span class=cl>			required-opps <span class=o>=</span> &lt;<span class=p>&amp;</span>cpr_opp6&gt;<span class=p>;</span>
+</span></span><span class=line><span class=cl>		<span class=o>}</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>		opp-1958400000 <span class=o>{</span>
+</span></span><span class=line><span class=cl>			opp-hz <span class=o>=</span> /bits/ <span class=m>64</span> &lt;1958400000&gt;<span class=p>;</span>
+</span></span><span class=line><span class=cl>			opp-supported-hw <span class=o>=</span> &lt;0x85&gt;<span class=p>;</span>
+</span></span><span class=line><span class=cl>			required-opps <span class=o>=</span> &lt;<span class=p>&amp;</span>cpr_opp7&gt;<span class=p>;</span>
+</span></span><span class=line><span class=cl>		<span class=o>}</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>		opp-2016000000 <span class=o>{</span>
+</span></span><span class=line><span class=cl>			opp-hz <span class=o>=</span> /bits/ <span class=m>64</span> &lt;2016000000&gt;<span class=p>;</span>
+</span></span><span class=line><span class=cl>			opp-supported-hw <span class=o>=</span> &lt;0x85&gt;<span class=p>;</span>
+</span></span><span class=line><span class=cl>			required-opps <span class=o>=</span> &lt;<span class=p>&amp;</span>cpr_opp8&gt;<span class=p>;</span>
+</span></span><span class=line><span class=cl>		<span class=o>}</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>		opp-2150400000 <span class=o>{</span>
+</span></span><span class=line><span class=cl>			opp-hz <span class=o>=</span> /bits/ <span class=m>64</span> &lt;2150400000&gt;<span class=p>;</span>
+</span></span><span class=line><span class=cl>			opp-supported-hw <span class=o>=</span> &lt;0x81&gt;<span class=p>;</span>
+</span></span><span class=line><span class=cl>			required-opps <span class=o>=</span> &lt;<span class=p>&amp;</span>cpr_opp9&gt;<span class=p>;</span>
+</span></span><span class=line><span class=cl>		<span class=o>}</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>		opp-2208000000 <span class=o>{</span>
+</span></span><span class=line><span class=cl>			opp-hz <span class=o>=</span> /bits/ <span class=m>64</span> &lt;2208000000&gt;<span class=p>;</span>
+</span></span><span class=line><span class=cl>			opp-supported-hw <span class=o>=</span> &lt;0x81&gt;<span class=p>;</span>
+</span></span><span class=line><span class=cl>			required-opps <span class=o>=</span> &lt;<span class=p>&amp;</span>cpr_opp10&gt;<span class=p>;</span>
+</span></span><span class=line><span class=cl>		<span class=o>}</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=o>}</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=o>===</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=扩大分区>扩大分区</h2><p>如果发现分区大小和rootfs一样大</p><p>ext4:</p><p>方法一:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl><span class=cp>#!/bin/bash
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl>resize2fs <span class=k>$(</span>df / <span class=p>|</span> awk <span class=s1>&#39;$NF==&#34;/&#34;{print $1}&#39;</span><span class=k>)</span>
+</span></span><span class=line><span class=cl><span class=c1># resize2fs /dev/mmcblk0p30</span>
+</span></span><span class=line><span class=cl><span class=c1># resize2fs /dev/mmcblk1p30</span>
+</span></span></code></pre></td></tr></table></div></div><p>方法二:</p><p>制作rootfs时</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>cat &gt; /etc/systemd/system/resizefs.service <span class=s>&lt;&lt; EOF
+</span></span></span><span class=line><span class=cl><span class=s>[Unit]
+</span></span></span><span class=line><span class=cl><span class=s>Description=Expand root filesystem to fill partition
+</span></span></span><span class=line><span class=cl><span class=s>After=local-fs.target
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>[Service]
+</span></span></span><span class=line><span class=cl><span class=s>Type=oneshot
+</span></span></span><span class=line><span class=cl><span class=s>ExecStart=/usr/bin/bash -c &#39;exec /usr/sbin/resize2fs $(findmnt -nvo SOURCE /)&#39;
+</span></span></span><span class=line><span class=cl><span class=s>ExecStartPost=/usr/bin/systemctl disable resizefs.service
+</span></span></span><span class=line><span class=cl><span class=s>RemainAfterExit=true
+</span></span></span><span class=line><span class=cl><span class=s>
+</span></span></span><span class=line><span class=cl><span class=s>[Install]
+</span></span></span><span class=line><span class=cl><span class=s>WantedBy=default.target
+</span></span></span><span class=line><span class=cl><span class=s>EOF</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>systemctl <span class=nb>enable</span> resizefs.service
+</span></span></code></pre></td></tr></table></div></div><h2 id=定量充电脚本>定量充电脚本</h2><p>note4x支持去掉电池直接供电, 需要5V2A电源和长度较短的数据线</p><p>小米note2拆电池无法启动, 可以使用定充脚本, 或者拆电池小板改直供电</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl><span class=cp>#!/bin/bash
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=c1># 小米note2</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 是否在连接usb</span>
+</span></span><span class=line><span class=cl><span class=nv>USB_ONLINE</span><span class=o>=</span><span class=s2>&#34;/sys/class/power_supply/qcom-smbchg-usb/online&#34;</span>
+</span></span><span class=line><span class=cl><span class=c1># USB充电电流限制文件 微安</span>
+</span></span><span class=line><span class=cl><span class=nv>USB_CURRENT_LIMIT_FILE</span><span class=o>=</span><span class=s2>&#34;/sys/class/power_supply/qcom-smbchg-usb/input_current_limit&#34;</span>
+</span></span><span class=line><span class=cl><span class=c1># USB最大充电电流 微安</span>
+</span></span><span class=line><span class=cl><span class=nv>USB_MAX_CURRENT_FILE</span><span class=o>=</span><span class=s2>&#34;/sys/class/power_supply/qcom-smbchg-usb/constant_charge_current_max&#34;</span>
+</span></span><span class=line><span class=cl><span class=c1># 电池百分比</span>
+</span></span><span class=line><span class=cl><span class=nv>BATTERY_CAPACITY_FILE</span><span class=o>=</span><span class=s2>&#34;/sys/class/power_supply/qcom-battery/capacity&#34;</span>
+</span></span><span class=line><span class=cl><span class=c1># 电池电流 微安</span>
+</span></span><span class=line><span class=cl><span class=nv>BATTERY_CURRENT_FILE</span><span class=o>=</span><span class=s2>&#34;/sys/class/power_supply/qcom-battery/current_now&#34;</span>
+</span></span><span class=line><span class=cl><span class=c1># 电池温度</span>
+</span></span><span class=line><span class=cl><span class=nv>BATTERY_TEMP_FILE</span><span class=o>=</span><span class=s2>&#34;/sys/class/power_supply/qcom-battery/temp&#34;</span>
+</span></span><span class=line><span class=cl><span class=c1># 记录充电记录</span>
+</span></span><span class=line><span class=cl><span class=nv>CHARGING_LOG_FILE</span><span class=o>=</span><span class=s2>&#34;/root/charging.log&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 调整电流的变量 微安, 最小刻度为100ma</span>
+</span></span><span class=line><span class=cl><span class=nv>DISABLE_CHARGE</span><span class=o>=</span><span class=m>300000</span>      <span class=c1># 电池放电时的usb电流</span>
+</span></span><span class=line><span class=cl><span class=nv>TRICKLE_CHARGE</span><span class=o>=</span><span class=m>700000</span>      <span class=c1># 电池充电时的usb电流</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 开启放电的电量百分比</span>
+</span></span><span class=line><span class=cl><span class=nv>DISABLE_START</span><span class=o>=</span><span class=m>90</span>
+</span></span><span class=line><span class=cl><span class=c1># 开启充电的电量百分比</span>
+</span></span><span class=line><span class=cl><span class=nv>TRICKLE_START</span><span class=o>=</span><span class=m>20</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 检测是否在充电，如果不在充电，退出</span>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=o>[</span> <span class=s2>&#34;</span><span class=k>$(</span>cat <span class=nv>$USB_ONLINE</span><span class=k>)</span><span class=s2>&#34;</span> !<span class=o>=</span> <span class=s2>&#34;1&#34;</span> <span class=o>]</span><span class=p>;</span> <span class=k>then</span>
+</span></span><span class=line><span class=cl>  <span class=nb>echo</span> <span class=s2>&#34;当前未连接usb，退出...&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=nb>exit</span> <span class=m>0</span>
+</span></span><span class=line><span class=cl><span class=k>fi</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 获取电池电量百分比</span>
+</span></span><span class=line><span class=cl><span class=nv>battery_capacity</span><span class=o>=</span><span class=k>$(</span>cat <span class=nv>$BATTERY_CAPACITY_FILE</span><span class=k>)</span>
+</span></span><span class=line><span class=cl><span class=c1># 获取当前usb电流</span>
+</span></span><span class=line><span class=cl><span class=nv>current_usb_current</span><span class=o>=</span><span class=k>$(</span>cat <span class=nv>$USB_CURRENT_LIMIT_FILE</span><span class=k>)</span>
+</span></span><span class=line><span class=cl><span class=c1># 时间戳</span>
+</span></span><span class=line><span class=cl><span class=nv>formatted_time</span><span class=o>=</span><span class=k>$(</span>date +<span class=s2>&#34;%Y-%m-%d %H:%M:%S&#34;</span><span class=k>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=o>[</span> <span class=nv>$battery_capacity</span> -ge <span class=nv>$DISABLE_START</span> <span class=o>]</span><span class=p>;</span> <span class=k>then</span>
+</span></span><span class=line><span class=cl>  <span class=k>if</span> <span class=o>[</span> <span class=s2>&#34;</span><span class=nv>$current_usb_current</span><span class=s2>&#34;</span> !<span class=o>=</span> <span class=s2>&#34;</span><span class=nv>$DISABLE_CHARGE</span><span class=s2>&#34;</span> <span class=o>]</span><span class=p>;</span> <span class=k>then</span>
+</span></span><span class=line><span class=cl>    <span class=nb>echo</span> <span class=s2>&#34;电量大于等于</span><span class=nv>$DISABLE_START</span><span class=s2>%，设置USB电流为</span><span class=nv>$DISABLE_CHARGE</span><span class=s2> μA&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nb>echo</span> <span class=nv>$DISABLE_CHARGE</span> &gt; <span class=nv>$USB_CURRENT_LIMIT_FILE</span>
+</span></span><span class=line><span class=cl>    <span class=nb>echo</span> <span class=s2>&#34;</span><span class=nv>$formatted_time</span><span class=s2>: 开始放电&#34;</span> &gt;&gt; <span class=nv>$CHARGING_LOG_FILE</span>
+</span></span><span class=line><span class=cl>  <span class=k>else</span>
+</span></span><span class=line><span class=cl>    <span class=nb>echo</span> <span class=s2>&#34;电量大于等于</span><span class=nv>$DISABLE_START</span><span class=s2>%，USB电流已设置为</span><span class=nv>$DISABLE_CHARGE</span><span class=s2> μA，无需重复设置&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=k>fi</span>
+</span></span><span class=line><span class=cl><span class=k>elif</span> <span class=o>[</span> <span class=nv>$battery_capacity</span> -le <span class=nv>$TRICKLE_START</span> <span class=o>]</span><span class=p>;</span> <span class=k>then</span>
+</span></span><span class=line><span class=cl>  <span class=k>if</span> <span class=o>[</span> <span class=s2>&#34;</span><span class=nv>$current_usb_current</span><span class=s2>&#34;</span> !<span class=o>=</span> <span class=s2>&#34;</span><span class=nv>$TRICKLE_CHARGE</span><span class=s2>&#34;</span> <span class=o>]</span><span class=p>;</span> <span class=k>then</span>
+</span></span><span class=line><span class=cl>    <span class=nb>echo</span> <span class=s2>&#34;电量小于等于</span><span class=nv>$TRICKLE_START</span><span class=s2>%，设置USB电流为</span><span class=nv>$TRICKLE_CHARGE</span><span class=s2> μA&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=nb>echo</span> <span class=nv>$TRICKLE_CHARGE</span> &gt; <span class=nv>$USB_CURRENT_LIMIT_FILE</span>
+</span></span><span class=line><span class=cl>    <span class=nb>echo</span> <span class=s2>&#34;</span><span class=nv>$formatted_time</span><span class=s2>: 开始充电&#34;</span> &gt;&gt; <span class=nv>$CHARGING_LOG_FILE</span>
+</span></span><span class=line><span class=cl>  <span class=k>else</span>
+</span></span><span class=line><span class=cl>    <span class=nb>echo</span> <span class=s2>&#34;电量小于等于</span><span class=nv>$TRICKLE_START</span><span class=s2>%，USB电流已设置为</span><span class=nv>$TRICKLE_CHARGE</span><span class=s2> μA，无需重复设置&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=k>fi</span>
+</span></span><span class=line><span class=cl><span class=k>else</span>
+</span></span><span class=line><span class=cl>  <span class=nb>echo</span> <span class=s2>&#34;电量在</span><span class=nv>$TRICKLE_START</span><span class=s2>%和</span><span class=nv>$DISABLE_START</span><span class=s2>%之间，保持当前USB电流&#34;</span>
+</span></span><span class=line><span class=cl><span class=k>fi</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=获取mkbootimg-参数>获取mkbootimg 参数</h2><p><a class=link href=https://wiki.postmarketos.org/wiki/Huawei_Honor_6X_%28huawei-berlin%29 target=_blank rel=noopener>https://wiki.postmarketos.org/wiki/Huawei_Honor_6X_(huawei-berlin)</a></p><p><a class=link href=https://github.com/anestisb/android-unpackbootimg target=_blank rel=noopener>https://github.com/anestisb/android-unpackbootimg</a></p><p><a class=link href=https://github.com/OpenStick/OpenStick/issues/7 target=_blank rel=noopener>https://github.com/OpenStick/OpenStick/issues/7</a></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>git clone https://github.com/anestisb/android-unpackbootimg
+</span></span><span class=line><span class=cl>make -C android-unpackbootimg
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>./android-unpackbootimg/unpackbootimg -i boot.img -o boot/
+</span></span><span class=line><span class=cl><span class=c1># 打印出上面的mkbootimg 参数</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>===</span>
+</span></span><span class=line><span class=cl>BOARD_KERNEL_CMDLINE PMOS_NO_OUTPUT_REDIRECT  <span class=nv>pmos_boot_uuid</span><span class=o>=</span>518e9aa3-4de5-42c3-b6ec-6f1d8384030a <span class=nv>pmos_root_uuid</span><span class=o>=</span>19d04306-f22f-4009-ad75-a6afd390fba8
+</span></span><span class=line><span class=cl>BOARD_KERNEL_BASE <span class=m>80000000</span>
+</span></span><span class=line><span class=cl>BOARD_NAME 
+</span></span><span class=line><span class=cl>BOARD_PAGE_SIZE <span class=m>4096</span>
+</span></span><span class=line><span class=cl>BOARD_HASH_TYPE sha1
+</span></span><span class=line><span class=cl>BOARD_KERNEL_OFFSET <span class=m>00008000</span>
+</span></span><span class=line><span class=cl>BOARD_RAMDISK_OFFSET <span class=m>01000000</span>
+</span></span><span class=line><span class=cl>BOARD_SECOND_OFFSET 00f00000
+</span></span><span class=line><span class=cl>BOARD_TAGS_OFFSET <span class=nv>00000100</span>
+</span></span><span class=line><span class=cl><span class=o>===</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=切换otg主从模式>切换OTG主从模式</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl><span class=c1># 625可以这样切主从</span>
+</span></span><span class=line><span class=cl><span class=c1># 主机模式：</span>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> host &gt; /sys/kernel/debug/usb/7000000.usb/mode
+</span></span><span class=line><span class=cl><span class=c1># 从设备模式</span>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> device &gt; /sys/kernel/debug/usb/7000000.usb/mode
+</span></span></code></pre></td></tr></table></div></div><h2 id=测试稳定性>测试稳定性</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>wget -qO- https://raw.githubusercontent.com/LemonBench/LemonBench/main/LemonBench.sh <span class=p>|</span> bash -s -- --fast
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>stress-ng --cpu <span class=m>8</span> --timeout 120s --perf
+</span></span></code></pre></td></tr></table></div></div><h2 id=btrfs-查看压缩信息>btrfs 查看压缩信息</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>btrfs filesystem usage /
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 整理碎片</span>
+</span></span><span class=line><span class=cl>btrfs filesystem defragment -r /
+</span></span></code></pre></td></tr></table></div></div></section><footer class=article-footer><section class=article-tags><a href=/tags/debian/>Debian</a>
+<a href=/tags/note4x/>Note4x</a>
+<a href=/tags/server/>Server</a></section><section class=article-copyright><svg class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span><a rel=license href=http://creativecommons.org/licenses/by-nc-sa/4.0/>LICENSED UNDER CC BY-NC-SA 4.0<br></a></span></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>Related content</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/post/add-comment-and-analytics-for-hugo/><div class=article-details><h2 class=article-title>为Hugo博客添加评论和统计功能</h2></div></a></article><article><a href=/post/proxy-forward-reverse-transparent/><div class=article-details><h2 class=article-title>正向|反向|透明代理</h2></div></a></article><article><a href=/post/markdown-quick-start/><div class=article-details><h2 class=article-title>Markdown笔记</h2></div></a></article></div></div></aside><link rel=stylesheet href=https://unpkg.com/@waline/client@v3/dist/waline.css><div id=waline class=waline-container></div><style>.waline-container{background-color:var(--card-background);border-radius:var(--card-border-radius);box-shadow:var(--shadow-l1);padding:var(--card-padding);--waline-font-size:var(--article-font-size)}.waline-container .wl-count{color:var(--card-text-color-main)}</style><script type=module>
+    import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+    init({"comment":false,"dark":"html[data-scheme=\"dark\"]","el":"#waline","emoji":["https://unpkg.com/@waline/emojis@1.2.0/tieba","https://unpkg.com/@waline/emojis@1.2.0/bilibili","https://unpkg.com/@waline/emojis@1.2.0/bmoji","https://unpkg.com/@waline/emojis@1.2.0/weibo"],"highlighter":true,"imageUploader":false,"lang":"en","locale":{"admin":"Admin","placeholder":"Welcome to leave your valuable comments!\nPlease provide a correct email address so that we can send you an email notification when there is a reply.\nDo not post any content unrelated to this article.","reaction0":"Very helpful","reaction1":"Helpful","reaction2":"Average","reaction3":"Not helpful","reaction4":"Confused","reaction5":"Incorrect","reactionTitle":"Was this article helpful to you?"},"meta":["nick","mail"],"pageview":false,"reaction":["https://npm.elemecdn.com/@waline/emojis@1.1.0/bilibili/bb_heart_eyes.png","https://npm.elemecdn.com/@waline/emojis@1.1.0/bilibili/bb_thumbsup.png","https://npm.elemecdn.com/@waline/emojis@1.1.0/bilibili/bb_zhoumei.png","https://npm.elemecdn.com/@waline/emojis@1.1.0/bilibili/bb_grievance.png","https://npm.elemecdn.com/@waline/emojis@1.1.0/bilibili/bb_dizzy_face.png","https://npm.elemecdn.com/@waline/emojis@1.1.0/bilibili/bb_slap.png"],"requiredMeta":["nick","mail"],"requiredmetanames":["nick","mail"],"serverURL":"https://waline.081024.xyz"});
+</script><footer class=site-footer><section class=copyright>&copy;
+2017 -
+2024 Jqtmviyu's Blog</section><section class=powerby>build with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a>, theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.26.0>Stack</a></b>, visits <span class="waline-index-count breathe" waline-url=https://waline.081024.xyz data-path=/404.html style=font-weight:700>0</span></section><script>(async()=>{let e=document.querySelector(".waline-index-count"),s=e.getAttribute("waline-url"),o=document.querySelectorAll(".waline-pageview-count"),a=Array.from(o).map(e=>e.getAttribute("data-path")),i=document.querySelectorAll(".waline-comment-count"),r=Array.from(i).map(e=>e.getAttribute("data-path"));function c(e){let t=s+"/api/article/?path=";return e.forEach((e,n)=>{t+=n===0?e:","+e}),fetch(t).then(e=>e.json()).then(e=>{if(e.errno==0)return e.data.map(e=>e.time);throw new Error("获取失败")}).catch(e=>new Promise((t,n)=>{n(e)}))}function l(e){let t={path:e};return fetch(`${s}/api/article`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(t)}).then(e=>e.json()).then(e=>{if(e.errno==0)return e.data[0].time;throw new Error("获取失败")}).catch(e=>new Promise((t,n)=>{n(e)}))}function d(e){let t=s+"/api/comment?type=count&lang=en&url=";return e.forEach((e,n)=>{t+=n===0?e:","+e}),fetch(t).then(e=>e.json()).then(e=>{if(e.errno==0)return e.data;throw new Error("获取失败")}).catch(e=>new Promise((t,n)=>{n(e)}))}(window.location.pathname=="/"||window.location.pathname.includes("/page/"))&&(c(a).then(e=>{e.forEach((e,t)=>{o[t].innerText=e})}),d(r).then(e=>{console.log("commentCounts",e),e.forEach((e,t)=>{i[t].innerText=e})})),window.location.pathname.includes("/post/")&&(l(a[0]).then(e=>{o[0].innerText=e}),d(r).then(e=>{e.forEach((e,t)=>{i[t].innerText=e})}));let t=localStorage.getItem("indexCount"),n=localStorage.getItem("lastVisitTime");!!n==!1&&l("/").then(t=>{localStorage.setItem("indexCount",t),localStorage.setItem("lastVisitTime",Date.now()),e.innerHTML=t}),!!n&&!!t&&Date.now()-n<36e5&&(t=localStorage.getItem("indexCount"),e.innerHTML=t),!!n&&Date.now()-n>=36e5&&c(["/"]).then(n=>{t=n[0],localStorage.setItem("indexCount",t),localStorage.setItem("lastVisitTime",Date.now()),e.innerHTML=t}),setInterval(()=>{(new Date).getSeconds()%2===0?e.style.color="red":e.style.color=""},1e3)})()</script><style>.wl-action[title=GIF]{display:none}footer.site-footer{padding-bottom:20px}</style></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>
