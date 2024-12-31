@@ -1,4 +1,159 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Jqtmviyu's Blog</title><link>/post/</link><description>Recent content in Posts on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 26 Dec 2024 20:06:51 +0800</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Install Debian Server on Xiaomi Phone</title><link>/post/install-debian-server-on-xiaomi-phone/</link><pubDate>Thu, 26 Dec 2024 20:06:51 +0800</pubDate><guid>/post/install-debian-server-on-xiaomi-phone/</guid><description>&lt;h1 id="红米note4x刷成debian服务器">红米note4x刷成debian服务器
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Jqtmviyu's Blog</title><link>/post/</link><description>Recent content in Posts on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 31 Dec 2024 23:58:38 +0800</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml"/><item><title>pom系统编译</title><link>/post/build_postmarketos/</link><pubDate>Tue, 31 Dec 2024 23:58:38 +0800</pubDate><guid>/post/build_postmarketos/</guid><description>&lt;h2 id="pmos编译">pmos编译
+&lt;/h2>&lt;h3 id="直接编译">直接编译
+&lt;/h3>&lt;p>&lt;a class="link" href="https://www.cnblogs.com/x383494/p/18304008" target="_blank" rel="noopener"
+>https://www.cnblogs.com/x383494/p/18304008&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://mp.weixin.qq.com/s/Wb1sybyzAudTIfxBXxWmiQ" target="_blank" rel="noopener"
+>https://mp.weixin.qq.com/s/Wb1sybyzAudTIfxBXxWmiQ&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://yzddmr6.com/posts/android-run-docker/" target="_blank" rel="noopener"
+>https://yzddmr6.com/posts/android-run-docker/&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;span class="lnt">42
+&lt;/span>&lt;span class="lnt">43
+&lt;/span>&lt;span class="lnt">44
+&lt;/span>&lt;span class="lnt">45
+&lt;/span>&lt;span class="lnt">46
+&lt;/span>&lt;span class="lnt">47
+&lt;/span>&lt;span class="lnt">48
+&lt;/span>&lt;span class="lnt">49
+&lt;/span>&lt;span class="lnt">50
+&lt;/span>&lt;span class="lnt">51
+&lt;/span>&lt;span class="lnt">52
+&lt;/span>&lt;span class="lnt">53
+&lt;/span>&lt;span class="lnt">54
+&lt;/span>&lt;span class="lnt">55
+&lt;/span>&lt;span class="lnt">56
+&lt;/span>&lt;span class="lnt">57
+&lt;/span>&lt;span class="lnt">58
+&lt;/span>&lt;span class="lnt">59
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">git clone --depth&lt;span class="o">=&lt;/span>&lt;span class="m">1&lt;/span> https://gitlab.postmarketos.org/postmarketOS/pmbootstrap.git
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mkdir -p ~/.local/bin
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ln -s &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$PWD&lt;/span>&lt;span class="s2">/pmbootstrap/pmbootstrap.py&amp;#34;&lt;/span> ~/.local/bin/pmbootstrap
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">vim ~/.zshrc &lt;span class="c1"># bash换成.bashrc&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">===&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">PATH&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$HOME&lt;/span>&lt;span class="s2">/.local/bin:&lt;/span>&lt;span class="nv">$PATH&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">===&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">source&lt;/span> ~/.zshrc
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pmbootstrap --version
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 设置镜像源&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 3.x alpha设置镜像, 不稳定, 改为2.3&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># pmbootstrap config mirrors.alpine https://mirrors.tuna.tsinghua.edu.cn/alpine/&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># pmbootstrap config mirrors.pmaports https://mirrors.tuna.tsinghua.edu.cn/postmarketOS/&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 拉取最新的配置列表和文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pmbootstrap pull
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 设置型号&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pmbootstrap init
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 2.设置加速源&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pmbootstrap --mirror-pmOS https://mirrors.tuna.tsinghua.edu.cn/postmarketOS/ --mirror-alpine https://mirrors.tuna.tsinghua.edu.cn/alpine/ init
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 编译安卓刷机包&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pmbootstrap install
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 参数&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 生成安卓刷机包&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--android-recovery-zip
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 制定安装分区, 例如/分区太小时添加&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--recovery-install-partition&lt;span class="o">=&lt;/span>data
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 分区格式&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--filesystem btrfs
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 导出刷机包&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pmbootstrap &lt;span class="nb">export&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 找到刷机包的位置, 在work目录执行&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> /tmp/postmarketOS-export
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 刷入zip的方法&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">先进入twrp，然后unmount所有的分区，再进行sideload刷入
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">adb sideload pmos-xiaomi-sagit.zip
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 生成的img位置&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 进入work目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># rootfs&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> ./chroot_native/home/pmos/rootfs
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># config boot.img lk2nd.img&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">./chroot_rootfs_型号/boot
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 监控Í日志&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pmbootstrap log
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 清理构建缓存&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pmbootstrap zap
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 针对某个包&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pmbootstrap zap --package linux-postmarketos-qcom-msm8998
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 解包&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">bootimg.cfg：boot 分区配置信息，内核启动参数
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">config：默认内核编译配置
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">firmware：启动加载必须的驱动固件文件
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">abootimg -x boot.img
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mv 命令复制 initrd.img 为 initrd.img.gz，然后使用解压命令
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="修改内核选项">修改内核选项
+&lt;/h3>&lt;p>&lt;a class="link" href="https://www.twblogs.net/a/601638e4e64365bb610bbf47/?lang=zh-cn" target="_blank" rel="noopener"
+>https://www.twblogs.net/a/601638e4e64365bb610bbf47/?lang=zh-cn&lt;/a>&lt;/p></description></item><item><title>更纱等距黑体自定义英文部分</title><link>/post/custom_english_part_style_for_sarasa-term-sc-nerd/</link><pubDate>Sun, 29 Dec 2024 01:00:17 +0800</pubDate><guid>/post/custom_english_part_style_for_sarasa-term-sc-nerd/</guid><description>&lt;p>我一直都在vscode上用 更纱等距黑体，这款字体的特点是英文宽度缩小到中文的50%。&lt;/p>
+&lt;p>&lt;a class="link" href="https://github.com/laishulu/Sarasa-Term-SC-Nerd" target="_blank" rel="noopener"
+>https://github.com/laishulu/Sarasa-Term-SC-Nerd&lt;/a>&lt;/p>
+&lt;p>但有个烦恼的问题是数字1，小写i和l 一眼分不清。 前两天在小众论坛有网友提到可以自定义该字体的英文部分&lt;/p></description></item><item><title>Install Debian Server on Xiaomi Phone</title><link>/post/install-debian-server-on-xiaomi-phone/</link><pubDate>Thu, 26 Dec 2024 20:06:51 +0800</pubDate><guid>/post/install-debian-server-on-xiaomi-phone/</guid><description>&lt;h1 id="红米note4x刷成debian服务器">红米note4x刷成debian服务器
 &lt;/h1>&lt;p>参考链接:&lt;/p>
 &lt;p>Pmbootstrap 相关:&lt;br>
 &lt;a class="link" href="https://wiki.postmarketos.org/wiki/Xiaomi_Redmi_Note_4_%28xiaomi-mido%29" target="_blank" rel="noopener"
