@@ -1,0 +1,398 @@
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="百度云旧版 /Applications/BaiduNetdisk_mac.app/Contents/Resources/app-update.yml\nV2 版本的最后一个版本号是 2.2.3 ，官方下载更稳妥些：\nhttp://issuecdn.baidupcs.com/issue/netdisk/MACguanjia/BaiduNetdisk_mac_2.2.3.dmg\n支持扫码的版本: 3.0.3之后才才可以, 但用不了, 3.10.2可以用\n第一个适配 M 芯片的版本就是 4.11.0\nhttps://issuepcdn.baidupcs.com/issue/netdisk/MACguanjia/BaiduNetdisk_mac_4.11.0_arm64.dmg\n"><title>下载百度网盘MAC旧版和使用BaiduPCS-Go</title>
+<link rel=canonical href=/post/download_old_vertion_of_baiduyunpan_for_mac/><link rel=stylesheet href=/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css><meta property='og:title' content="下载百度网盘MAC旧版和使用BaiduPCS-Go"><meta property='og:description' content="百度云旧版 /Applications/BaiduNetdisk_mac.app/Contents/Resources/app-update.yml\nV2 版本的最后一个版本号是 2.2.3 ，官方下载更稳妥些：\nhttp://issuecdn.baidupcs.com/issue/netdisk/MACguanjia/BaiduNetdisk_mac_2.2.3.dmg\n支持扫码的版本: 3.0.3之后才才可以, 但用不了, 3.10.2可以用\n第一个适配 M 芯片的版本就是 4.11.0\nhttps://issuepcdn.baidupcs.com/issue/netdisk/MACguanjia/BaiduNetdisk_mac_4.11.0_arm64.dmg\n"><meta property='og:url' content='/post/download_old_vertion_of_baiduyunpan_for_mac/'><meta property='og:site_name' content="Jqtmviyu's Blog"><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='baiduyunpan'><meta property='article:published_time' content='2025-01-10T14:27:57+08:00'><meta property='article:modified_time' content='2025-01-10T14:27:57+08:00'><meta name=twitter:title content="下载百度网盘MAC旧版和使用BaiduPCS-Go"><meta name=twitter:description content="百度云旧版 /Applications/BaiduNetdisk_mac.app/Contents/Resources/app-update.yml\nV2 版本的最后一个版本号是 2.2.3 ，官方下载更稳妥些：\nhttp://issuecdn.baidupcs.com/issue/netdisk/MACguanjia/BaiduNetdisk_mac_2.2.3.dmg\n支持扫码的版本: 3.0.3之后才才可以, 但用不了, 3.10.2可以用\n第一个适配 M 芯片的版本就是 4.11.0\nhttps://issuepcdn.baidupcs.com/issue/netdisk/MACguanjia/BaiduNetdisk_mac_4.11.0_arm64.dmg\n"><link rel="shortcut icon" href=/favicon.png></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/avatar.png width=300 height=300 class=site-logo loading=lazy alt=Avatar></a></figure><div class=site-meta><h1 class=site-name><a href=/>Jqtmviyu's Blog</a></h1><h2 class=site-description>Let's do this from now on.</h2></div></header><ol class=menu-social><li><a href=https://github.com/jqtmviyu target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li><li><a href=https://git.081024.xyz/hxx target=_blank title=Gitea rel=me><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b6b6b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-gitlab"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M21 14l-9 7-9-7L6 3l3 7h6l3-7z"/></svg></a></li><li><a href=mailto:jqtmviyu#gmail.com target=_blank title=Mail rel=me><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b6b6b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-mail"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7z"/><path d="M3 7l9 6 9-6"/></svg></a></li><li><a href=/index.xml target=_blank title=Rss rel=me><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b6b6b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-rss"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 19m-1 0a1 1 0 102 0 1 1 0 10-2 0"/><path d="M4 4a16 16 0 0116 16"/><path d="M4 11a9 9 0 019 9"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b6b6b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-home"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12H3l9-9 9 9h-2"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Home</span></a></li><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Archives</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Search</span></a></li><li><a href=/about/><svg class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+<span>About</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>Dark Mode</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#百度云旧版>百度云旧版</a><ol><li><a href=#百度网盘go>百度网盘go</a></li></ol></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/tools/ style=background-color:#8ea885;color:#fff>Tools</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/post/download_old_vertion_of_baiduyunpan_for_mac/>下载百度网盘MAC旧版和使用BaiduPCS-Go</a></h2></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>2025/Jan/10</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>11 minute read</time></div><div><svg t="1720522640439" class="icon" viewBox="0 0 1024 1024" p-id="5342" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M997 435.6c-28.2-36.7-65.4-81.4-107.4-122.2-54.6-53.2-110.5-95.6-166.1-126.3-71.2-39.2-142-59.1-210.7-59.1s-139.6 19.9-210.7 59.1c-55.5 30.7-111.4 73.1-166.1 126.3-42 40.8-79.3 85.5-107.5 122.1-34.8 45.3-34.8 107.8.0 153.1 28.2 36.7 65.4 81.4 107.4 122.2C190.5 764 246.5 806.4 302 837.1c71.2 39.2 142.1 59.1 210.7 59.1 68.7.0 139.6-19.9 210.8-59 55.5-30.7 111.4-73.1 166.1-126.3 42-40.8 79.3-85.6 107.4-122.2 34.8-45.3 34.8-107.8.0-153.1zm-37.3 99c-66.2 89-243.8 299-446.8 299-57.5.0-117.7-17.1-179-50.8-50.5-27.7-101.7-66.6-152.2-115.6-51.1-49.5-91-99.5-115.7-132.6-10-13.5-10-31.6.0-44.9 66.1-89 243.7-299 446.8-299 57.5.0 117.6 17.1 179 50.8 50.5 27.7 101.7 66.6 152.2 115.6 51.1 49.5 91 99.5 115.7 132.6 9.9 13.4 9.9 31.6.0 44.9z" p-id="5343" fill="#8a8a8a"/><path d="M512 321.7c-105.7.0-191.6 86-191.6 191.6.0 105.7 86 191.6 191.6 191.6s191.6-86 191.6-191.6c0-105.7-86-191.6-191.6-191.6zm0 319.2c-70.3.0-127.6-57.2-127.6-127.6S441.7 385.7 512 385.7s127.6 57.2 127.6 127.6S582.3 640.9 512 640.9z" p-id="5344" fill="#8a8a8a"/></svg>
+<time class=article-pageview><span class=waline-pageview-count data-path=/post/download_old_vertion_of_baiduyunpan_for_mac/>0</span> visits</time></div><div><svg t="1721405452473" class="icon" viewBox="0 0 1024 1024" p-id="2287" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24"><path d="M853.333333 138.666667H170.666667C130.133334 138.666667 96 172.8 96 213.333333v512C96 765.866666 130.133333 8e2 170.666667 8e2h151.466666V917.333333c0 12.8 8.533333 25.6 19.2 29.866667 4.266667 2.133333 8.533333 2.133333 12.8 2.133333 8.533333.0 17.066667-4.266667 23.466667-10.666666L514.133333 8e2h339.2C893.866666 8e2 928 765.866667 928 725.333333v-512c0-40.533333-34.133333-74.666667-74.666667-74.666666zM864 725.333333c0 6.4-4.266667 10.666667-10.666667 10.666667h-352c-8.533333.0-17.066667 4.266667-23.466666 10.666667l-89.6 93.866666V768c0-17.066667-14.933333-32-32-32h-185.6C164.266667 736 160 731.733333 160 725.333333v-512c0-6.4 4.266667-10.666667 10.666667-10.666666h682.666666c6.4.0 10.666667 4.266667 10.666667 10.666666v512z" fill="#8a8a8a" p-id="2288"/><path d="M512 490.666667H298.666667c-17.066667.0-32 14.933333-32 32s14.933333 32 32 32H512c17.066667.0 32-14.933333 32-32S529.066667 490.666667 512 490.666667zM672 341.333333H298.666667c-17.066667.0-32 14.933333-32 32s14.933333 32 32 32H672c17.066667.0 32-14.933333 32-32s-14.933333-32-32-32z" fill="#8a8a8a" p-id="2289"/></svg>
+<time class=article-comment><span class=waline-comment-count data-path=/post/download_old_vertion_of_baiduyunpan_for_mac/>0</span> comments</time></div></footer></div></header><section class=article-content><h2 id=百度云旧版>百度云旧版</h2><p>/Applications/BaiduNetdisk_mac.app/Contents/Resources/app-update.yml</p><p>V2 版本的最后一个版本号是 2.2.3 ，官方下载更稳妥些：<br><a class=link href=http://issuecdn.baidupcs.com/issue/netdisk/MACguanjia/BaiduNetdisk_mac_2.2.3.dmg target=_blank rel=noopener>http://issuecdn.baidupcs.com/issue/netdisk/MACguanjia/BaiduNetdisk_mac_2.2.3.dmg</a></p><p>支持扫码的版本: 3.0.3之后才才可以, 但用不了, 3.10.2可以用</p><p>第一个适配 M 芯片的版本就是 4.11.0<br><a class=link href=https://issuepcdn.baidupcs.com/issue/netdisk/MACguanjia/BaiduNetdisk_mac_4.11.0_arm64.dmg target=_blank rel=noopener>https://issuepcdn.baidupcs.com/issue/netdisk/MACguanjia/BaiduNetdisk_mac_4.11.0_arm64.dmg</a></p><p>Mac 想下载之前旧版本的朋友，任意旧版都可以下载的，先到官网看下自己想要下载的版本号<br><a class=link href=https://pan.baidu.com/disk/version target=_blank rel=noopener>https://pan.baidu.com/disk/version</a></p><p>适配 m 芯片以前的版本，也就是 4.13.1 以前的 Intel 版本下载地址如下，只需修改版本号：<br><a class=link href=https://issuepcdn.baidupcs.com/issue/netdisk/MACguanjia/BaiduNetdisk_mac_4.11.0.dmg target=_blank rel=noopener>https://issuepcdn.baidupcs.com/issue/netdisk/MACguanjia/BaiduNetdisk_mac_4.11.0.dmg</a></p><p>适配 m 芯片以后的版本，即 4.13.1 以后的版本，只需修改对应的版本号：<br><a class=link href=https://issuepcdn.baidupcs.com/issue/netdisk/MACguanjia/4.13.1/BaiduNetdisk_mac_4.13.1_arm64.dmg target=_blank rel=noopener>https://issuepcdn.baidupcs.com/issue/netdisk/MACguanjia/4.13.1/BaiduNetdisk_mac_4.13.1_arm64.dmg</a></p><p>适配 m 芯片以后的通用版本（ Intel 也能用），只需修改对应的版本号：<br><a class=link href=https://issuepcdn.baidupcs.com/issue/netdisk/MACguanjia/4.13.1/BaiduNetdisk_mac_4.13.1_x64.dmg target=_blank rel=noopener>https://issuepcdn.baidupcs.com/issue/netdisk/MACguanjia/4.13.1/BaiduNetdisk_mac_4.13.1_x64.dmg</a></p><h3 id=百度网盘go>百度网盘go</h3><p><a class=link href="https://github.com/qjfoidnh/BaiduPCS-Go?tab=readme-ov-file#linux--macos" target=_blank rel=noopener>https://github.com/qjfoidnh/BaiduPCS-Go?tab=readme-ov-file#linux--macos</a></p><p>普通用户请将max_parallel和max_download_load都设置为1, 调大线程数只会在短时间内提升下载速度, 且极易很快触发限速, 导致几小时至几天内账号在各客户端都接近0速. 本软件不支持普通用户提速.</p><p>SVIP用户建议max_parallel设置为10以上, 根据实际带宽可调大, 但不建议超过20, max_download_load设置为1 - 2, 实验表明可以稳定满速下载.</p><p>BDUSS:</p><ul><li>按下<code>F12</code>键</li><li>切换到<code>Application</code>栏</li><li>在菜单选项中找到<code>Cookie</code> 选项</li><li>在打开的下拉菜单中选择<code>pan.baidu.com</code></li><li>之后在右侧的Cookie列表中找到<code>BDUSS</code>项</li><li>复制<code>BDUSS</code>项所对应的 <code>Value</code> 即可得到可用的BDUSS.</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span><span class=lnt>104
+</span><span class=lnt>105
+</span><span class=lnt>106
+</span><span class=lnt>107
+</span><span class=lnt>108
+</span><span class=lnt>109
+</span><span class=lnt>110
+</span><span class=lnt>111
+</span><span class=lnt>112
+</span><span class=lnt>113
+</span><span class=lnt>114
+</span><span class=lnt>115
+</span><span class=lnt>116
+</span><span class=lnt>117
+</span><span class=lnt>118
+</span><span class=lnt>119
+</span><span class=lnt>120
+</span><span class=lnt>121
+</span><span class=lnt>122
+</span><span class=lnt>123
+</span><span class=lnt>124
+</span><span class=lnt>125
+</span><span class=lnt>126
+</span><span class=lnt>127
+</span><span class=lnt>128
+</span><span class=lnt>129
+</span><span class=lnt>130
+</span><span class=lnt>131
+</span><span class=lnt>132
+</span><span class=lnt>133
+</span><span class=lnt>134
+</span><span class=lnt>135
+</span><span class=lnt>136
+</span><span class=lnt>137
+</span><span class=lnt>138
+</span><span class=lnt>139
+</span><span class=lnt>140
+</span><span class=lnt>141
+</span><span class=lnt>142
+</span><span class=lnt>143
+</span><span class=lnt>144
+</span><span class=lnt>145
+</span><span class=lnt>146
+</span><span class=lnt>147
+</span><span class=lnt>148
+</span><span class=lnt>149
+</span><span class=lnt>150
+</span><span class=lnt>151
+</span><span class=lnt>152
+</span><span class=lnt>153
+</span><span class=lnt>154
+</span><span class=lnt>155
+</span><span class=lnt>156
+</span><span class=lnt>157
+</span><span class=lnt>158
+</span><span class=lnt>159
+</span><span class=lnt>160
+</span><span class=lnt>161
+</span><span class=lnt>162
+</span><span class=lnt>163
+</span><span class=lnt>164
+</span><span class=lnt>165
+</span><span class=lnt>166
+</span><span class=lnt>167
+</span><span class=lnt>168
+</span><span class=lnt>169
+</span><span class=lnt>170
+</span><span class=lnt>171
+</span><span class=lnt>172
+</span><span class=lnt>173
+</span><span class=lnt>174
+</span><span class=lnt>175
+</span><span class=lnt>176
+</span><span class=lnt>177
+</span><span class=lnt>178
+</span><span class=lnt>179
+</span><span class=lnt>180
+</span><span class=lnt>181
+</span><span class=lnt>182
+</span><span class=lnt>183
+</span><span class=lnt>184
+</span><span class=lnt>185
+</span><span class=lnt>186
+</span><span class=lnt>187
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>BaiduPCS-Go login -bduss<span class=o>=</span>&lt;BDUSS&gt;
+</span></span><span class=line><span class=cl>BaiduPCS-Go login -bduss<span class=o>=</span>&lt;BDUSS&gt; -stoken<span class=o>=</span>&lt;STOKEN&gt;
+</span></span><span class=line><span class=cl>BaiduPCS-Go login -cookies<span class=o>=</span>&lt;Cookies&gt;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 列出账号</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go loglist
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 当前帐号</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go who
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 切换百度帐号</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go su &lt;uid&gt;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>BaiduPCS-Go su
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>请输入要切换帐号的 <span class=c1># 值 &gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 退出百度帐号</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go <span class=nb>logout</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 登录后直接 BaiduPCS-Go 进入cli更方便</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 获取网盘配额</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go quota
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 切换工作目录</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go <span class=nb>cd</span> &lt;目录&gt;
+</span></span><span class=line><span class=cl>BaiduPCS-Go <span class=nb>cd</span> -l &lt;目录&gt;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 输出工作目录</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go ls
+</span></span><span class=line><span class=cl>BaiduPCS-Go ls &lt;目录&gt;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 可选参数</span>
+</span></span><span class=line><span class=cl>-asc: 升序排序
+</span></span><span class=line><span class=cl>-desc: 降序排序
+</span></span><span class=line><span class=cl>-time: 根据时间排序
+</span></span><span class=line><span class=cl>-name: 根据文件名排序
+</span></span><span class=line><span class=cl>-size: 根据大小排序
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 列出目录树形图</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go tree &lt;目录&gt;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 默认获取工作目录元信息</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go tree
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 搜索文件, 默认在当前工作目录搜索</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go search <span class=o>[</span>-path<span class=o>=</span>&lt;需要检索的目录&gt;<span class=o>]</span> <span class=o>[</span>-r<span class=o>]</span> &lt;关键字&gt;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 下载文件/目录</span>
+</span></span><span class=line><span class=cl>  --test          测试下载, 此操作不会保存文件到本地
+</span></span><span class=line><span class=cl>  --ow            overwrite, 覆盖已存在的文件
+</span></span><span class=line><span class=cl>  --status        输出所有线程的工作状态
+</span></span><span class=line><span class=cl>  --save          将下载的文件直接保存到当前工作目录
+</span></span><span class=line><span class=cl>  --saveto value  将下载的文件直接保存到指定的目录
+</span></span><span class=line><span class=cl>  -x              为文件加上执行权限, <span class=o>(</span>windows系统无效<span class=o>)</span>
+</span></span><span class=line><span class=cl>  --mode value    下载模式, 可选值: pcs, stream, locate, 默认为 locate, 相关说明见上面的帮助 <span class=o>(</span>default: <span class=s2>&#34;locate&#34;</span><span class=o>)</span>
+</span></span><span class=line><span class=cl>  -p value        指定下载线程数 <span class=o>(</span>default: 0<span class=o>)</span>
+</span></span><span class=line><span class=cl>  -l value        指定同时进行下载文件的数量 <span class=o>(</span>default: 0<span class=o>)</span>
+</span></span><span class=line><span class=cl>  --retry value   下载失败最大重试次数 <span class=o>(</span>default: 3<span class=o>)</span>
+</span></span><span class=line><span class=cl>  --nocheck       下载文件完成后不校验文件
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 自定义保存的目录</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go config <span class=nb>set</span> -savedir &lt;savedir&gt;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 上传文件/目录, 上传默认采用分片上传的方式, 遇到同名文件将会自动覆盖, 文件名和网盘的目录名称相同时, 不会覆盖目录</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go upload &lt;本地文件/目录的路径1&gt; &lt;文件/目录2&gt; &lt;文件/目录3&gt; ... &lt;目标目录&gt;
+</span></span><span class=line><span class=cl>BaiduPCS-Go u &lt;本地文件/目录的路径1&gt; &lt;文件/目录2&gt; &lt;文件/目录3&gt; ... &lt;目标目录&gt;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 修复文件的MD5值, 分片上传, 云端的md5计算错误, 不影响下载</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go fixmd5 -h
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 获取下载直链</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go locate &lt;文件1&gt; &lt;文件2&gt; ...
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 若该功能无法正常使用, 提示user is not authorized, hitcode:xxx, 尝试更换 User-Agent 为 netdisk;2.2.51.6;netdisk;10.0.63;PC;android-android</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go config <span class=nb>set</span> -user_agent <span class=s2>&#34;netdisk;2.2.51.6;netdisk;10.0.63;PC;android-android&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 获取本地文件的秒传信息</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go sumfile &lt;本地文件的路径&gt;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>BaiduPCS-Go sf &lt;本地文件的路径&gt;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 导出文件/目录, 导出网盘内的文件或目录, 原理为秒传文件, 此操作会生成导出文件或目录的命令.</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go <span class=nb>export</span> &lt;文件/目录1&gt; &lt;文件/目录2&gt; ...
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>BaiduPCS-Go ep &lt;文件/目录1&gt; &lt;文件/目录2&gt; ...
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 创建目录</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go mkdir &lt;目录&gt;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 删除文件/目录</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go rm &lt;网盘文件或目录的路径1&gt; &lt;文件或目录2&gt; &lt;文件或目录3&gt; ...
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 拷贝文件/目录</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go cp &lt;文件/目录&gt; &lt;目标 文件/目录&gt;
+</span></span><span class=line><span class=cl>BaiduPCS-Go cp &lt;文件/目录1&gt; &lt;文件/目录2&gt; &lt;文件/目录3&gt; ... &lt;目标目录&gt;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 移动/重命名文件/目录</span>
+</span></span><span class=line><span class=cl><span class=c1># 移动:</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go mv &lt;文件/目录1&gt; &lt;文件/目录2&gt; &lt;文件/目录3&gt; ... &lt;目标目录&gt;
+</span></span><span class=line><span class=cl><span class=c1># 重命名:</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go mv &lt;文件/目录&gt; &lt;重命名的文件/目录&gt;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 转存文件/目录</span>
+</span></span><span class=line><span class=cl><span class=c1># 转存分享链接里的文件到当前目录:</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go transfer &lt;分享链接&gt; &lt;提取码&gt;
+</span></span><span class=line><span class=cl>BaiduPCS-Go transfer &lt;秒传链接&gt;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 将 https://pan.baidu.com/s/12L_ZZVNxz5f_2CccoyyVrW (提取码edv4) 转存到当前目录</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go transfer https://pan.baidu.com/s/12L_ZZVNxz5f_2CccoyyVrW edv4
+</span></span><span class=line><span class=cl>BaiduPCS-Go transfer https://pan.baidu.com/s/12L_ZZVNxz5f_2CccoyyVrW?pwd<span class=o>=</span>edv4
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 分享文件/目录</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go share
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 设置分享文件/目录</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go share <span class=nb>set</span> &lt;文件/目录1&gt; &lt;文件/目录2&gt; ...
+</span></span><span class=line><span class=cl>BaiduPCS-Go share s &lt;文件/目录1&gt; &lt;文件/目录2&gt; ...
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 列出已分享文件/目录</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go share list
+</span></span><span class=line><span class=cl>BaiduPCS-Go share l
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 取消分享文件/目录</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go share cancel &lt;shareid_1&gt; &lt;shareid_2&gt; ...
+</span></span><span class=line><span class=cl>BaiduPCS-Go share c &lt;shareid_1&gt; &lt;shareid_2&gt; ...
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 离线下载</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go offlinedl
+</span></span><span class=line><span class=cl>BaiduPCS-Go clouddl
+</span></span><span class=line><span class=cl>BaiduPCS-Go od
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 添加离线下载任务, 添加任务成功之后, 返回离线下载的任务ID.</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go offlinedl add -path<span class=o>=</span>&lt;离线下载文件保存的路径&gt; 资源地址1 地址2 ...
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 精确查询离线下载任务</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go offlinedl list
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 取消离线下载任务</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go offlinedl delete 任务ID1 任务ID2 ...
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 清空离线下载任务记录, 程序不会进行二次确认, 谨慎操作!!!</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go offlinedl delete -all
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 回收站</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go recycle
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 列出回收站文件列表</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go recycle list
+</span></span><span class=line><span class=cl><span class=c1># 可选参数</span>
+</span></span><span class=line><span class=cl>--page value  回收站文件列表页数 <span class=o>(</span>default: 1<span class=o>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 还原回收站文件或目录</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go recycle restore &lt;fs_id 1&gt; &lt;fs_id 2&gt; &lt;fs_id 3&gt; ...
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 删除回收站文件或目录/清空回收站</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go recycle delete <span class=o>[</span>-all<span class=o>]</span> &lt;fs_id 1&gt; &lt;fs_id 2&gt; &lt;fs_id 3&gt; ...
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 显示程序环境变量</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go env
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 显示和修改程序配置项</span>
+</span></span><span class=line><span class=cl><span class=c1># 显示配置</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go config
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 设置配置</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go config <span class=nb>set</span>
+</span></span><span class=line><span class=cl><span class=c1># 显示所有可以设置的值</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go config -h
+</span></span><span class=line><span class=cl>BaiduPCS-Go config <span class=nb>set</span> -h
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 设置下载文件的储存目录</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go config <span class=nb>set</span> -savedir D:/Downloads
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 设置下载最大并发量为 15</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go config <span class=nb>set</span> -max_parallel <span class=m>15</span> <span class=c1># vip 10 到 20, 普通用户1, 默认1</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 组合设置</span>
+</span></span><span class=line><span class=cl>BaiduPCS-Go config <span class=nb>set</span> -max_parallel <span class=m>150</span> -savedir D:/Downloads
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 恢复默认配置</span>
+</span></span><span class=line><span class=cl>config reset
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 退出</span>
+</span></span><span class=line><span class=cl><span class=nb>exit</span>
+</span></span></code></pre></td></tr></table></div></div></section><footer class=article-footer><section class=article-tags><a href=/tags/baiduyunpan/>Baiduyunpan</a></section><section class=article-copyright><svg class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span><a rel=license href=http://creativecommons.org/licenses/by-nc-sa/4.0/>LICENSED UNDER CC BY-NC-SA 4.0<br></a></span></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>Related content</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/post/disable_updatecheck_for_firefox/><div class=article-details><h2 class=article-title>禁用Firefox自动更新</h2></div></a></article><article><a href=/post/custom_english_part_style_for_sarasa-term-sc-nerd/><div class=article-details><h2 class=article-title>更纱等距黑体自定义英文部分</h2></div></a></article><article><a href=/post/openwrt-smartdns-setting/><div class=article-details><h2 class=article-title>Openwrt Smartdns 设置与域名分流</h2></div></a></article><article><a href=/post/cloudflare-ddns-script/><div class=article-details><h2 class=article-title>Cloudflare Ddns 脚本</h2></div></a></article><article><a href=/post/gitea-install-actions/><div class=article-details><h2 class=article-title>Gitea 安装 Actions</h2></div></a></article></div></div></aside><link rel=stylesheet href=https://unpkg.com/@waline/client@v3/dist/waline.css><div id=waline class=waline-container></div><style>.waline-container{background-color:var(--card-background);border-radius:var(--card-border-radius);box-shadow:var(--shadow-l1);padding:var(--card-padding);--waline-font-size:var(--article-font-size)}.waline-container .wl-count{color:var(--card-text-color-main)}</style><script type=module>
+    import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+    init({"comment":false,"dark":"html[data-scheme=\"dark\"]","el":"#waline","emoji":["https://unpkg.com/@waline/emojis@1.2.0/tieba","https://unpkg.com/@waline/emojis@1.2.0/bilibili","https://unpkg.com/@waline/emojis@1.2.0/bmoji","https://unpkg.com/@waline/emojis@1.2.0/weibo"],"highlighter":true,"imageUploader":false,"lang":"en","locale":{"admin":"Admin","placeholder":"Welcome to leave your valuable comments!\nPlease provide a correct email address so that we can send you an email notification when there is a reply.\nDo not post any content unrelated to this article.","reaction0":"Very helpful","reaction1":"Helpful","reaction2":"Average","reaction3":"Not helpful","reaction4":"Confused","reaction5":"Incorrect","reactionTitle":"Was this article helpful to you?"},"meta":["nick","mail"],"pageview":false,"reaction":["https://npm.elemecdn.com/@waline/emojis@1.1.0/bilibili/bb_heart_eyes.png","https://npm.elemecdn.com/@waline/emojis@1.1.0/bilibili/bb_thumbsup.png","https://npm.elemecdn.com/@waline/emojis@1.1.0/bilibili/bb_zhoumei.png","https://npm.elemecdn.com/@waline/emojis@1.1.0/bilibili/bb_grievance.png","https://npm.elemecdn.com/@waline/emojis@1.1.0/bilibili/bb_dizzy_face.png","https://npm.elemecdn.com/@waline/emojis@1.1.0/bilibili/bb_slap.png"],"requiredMeta":["nick","mail"],"requiredmetanames":["nick","mail"],"serverURL":"https://waline.081024.xyz"});
+</script><footer class=site-footer><section class=copyright>&copy;
+2017 -
+2025 Jqtmviyu's Blog</section><section class=powerby>build with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a>, theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.26.0>Stack</a></b>, visits <span class="waline-index-count breathe" waline-url=https://waline.081024.xyz data-path=/404.html style=font-weight:700>0</span></section><script>(async()=>{let e=document.querySelector(".waline-index-count"),s=e.getAttribute("waline-url"),o=document.querySelectorAll(".waline-pageview-count"),a=Array.from(o).map(e=>e.getAttribute("data-path")),i=document.querySelectorAll(".waline-comment-count"),r=Array.from(i).map(e=>e.getAttribute("data-path"));function c(e){let t=s+"/api/article/?path=";return e.forEach((e,n)=>{t+=n===0?e:","+e}),fetch(t).then(e=>e.json()).then(e=>{if(e.errno==0)return e.data.map(e=>e.time);throw new Error("获取失败")}).catch(e=>new Promise((t,n)=>{n(e)}))}function l(e){let t={path:e};return fetch(`${s}/api/article`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(t)}).then(e=>e.json()).then(e=>{if(e.errno==0)return e.data[0].time;throw new Error("获取失败")}).catch(e=>new Promise((t,n)=>{n(e)}))}function d(e){let t=s+"/api/comment?type=count&lang=en&url=";return e.forEach((e,n)=>{t+=n===0?e:","+e}),fetch(t).then(e=>e.json()).then(e=>{if(e.errno==0)return e.data;throw new Error("获取失败")}).catch(e=>new Promise((t,n)=>{n(e)}))}(window.location.pathname=="/"||window.location.pathname.includes("/page/"))&&(c(a).then(e=>{e.forEach((e,t)=>{o[t].innerText=e})}),d(r).then(e=>{console.log("commentCounts",e),e.forEach((e,t)=>{i[t].innerText=e})})),window.location.pathname.includes("/post/")&&(l(a[0]).then(e=>{o[0].innerText=e}),d(r).then(e=>{e.forEach((e,t)=>{i[t].innerText=e})}));let t=localStorage.getItem("indexCount"),n=localStorage.getItem("lastVisitTime");!!n==!1&&l("/").then(t=>{localStorage.setItem("indexCount",t),localStorage.setItem("lastVisitTime",Date.now()),e.innerHTML=t}),!!n&&!!t&&Date.now()-n<36e5&&(t=localStorage.getItem("indexCount"),e.innerHTML=t),!!n&&Date.now()-n>=36e5&&c(["/"]).then(n=>{t=n[0],localStorage.setItem("indexCount",t),localStorage.setItem("lastVisitTime",Date.now()),e.innerHTML=t}),setInterval(()=>{(new Date).getSeconds()%2===0?e.style.color="red":e.style.color=""},1e3)})()</script><style>.wl-action[title=GIF]{display:none}footer.site-footer{padding-bottom:20px}</style></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>

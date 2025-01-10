@@ -1,4 +1,33 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jqtmviyu's Blog</title><link>/</link><description>Recent content on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 08 Jan 2025 22:33:00 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>Install_debian_on_termux_by_lxc_container</title><link>/post/install_debian_on_termux_by_lxc_container/</link><pubDate>Wed, 01 Jan 2025 00:03:08 +0800</pubDate><guid>/post/install_debian_on_termux_by_lxc_container/</guid><description>&lt;h2 id="参考文档">参考文档
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jqtmviyu's Blog</title><link>/</link><description>Recent content on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 10 Jan 2025 14:34:51 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>禁用Firefox自动更新</title><link>/post/disable_updatecheck_for_firefox/</link><pubDate>Fri, 10 Jan 2025 14:34:51 +0800</pubDate><guid>/post/disable_updatecheck_for_firefox/</guid><description>&lt;p>&lt;a class="link" href="https://support.mozilla.org/en-US/kb/customizing-firefox-using-policiesjson" target="_blank" rel="noopener"
+>https://support.mozilla.org/en-US/kb/customizing-firefox-using-policiesjson&lt;/a>&lt;/p>
+&lt;p>Taking macOS as an example, create a &lt;code>distribution&lt;/code> folder in the &lt;code>Firefox.app/Contents/Resources&lt;/code> directory. Then, create a file named &lt;code>policies.json&lt;/code> in the &lt;code>distribution&lt;/code> folder with the following content:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="line">&lt;span class="cl">&lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;policies&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;DisableAppUpdate&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;ManualAppUpdateOnly&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Restart the browser and you will no longer have annoying update reminders.&lt;/p></description></item><item><title>下载百度网盘MAC旧版和使用BaiduPCS-Go</title><link>/post/download_old_vertion_of_baiduyunpan_for_mac/</link><pubDate>Fri, 10 Jan 2025 14:27:57 +0800</pubDate><guid>/post/download_old_vertion_of_baiduyunpan_for_mac/</guid><description>&lt;h2 id="百度云旧版">百度云旧版
+&lt;/h2>&lt;p>/Applications/BaiduNetdisk_mac.app/Contents/Resources/app-update.yml&lt;/p>
+&lt;p>V2 版本的最后一个版本号是 2.2.3 ，官方下载更稳妥些：&lt;br>
+&lt;a class="link" href="http://issuecdn.baidupcs.com/issue/netdisk/MACguanjia/BaiduNetdisk_mac_2.2.3.dmg" target="_blank" rel="noopener"
+>http://issuecdn.baidupcs.com/issue/netdisk/MACguanjia/BaiduNetdisk_mac_2.2.3.dmg&lt;/a>&lt;/p>
+&lt;p>支持扫码的版本: 3.0.3之后才才可以, 但用不了, 3.10.2可以用&lt;/p>
+&lt;p>第一个适配 M 芯片的版本就是 4.11.0&lt;br>
+&lt;a class="link" href="https://issuepcdn.baidupcs.com/issue/netdisk/MACguanjia/BaiduNetdisk_mac_4.11.0_arm64.dmg" target="_blank" rel="noopener"
+>https://issuepcdn.baidupcs.com/issue/netdisk/MACguanjia/BaiduNetdisk_mac_4.11.0_arm64.dmg&lt;/a>&lt;/p></description></item><item><title>在Termux中使用LXC容器安装Debian</title><link>/post/install_debian_on_termux_by_lxc_container/</link><pubDate>Wed, 01 Jan 2025 00:03:08 +0800</pubDate><guid>/post/install_debian_on_termux_by_lxc_container/</guid><description>&lt;h2 id="参考文档">参考文档
 &lt;/h2>&lt;p>&lt;a class="link" href="https://blog.upx8.com/3587" target="_blank" rel="noopener"
 >https://blog.upx8.com/3587&lt;/a>&lt;/p>
 &lt;p>&lt;a class="link" href="https://www.coolapk.com/feed/47288185" target="_blank" rel="noopener"
