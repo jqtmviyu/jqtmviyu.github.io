@@ -1,4 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Jqtmviyu's Blog</title><link>/post/</link><description>Recent content in Posts on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 10 Jan 2025 14:34:51 +0800</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml"/><item><title>禁用Firefox自动更新</title><link>/post/disable_updatecheck_for_firefox/</link><pubDate>Fri, 10 Jan 2025 14:34:51 +0800</pubDate><guid>/post/disable_updatecheck_for_firefox/</guid><description>&lt;p>&lt;a class="link" href="https://support.mozilla.org/en-US/kb/customizing-firefox-using-policiesjson" target="_blank" rel="noopener"
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Jqtmviyu's Blog</title><link>/post/</link><description>Recent content in Posts on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 21 Jan 2025 04:56:38 +0800</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Applying_for_an_SSL_Certificate</title><link>/post/applying_for_an_ssl_certificate/</link><pubDate>Tue, 21 Jan 2025 04:56:38 +0800</pubDate><guid>/post/applying_for_an_ssl_certificate/</guid><description>&lt;h1 id="如何简单快速地申请ssl证书">如何简单快速地申请ssl证书
+&lt;/h1>&lt;p>申请ssl证书的工具有很多, 网上的教程五花八门, 例如常见的 &lt;code>acme.sh&lt;/code>&lt;/p>
+&lt;p>但 &lt;code>acme.sh&lt;/code> 之前用过, 体验并不是很好&lt;/p>
+&lt;ol>
+&lt;li>安装需要clone github仓库&lt;/li>
+&lt;li>文档在仓库的wiki, 看起来不方便&lt;/li>
+&lt;li>默认安装的路径不显眼, 在 ~/.acme.sh 下&lt;/li>
+&lt;li>迁移到新服务器后, 原来的配置失效了, 不知道是什么原因&lt;/li>
+&lt;/ol>
+&lt;p>当然我也试过 &lt;code>nginx proxy manage&lt;/code> 里的自动申请&lt;/p></description></item><item><title>禁用Firefox自动更新</title><link>/post/disable_updatecheck_for_firefox/</link><pubDate>Fri, 10 Jan 2025 14:34:51 +0800</pubDate><guid>/post/disable_updatecheck_for_firefox/</guid><description>&lt;p>&lt;a class="link" href="https://support.mozilla.org/en-US/kb/customizing-firefox-using-policiesjson" target="_blank" rel="noopener"
 >https://support.mozilla.org/en-US/kb/customizing-firefox-using-policiesjson&lt;/a>&lt;/p>
 &lt;p>Taking macOS as an example, create a &lt;code>distribution&lt;/code> folder in the &lt;code>Firefox.app/Contents/Resources&lt;/code> directory. Then, create a file named &lt;code>policies.json&lt;/code> in the &lt;code>distribution&lt;/code> folder with the following content:&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
