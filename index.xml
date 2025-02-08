@@ -1,4 +1,8 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jqtmviyu's Blog</title><link>/</link><description>Recent content on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 21 Jan 2025 04:56:38 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>Applying_for_an_SSL_Certificate</title><link>/post/applying_for_an_ssl_certificate/</link><pubDate>Tue, 21 Jan 2025 04:56:38 +0800</pubDate><guid>/post/applying_for_an_ssl_certificate/</guid><description>&lt;h1 id="如何简单快速地申请ssl证书">如何简单快速地申请ssl证书
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jqtmviyu's Blog</title><link>/</link><description>Recent content on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 06 Feb 2025 22:01:55 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>Transmission 重命名集合</title><link>/post/transmission_rename_collection/</link><pubDate>Thu, 06 Feb 2025 22:01:55 +0800</pubDate><guid>/post/transmission_rename_collection/</guid><description>&lt;h2 id="背景">背景
+&lt;/h2>&lt;p>Transmission 可以下载番剧合集,但为了方便emby刮削,需要对合集进行重命名。&lt;/p>
+&lt;p>为了不影响做种分享, 需要通过transmission的api进行重命名。&lt;/p>
+&lt;blockquote>
+&lt;p>transmission不像qbittorrent, 不可以改变种子内文件的结构&lt;/p></description></item><item><title>Applying_for_an_SSL_Certificate</title><link>/post/applying_for_an_ssl_certificate/</link><pubDate>Tue, 21 Jan 2025 04:56:38 +0800</pubDate><guid>/post/applying_for_an_ssl_certificate/</guid><description>&lt;h1 id="如何简单快速地申请ssl证书">如何简单快速地申请ssl证书
 &lt;/h1>&lt;p>申请ssl证书的工具有很多, 网上的教程五花八门, 例如常见的 &lt;code>acme.sh&lt;/code>&lt;/p>
 &lt;p>但 &lt;code>acme.sh&lt;/code> 之前用过, 体验并不是很好&lt;/p>
 &lt;ol>
@@ -592,8 +596,7 @@ loading="lazy"
 &lt;/div></description></item><item><title>通过Transmisson订阅rss追番</title><link>/post/subscribe-anime-by-transmisson/</link><pubDate>Fri, 05 Jul 2024 19:01:23 +0800</pubDate><guid>/post/subscribe-anime-by-transmisson/</guid><description>&lt;p>网上的大部分教程都是qb的, 本篇教程是基于transmission的.&lt;/p>
 &lt;p>前面尝试过基于flexget的订阅, 自动下载没问题, 但是为了方便刮削需要重命名, 破坏了tr的种子分享, 而且手动维护flexget的config配置文件也很麻烦&lt;/p></description></item><item><title>Dbeaver快速使用</title><link>/post/dbeaver-quick-start/</link><pubDate>Sun, 02 Jun 2024 03:21:24 +0800</pubDate><guid>/post/dbeaver-quick-start/</guid><description>&lt;h1 id="dbeaver">DBeaver
 &lt;/h1>&lt;blockquote>
-&lt;p>macos上, 用来代替Navicat的开源免费工具&lt;/p>
-&lt;/blockquote>
+&lt;p>macos上, 用来代替Navicat的开源免费工具&lt;/p>&lt;/blockquote>
 &lt;h2 id="下载">下载
 &lt;/h2>&lt;p>直接google搜索下载社区版就行&lt;/p>
 &lt;h2 id="语言设置">语言设置
@@ -662,8 +665,7 @@ loading="lazy"
 &lt;/div>
 &lt;/div>&lt;p>在宿主机添加hosts(或者设置extra_hosts)&lt;/p></description></item><item><title>flexget快速使用</title><link>/post/flexget-quick-start/</link><pubDate>Fri, 08 Mar 2024 23:54:16 +0800</pubDate><guid>/post/flexget-quick-start/</guid><description>&lt;h1 id="部署flexget">部署flexget
 &lt;/h1>&lt;blockquote>
-&lt;p>配合 qb/tr/aria2 等工具实现 rss 自动下载&lt;/p>
-&lt;/blockquote>
+&lt;p>配合 qb/tr/aria2 等工具实现 rss 自动下载&lt;/p>&lt;/blockquote>
 &lt;h2 id="docker-compose">docker compose
 &lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -876,8 +878,7 @@ loading="lazy"
 &lt;li>正版有删减&lt;/li>
 &lt;li>B站雷丝事件后, 国内先审后播, 港澳台也买少了&lt;/li>
 &lt;li>盗版网站不稳定, 经常用不了,或者有延迟, 清晰度和网速也不行&lt;/li>
-&lt;/ul>
-&lt;/blockquote>
+&lt;/ul>&lt;/blockquote>
 &lt;p>更新: 买了个魔百盒装armbian, 能够跑 Auto_Bangumi, 换回去了&lt;/p></description></item><item><title>给tmux添加右键菜单</title><link>/post/add-context-menu-for-tmux/</link><pubDate>Fri, 08 Sep 2023 18:24:31 +0800</pubDate><guid>/post/add-context-menu-for-tmux/</guid><description>&lt;p>使用场景:&lt;br>
 macos下使用&lt;code>alacritty&lt;/code>终端, 偶尔需要分屏或者多tab, 需要&lt;code>tmux&lt;/code>,但不经常用记不住快捷键, 看&lt;code>help&lt;/code>又太慢
 所以直接把常用的功能添加到右键菜单里.&lt;/p></description></item><item><title>Macos部署webdav和静态网站</title><link>/post/macos-local-webdav-and-website/</link><pubDate>Thu, 07 Sep 2023 11:06:39 +0800</pubDate><guid>/post/macos-local-webdav-and-website/</guid><description>&lt;p>参考:&lt;/p>
@@ -1212,19 +1213,14 @@ intel芯片的 macos 上, 最新版的vscode在使用具有&lt;code>git graph&lt
 &lt;/h1>&lt;blockquote>
 &lt;p>用于生产环境的 Nodejs 的进程管理工具
 &lt;strong>保证服务不会中断&lt;/strong>一直在线，并且提供0秒reload功能，还有其他一系列进程管理、监控功能
-内置一个负载均衡&lt;/p>
-&lt;/blockquote>
+内置一个负载均衡&lt;/p>&lt;/blockquote>
 &lt;p>官方: &lt;a class="link" href="https://pm2.keymetrics.io/docs/usage/quick-start/" target="_blank" rel="noopener"
 >PM2 - Quick Start&lt;/a>&lt;/p></description></item><item><title>Nodejs笔记</title><link>/post/nodejs-note/</link><pubDate>Sun, 26 Mar 2023 18:50:50 +0800</pubDate><guid>/post/nodejs-note/</guid><description>&lt;h1 id="nodejs">NodeJS
 &lt;/h1>&lt;blockquote>
-&lt;p>Node 是一个构建于 Chrome V8引擎之上的一个 Javascript 运行环境, 作用是让 js 拥有开发服务端的功能&lt;/p>
-&lt;/blockquote>
+&lt;p>Node 是一个构建于 Chrome V8引擎之上的一个 Javascript 运行环境, 作用是让 js 拥有开发服务端的功能&lt;/p>&lt;/blockquote>
 &lt;ul>
 &lt;li>
-&lt;p>使用事件驱动、非阻塞 IO 模型（异步读写）使得它非常的轻量级和高效&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Node 中绝大多数 API 都是异步（类似于 ajax），目的是提高性能&lt;/p></description></item><item><title>Obsidian_个性化主题</title><link>/post/obsidian-theme-setting/</link><pubDate>Fri, 24 Mar 2023 12:20:52 +0800</pubDate><guid>/post/obsidian-theme-setting/</guid><description>&lt;ul>
+&lt;p>使用事件驱动、非阻塞 IO 模型（异步读写）使得它非常的轻量级和高效&lt;/p></description></item><item><title>Obsidian_个性化主题</title><link>/post/obsidian-theme-setting/</link><pubDate>Fri, 24 Mar 2023 12:20:52 +0800</pubDate><guid>/post/obsidian-theme-setting/</guid><description>&lt;ul>
 &lt;li>Obsidian上的主题样式非常多, 我之前使用了 &lt;code>typora_vue&lt;/code> 这个主题, 并且直接修改了下载后的文件,但这样会在升级后被覆盖&lt;/li>
 &lt;li>其实官方提供了一个设置的地方, 可以让我们覆盖样式, 就是 &lt;code>外观--css代码片段&lt;/code>, 把自己的css样式文件放到指定文件夹就行, 不影响原主题的升级, 想取消把开关关闭即可&lt;/li>
 &lt;li>直接打开开发工具&lt;code>view-Toggle Developer Tools&lt;/code>, 按自己的需求写css就行&lt;/li>
@@ -1393,16 +1389,14 @@ intel芯片的 macos 上, 最新版的vscode在使用具有&lt;code>git graph&lt
 &lt;p>&lt;a class="link" href="https://www.bilibili.com/read/cv17475290/" target="_blank" rel="noopener"
 >https://www.bilibili.com/read/cv17475290/&lt;/a>&lt;/p>
 &lt;p>&lt;a class="link" href="https://wiki.archlinux.org/title/Installation_guide_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29" target="_blank" rel="noopener"
->https://wiki.archlinux.org/title/Installation_guide_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)&lt;/a>&lt;/p>
-&lt;/blockquote>
+>https://wiki.archlinux.org/title/Installation_guide_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)&lt;/a>&lt;/p>&lt;/blockquote>
 &lt;h2 id="dotfiles">dotfiles
 &lt;/h2>&lt;h2 id="壁纸">壁纸
 &lt;/h2>&lt;p>登录器壁纸： &lt;code>/etc/lightdm/slick-greeter.conf&lt;/code>&lt;/p>
 &lt;p>桌面壁纸: &lt;code>nitrogen&lt;/code>默认配置路径&lt;code>~/.config/nitrogen/&lt;/code>&lt;/p></description></item><item><title>mac安装Navidrome</title><link>/post/mac-install-navidrome/</link><pubDate>Mon, 09 Jan 2023 17:37:57 +0800</pubDate><guid>/post/mac-install-navidrome/</guid><description>&lt;h1 id="mac安装navidrome">mac安装Navidrome
 &lt;/h1>&lt;blockquote>
 &lt;p>&lt;a class="link" href="https://www.navidrome.org/docs/installation/macos/" target="_blank" rel="noopener"
->https://www.navidrome.org/docs/installation/macos/&lt;/a>&lt;/p>
-&lt;/blockquote>
+>https://www.navidrome.org/docs/installation/macos/&lt;/a>&lt;/p>&lt;/blockquote>
 &lt;h2 id="下载">下载
 &lt;/h2>&lt;p>&lt;a class="link" href="https://github.com/navidrome/navidrome" target="_blank" rel="noopener"
 >https://github.com/navidrome/navidrome&lt;/a>&lt;/p>
@@ -1642,8 +1636,7 @@ intel芯片的 macos 上, 最新版的vscode在使用具有&lt;code>git graph&lt
 &lt;/h2>&lt;p>如果是克隆已经添加了子模块的项目&lt;/p></description></item><item><title>MacOs清理System Data</title><link>/post/clean-macos-system-data/</link><pubDate>Fri, 23 Dec 2022 21:11:11 +0800</pubDate><guid>/post/clean-macos-system-data/</guid><description>&lt;h1 id="清理system-data">清理System Data
 &lt;/h1>&lt;blockquote>
 &lt;p>几乎照搬原文： &lt;a class="link" href="https://zhuanlan.zhihu.com/p/349862578" target="_blank" rel="noopener"
->https://zhuanlan.zhihu.com/p/349862578&lt;/a>&lt;/p>
-&lt;/blockquote>
+>https://zhuanlan.zhihu.com/p/349862578&lt;/a>&lt;/p>&lt;/blockquote>
 &lt;h2 id="效果">效果
 &lt;/h2>&lt;p>&lt;code> --&amp;gt; About this Mac --&amp;gt; Storage --&amp;gt; System Data&lt;/code>&lt;/p>
 &lt;p>下图是清理后的，大概清理掉8G左右的残留文件&lt;/p>
