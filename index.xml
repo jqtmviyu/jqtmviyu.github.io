@@ -472,15 +472,11 @@ loading="lazy"
 &lt;/div>&lt;h4 id="更新多个域名">更新多个域名
 &lt;/h4>&lt;p>关联数组只支持在bash中运行&lt;/p></description></item><item><title>Gitea 安装 Actions</title><link>/post/gitea-install-actions/</link><pubDate>Thu, 25 Jul 2024 09:53:15 +0800</pubDate><guid>/post/gitea-install-actions/</guid><description>&lt;p>起因是听说gitea自带action了, 兼容&lt;code>github action&lt;/code>&lt;/p>
 &lt;p>另一个原因是 drone 在arm64位设备上似乎运行不了.&lt;/p>
-&lt;p>使用结论: 非常香, 和gitea融合更好, 更接近 github action体验&lt;/p></description></item><item><title>Docker Compose 部署 Gitea + Drone + Drone Runner</title><link>/post/deploy-gitea-and-drone/</link><pubDate>Tue, 23 Jul 2024 20:18:30 +0800</pubDate><guid>/post/deploy-gitea-and-drone/</guid><description>&lt;h1 id="docker-compose部署giteadronedrone-runner">docker compose部署gitea+drone+drone-runner
+&lt;p>使用结论: 非常香, 和gitea融合更好, 更接近 github action体验&lt;/p></description></item><item><title>Docker Compose 部署 Gitea</title><link>/post/deploy-gitea-on-docker/</link><pubDate>Tue, 23 Jul 2024 20:18:30 +0800</pubDate><guid>/post/deploy-gitea-on-docker/</guid><description>&lt;h1 id="docker-compose部署gitea">docker compose部署gitea
 &lt;/h1>&lt;p>参考:&lt;/p>
 &lt;ol>
-&lt;li>中文: &lt;a class="link" href="https://juejin.cn/post/7153173983335022605" target="_blank" rel="noopener"
->https://juejin.cn/post/7153173983335022605&lt;/a>&lt;/li>
 &lt;li>官方: &lt;a class="link" href="https://docs.gitea.io/en-us/install-with-docker/#sshing-shim-with-authorized_keys" target="_blank" rel="noopener"
 >https://docs.gitea.io/en-us/install-with-docker/#sshing-shim-with-authorized_keys&lt;/a>&lt;/li>
-&lt;li>&lt;a class="link" href="https://github.com/go-gitea/gitea/issues/22151" target="_blank" rel="noopener"
->https://github.com/go-gitea/gitea/issues/22151&lt;/a>&lt;/li>
 &lt;/ol>
 &lt;p>注意事项:&lt;/p>
 &lt;ol>
