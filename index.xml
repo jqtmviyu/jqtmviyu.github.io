@@ -1,4 +1,15 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jqtmviyu's Blog</title><link>/</link><description>Recent content on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 06 Feb 2025 22:01:55 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>Transmission 重命名集合</title><link>/post/transmission_rename_collection/</link><pubDate>Thu, 06 Feb 2025 22:01:55 +0800</pubDate><guid>/post/transmission_rename_collection/</guid><description>&lt;h2 id="背景">背景
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jqtmviyu's Blog</title><link>/</link><description>Recent content on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 27 Feb 2025 17:35:59 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>为什么0.1加0.2不等于0.3</title><link>/post/why-does-0.1-plus-0.2-not-equal-0.3/</link><pubDate>Thu, 27 Feb 2025 17:35:59 +0800</pubDate><guid>/post/why-does-0.1-plus-0.2-not-equal-0.3/</guid><description>&lt;h1 id="js小数精度">js小数精度
+&lt;/h1>&lt;blockquote>
+&lt;p>0.1+0.2不等于0.3?&lt;/p>&lt;/blockquote>
+&lt;p>&lt;a class="link" href="https://www.javascriptc.com/books/nodejs-roadmap/javascript/floating-point-number-0.1-0.2.html" target="_blank" rel="noopener"
+>https://www.javascriptc.com/books/nodejs-roadmap/javascript/floating-point-number-0.1-0.2.html&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://www.cnblogs.com/zhangziqiu/archive/2011/03/30/computercode.html" target="_blank" rel="noopener"
+>https://www.cnblogs.com/zhangziqiu/archive/2011/03/30/computercode.html&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://babbage.cs.qc.cuny.edu/IEEE-754.old/Decimal.html" target="_blank" rel="noopener"
+>https://babbage.cs.qc.cuny.edu/IEEE-754.old/Decimal.html&lt;/a>&lt;/p>
+&lt;h2 id="存储方式">存储方式
+&lt;/h2>&lt;blockquote>
+&lt;p>JavaScript使用Number类型表示数字（整数和浮点数），遵循 IEEE 754 标准通过&lt;strong>双精度64位&lt;/strong>(8字节)来表示一个数字&lt;/p></description></item><item><title>Transmission 重命名集合</title><link>/post/transmission_rename_collection/</link><pubDate>Thu, 06 Feb 2025 22:01:55 +0800</pubDate><guid>/post/transmission_rename_collection/</guid><description>&lt;h2 id="背景">背景
 &lt;/h2>&lt;p>Transmission 可以下载番剧合集,但为了方便emby刮削,需要对合集进行重命名。&lt;/p>
 &lt;p>为了不影响做种分享, 需要通过transmission的api进行重命名。&lt;/p>
 &lt;blockquote>
