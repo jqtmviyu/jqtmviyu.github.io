@@ -1,4 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Jqtmviyu's Blog</title><link>/post/</link><description>Recent content in Posts on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 28 Feb 2025 17:52:56 +0800</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml"/><item><title>浏览器的console</title><link>/post/more-about-browsers-console/</link><pubDate>Fri, 28 Feb 2025 17:52:56 +0800</pubDate><guid>/post/more-about-browsers-console/</guid><description>&lt;h1 id="浏览器的console">浏览器的console
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Jqtmviyu's Blog</title><link>/post/</link><description>Recent content in Posts on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 03 Mar 2025 22:31:56 +0800</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Git Worktree</title><link>/post/git-worktree/</link><pubDate>Mon, 03 Mar 2025 22:31:56 +0800</pubDate><guid>/post/git-worktree/</guid><description>&lt;h1 id="git-worktree">git worktree
+&lt;/h1>&lt;blockquote>
+&lt;p>同一仓库创建多个工作树
+例如当前正在 dev 分支下开发, 有很多代码未提交, 同时正运行 server, 突然有一个紧急 bug 需要修复
+原来的步骤需要停止 server, git stash, 切换到 fix 分支
+现在只需要新建一个新的工作树&lt;/p></description></item><item><title>浏览器的console</title><link>/post/more-about-browsers-console/</link><pubDate>Fri, 28 Feb 2025 17:52:56 +0800</pubDate><guid>/post/more-about-browsers-console/</guid><description>&lt;h1 id="浏览器的console">浏览器的console
 &lt;/h1>&lt;p>转载: &lt;a class="link" href="https://www.youtube.com/watch?v=RckRliA0b2A" target="_blank" rel="noopener"
 >https://www.youtube.com/watch?v=RckRliA0b2A&lt;/a>&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -156,7 +161,7 @@
 &lt;/h2>&lt;p>Transmission 可以下载番剧合集,但为了方便emby刮削,需要对合集进行重命名。&lt;/p>
 &lt;p>为了不影响做种分享, 需要通过transmission的api进行重命名。&lt;/p>
 &lt;blockquote>
-&lt;p>transmission不像qbittorrent, 不可以改变种子内文件的结构&lt;/p></description></item><item><title>Applying_for_an_SSL_Certificate</title><link>/post/applying_for_an_ssl_certificate/</link><pubDate>Tue, 21 Jan 2025 04:56:38 +0800</pubDate><guid>/post/applying_for_an_ssl_certificate/</guid><description>&lt;h1 id="如何简单快速地申请ssl证书">如何简单快速地申请ssl证书
+&lt;p>transmission不像qbittorrent, 不可以改变种子内文件的结构&lt;/p></description></item><item><title>如何简单快速地申请ssl证书</title><link>/post/applying_for_an_ssl_certificate/</link><pubDate>Tue, 21 Jan 2025 04:56:38 +0800</pubDate><guid>/post/applying_for_an_ssl_certificate/</guid><description>&lt;h1 id="如何简单快速地申请ssl证书">如何简单快速地申请ssl证书
 &lt;/h1>&lt;p>申请ssl证书的工具有很多, 网上的教程五花八门, 例如常见的 &lt;code>acme.sh&lt;/code>&lt;/p>
 &lt;p>但 &lt;code>acme.sh&lt;/code> 之前用过, 体验并不是很好&lt;/p>
 &lt;ol>
@@ -407,7 +412,7 @@
 >https://www.twblogs.net/a/601638e4e64365bb610bbf47/?lang=zh-cn&lt;/a>&lt;/p></description></item><item><title>更纱等距黑体自定义英文部分</title><link>/post/custom_english_part_style_for_sarasa-term-sc-nerd/</link><pubDate>Sun, 29 Dec 2024 01:00:17 +0800</pubDate><guid>/post/custom_english_part_style_for_sarasa-term-sc-nerd/</guid><description>&lt;p>我一直都在vscode上用 更纱等距黑体，这款字体的特点是英文宽度缩小到中文的50%。&lt;/p>
 &lt;p>&lt;a class="link" href="https://github.com/laishulu/Sarasa-Term-SC-Nerd" target="_blank" rel="noopener"
 >https://github.com/laishulu/Sarasa-Term-SC-Nerd&lt;/a>&lt;/p>
-&lt;p>但有个烦恼的问题是数字1，小写i和l 一眼分不清。 前两天在小众论坛有网友提到可以自定义该字体的英文部分&lt;/p></description></item><item><title>Install Debian Server on Xiaomi Phone</title><link>/post/install-debian-server-on-xiaomi-phone/</link><pubDate>Thu, 26 Dec 2024 20:06:51 +0800</pubDate><guid>/post/install-debian-server-on-xiaomi-phone/</guid><description>&lt;h1 id="红米note4x刷成debian服务器">红米note4x刷成debian服务器
+&lt;p>但有个烦恼的问题是数字1，小写i和l 一眼分不清。 前两天在小众论坛有网友提到可以自定义该字体的英文部分&lt;/p></description></item><item><title>红米note4x刷成debian服务器</title><link>/post/install-debian-server-on-xiaomi-phone/</link><pubDate>Thu, 26 Dec 2024 20:06:51 +0800</pubDate><guid>/post/install-debian-server-on-xiaomi-phone/</guid><description>&lt;h1 id="红米note4x刷成debian服务器">红米note4x刷成debian服务器
 &lt;/h1>&lt;p>参考链接:&lt;/p>
 &lt;p>Pmbootstrap 相关:&lt;br>
 &lt;a class="link" href="https://wiki.postmarketos.org/wiki/Xiaomi_Redmi_Note_4_%28xiaomi-mido%29" target="_blank" rel="noopener"
@@ -424,10 +429,10 @@
 &lt;a class="link" href="https://forum.renegade-project.tech/t/835-845-855-uefi-ubuntu-rootfs/2891" target="_blank" rel="noopener"
 >https://forum.renegade-project.tech/t/835-845-855-uefi-ubuntu-rootfs/2891&lt;/a>&lt;br>
 &lt;a class="link" href="https://www.knightli.com/2023/08/09/" target="_blank" rel="noopener"
->https://www.knightli.com/2023/08/09/&lt;/a>随身wif-idebian-固件编译/&lt;/p></description></item><item><title>Nuc8 Voltageshift</title><link>/post/nuc8-voltageshift/</link><pubDate>Tue, 20 Aug 2024 09:10:33 +0800</pubDate><guid>/post/nuc8-voltageshift/</guid><description>&lt;h1 id="nuc8intel-降压降温">nuc8/intel 降压降温
+>https://www.knightli.com/2023/08/09/&lt;/a>随身wif-idebian-固件编译/&lt;/p></description></item><item><title>nuc8/intel 降压降温</title><link>/post/nuc8-voltageshift/</link><pubDate>Tue, 20 Aug 2024 09:10:33 +0800</pubDate><guid>/post/nuc8-voltageshift/</guid><description>&lt;h1 id="nuc8intel-降压降温">nuc8/intel 降压降温
 &lt;/h1>&lt;blockquote>
 &lt;p>根据 Marco.org 的 &lt;a class="link" href="https://sspai.com/link?target=https%3A%2F%2Fmarco.org%2F2015%2F06%2F07%2Fdisabling-turbo-boost" target="_blank" rel="noopener"
->测试结果&lt;/a>（基于 15 寸的 Macbook Pro Retina Mid 2014），关闭 Turbo Boost 后：① 运行高 CPU 需求任务时，性能损失了约 1/3，而运行轻量级的任务时，性能损失较小；② CPU 最高温度相差了约 30℃；③ 电池的续航时间均延长了约 25%。&lt;/p></description></item><item><title>Nuc8 Hackintosh</title><link>/post/nuc8-hackintosh/</link><pubDate>Tue, 20 Aug 2024 09:06:55 +0800</pubDate><guid>/post/nuc8-hackintosh/</guid><description>&lt;h1 id="nuc8黑苹果必看">NUC8黑苹果必看
+>测试结果&lt;/a>（基于 15 寸的 Macbook Pro Retina Mid 2014），关闭 Turbo Boost 后：① 运行高 CPU 需求任务时，性能损失了约 1/3，而运行轻量级的任务时，性能损失较小；② CPU 最高温度相差了约 30℃；③ 电池的续航时间均延长了约 25%。&lt;/p></description></item><item><title>NUC8黑苹果必看</title><link>/post/nuc8-hackintosh/</link><pubDate>Tue, 20 Aug 2024 09:06:55 +0800</pubDate><guid>/post/nuc8-hackintosh/</guid><description>&lt;h1 id="nuc8黑苹果必看">NUC8黑苹果必看
 &lt;/h1>&lt;p>推荐维奇大佬的文章:&lt;/p>
 &lt;p>在线安装macOS: &lt;a class="link" href="https://zhuanlan.zhihu.com/p/165608087" target="_blank" rel="noopener"
 >https://zhuanlan.zhihu.com/p/165608087&lt;/a>&lt;/p>
