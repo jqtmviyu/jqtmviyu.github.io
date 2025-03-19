@@ -1005,7 +1005,7 @@ loading="lazy"
 >https://zhuanlan.zhihu.com/p/651418903&lt;/a>&lt;/p>
 &lt;p>Backblaze作为存储桶(免费10GB), Cloudflare带宽联盟访问, cdn不记入流量&lt;/p>
 &lt;h2 id="backblaze-设置">Backblaze 设置
-&lt;/h2>&lt;p>B2 桶 &amp;ndash;&amp;gt; 创作一个桶 &amp;ndash;&amp;gt;随便一个名字 &amp;ndash;&amp;gt; 公众 &amp;ndash;&amp;gt; Default Encryption 停用 &amp;ndash;&amp;gt; Object Lock停用&lt;/p></description></item><item><title>屏蔽postman更新检测</title><link>/post/disable-postman-checkupate/</link><pubDate>Thu, 23 Nov 2023 04:24:34 +0800</pubDate><guid>/post/disable-postman-checkupate/</guid><description>&lt;p>postman经常检测更新, 提示非常烦人&lt;/p>
+&lt;/h2>&lt;p>B2 桶 &amp;ndash;&amp;gt; 创作一个桶 &amp;ndash;&amp;gt;随便一个名字 &amp;ndash;&amp;gt; 公众 &amp;ndash;&amp;gt; Default Encryption 停用 &amp;ndash;&amp;gt; Object Lock停用&lt;/p></description></item><item><title>屏蔽postman更新检测</title><link>/post/disable-postman-checkupdate/</link><pubDate>Thu, 23 Nov 2023 04:24:34 +0800</pubDate><guid>/post/disable-postman-checkupdate/</guid><description>&lt;p>postman经常检测更新, 提示非常烦人&lt;/p>
 &lt;p>作为工具经常大改, 适应新界面麻烦&lt;/p>
 &lt;p>不联网使用, 建议停留在旧版本9.x&lt;/p>
 &lt;h2 id="旧版下载">旧版下载
