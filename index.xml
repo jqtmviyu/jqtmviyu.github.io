@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jqtmviyu's Blog</title><link>/</link><description>Recent content on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 05 Apr 2025 11:36:21 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>禁止 VitePress 渲染代码块</title><link>/post/disable_codeblock_rendering_in_vitepress/</link><pubDate>Sat, 05 Apr 2025 11:36:21 +0800</pubDate><guid>/post/disable_codeblock_rendering_in_vitepress/</guid><description>&lt;p>在把 VuePress 迁移到 VitePress 后，发现一些代码块里的伪代码报错, 查了下才知道 VitePress 不支持配置关闭.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jqtmviyu's Blog</title><link>/</link><description>Recent content on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 16 May 2025 16:35:48 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>部署谷歌 gemini-api 负载均衡服务</title><link>/post/google-gemini-balance-service/</link><pubDate>Fri, 16 May 2025 16:35:48 +0800</pubDate><guid>/post/google-gemini-balance-service/</guid><description>&lt;h1 id="部署谷歌-gemini-api-负载均衡服务">部署谷歌 gemini-api 负载均衡服务
+&lt;/h1>&lt;ul>
+&lt;li>悲报: 谷歌 Gemini 2.5 Pro 的 API 已不再提供给免费用户, 只剩下 2.5 flash 了&lt;/li>
+&lt;/ul>
+&lt;h2 id="官网">官网
+&lt;/h2>&lt;ol>
+&lt;li>
+&lt;p>官方提供的web chat: &lt;a class="link" href="https://gemini.google.com/app" target="_blank" rel="noopener"
+>https://gemini.google.com/app&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>AIStudio(免费API): &lt;a class="link" href="https://aistudio.google.com/" target="_blank" rel="noopener"
+>https://aistudio.google.com/&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>AIStudio提供了免费的api, 但有额度和每分钟请求次数限制, 所以可以使用多个账号负载均衡使用&lt;/p></description></item><item><title>禁止 VitePress 渲染代码块</title><link>/post/disable_codeblock_rendering_in_vitepress/</link><pubDate>Sat, 05 Apr 2025 11:36:21 +0800</pubDate><guid>/post/disable_codeblock_rendering_in_vitepress/</guid><description>&lt;p>在把 VuePress 迁移到 VitePress 后，发现一些代码块里的伪代码报错, 查了下才知道 VitePress 不支持配置关闭.&lt;/p>
 &lt;p>但还是在issues里找到解决方法.&lt;/p>
 &lt;p>在 &lt;code>config.mts&lt;/code> 中添加如下配置:&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
