@@ -1,4 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Jqtmviyu's Blog</title><link>/post/</link><description>Recent content in Posts on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 16 May 2025 16:35:48 +0800</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml"/><item><title>部署谷歌 gemini-api 负载均衡服务</title><link>/post/google-gemini-balance-service/</link><pubDate>Fri, 16 May 2025 16:35:48 +0800</pubDate><guid>/post/google-gemini-balance-service/</guid><description>&lt;h1 id="部署谷歌-gemini-api-负载均衡服务">部署谷歌 gemini-api 负载均衡服务
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Jqtmviyu's Blog</title><link>/post/</link><description>Recent content in Posts on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 17 May 2025 21:32:55 +0800</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml"/><item><title>安装Cursor旧版本并且禁止更新</title><link>/post/install-cursor-old-version-and-disable-auto-update/</link><pubDate>Sat, 17 May 2025 21:32:55 +0800</pubDate><guid>/post/install-cursor-old-version-and-disable-auto-update/</guid><description>&lt;h1 id="安装cursor旧版本并且禁止更新">安装Cursor旧版本并且禁止更新
+&lt;/h1>&lt;ol>
+&lt;li>Cursor 0.46 开始使用起来总感觉降智了, 猜测上下文被砍&lt;/li>
+&lt;li>免费用户 使用 0.45 及之前的版本, 官方不让用 Chat, 侧面验证旧版的成本更高&lt;/li>
+&lt;/ol>
+&lt;h2 id="下载旧版本">下载旧版本
+&lt;/h2>&lt;p>&lt;a class="link" href="https://github.com/oslook/cursor-ai-downloads" target="_blank" rel="noopener"
+>https://github.com/oslook/cursor-ai-downloads&lt;/a>&lt;/p>
+&lt;p>我下载的 0.42.5, 该版本网上评价不错&lt;/p></description></item><item><title>部署谷歌 gemini-api 负载均衡服务</title><link>/post/google-gemini-balance-service/</link><pubDate>Fri, 16 May 2025 16:35:48 +0800</pubDate><guid>/post/google-gemini-balance-service/</guid><description>&lt;h1 id="部署谷歌-gemini-api-负载均衡服务">部署谷歌 gemini-api 负载均衡服务
 &lt;/h1>&lt;ul>
 &lt;li>悲报: 谷歌 Gemini 2.5 Pro 的 API 已不再提供给免费用户, 只剩下 2.5 flash 了&lt;/li>
 &lt;/ul>
