@@ -1,4 +1,30 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jqtmviyu's Blog</title><link>/</link><description>Recent content on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 17 May 2025 21:32:55 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>安装Cursor旧版本并且禁止更新</title><link>/post/install-cursor-old-version-and-disable-auto-update/</link><pubDate>Sat, 17 May 2025 21:32:55 +0800</pubDate><guid>/post/install-cursor-old-version-and-disable-auto-update/</guid><description>&lt;h1 id="安装cursor旧版本并且禁止更新">安装Cursor旧版本并且禁止更新
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jqtmviyu's Blog</title><link>/</link><description>Recent content on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 19 May 2025 16:21:15 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>利用优选域名加速 Cloudflare tunnel 在中国的访问速度</title><link>/post/cloudflare_cn_perf/</link><pubDate>Mon, 19 May 2025 16:21:15 +0800</pubDate><guid>/post/cloudflare_cn_perf/</guid><description>&lt;p>参考文章:&lt;/p>
+&lt;ul>
+&lt;li>cloudflare tunnel 使用 saas 回源，实现优选: &lt;a class="link" href="https://linux.do/t/topic/122087/16" target="_blank" rel="noopener"
+>https://linux.do/t/topic/122087/16&lt;/a>&lt;/li>
+&lt;li>CF Workers &amp;amp; Pages 设置优选域名: &lt;a class="link" href="https://www.youtube.com/watch?v=wuanNSAqoHM" target="_blank" rel="noopener"
+>https://www.youtube.com/watch?v=wuanNSAqoHM&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>准备:&lt;/p>
+&lt;ol>
+&lt;li>需要两个域名, 例如 &lt;code>A.com&lt;/code>, &lt;code>B.free.com&lt;/code>, 这里假设 &lt;code>A.com&lt;/code> 是想让别人访问的顶级域名, &lt;code>B.free.com&lt;/code> 可以是网上随便申请的免费二级域名&lt;/li>
+&lt;li>需要一个域名解析支持分国家地区线路的dns解析商, 例如 腾讯云的dns服务&lt;/li>
+&lt;li>需要开通 Cloudflare SASS 服务, 这里可以绑定国区的paypal, 或者网上搜索的没有钱的虚拟信用卡, 能过验证就行, 不会扣费&lt;/li>
+&lt;/ol>
+&lt;h2 id="前置准备">前置准备
+&lt;/h2>&lt;ol>
+&lt;li>把 &lt;code>A.com&lt;/code> &lt;code>B.free.com&lt;/code> 都添加到 cloudflare&lt;/li>
+&lt;li>&lt;code>B.free.com -&amp;gt; ssl/tsl -&amp;gt; 自定义主机名 -&amp;gt; 开通SASS&lt;/code>, 自定义主机名需要开通sass, 绑定paypal或者信用卡, 不会扣费&lt;/li>
+&lt;li>添加一个回退源, 例如 &lt;code>falkback.B.free.com&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;h2 id="添加-tunnels">添加 tunnels
+&lt;/h2>&lt;ol>
+&lt;li>在 &lt;code>Zero Trust -&amp;gt; 网络 -&amp;gt; Tunnels&lt;/code> 创建隧道&lt;/li>
+&lt;li>在需要暴露内网的服务器上安装 &lt;code>cloudflared&lt;/code>&lt;/li>
+&lt;li>在该隧道添加公共主机名 &lt;code>falkback.B.free.com&lt;/code>, 服务随便指向服务器上的端口, &lt;code>B.free.com&lt;/code> 的 dns 记录会多一条 &lt;code>falkback&lt;/code> 记录, CNAME 向 cloudflare 分配给我们的免费域名, 并且是开通了小云朵的&lt;/li>
+&lt;li>添加需要暴露的服务, 主机名 &lt;code>www.A.com&lt;/code>, 这时候 &lt;code>A.com&lt;/code> 的 dns 记录上就多了一条 &lt;code>www&lt;/code> 记录, CNAME 向 cloudflare 分配给我们的免费域名, 并且是开通了小云朵的&lt;/li>
+&lt;/ol>
+&lt;p>&lt;code>www.A.com&lt;/code> 是我们想让别人访问的项目, 托管在 cloudflare 上, 国外访问没问题, 但国内一般速度很慢, 甚至访问不了.&lt;/p></description></item><item><title>安装Cursor旧版本并且禁止更新</title><link>/post/install-cursor-old-version-and-disable-auto-update/</link><pubDate>Sat, 17 May 2025 21:32:55 +0800</pubDate><guid>/post/install-cursor-old-version-and-disable-auto-update/</guid><description>&lt;h1 id="安装cursor旧版本并且禁止更新">安装Cursor旧版本并且禁止更新
 &lt;/h1>&lt;ol>
 &lt;li>Cursor 0.46 开始使用起来总感觉降智了, 猜测上下文被砍&lt;/li>
 &lt;li>免费用户 使用 0.45 及之前的版本, 官方不让用 Chat, 侧面验证旧版的成本更高&lt;/li>
