@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jqtmviyu's Blog</title><link>/</link><description>Recent content on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 19 May 2025 16:21:15 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>利用优选域名加速 Cloudflare tunnel 在中国的访问速度</title><link>/post/cloudflare_cn_perf/</link><pubDate>Mon, 19 May 2025 16:21:15 +0800</pubDate><guid>/post/cloudflare_cn_perf/</guid><description>&lt;p>参考文章:&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jqtmviyu's Blog</title><link>/</link><description>Recent content on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Mon, 19 May 2025 16:21:15 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>利用优选域名加速 Cloudflare tunnel 在中国的访问速度</title><link>/post/cloudflare-cn-perf/</link><pubDate>Mon, 19 May 2025 16:21:15 +0800</pubDate><guid>/post/cloudflare-cn-perf/</guid><description>&lt;p>参考文章:&lt;/p>
 &lt;ul>
 &lt;li>cloudflare tunnel 使用 saas 回源，实现优选: &lt;a class="link" href="https://linux.do/t/topic/122087/16" target="_blank" rel="noopener"
 >https://linux.do/t/topic/122087/16&lt;/a>&lt;/li>
@@ -48,7 +48,7 @@
 &lt;/li>
 &lt;/ol>
 &lt;blockquote>
-&lt;p>AIStudio提供了免费的api, 但有额度和每分钟请求次数限制, 所以可以使用多个账号负载均衡使用&lt;/p></description></item><item><title>禁止 VitePress 渲染代码块</title><link>/post/disable_codeblock_rendering_in_vitepress/</link><pubDate>Sat, 05 Apr 2025 11:36:21 +0800</pubDate><guid>/post/disable_codeblock_rendering_in_vitepress/</guid><description>&lt;p>在把 VuePress 迁移到 VitePress 后，发现一些代码块里的伪代码报错, 查了下才知道 VitePress 不支持配置关闭.&lt;/p>
+&lt;p>AIStudio提供了免费的api, 但有额度和每分钟请求次数限制, 所以可以使用多个账号负载均衡使用&lt;/p></description></item><item><title>禁止 VitePress 渲染代码块</title><link>/post/disable-codeblock-rendering-in-vitepress/</link><pubDate>Sat, 05 Apr 2025 11:36:21 +0800</pubDate><guid>/post/disable-codeblock-rendering-in-vitepress/</guid><description>&lt;p>在把 VuePress 迁移到 VitePress 后，发现一些代码块里的伪代码报错, 查了下才知道 VitePress 不支持配置关闭.&lt;/p>
 &lt;p>但还是在issues里找到解决方法.&lt;/p>
 &lt;p>在 &lt;code>config.mts&lt;/code> 中添加如下配置:&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
