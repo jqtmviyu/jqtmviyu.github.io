@@ -1,4 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jqtmviyu's Blog</title><link>/</link><description>Recent content on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 31 Mar 2026 21:06:26 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>利用优选域名加速 Cloudflare tunnel 在中国的访问速度</title><link>/post/cloudflare-cn-perf/</link><pubDate>Mon, 19 May 2025 16:21:15 +0800</pubDate><guid>/post/cloudflare-cn-perf/</guid><description>&lt;p&gt;参考文章:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jqtmviyu's Blog</title><link>/</link><description>Recent content on Jqtmviyu's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 01 Apr 2026 21:49:33 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>Zsh_on_window</title><link>/post/zsh_on_window/</link><pubDate>Wed, 01 Apr 2026 21:49:33 +0800</pubDate><guid>/post/zsh_on_window/</guid><description>&lt;h1 id="windows-上安装-zsh"&gt;Windows 上安装 Zsh
+&lt;/h1&gt;&lt;p&gt;在 Windows 环境下，通过 Git Bash 安装并配置 Zsh、Oh My Zsh 以及 Powerlevel10k 主题&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;PS: git bash 显示 &lt;code&gt;MinGW-w64&lt;/code&gt;, 是基于 &lt;code&gt;MSYS2&lt;/code&gt; 的裁剪版
+不包含 pacman wget 等工具&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;PS: 如果要共享 MSYS2 的工具, 可以安装 &lt;a class="link" href="https://www.msys2.org/" target="_blank" rel="noopener"
+&gt;MSYS2&lt;/a&gt; 后把 bin 目录添加到 PATH 环境变量中&lt;/p&gt;</description></item><item><title>利用优选域名加速 Cloudflare tunnel 在中国的访问速度</title><link>/post/cloudflare-cn-perf/</link><pubDate>Mon, 19 May 2025 16:21:15 +0800</pubDate><guid>/post/cloudflare-cn-perf/</guid><description>&lt;p&gt;参考文章:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;cloudflare tunnel 使用 saas 回源，实现优选: &lt;a class="link" href="https://linux.do/t/topic/122087/16" target="_blank" rel="noopener"
 &gt;https://linux.do/t/topic/122087/16&lt;/a&gt;&lt;/li&gt;
@@ -2867,12 +2874,74 @@ alt="image-20221223204806546"
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git init
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;会看到该目录下生成.git的目录&lt;/p&gt;</description></item><item><title>用Github Page 搭免费博客</title><link>/post/deploy-github-page-blog/</link><pubDate>Mon, 13 Nov 2017 00:00:00 +0000</pubDate><guid>/post/deploy-github-page-blog/</guid><description>&lt;h2 id="用github-page-搭免费博客"&gt;用Github Page 搭免费博客
-&lt;/h2&gt;&lt;p&gt;一.搭建hexo博客&lt;/p&gt;
-&lt;p&gt;1.安装Node.js&lt;/p&gt;
-&lt;p&gt;下载地址：&lt;a class="link" href="https://nodejs.org/en/" target="_blank" rel="noopener"
-&gt;传送门&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;下载的文件是.msi后缀的，win10-x64-ltsb2016直接双击安装可能会出现2502、2503错误，在安装文件所在目录下，&lt;code&gt;Shit+右键，在此处打开命令窗口&lt;/code&gt;，输入&lt;code&gt;msiexec /i 文件名.msi&lt;/code&gt; ，就能成功安装。（如果还是无效，用管理员权限cmd）&lt;/p&gt;</description></item><item><title>vscode个人配置</title><link>/post/personal-vscode-setting/</link><pubDate>Wed, 08 Nov 2017 00:00:00 +0000</pubDate><guid>/post/personal-vscode-setting/</guid><description>&lt;h2 id="个人配置"&gt;个人配置
+&lt;/div&gt;&lt;p&gt;会看到该目录下生成.git的目录&lt;/p&gt;</description></item><item><title>用Github Page 搭免费博客</title><link>/post/deploy-github-page-blog/</link><pubDate>Mon, 13 Nov 2017 00:00:00 +0000</pubDate><guid>/post/deploy-github-page-blog/</guid><description>&lt;h1 id="用github-page-搭免费博客"&gt;用Github Page 搭免费博客
+&lt;/h1&gt;&lt;p&gt;参考：&lt;/p&gt;
+&lt;p&gt;GitHub官方: &lt;a class="link" href="https://pages.github.com/" target="_blank" rel="noopener"
+&gt;https://pages.github.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Hugo官方: &lt;a class="link" href="https://gohugo.io/hosting-and-deployment/hosting-on-github/" target="_blank" rel="noopener"
+&gt;https://gohugo.io/hosting-and-deployment/hosting-on-github/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="步骤"&gt;步骤
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;macOS安装hugo&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 安装hugo&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;brew install hugo
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 验证安装&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;hugo version
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;hugo 博客的搭建&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 创建新站点&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;hugo new site myblog
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; myblog
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 初始化git仓库&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git init
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 添加主题（以hugo-theme-stack为例）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git submodule add https://github.com/CaiJimmy/hugo-theme-stack.git themes/hugo-theme-stack
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 复制主题示例配置&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cp themes/hugo-theme-stack/exampleSite/config.yaml config.yaml
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 启动本地服务预览&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;hugo server -D
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在github上新增blog仓库, 设置为隐私模式&lt;/p&gt;</description></item><item><title>vscode个人配置</title><link>/post/personal-vscode-setting/</link><pubDate>Wed, 08 Nov 2017 00:00:00 +0000</pubDate><guid>/post/personal-vscode-setting/</guid><description>&lt;h2 id="个人配置"&gt;个人配置
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1

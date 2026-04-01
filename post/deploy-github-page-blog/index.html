@@ -1,28 +1,257 @@
-<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="用Github Page 搭免费博客 一.搭建hexo博客\n1.安装Node.js\n下载地址：传送门\n下载的文件是.msi后缀的，win10-x64-ltsb2016直接双击安装可能会出现2502、2503错误，在安装文件所在目录下，Shit+右键，在此处打开命令窗口，输入msiexec /i 文件名.msi ，就能成功安装。（如果还是无效，用管理员权限cmd）\n"><title>用Github Page 搭免费博客</title><link rel=canonical href=/post/deploy-github-page-blog/><link rel=stylesheet href=/scss/style.min.6a692fd055deae459f2a9767f57f3855ba80cafd5041317f24f7360f6ca47cdf.css><meta property='og:title' content="用Github Page 搭免费博客"><meta property='og:description' content="用Github Page 搭免费博客 一.搭建hexo博客\n1.安装Node.js\n下载地址：传送门\n下载的文件是.msi后缀的，win10-x64-ltsb2016直接双击安装可能会出现2502、2503错误，在安装文件所在目录下，Shit+右键，在此处打开命令窗口，输入msiexec /i 文件名.msi ，就能成功安装。（如果还是无效，用管理员权限cmd）\n"><meta property='og:url' content='/post/deploy-github-page-blog/'><meta property='og:site_name' content="Jqtmviyu's Blog"><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='blog'><meta property='article:tag' content='github page'><meta property='article:tag' content='hugo'><meta property='article:published_time' content='2017-11-13T00:00:00+00:00'><meta property='article:modified_time' content='2017-11-13T00:00:00+00:00'><meta name=twitter:title content="用Github Page 搭免费博客"><meta name=twitter:description content="用Github Page 搭免费博客 一.搭建hexo博客\n1.安装Node.js\n下载地址：传送门\n下载的文件是.msi后缀的，win10-x64-ltsb2016直接双击安装可能会出现2502、2503错误，在安装文件所在目录下，Shit+右键，在此处打开命令窗口，输入msiexec /i 文件名.msi ，就能成功安装。（如果还是无效，用管理员权限cmd）\n"><link rel="shortcut icon" href=/favicon.png></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=切换菜单>
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="用Github Page 搭免费博客 参考：\nGitHub官方: https://pages.github.com/\nHugo官方: https://gohugo.io/hosting-and-deployment/hosting-on-github/\n步骤 macOS安装hugo\n1 2 3 4 5 # 安装hugo brew install hugo # 验证安装 hugo version hugo 博客的搭建\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 # 创建新站点 hugo new site myblog cd myblog # 初始化git仓库 git init # 添加主题（以hugo-theme-stack为例） git submodule add https://github.com/CaiJimmy/hugo-theme-stack.git themes/hugo-theme-stack # 复制主题示例配置 cp themes/hugo-theme-stack/exampleSite/config.yaml config.yaml # 启动本地服务预览 hugo server -D 在github上新增blog仓库, 设置为隐私模式\n"><title>用Github Page 搭免费博客</title><link rel=canonical href=/post/deploy-github-page-blog/><link rel=stylesheet href=/scss/style.min.6a692fd055deae459f2a9767f57f3855ba80cafd5041317f24f7360f6ca47cdf.css><meta property='og:title' content="用Github Page 搭免费博客"><meta property='og:description' content="用Github Page 搭免费博客 参考：\nGitHub官方: https://pages.github.com/\nHugo官方: https://gohugo.io/hosting-and-deployment/hosting-on-github/\n步骤 macOS安装hugo\n1 2 3 4 5 # 安装hugo brew install hugo # 验证安装 hugo version hugo 博客的搭建\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 # 创建新站点 hugo new site myblog cd myblog # 初始化git仓库 git init # 添加主题（以hugo-theme-stack为例） git submodule add https://github.com/CaiJimmy/hugo-theme-stack.git themes/hugo-theme-stack # 复制主题示例配置 cp themes/hugo-theme-stack/exampleSite/config.yaml config.yaml # 启动本地服务预览 hugo server -D 在github上新增blog仓库, 设置为隐私模式\n"><meta property='og:url' content='/post/deploy-github-page-blog/'><meta property='og:site_name' content="Jqtmviyu's Blog"><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='blog'><meta property='article:tag' content='github page'><meta property='article:tag' content='hugo'><meta property='article:published_time' content='2017-11-13T00:00:00+00:00'><meta property='article:modified_time' content='2026-04-01T00:12:43+08:00'><meta name=twitter:title content="用Github Page 搭免费博客"><meta name=twitter:description content="用Github Page 搭免费博客 参考：\nGitHub官方: https://pages.github.com/\nHugo官方: https://gohugo.io/hosting-and-deployment/hosting-on-github/\n步骤 macOS安装hugo\n1 2 3 4 5 # 安装hugo brew install hugo # 验证安装 hugo version hugo 博客的搭建\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 # 创建新站点 hugo new site myblog cd myblog # 初始化git仓库 git init # 添加主题（以hugo-theme-stack为例） git submodule add https://github.com/CaiJimmy/hugo-theme-stack.git themes/hugo-theme-stack # 复制主题示例配置 cp themes/hugo-theme-stack/exampleSite/config.yaml config.yaml # 启动本地服务预览 hugo server -D 在github上新增blog仓库, 设置为隐私模式\n"><link rel="shortcut icon" href=/favicon.png></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=切换菜单>
 <span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/avatar.png width=300 height=300 class=site-logo loading=lazy alt=Avatar></a></figure><div class=site-meta><h1 class=site-name><a href=/>Jqtmviyu's Blog</a></h1><h2 class=site-description>Let's do this from now on.</h2></div></header><ol class=menu-social><li><a href=https://github.com/jqtmviyu target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li><li><a href=https://git.081024.xyz/hxx target=_blank title=Gitea rel=me><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b6b6b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-gitlab"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M21 14l-9 7-9-7L6 3l3 7h6l3-7z"/></svg></a></li><li><a href=mailto:jqtmviyu#gmail.com target=_blank title=Mail rel=me><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b6b6b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-mail"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7z"/><path d="M3 7l9 6 9-6"/></svg></a></li><li><a href=/index.xml target=_blank title=Rss rel=me><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b6b6b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-rss"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 19m-1 0a1 1 0 102 0 1 1 0 10-2 0"/><path d="M4 4a16 16 0 0116 16"/><path d="M4 11a9 9 0 019 9"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b6b6b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-home"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12H3l9-9 9 9h-2"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
 <span>Home</span></a></li><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
 <span>Archives</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
 <span>Search</span></a></li><li><a href=/about/><svg class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
 <span>About</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
 <svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
-<span>暗色模式</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">目录</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#用github-page-搭免费博客>用Github Page 搭免费博客</a></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/tools/ style=background-color:#8ea885;color:#fff>Tools</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/post/deploy-github-page-blog/>用Github Page 搭免费博客</a></h2></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
-<time class=article-time--published>2017/Nov/13</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
-<time class=article-time--reading>阅读时长: 4 分钟</time></div><div><svg t="1720522640439" class="icon" viewBox="0 0 1024 1024" p-id="5342" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M997 435.6c-28.2-36.7-65.4-81.4-107.4-122.2-54.6-53.2-110.5-95.6-166.1-126.3-71.2-39.2-142-59.1-210.7-59.1s-139.6 19.9-210.7 59.1c-55.5 30.7-111.4 73.1-166.1 126.3-42 40.8-79.3 85.5-107.5 122.1-34.8 45.3-34.8 107.8.0 153.1 28.2 36.7 65.4 81.4 107.4 122.2C190.5 764 246.5 806.4 302 837.1c71.2 39.2 142.1 59.1 210.7 59.1 68.7.0 139.6-19.9 210.8-59 55.5-30.7 111.4-73.1 166.1-126.3 42-40.8 79.3-85.6 107.4-122.2 34.8-45.3 34.8-107.8.0-153.1zm-37.3 99c-66.2 89-243.8 299-446.8 299-57.5.0-117.7-17.1-179-50.8-50.5-27.7-101.7-66.6-152.2-115.6-51.1-49.5-91-99.5-115.7-132.6-10-13.5-10-31.6.0-44.9 66.1-89 243.7-299 446.8-299 57.5.0 117.6 17.1 179 50.8 50.5 27.7 101.7 66.6 152.2 115.6 51.1 49.5 91 99.5 115.7 132.6 9.9 13.4 9.9 31.6.0 44.9z" p-id="5343" fill="#8a8a8a"/><path d="M512 321.7c-105.7.0-191.6 86-191.6 191.6.0 105.7 86 191.6 191.6 191.6s191.6-86 191.6-191.6c0-105.7-86-191.6-191.6-191.6zm0 319.2c-70.3.0-127.6-57.2-127.6-127.6S441.7 385.7 512 385.7s127.6 57.2 127.6 127.6S582.3 640.9 512 640.9z" p-id="5344" fill="#8a8a8a"/></svg>
+<span>暗色模式</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">目录</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#步骤>步骤</a></li><li><a href=#hugo-优化设置>Hugo 优化/设置</a><ol><li><a href=#配置默认文章模板-archetypes>配置默认文章模板 (archetypes)</a></li><li><a href=#自定义布局-layouts>自定义布局 (Layouts)</a></li><li><a href=#sitemap优化>Sitemap优化</a></li></ol></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/tools/ style=background-color:#8ea885;color:#fff>Tools</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/post/deploy-github-page-blog/>用Github Page 搭免费博客</a></h2></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>2017/Nov/13</time></div><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>2026/Apr/01 updated</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>阅读时长: 6 分钟</time></div><div><svg t="1720522640439" class="icon" viewBox="0 0 1024 1024" p-id="5342" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M997 435.6c-28.2-36.7-65.4-81.4-107.4-122.2-54.6-53.2-110.5-95.6-166.1-126.3-71.2-39.2-142-59.1-210.7-59.1s-139.6 19.9-210.7 59.1c-55.5 30.7-111.4 73.1-166.1 126.3-42 40.8-79.3 85.5-107.5 122.1-34.8 45.3-34.8 107.8.0 153.1 28.2 36.7 65.4 81.4 107.4 122.2C190.5 764 246.5 806.4 302 837.1c71.2 39.2 142.1 59.1 210.7 59.1 68.7.0 139.6-19.9 210.8-59 55.5-30.7 111.4-73.1 166.1-126.3 42-40.8 79.3-85.6 107.4-122.2 34.8-45.3 34.8-107.8.0-153.1zm-37.3 99c-66.2 89-243.8 299-446.8 299-57.5.0-117.7-17.1-179-50.8-50.5-27.7-101.7-66.6-152.2-115.6-51.1-49.5-91-99.5-115.7-132.6-10-13.5-10-31.6.0-44.9 66.1-89 243.7-299 446.8-299 57.5.0 117.6 17.1 179 50.8 50.5 27.7 101.7 66.6 152.2 115.6 51.1 49.5 91 99.5 115.7 132.6 9.9 13.4 9.9 31.6.0 44.9z" p-id="5343" fill="#8a8a8a"/><path d="M512 321.7c-105.7.0-191.6 86-191.6 191.6.0 105.7 86 191.6 191.6 191.6s191.6-86 191.6-191.6c0-105.7-86-191.6-191.6-191.6zm0 319.2c-70.3.0-127.6-57.2-127.6-127.6S441.7 385.7 512 385.7s127.6 57.2 127.6 127.6S582.3 640.9 512 640.9z" p-id="5344" fill="#8a8a8a"/></svg>
 <time class=article-pageview><span class=waline-pageview-count data-path=/post/deploy-github-page-blog/>0</span> visits</time></div><div><svg t="1721405452473" class="icon" viewBox="0 0 1024 1024" p-id="2287" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24"><path d="M853.333333 138.666667H170.666667C130.133334 138.666667 96 172.8 96 213.333333v512C96 765.866666 130.133333 8e2 170.666667 8e2h151.466666V917.333333c0 12.8 8.533333 25.6 19.2 29.866667 4.266667 2.133333 8.533333 2.133333 12.8 2.133333 8.533333.0 17.066667-4.266667 23.466667-10.666666L514.133333 8e2h339.2C893.866666 8e2 928 765.866667 928 725.333333v-512c0-40.533333-34.133333-74.666667-74.666667-74.666666zM864 725.333333c0 6.4-4.266667 10.666667-10.666667 10.666667h-352c-8.533333.0-17.066667 4.266667-23.466666 10.666667l-89.6 93.866666V768c0-17.066667-14.933333-32-32-32h-185.6C164.266667 736 160 731.733333 160 725.333333v-512c0-6.4 4.266667-10.666667 10.666667-10.666666h682.666666c6.4.0 10.666667 4.266667 10.666667 10.666666v512z" fill="#8a8a8a" p-id="2288"/><path d="M512 490.666667H298.666667c-17.066667.0-32 14.933333-32 32s14.933333 32 32 32H512c17.066667.0 32-14.933333 32-32S529.066667 490.666667 512 490.666667zM672 341.333333H298.666667c-17.066667.0-32 14.933333-32 32s14.933333 32 32 32H672c17.066667.0 32-14.933333 32-32s-14.933333-32-32-32z" fill="#8a8a8a" p-id="2289"/></svg>
-<time class=article-comment><span class=waline-comment-count data-path=/post/deploy-github-page-blog/>0</span> comments</time></div></footer></div></header><section class=article-content><h2 id=用github-page-搭免费博客>用Github Page 搭免费博客</h2><p>一.搭建hexo博客</p><p>1.安装Node.js</p><p>下载地址：<a class=link href=https://nodejs.org/en/ target=_blank rel=noopener>传送门</a></p><p>下载的文件是.msi后缀的，win10-x64-ltsb2016直接双击安装可能会出现2502、2503错误，在安装文件所在目录下，<code>Shit+右键，在此处打开命令窗口</code>，输入<code>msiexec /i 文件名.msi</code> ，就能成功安装。（如果还是无效，用管理员权限cmd）</p><p>可以通过node -v命令来测试NodeJS是否安装成功。</p><p>2.安装Git</p><p>下载地址：<a class=link href=https://git-scm.com/ target=_blank rel=noopener>传送门</a></p><p>下载相应版本完成安装，可以通过git -version命令来测试git是否安装成功。</p><p>3.注册Github账号</p><p>准备好fq工具，注册时的usename用户名和邮箱很重要，因为默认的博客地址是https://usename.github.io/这种形式的，邮箱则关系到安全和通知。</p><p>3.1添加SSH Key</p><p>SSH Key是一个认证，让github识别绑定这台机器，允许这台机器提交。执行如下命令：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>cd ~/. ssh
-</span></span></code></pre></td></tr></table></div></div><p>~这个符号，表示在用户目录下
-执行代码如果提示：No such file or directory 说明你是第一次使用git。</p><p>新建新的SSH Key</p><p>在Git Bash执行代码：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>ssh-keygen -t rsa -C &#34;你的邮箱@gmail.com&#34;
-</span></span></code></pre></td></tr></table></div></div><p>注意：此处的<code>-C</code>的是大写的。</p><p>然后系统会要求你输入密码（密码在后面每次提交都需要输入，嫌麻烦可以直接两次回车不设置）：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+<time class=article-comment><span class=waline-comment-count data-path=/post/deploy-github-page-blog/>0</span> comments</time></div></footer></div></header><section class=article-content><h1 id=用github-page-搭免费博客>用Github Page 搭免费博客</h1><p>参考：</p><p>GitHub官方: <a class=link href=https://pages.github.com/ target=_blank rel=noopener>https://pages.github.com/</a></p><p>Hugo官方: <a class=link href=https://gohugo.io/hosting-and-deployment/hosting-on-github/ target=_blank rel=noopener>https://gohugo.io/hosting-and-deployment/hosting-on-github/</a></p><h2 id=步骤>步骤</h2><ol><li><p>macOS安装hugo</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>Enter passphrase (empty for no passphrase):&lt;输入加密串&gt;
-</span></span><span class=line><span class=cl>Enter same passphrase again:&lt;再次输入加密串&gt;
-</span></span></code></pre></td></tr></table></div></div><p>在回车中会提示你输入一个密码，这个密码会在你提交项目时使用，如果为空的话提交项目时则不用输入。这个设置是防止别人往你的项目里提交内容。</p><ul><li>输入密码的时候没有 * 字样的，你直接输入就可以了。</li><li>邮箱输错/密码忘记，</li></ul><p>&mdash;待完善
-2020-02-22尝试迁移hexo到hugo</p></section><footer class=article-footer><section class=article-tags><a href=/tags/blog/>Blog</a>
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 安装hugo</span>
+</span></span><span class=line><span class=cl>brew install hugo
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 验证安装</span>
+</span></span><span class=line><span class=cl>hugo version
+</span></span></code></pre></td></tr></table></div></div></li><li><p>hugo 博客的搭建</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 创建新站点</span>
+</span></span><span class=line><span class=cl>hugo new site myblog
+</span></span><span class=line><span class=cl><span class=nb>cd</span> myblog
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 初始化git仓库</span>
+</span></span><span class=line><span class=cl>git init
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 添加主题（以hugo-theme-stack为例）</span>
+</span></span><span class=line><span class=cl>git submodule add https://github.com/CaiJimmy/hugo-theme-stack.git themes/hugo-theme-stack
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 复制主题示例配置</span>
+</span></span><span class=line><span class=cl>cp themes/hugo-theme-stack/exampleSite/config.yaml config.yaml
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 启动本地服务预览</span>
+</span></span><span class=line><span class=cl>hugo server -D
+</span></span></code></pre></td></tr></table></div></div></li><li><p>在github上新增blog仓库, 设置为隐私模式</p><ul><li>登录GitHub，点击"New repository"</li><li>Repository name: 如 <code>myblog-source</code> （可自定义）</li><li>Public/Private: 选择 Private（私有）</li><li>Initialize this repository with: 不勾选任何选项</li><li>点击"Create repository"</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 将本地项目推送到远程仓库</span>
+</span></span><span class=line><span class=cl>git remote add origin git@github.com:<span class=o>{</span>your-username<span class=o>}</span>/myblog-source.git
+</span></span><span class=line><span class=cl>git branch -M master
+</span></span><span class=line><span class=cl>git push -u origin master
+</span></span></code></pre></td></tr></table></div></div></li><li><p>创建 <code>{username}.github.io</code> 仓库，用于存放生成的静态网站</p><ul><li>登录GitHub，点击"New repository"</li><li>Repository name: 必须是 <code>{your-username}.github.io</code> （替换 {your-username} 为你的GitHub用户名）</li><li>Public/Private: 选择 Public（GitHub Pages只支持公共仓库）</li><li>Initialize this repository with: 不勾选任何选项</li><li>点击"Create repository"</li></ul></li><li><p>github page 仓库添加 deploy ssh key</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 生成SSH密钥对（如果已有可跳过）</span>
+</span></span><span class=line><span class=cl>ssh-keygen -t rsa -b <span class=m>4096</span> -C <span class=s2>&#34;your_email@example.com&#34;</span> -f ~/.ssh/github_pages_deploy_key
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 查看公钥内容</span>
+</span></span><span class=line><span class=cl>cat ~/.ssh/github_pages_deploy_key.pub
+</span></span></code></pre></td></tr></table></div></div><ul><li>复制公钥内容（以ssh-rsa开头的部分）</li><li>在GitHub上进入 <code>{username}.github.io</code> 仓库</li><li>点击 Settings -> Deploy keys</li><li>点击 &ldquo;Add deploy key&rdquo;</li><li>Title: 填写描述（如 &ldquo;Deploy Key&rdquo;）</li><li>Key: 粘贴刚才复制的公钥内容</li><li>勾选 &ldquo;Allow write access&rdquo;</li><li>点击 &ldquo;Add key&rdquo;</li></ul></li><li><p>在blog仓库的Settings -> Secrets and variables -> Actions中添加SSH密钥</p><ul><li>复制私钥内容：</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>cat ~/.ssh/github_pages_deploy_key
+</span></span></code></pre></td></tr></table></div></div><ul><li>在GitHub上进入 blog-source 仓库</li><li>点击 Settings -> Secrets and variables -> Actions</li><li>点击 &ldquo;New repository secret&rdquo;</li><li>Name: 填写 <code>DEPLOY_KEY</code></li><li>Secret: 粘贴刚才复制的私钥内容（以&mdash;&ndash;BEGIN OPENSSH PRIVATE KEY&mdash;&ndash;开头的部分）</li><li>点击 &ldquo;Add secret&rdquo;</li></ul></li><li><p>添加 github action, 上传到blog仓库的时候自动触发编译, 发布到 github page 仓库</p><p>在blog仓库根目录下创建 <code>.github/workflows/gh-pages.yml</code> 文件：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Build and deploy</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>on</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>push</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>branches</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>master</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>workflow_dispatch</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>permissions</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>contents</span><span class=p>:</span><span class=w> </span><span class=l>read</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>jobs</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>build-and-deploy</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>runs-on</span><span class=p>:</span><span class=w> </span><span class=l>ubuntu-latest</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>env</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>HUGO_VERSION</span><span class=p>:</span><span class=w> </span><span class=m>0.158.0</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>steps</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Checkout</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class=l>actions/checkout@v6</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>with</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>submodules</span><span class=p>:</span><span class=w> </span><span class=l>recursive</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>fetch-depth</span><span class=p>:</span><span class=w> </span><span class=m>0</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Install Hugo CLI</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>run</span><span class=p>:</span><span class=w> </span><span class=p>|</span><span class=sd>
+</span></span></span><span class=line><span class=cl><span class=sd>          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb
+</span></span></span><span class=line><span class=cl><span class=sd>          sudo dpkg -i ${{ runner.temp }}/hugo.deb</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Install Node.js</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class=l>actions/setup-node@v6</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>with</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>node-version</span><span class=p>:</span><span class=w> </span><span class=m>24</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Setup Go</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class=l>actions/setup-go@v6</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>with</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>go-version</span><span class=p>:</span><span class=w> </span><span class=m>1.26.1</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Install Dart Sass</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>run</span><span class=p>:</span><span class=w> </span><span class=p>|</span><span class=sd>
+</span></span></span><span class=line><span class=cl><span class=sd>          sudo snap install dart-sass</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Install Node.js dependencies</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>run</span><span class=p>:</span><span class=w> </span><span class=p>|</span><span class=sd>
+</span></span></span><span class=line><span class=cl><span class=sd>          [[ -f package-lock.json || -f npm-shrinkwrap.json ]] &amp;&amp; npm ci || true</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Build the site</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>run</span><span class=p>:</span><span class=w> </span><span class=p>|</span><span class=sd>
+</span></span></span><span class=line><span class=cl><span class=sd>          hugo --minify</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Deploy to external repository</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class=l>JamesIves/github-pages-deploy-action@v4</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>with</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>branch</span><span class=p>:</span><span class=w> </span><span class=l>master</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>folder</span><span class=p>:</span><span class=w> </span><span class=l>./public</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>repository-name</span><span class=p>:</span><span class=w> </span>{<span class=l>your-username}/{your-username}.github.io</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>ssh-key</span><span class=p>:</span><span class=w> </span><span class=l>${{ secrets.DEPLOY_KEY }}</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>替换上述配置中的 <code>{your-username}</code> 为GitHub用户名，然后提交该文件到blog仓库。</p></li></ol><h2 id=hugo-优化设置>Hugo 优化/设置</h2><h3 id=配置默认文章模板-archetypes>配置默认文章模板 (archetypes)</h3><p>创建或修改 <code>archetypes/default.md</code> 文件，设置新文章的默认模板：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nn>---</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>title</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;{{ replace .Name &#34;</span>-<span class=s2>&#34; &#34;</span><span class=w> </span><span class=s2>&#34; | title }}&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>date</span><span class=p>:</span><span class=w> </span>{{<span class=w> </span><span class=l>.Date }}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>draft</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>categories</span><span class=p>:</span><span class=w> </span><span class=p>[]</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>tags</span><span class=p>:</span><span class=w> </span><span class=p>[]</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>slug</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nn>---</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><h3 id=自定义布局-layouts>自定义布局 (Layouts)</h3><p><code>layouts/</code> 目录可以覆盖主题提供的默认模板</p><p>例如，创建 <code>layouts/partials/footer/footer.html</code> 自定义页脚</p><h3 id=sitemap优化>Sitemap优化</h3><blockquote><p><a class=link href=https://gohugo.io/templates/sitemap/ target=_blank rel=noopener>https://gohugo.io/templates/sitemap/</a></p></blockquote><p>自定义 <code>layouts/_default/sitemap.xml</code>, 针对Google收录进行优化</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-xml data-lang=xml><span class=line><span class=cl>{{ printf &#34;<span class=cp>&lt;?xml version=\&#34;1.0\&#34; encoding=\&#34;utf-8\&#34; standalone=\&#34;yes\&#34;?&gt;</span>&#34; | safeHTML }}
+</span></span><span class=line><span class=cl><span class=nt>&lt;urlset</span> <span class=na>xmlns=</span><span class=s>&#34;http://www.sitemaps.org/schemas/sitemap/0.9&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=na>xmlns:xhtml=</span><span class=s>&#34;http://www.w3.org/1999/xhtml&#34;</span><span class=nt>&gt;</span>
+</span></span><span class=line><span class=cl>  {{ range .Data.Pages }}
+</span></span><span class=line><span class=cl>    {{ if or (eq .RelPermalink &#34;/&#34;) (and (strings.HasPrefix .RelPermalink &#34;/post/&#34;) (ne .RelPermalink &#34;/post/&#34;)) }}
+</span></span><span class=line><span class=cl>      <span class=nt>&lt;url&gt;</span>
+</span></span><span class=line><span class=cl>        {{ if site.Params.sitemapPrefix }}
+</span></span><span class=line><span class=cl>        <span class=nt>&lt;loc&gt;</span>{{ site.Params.sitemapPrefix }}{{ .RelPermalink }}<span class=nt>&lt;/loc&gt;</span>
+</span></span><span class=line><span class=cl>        {{ else }}
+</span></span><span class=line><span class=cl>        <span class=nt>&lt;loc&gt;</span>{{ .Permalink }}<span class=nt>&lt;/loc&gt;</span>
+</span></span><span class=line><span class=cl>        {{ end }}
+</span></span><span class=line><span class=cl>        {{ if not .Lastmod.IsZero }}
+</span></span><span class=line><span class=cl>          <span class=nt>&lt;lastmod&gt;</span>{{ safeHTML ( .Lastmod.Format &#34;2006-01-02T15:04:05-07:00&#34; ) }}<span class=nt>&lt;/lastmod&gt;</span>
+</span></span><span class=line><span class=cl>        {{ end }}
+</span></span><span class=line><span class=cl>        {{ with .Sitemap.ChangeFreq }}
+</span></span><span class=line><span class=cl>          <span class=nt>&lt;changefreq&gt;</span>{{ . }}<span class=nt>&lt;/changefreq&gt;</span>
+</span></span><span class=line><span class=cl>        {{ end }}
+</span></span><span class=line><span class=cl>        {{ if ge .Sitemap.Priority 0.0 }}
+</span></span><span class=line><span class=cl>          <span class=nt>&lt;priority&gt;</span>{{ .Sitemap.Priority }}<span class=nt>&lt;/priority&gt;</span>
+</span></span><span class=line><span class=cl>        {{ end }}
+</span></span><span class=line><span class=cl>      <span class=nt>&lt;/url&gt;</span>
+</span></span><span class=line><span class=cl>    {{ end }}
+</span></span><span class=line><span class=cl>  {{ end }}
+</span></span><span class=line><span class=cl><span class=nt>&lt;/urlset&gt;</span>
+</span></span></code></pre></td></tr></table></div></div></section><footer class=article-footer><section class=article-tags><a href=/tags/blog/>Blog</a>
 <a href=/tags/github-page/>Github Page</a>
 <a href=/tags/hugo/>Hugo</a></section><section class=article-copyright><svg class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
-<span><a rel=license href=http://creativecommons.org/licenses/by-nc-sa/4.0/>LICENSED UNDER CC BY-NC-SA 4.0<br></a></span></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>相关文章</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/post/hugo-theme-stack-bug-fix/><div class=article-details><h2 class=article-title>hugo主题stack侧边栏bug修复</h2></div></a></article><article><a href=/post/hugo-deploy-on-netlify/><div class=article-details><h2 class=article-title>使用netlify部署hugo注意事项</h2></div></a></article><article><a href=/post/install-cursor-old-version-and-disable-auto-update/><div class=article-details><h2 class=article-title>安装Cursor旧版本并且禁止更新</h2></div></a></article><article><a href=/post/google-gemini-balance-service/><div class=article-details><h2 class=article-title>部署谷歌 gemini-api 负载均衡服务</h2></div></a></article><article><a href=/post/transmission_rename_collection/><div class=article-details><h2 class=article-title>Transmission 重命名集合</h2></div></a></article></div></div></aside><link rel=stylesheet href=https://unpkg.com/@waline/client@v3/dist/waline.css><div id=waline class=waline-container></div><style>.waline-container{background-color:var(--card-background);border-radius:var(--card-border-radius);box-shadow:var(--shadow-l1);padding:var(--card-padding);--waline-font-size:var(--article-font-size)}.waline-container .wl-count{color:var(--card-text-color-main)}</style><script type=module>
+<span><a rel=license href=http://creativecommons.org/licenses/by-nc-sa/4.0/>LICENSED UNDER CC BY-NC-SA 4.0<br></a></span></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>相关文章</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/post/hugo-theme-stack-bug-fix/><div class=article-details><h2 class=article-title>hugo主题stack侧边栏bug修复</h2></div></a></article><article><a href=/post/hugo-deploy-on-netlify/><div class=article-details><h2 class=article-title>使用netlify部署hugo注意事项</h2></div></a></article><article><a href=/post/zsh_on_window/><div class=article-details><h2 class=article-title>Zsh_on_window</h2></div></a></article><article><a href=/post/install-cursor-old-version-and-disable-auto-update/><div class=article-details><h2 class=article-title>安装Cursor旧版本并且禁止更新</h2></div></a></article><article><a href=/post/google-gemini-balance-service/><div class=article-details><h2 class=article-title>部署谷歌 gemini-api 负载均衡服务</h2></div></a></article></div></div></aside><link rel=stylesheet href=https://unpkg.com/@waline/client@v3/dist/waline.css><div id=waline class=waline-container></div><style>.waline-container{background-color:var(--card-background);border-radius:var(--card-border-radius);box-shadow:var(--shadow-l1);padding:var(--card-padding);--waline-font-size:var(--article-font-size)}.waline-container .wl-count{color:var(--card-text-color-main)}</style><script type=module>
     import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
     init({"comment":false,"dark":"html[data-scheme=\"dark\"]","el":"#waline","emoji":["https://unpkg.com/@waline/emojis@1.2.0/tieba","https://unpkg.com/@waline/emojis@1.2.0/bilibili","https://unpkg.com/@waline/emojis@1.2.0/bmoji","https://unpkg.com/@waline/emojis@1.2.0/weibo"],"highlighter":true,"imageUploader":false,"lang":"en","locale":{"admin":"Admin","placeholder":"Welcome to leave your valuable comments!\nPlease provide a correct email address so that we can send you an email notification when there is a reply.\nDo not post any content unrelated to this article.","reaction0":"Very helpful","reaction1":"Helpful","reaction2":"Average","reaction3":"Not helpful","reaction4":"Confused","reaction5":"Incorrect","reactionTitle":"Was this article helpful to you?"},"meta":["nick","mail"],"pageview":false,"reaction":["https://npm.elemecdn.com/@waline/emojis@1.1.0/bilibili/bb_heart_eyes.png","https://npm.elemecdn.com/@waline/emojis@1.1.0/bilibili/bb_thumbsup.png","https://npm.elemecdn.com/@waline/emojis@1.1.0/bilibili/bb_zhoumei.png","https://npm.elemecdn.com/@waline/emojis@1.1.0/bilibili/bb_grievance.png","https://npm.elemecdn.com/@waline/emojis@1.1.0/bilibili/bb_dizzy_face.png","https://npm.elemecdn.com/@waline/emojis@1.1.0/bilibili/bb_slap.png"],"requiredMeta":["nick","mail"],"requiredmetanames":["nick","mail"],"serverURL":"https://waline.081024.xyz"});
 </script><footer class=site-footer><section class=copyright>&copy;
