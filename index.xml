@@ -3,7 +3,8 @@
 &lt;li&gt;换dev/nightly版, 改 &lt;code&gt;prefs.js&lt;/code&gt;(about:config - xpinstall.signatures.required)&lt;/li&gt;
 &lt;li&gt;用官方签名, 但可以不发布: &lt;a class="link" href="https://support.mozilla.org/zh-CN/kb/add-ons-signing-firefox" target="_blank" rel="noopener"
 &gt;https://support.mozilla.org/zh-CN/kb/add-ons-signing-firefox&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;用uc脚本, 自动加载调试模式&lt;/li&gt;
+&lt;li&gt;用uc脚本, 自动加载调试模式 &lt;a class="link" href="https://github.com/tsaost/autoload-temporary-addon" target="_blank" rel="noopener"
+&gt;https://github.com/tsaost/autoload-temporary-addon&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;修改 &lt;code&gt;omni.ja&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id="node-版补丁"&gt;node 版补丁
