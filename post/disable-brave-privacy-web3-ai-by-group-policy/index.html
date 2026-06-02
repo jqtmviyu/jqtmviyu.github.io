@@ -1,0 +1,214 @@
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="官方文档: Group Policy\nBrave 基于 Chromium, 所以通用的 Chrome/Chromium policy 也能用. Brave 自己额外提供了一批 policy, 可以用来关掉 Wallet、Rewards、Leo AI、P3A、Stats Ping、Web Discovery 等功能.\n"><title>使用组策略关闭 Brave 的隐私收集、Web3 和 AI 功能</title><link rel=canonical href=/post/disable-brave-privacy-web3-ai-by-group-policy/><link rel=stylesheet href=/scss/style.min.86591c898bd806857815fbb8c47e8d3fed97c133b78e83d9bfc27b164dd0aa2b.css><meta property='og:title' content="使用组策略关闭 Brave 的隐私收集、Web3 和 AI 功能"><meta property='og:description' content="官方文档: Group Policy\nBrave 基于 Chromium, 所以通用的 Chrome/Chromium policy 也能用. Brave 自己额外提供了一批 policy, 可以用来关掉 Wallet、Rewards、Leo AI、P3A、Stats Ping、Web Discovery 等功能.\n"><meta property='og:url' content='/post/disable-brave-privacy-web3-ai-by-group-policy/'><meta property='og:site_name' content="Jqtmviyu's Blog"><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='brave'><meta property='article:tag' content='browser'><meta property='article:published_time' content='2026-06-02T12:00:00+08:00'><meta property='article:modified_time' content='2026-06-02T12:00:00+08:00'><meta name=twitter:title content="使用组策略关闭 Brave 的隐私收集、Web3 和 AI 功能"><meta name=twitter:description content="官方文档: Group Policy\nBrave 基于 Chromium, 所以通用的 Chrome/Chromium policy 也能用. Brave 自己额外提供了一批 policy, 可以用来关掉 Wallet、Rewards、Leo AI、P3A、Stats Ping、Web Discovery 等功能.\n"><link rel="shortcut icon" href=/favicon.png></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=切换菜单>
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/avatar.png width=300 height=300 class=site-logo loading=lazy alt=Avatar></a></figure><div class=site-meta><h1 class=site-name><a href=/>Jqtmviyu's Blog</a></h1><h2 class=site-description>Let's do this from now on.</h2></div></header><ol class=menu-social><li><a href=https://github.com/jqtmviyu target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li><li><a href=https://git.081024.xyz/hxx target=_blank title=Gitea rel=me><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b6b6b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-gitlab"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M21 14l-9 7-9-7L6 3l3 7h6l3-7z"/></svg></a></li><li><a href=mailto:jqtmviyu#gmail.com target=_blank title=Mail rel=me><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b6b6b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-mail"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7z"/><path d="M3 7l9 6 9-6"/></svg></a></li><li><a href=/index.xml target=_blank title=Rss rel=me><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b6b6b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-rss"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 19m-1 0a1 1 0 102 0 1 1 0 10-2 0"/><path d="M4 4a16 16 0 0116 16"/><path d="M4 11a9 9 0 019 9"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b6b6b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-home"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12H3l9-9 9 9h-2"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Home</span></a></li><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Archives</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Search</span></a></li><li><a href=/about/><svg class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+<span>About</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>暗色模式</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">目录</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#要关闭的策略>要关闭的策略</a></li><li><a href=#windows>Windows</a></li><li><a href=#macos>macOS</a></li><li><a href=#linux>Linux</a></li><li><a href=#检查是否生效>检查是否生效</a></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/tools/ style=background-color:#8ea885;color:#fff>Tools</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/post/disable-brave-privacy-web3-ai-by-group-policy/>使用组策略关闭 Brave 的隐私收集、Web3 和 AI 功能</a></h2></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>2026/Jun/02</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>阅读时长: 3 分钟</time></div><div><svg t="1720522640439" class="icon" viewBox="0 0 1024 1024" p-id="5342" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M997 435.6c-28.2-36.7-65.4-81.4-107.4-122.2-54.6-53.2-110.5-95.6-166.1-126.3-71.2-39.2-142-59.1-210.7-59.1s-139.6 19.9-210.7 59.1c-55.5 30.7-111.4 73.1-166.1 126.3-42 40.8-79.3 85.5-107.5 122.1-34.8 45.3-34.8 107.8.0 153.1 28.2 36.7 65.4 81.4 107.4 122.2C190.5 764 246.5 806.4 302 837.1c71.2 39.2 142.1 59.1 210.7 59.1 68.7.0 139.6-19.9 210.8-59 55.5-30.7 111.4-73.1 166.1-126.3 42-40.8 79.3-85.6 107.4-122.2 34.8-45.3 34.8-107.8.0-153.1zm-37.3 99c-66.2 89-243.8 299-446.8 299-57.5.0-117.7-17.1-179-50.8-50.5-27.7-101.7-66.6-152.2-115.6-51.1-49.5-91-99.5-115.7-132.6-10-13.5-10-31.6.0-44.9 66.1-89 243.7-299 446.8-299 57.5.0 117.6 17.1 179 50.8 50.5 27.7 101.7 66.6 152.2 115.6 51.1 49.5 91 99.5 115.7 132.6 9.9 13.4 9.9 31.6.0 44.9z" p-id="5343" fill="#8a8a8a"/><path d="M512 321.7c-105.7.0-191.6 86-191.6 191.6.0 105.7 86 191.6 191.6 191.6s191.6-86 191.6-191.6c0-105.7-86-191.6-191.6-191.6zm0 319.2c-70.3.0-127.6-57.2-127.6-127.6S441.7 385.7 512 385.7s127.6 57.2 127.6 127.6S582.3 640.9 512 640.9z" p-id="5344" fill="#8a8a8a"/></svg>
+<time class=article-pageview><span class=waline-pageview-count data-path=/post/disable-brave-privacy-web3-ai-by-group-policy/>0</span> visits</time></div><div><svg t="1721405452473" class="icon" viewBox="0 0 1024 1024" p-id="2287" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24"><path d="M853.333333 138.666667H170.666667C130.133334 138.666667 96 172.8 96 213.333333v512C96 765.866666 130.133333 8e2 170.666667 8e2h151.466666V917.333333c0 12.8 8.533333 25.6 19.2 29.866667 4.266667 2.133333 8.533333 2.133333 12.8 2.133333 8.533333.0 17.066667-4.266667 23.466667-10.666666L514.133333 8e2h339.2C893.866666 8e2 928 765.866667 928 725.333333v-512c0-40.533333-34.133333-74.666667-74.666667-74.666666zM864 725.333333c0 6.4-4.266667 10.666667-10.666667 10.666667h-352c-8.533333.0-17.066667 4.266667-23.466666 10.666667l-89.6 93.866666V768c0-17.066667-14.933333-32-32-32h-185.6C164.266667 736 160 731.733333 160 725.333333v-512c0-6.4 4.266667-10.666667 10.666667-10.666666h682.666666c6.4.0 10.666667 4.266667 10.666667 10.666666v512z" fill="#8a8a8a" p-id="2288"/><path d="M512 490.666667H298.666667c-17.066667.0-32 14.933333-32 32s14.933333 32 32 32H512c17.066667.0 32-14.933333 32-32S529.066667 490.666667 512 490.666667zM672 341.333333H298.666667c-17.066667.0-32 14.933333-32 32s14.933333 32 32 32H672c17.066667.0 32-14.933333 32-32s-14.933333-32-32-32z" fill="#8a8a8a" p-id="2289"/></svg>
+<time class=article-comment><span class=waline-comment-count data-path=/post/disable-brave-privacy-web3-ai-by-group-policy/>0</span> comments</time></div></footer></div></header><section class=article-content><p>官方文档: <a class=link href=https://support.brave.app/hc/en-us/articles/360039248271-Group-Policy target=_blank rel=noopener>Group Policy</a></p><p>Brave 基于 Chromium, 所以通用的 Chrome/Chromium policy 也能用. Brave 自己额外提供了一批 policy, 可以用来关掉 Wallet、Rewards、Leo AI、P3A、Stats Ping、Web Discovery 等功能.</p><h2 id=要关闭的策略>要关闭的策略</h2><div class=table-wrapper><table><thead><tr><th>功能</th><th>Policy</th><th>值</th></tr></thead><tbody><tr><td>Brave Wallet / Web3 / decentralized DNS</td><td><code>BraveWalletDisabled</code></td><td><code>1</code> / <code>true</code></td></tr><tr><td>Brave Rewards</td><td><code>BraveRewardsDisabled</code></td><td><code>1</code> / <code>true</code></td></tr><tr><td>Brave Leo AI</td><td><code>BraveAIChatEnabled</code></td><td><code>0</code> / <code>false</code></td></tr><tr><td>P3A 匿名产品分析</td><td><code>BraveP3AEnabled</code></td><td><code>Disabled</code></td></tr><tr><td>Stats Ping 活跃统计</td><td><code>BraveStatsPingEnabled</code></td><td><code>0</code> / <code>false</code></td></tr><tr><td>Web Discovery Project</td><td><code>BraveWebDiscoveryEnabled</code></td><td><code>0</code> / <code>false</code></td></tr><tr><td>Brave VPN</td><td><code>BraveVPNDisabled</code></td><td><code>1</code> / <code>true</code></td></tr><tr><td>Brave Talk</td><td><code>BraveTalkDisabled</code></td><td><code>1</code> / <code>true</code></td></tr><tr><td>Brave News</td><td><code>BraveNewsDisabled</code></td><td><code>1</code> / <code>true</code></td></tr></tbody></table></div><h2 id=windows>Windows</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-reg data-lang=reg><span class=line><span class=cl><span class=err>HKEY_LOCAL_MACHINE\Software\Policies\BraveSoftware\Brave</span>
+</span></span></code></pre></td></tr></table></div></div><p><code>.reg</code> 示例:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-reg data-lang=reg><span class=line><span class=cl>Windows Registry Editor Version 5.00
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>[</span><span class=nb>HKEY_LOCAL_MACHINE</span><span class=k>\Software\Policies\BraveSoftware\Brave]</span>
+</span></span><span class=line><span class=cl><span class=na>&#34;BraveWalletDisabled&#34;</span><span class=o>=</span><span class=nv>dword</span><span class=p>:</span><span class=m>00000001</span>
+</span></span><span class=line><span class=cl><span class=na>&#34;BraveRewardsDisabled&#34;</span><span class=o>=</span><span class=nv>dword</span><span class=p>:</span><span class=m>00000001</span>
+</span></span><span class=line><span class=cl><span class=na>&#34;BraveVPNDisabled&#34;</span><span class=o>=</span><span class=nv>dword</span><span class=p>:</span><span class=m>00000001</span>
+</span></span><span class=line><span class=cl><span class=na>&#34;BraveTalkDisabled&#34;</span><span class=o>=</span><span class=nv>dword</span><span class=p>:</span><span class=m>00000001</span>
+</span></span><span class=line><span class=cl><span class=na>&#34;BraveNewsDisabled&#34;</span><span class=o>=</span><span class=nv>dword</span><span class=p>:</span><span class=m>00000001</span>
+</span></span><span class=line><span class=cl><span class=na>&#34;BraveAIChatEnabled&#34;</span><span class=o>=</span><span class=nv>dword</span><span class=p>:</span><span class=m>00000000</span>
+</span></span><span class=line><span class=cl><span class=na>&#34;BraveStatsPingEnabled&#34;</span><span class=o>=</span><span class=nv>dword</span><span class=p>:</span><span class=m>00000000</span>
+</span></span><span class=line><span class=cl><span class=na>&#34;BraveWebDiscoveryEnabled&#34;</span><span class=o>=</span><span class=nv>dword</span><span class=p>:</span><span class=m>00000000</span>
+</span></span><span class=line><span class=cl><span class=na>&#34;BraveP3AEnabled&#34;</span><span class=o>=</span><span class=s>&#34;Disabled&#34;</span>
+</span></span></code></pre></td></tr></table></div></div><p>也可以写到当前用户:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-reg data-lang=reg><span class=line><span class=cl><span class=err>HKEY_CURRENT_USER\Software\Policies\BraveSoftware\Brave</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=macos>macOS</h2><p>macOS 用描述文件就够了. Release 版 Brave 的 bundle identifier 是 <code>com.brave.browser</code>.</p><p>保存为 <code>brave-hardened.mobileconfig</code>, 然后双击安装, 或者用系统设置里的“描述文件”导入:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-xml data-lang=xml><span class=line><span class=cl><span class=cp>&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span class=line><span class=cl><span class=cp>&lt;!DOCTYPE plist PUBLIC &#34;-//Apple//DTD PLIST 1.0//EN&#34;
+</span></span></span><span class=line><span class=cl><span class=cp> &#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&#34;&gt;</span>
+</span></span><span class=line><span class=cl><span class=nt>&lt;plist</span> <span class=na>version=</span><span class=s>&#34;1.0&#34;</span><span class=nt>&gt;</span>
+</span></span><span class=line><span class=cl><span class=nt>&lt;dict&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;key&gt;</span>PayloadContent<span class=nt>&lt;/key&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;array&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&lt;dict&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&lt;key&gt;</span>PayloadType<span class=nt>&lt;/key&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&lt;string&gt;</span>com.apple.ManagedClient.preferences<span class=nt>&lt;/string&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&lt;key&gt;</span>PayloadIdentifier<span class=nt>&lt;/key&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&lt;string&gt;</span>com.brave.browser.policy<span class=nt>&lt;/string&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&lt;key&gt;</span>PayloadUUID<span class=nt>&lt;/key&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&lt;string&gt;</span>8E6A6B2E-6A3F-4F2D-9B6A-AAAABBBB0001<span class=nt>&lt;/string&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&lt;key&gt;</span>PayloadVersion<span class=nt>&lt;/key&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&lt;integer&gt;</span>1<span class=nt>&lt;/integer&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&lt;key&gt;</span>PayloadEnabled<span class=nt>&lt;/key&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&lt;true/&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&lt;key&gt;</span>PayloadDisplayName<span class=nt>&lt;/key&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&lt;string&gt;</span>Brave Policy<span class=nt>&lt;/string&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&lt;key&gt;</span>PayloadContent<span class=nt>&lt;/key&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&lt;dict&gt;</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&lt;key&gt;</span>com.brave.browser<span class=nt>&lt;/key&gt;</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&lt;dict&gt;</span>
+</span></span><span class=line><span class=cl>                    <span class=nt>&lt;key&gt;</span>Forced<span class=nt>&lt;/key&gt;</span>
+</span></span><span class=line><span class=cl>                    <span class=nt>&lt;array&gt;</span>
+</span></span><span class=line><span class=cl>                        <span class=nt>&lt;dict&gt;</span>
+</span></span><span class=line><span class=cl>                            <span class=nt>&lt;key&gt;</span>mcx_preference_settings<span class=nt>&lt;/key&gt;</span>
+</span></span><span class=line><span class=cl>                            <span class=nt>&lt;dict&gt;</span>
+</span></span><span class=line><span class=cl>                                <span class=nt>&lt;key&gt;</span>BraveRewardsDisabled<span class=nt>&lt;/key&gt;</span>
+</span></span><span class=line><span class=cl>                                <span class=nt>&lt;true/&gt;</span>
+</span></span><span class=line><span class=cl>                                <span class=nt>&lt;key&gt;</span>BraveWalletDisabled<span class=nt>&lt;/key&gt;</span>
+</span></span><span class=line><span class=cl>                                <span class=nt>&lt;true/&gt;</span>
+</span></span><span class=line><span class=cl>                                <span class=nt>&lt;key&gt;</span>BraveVPNDisabled<span class=nt>&lt;/key&gt;</span>
+</span></span><span class=line><span class=cl>                                <span class=nt>&lt;true/&gt;</span>
+</span></span><span class=line><span class=cl>                                <span class=nt>&lt;key&gt;</span>BraveAIChatEnabled<span class=nt>&lt;/key&gt;</span>
+</span></span><span class=line><span class=cl>                                <span class=nt>&lt;false/&gt;</span>
+</span></span><span class=line><span class=cl>                                <span class=nt>&lt;key&gt;</span>BraveTalkDisabled<span class=nt>&lt;/key&gt;</span>
+</span></span><span class=line><span class=cl>                                <span class=nt>&lt;true/&gt;</span>
+</span></span><span class=line><span class=cl>                                <span class=nt>&lt;key&gt;</span>BraveNewsDisabled<span class=nt>&lt;/key&gt;</span>
+</span></span><span class=line><span class=cl>                                <span class=nt>&lt;true/&gt;</span>
+</span></span><span class=line><span class=cl>                                <span class=nt>&lt;key&gt;</span>BraveP3AEnabled<span class=nt>&lt;/key&gt;</span>
+</span></span><span class=line><span class=cl>                                <span class=nt>&lt;string&gt;</span>Disabled<span class=nt>&lt;/string&gt;</span>
+</span></span><span class=line><span class=cl>                                <span class=nt>&lt;key&gt;</span>BraveStatsPingEnabled<span class=nt>&lt;/key&gt;</span>
+</span></span><span class=line><span class=cl>                                <span class=nt>&lt;false/&gt;</span>
+</span></span><span class=line><span class=cl>                                <span class=nt>&lt;key&gt;</span>BraveWebDiscoveryEnabled<span class=nt>&lt;/key&gt;</span>
+</span></span><span class=line><span class=cl>                                <span class=nt>&lt;false/&gt;</span>
+</span></span><span class=line><span class=cl>                            <span class=nt>&lt;/dict&gt;</span>
+</span></span><span class=line><span class=cl>                        <span class=nt>&lt;/dict&gt;</span>
+</span></span><span class=line><span class=cl>                    <span class=nt>&lt;/array&gt;</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&lt;/dict&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&lt;/dict&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&lt;/dict&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;/array&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;key&gt;</span>PayloadDisplayName<span class=nt>&lt;/key&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;string&gt;</span>Brave Hardened Config<span class=nt>&lt;/string&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;key&gt;</span>PayloadIdentifier<span class=nt>&lt;/key&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;string&gt;</span>com.example.brave.hardened<span class=nt>&lt;/string&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;key&gt;</span>PayloadUUID<span class=nt>&lt;/key&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;string&gt;</span>8E6A6B2E-6A3F-4F2D-9B6A-AAAABBBB9999<span class=nt>&lt;/string&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;key&gt;</span>PayloadVersion<span class=nt>&lt;/key&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&lt;integer&gt;</span>1<span class=nt>&lt;/integer&gt;</span>
+</span></span><span class=line><span class=cl><span class=nt>&lt;/dict&gt;</span>
+</span></span><span class=line><span class=cl><span class=nt>&lt;/plist&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=linux>Linux</h2><p>Linux 的 Brave policy 目录是:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>/etc/brave/policies/managed/
+</span></span></code></pre></td></tr></table></div></div><p>创建 <code>GroupPolicy.json</code>:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo mkdir -p /etc/brave/policies/managed/
+</span></span><span class=line><span class=cl>sudo tee /etc/brave/policies/managed/GroupPolicy.json &gt;/dev/null <span class=s>&lt;&lt;&#39;EOF&#39;
+</span></span></span><span class=line><span class=cl><span class=s>{
+</span></span></span><span class=line><span class=cl><span class=s>  &#34;BraveWalletDisabled&#34;: true,
+</span></span></span><span class=line><span class=cl><span class=s>  &#34;BraveRewardsDisabled&#34;: true,
+</span></span></span><span class=line><span class=cl><span class=s>  &#34;BraveVPNDisabled&#34;: true,
+</span></span></span><span class=line><span class=cl><span class=s>  &#34;BraveTalkDisabled&#34;: true,
+</span></span></span><span class=line><span class=cl><span class=s>  &#34;BraveNewsDisabled&#34;: true,
+</span></span></span><span class=line><span class=cl><span class=s>  &#34;BraveAIChatEnabled&#34;: false,
+</span></span></span><span class=line><span class=cl><span class=s>  &#34;BraveP3AEnabled&#34;: &#34;Disabled&#34;,
+</span></span></span><span class=line><span class=cl><span class=s>  &#34;BraveStatsPingEnabled&#34;: false,
+</span></span></span><span class=line><span class=cl><span class=s>  &#34;BraveWebDiscoveryEnabled&#34;: false
+</span></span></span><span class=line><span class=cl><span class=s>}
+</span></span></span><span class=line><span class=cl><span class=s>EOF</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=检查是否生效>检查是否生效</h2><p>重启 Brave 后打开:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>brave://policy
+</span></span></code></pre></td></tr></table></div></div><p>点击 <code>Reload policies</code>, 确认上面的 policy 都出现在列表里. 也可以打开:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>brave://management
+</span></span></code></pre></td></tr></table></div></div><p>如果显示被组织管理, 说明 policy 已经被 Brave 识别.</p></section><footer class=article-footer><section class=article-tags><a href=/tags/brave/>Brave</a>
+<a href=/tags/browser/>Browser</a></section><section class=article-copyright><svg class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span><a rel=license href=http://creativecommons.org/licenses/by-nc-sa/4.0/>LICENSED UNDER CC BY-NC-SA 4.0<br></a></span></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>相关文章</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/post/enable_unsigned_extensions_for_firefox/><div class=article-details><h2 class=article-title>Firefox正式版加载未签名扩展</h2></div></a></article><article><a href=/post/zsh_on_window/><div class=article-details><h2 class=article-title>Windows 上安装 Zsh</h2></div></a></article><article><a href=/post/install-cursor-old-version-and-disable-auto-update/><div class=article-details><h2 class=article-title>安装Cursor旧版本并且禁止更新</h2></div></a></article><article><a href=/post/google-gemini-balance-service/><div class=article-details><h2 class=article-title>部署谷歌 gemini-api 负载均衡服务</h2></div></a></article><article><a href=/post/transmission_rename_collection/><div class=article-details><h2 class=article-title>Transmission 重命名集合</h2></div></a></article></div></div></aside><link rel=stylesheet href=https://unpkg.com/@waline/client@v3/dist/waline.css><div id=waline class=waline-container></div><style>.waline-container{background-color:var(--card-background);border-radius:var(--card-border-radius);box-shadow:var(--shadow-l1);padding:var(--card-padding);--waline-font-size:var(--article-font-size)}.waline-container .wl-count{color:var(--card-text-color-main)}</style><script type=module>
+    import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+    init({"comment":false,"dark":"html[data-scheme=\"dark\"]","el":"#waline","emoji":["https://unpkg.com/@waline/emojis@1.2.0/tieba","https://unpkg.com/@waline/emojis@1.2.0/bilibili","https://unpkg.com/@waline/emojis@1.2.0/bmoji","https://unpkg.com/@waline/emojis@1.2.0/weibo"],"highlighter":true,"imageUploader":false,"lang":"en","locale":{"admin":"Admin","placeholder":"Welcome to leave your valuable comments!\nPlease provide a correct email address so that we can send you an email notification when there is a reply.\nDo not post any content unrelated to this article.","reaction0":"Very helpful","reaction1":"Helpful","reaction2":"Average","reaction3":"Not helpful","reaction4":"Confused","reaction5":"Incorrect","reactionTitle":"Was this article helpful to you?"},"meta":["nick","mail"],"pageview":false,"reaction":["https://npm.elemecdn.com/@waline/emojis@1.1.0/bilibili/bb_heart_eyes.png","https://npm.elemecdn.com/@waline/emojis@1.1.0/bilibili/bb_thumbsup.png","https://npm.elemecdn.com/@waline/emojis@1.1.0/bilibili/bb_zhoumei.png","https://npm.elemecdn.com/@waline/emojis@1.1.0/bilibili/bb_grievance.png","https://npm.elemecdn.com/@waline/emojis@1.1.0/bilibili/bb_dizzy_face.png","https://npm.elemecdn.com/@waline/emojis@1.1.0/bilibili/bb_slap.png"],"requiredMeta":["nick","mail"],"requiredmetanames":["nick","mail"],"serverURL":"https://waline.081024.xyz"});
+</script><footer class=site-footer><section class=copyright>&copy;
+2017 -
+2026 Jqtmviyu's Blog</section><section class=powerby>build with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a>, theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.34.2>Stack</a></b>, visits <span class="waline-index-count breathe" waline-url=https://waline.081024.xyz data-path=/404.html style=font-weight:700>0</span></section><script>(async()=>{let e=document.querySelector(".waline-index-count"),s=e.getAttribute("waline-url"),o=document.querySelectorAll(".waline-pageview-count"),a=Array.from(o).map(e=>e.getAttribute("data-path")),i=document.querySelectorAll(".waline-comment-count"),r=Array.from(i).map(e=>e.getAttribute("data-path"));function c(e){let t=s+"/api/article/?path=";return e.forEach((e,n)=>{t+=n===0?e:","+e}),fetch(t).then(e=>e.json()).then(e=>{if(e.errno==0)return e.data.map(e=>e.time);throw new Error("获取失败")}).catch(e=>new Promise((t,n)=>{n(e)}))}function l(e){let t={path:e};return fetch(`${s}/api/article`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(t)}).then(e=>e.json()).then(e=>{if(e.errno==0)return e.data[0].time;throw new Error("获取失败")}).catch(e=>new Promise((t,n)=>{n(e)}))}function d(e){let t=s+"/api/comment?type=count&lang=en&url=";return e.forEach((e,n)=>{t+=n===0?e:","+e}),fetch(t).then(e=>e.json()).then(e=>{if(e.errno==0)return e.data;throw new Error("获取失败")}).catch(e=>new Promise((t,n)=>{n(e)}))}(window.location.pathname=="/"||window.location.pathname.includes("/page/"))&&(c(a).then(e=>{e.forEach((e,t)=>{o[t].innerText=e})}),d(r).then(e=>{console.log("commentCounts",e),e.forEach((e,t)=>{i[t].innerText=e})})),window.location.pathname.includes("/post/")&&(l(a[0]).then(e=>{o[0].innerText=e}),d(r).then(e=>{e.forEach((e,t)=>{i[t].innerText=e})}));let t=localStorage.getItem("indexCount"),n=localStorage.getItem("lastVisitTime");!!n==!1&&l("/").then(t=>{localStorage.setItem("indexCount",t),localStorage.setItem("lastVisitTime",Date.now()),e.innerHTML=t}),!!n&&!!t&&Date.now()-n<36e5&&(t=localStorage.getItem("indexCount"),e.innerHTML=t),!!n&&Date.now()-n>=36e5&&c(["/"]).then(n=>{t=n[0],localStorage.setItem("indexCount",t),localStorage.setItem("lastVisitTime",Date.now()),e.innerHTML=t}),setInterval(()=>{(new Date).getSeconds()%2===0?e.style.color="red":e.style.color=""},1e3)})()</script><style>.wl-action[title=GIF]{display:none}footer.site-footer{padding-bottom:20px}</style></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.c922af694cc257bf1ecc41c0dd7b0430f9114ec280ccf67cd2c6ad55f5316c4e.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>
