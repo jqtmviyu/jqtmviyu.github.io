@@ -264,13 +264,20 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;main&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>Windows 上安装 Zsh</title><link>/post/zsh_on_window/</link><pubDate>Wed, 01 Apr 2026 21:49:33 +0800</pubDate><guid>/post/zsh_on_window/</guid><description>&lt;p&gt;在 Windows 环境下，通过 Git Bash 安装并配置 Zsh、Oh My Zsh 以及 Powerlevel10k 主题&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>Windows 上安装 Zsh</title><link>/post/zsh_on_window/</link><pubDate>Wed, 01 Apr 2026 21:49:33 +0800</pubDate><guid>/post/zsh_on_window/</guid><description>&lt;p&gt;在 Windows 环境下，通过 Git Bash 安装并配置 Zsh、zim框架&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;PS: git bash 显示 &lt;code&gt;MinGW-w64&lt;/code&gt;, 是基于 &lt;code&gt;MSYS2&lt;/code&gt; 的裁剪版
+&lt;p&gt;PS: git bash 显示 &lt;code&gt;MinGW-w64&lt;/code&gt;, 配置了裁剪过的 &lt;code&gt;MSYS2&lt;/code&gt; 的环境
 不包含 pacman wget 等工具&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;PS: 如果要共享 MSYS2 的工具, 可以安装 &lt;a class="link" href="https://www.msys2.org/" target="_blank" rel="noopener"
-&gt;MSYS2&lt;/a&gt; 后把 bin 目录添加到 PATH 环境变量中&lt;/p&gt;</description></item><item><title>利用优选域名加速 Cloudflare tunnel 在中国的访问速度</title><link>/post/cloudflare-cn-perf/</link><pubDate>Mon, 19 May 2025 16:21:15 +0800</pubDate><guid>/post/cloudflare-cn-perf/</guid><description>&lt;p&gt;参考文章:&lt;/p&gt;
+&lt;p&gt;参考:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://gist.github.com/glenkusuma/7d7df65a89e485ec2f4690fdc88fffd6" target="_blank" rel="noopener"
+&gt;https://gist.github.com/glenkusuma/7d7df65a89e485ec2f4690fdc88fffd6&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;为 git bash 安装 pacman : &lt;a class="link" href="https://www.lazychan.com/archives/windows-xia-wei-git-bash-zhong-duan-pei-zhi-pacman-he-zsh" target="_blank" rel="noopener"
+&gt;https://www.lazychan.com/archives/windows-xia-wei-git-bash-zhong-duan-pei-zhi-pacman-he-zsh&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="准备工作"&gt;准备工作
+&lt;/h2&gt;&lt;p&gt;确保 &lt;strong&gt;Git 已更新到最新版本&lt;/strong&gt;，以保证与 Zsh 软件包的兼容性&lt;/p&gt;</description></item><item><title>利用优选域名加速 Cloudflare tunnel 在中国的访问速度</title><link>/post/cloudflare-cn-perf/</link><pubDate>Mon, 19 May 2025 16:21:15 +0800</pubDate><guid>/post/cloudflare-cn-perf/</guid><description>&lt;p&gt;参考文章:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;cloudflare tunnel 使用 saas 回源，实现优选: &lt;a class="link" href="https://linux.do/t/topic/122087/16" target="_blank" rel="noopener"
 &gt;https://linux.do/t/topic/122087/16&lt;/a&gt;&lt;/li&gt;
